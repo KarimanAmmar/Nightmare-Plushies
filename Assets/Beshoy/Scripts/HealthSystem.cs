@@ -20,8 +20,8 @@ public class HealthSystem : MonoBehaviour
     }
     private void OnDisable()
     {
-        DamageEvent.GameAction+= take_Damage;
-        HealEvent.GameAction += Gain_health;
+        DamageEvent.GameAction-= take_Damage;
+        HealEvent.GameAction -= Gain_health;
     }
 
     // Update is called once per frame
