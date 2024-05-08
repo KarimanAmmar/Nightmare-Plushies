@@ -26,18 +26,7 @@ public class HealthSystem : MonoBehaviour
 
     // Update is called once per frame
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            DamageEvent.GameAction.Invoke();
-        }
-        else if(Input.GetKeyDown(KeyCode.J)) 
-        {
-            HealEvent.GameAction.Invoke();
-        }
-        
-    }
+   
     public void take_Damage()
     {
         Current_health -= 10;
