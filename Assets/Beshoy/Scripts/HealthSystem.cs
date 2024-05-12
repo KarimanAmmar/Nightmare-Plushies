@@ -23,9 +23,6 @@ public class HealthSystem : MonoBehaviour
         DamageEvent.GameAction-= take_Damage;
         HealEvent.GameAction -= Gain_health;
     }
-
-    // Update is called once per frame
-
    
     public void take_Damage()
     {

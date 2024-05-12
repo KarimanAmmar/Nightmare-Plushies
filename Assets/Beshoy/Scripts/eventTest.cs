@@ -9,15 +9,15 @@ public class eventTest : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             DamageEvent.GameAction.Invoke();
-            Debug.Log("damage");
+            
         }
-        else if (Input.GetKeyDown(KeyCode.J))
+        else if (Input.GetKeyDown(KeyCode.K))
         {
             HealEvent.GameAction.Invoke();
-            Debug.Log("heal");
+            
         }
 
     }

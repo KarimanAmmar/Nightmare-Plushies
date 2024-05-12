@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 603538932}
   - component: {fileID: 603538931}
+  - component: {fileID: 603538933}
   m_Layer: 0
   m_Name: heatlh_test
   m_TagString: Untagged
@@ -170,6 +171,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603538933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603538930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67bace3b37068364e885d93d8c8c0ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShieldDamageEvent: {fileID: 11400000, guid: e0851b58aca351e438378a843195fd1f, type: 2}
+  healthDamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
 --- !u!1 &975369081
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd9ab0317f415141855ec7499a8d1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
+  DamageEvent: {fileID: 11400000, guid: e0851b58aca351e438378a843195fd1f, type: 2}
   HealEvent: {fileID: 11400000, guid: c67aae8b45f7ff5449d2b239017a4aab, type: 2}
 --- !u!4 &975369083
 Transform:
