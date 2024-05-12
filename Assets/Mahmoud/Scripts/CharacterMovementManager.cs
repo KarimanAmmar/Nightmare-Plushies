@@ -25,7 +25,7 @@ public class CharacterMovementManager : MonoBehaviour
 	{
 		if (isJoystick)
 		{
-			var movementDirection = new Vector3(-joystick.Direction.x, 0.0f, -joystick.Direction.y);
+			var movementDirection = new Vector3(joystick.Direction.x, 0.0f, joystick.Direction.y);
 			controller.SimpleMove(movementDirection * movementSpeed);
 		}
 
@@ -38,11 +38,10 @@ public class CharacterMovementManager : MonoBehaviour
 			}
 			else if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
 			{
-				// Convert touch position to world space
-				Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-				touchPosition.z = 0; // Ensure z-axis is same as joystick's
 
-				// Move joystick to touch position
+				Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+				touchPosition.z = 0; 
+
 				joystick.transform.position = touchPosition;
 			}
 		}
