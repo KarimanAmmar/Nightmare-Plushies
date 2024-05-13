@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    [SerializeField] BulletAttributes _bulletAttributes;
 
-
+    [SerializeField] int _speed;
+    private void Update() => move();
+    void move() => transform.Translate(Vector3.right * _speed * Time.deltaTime);
 }
