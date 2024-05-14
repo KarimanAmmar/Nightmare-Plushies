@@ -36,11 +36,21 @@ public class Coin_Collector : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {       //Logging.Log($"{other.gameObject.name}");
+        if(other.gameObject.layer == 6)
+        {
             PullObject(other);
+
+        }
+            
     }
     private void OnTriggerExit(Collider other)
     {
         other.attachedRigidbody.velocity=Vector3.zero;
+        if (other.gameObject.layer == 6)
+        {
+            PullObject(other);
+
+        }
     }
     private void PullObject(Collider other)
     {
@@ -48,6 +58,7 @@ public class Coin_Collector : MonoBehaviour
         Vector3 dir = (pullPos - other.transform.position).normalized;
         other.gameObject.TryGetComponent<Collider>(out Collider component);
         component.attachedRigidbody.AddForce(dir * 10f,ForceMode.Impulse);
+
     }
     // Update is called once per frame
 }
