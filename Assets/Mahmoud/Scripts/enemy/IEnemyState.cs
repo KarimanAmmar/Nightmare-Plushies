@@ -7,3 +7,4 @@ public interface IEnemyState
 	void ExitState(EnemyController enemy);
 	void SetPlayerTransform(Transform player);
 }
+

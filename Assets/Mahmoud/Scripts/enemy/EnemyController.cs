@@ -6,20 +6,35 @@ public class EnemyController : MonoBehaviour
 	public WanderingState wanderingState;
 	public ChasingState chasingState;
 	public AttackingState attackingState;
-
 	// Reference to the player's transform
-	public Transform playerTransform;
+	private Transform playerTransform;
 	public float chaseDistance = 10f;
 	public float attackDistance = 2f;
+
+	private void Awake()
+	{
+		GameObject player = GameObject.FindWithTag("Player");
+		if (player != null)
+		{
+			playerTransform = player.transform;
+		}
+		else
+		{
+			Debug.LogError("Player not found!");
+		}
+	}
 	private void Start()
 	{
-		// Transition to the chasing state
 		TransitionToState(wanderingState);
 	}
 
+	public void SetPlayerTransform(Transform playerTransform)
+	{
+		this.playerTransform = playerTransform;
+	}
 	private void Update()
 	{
-		float distanceToPlayer= Vector3.Distance(transform.position, playerTransform.position);
+		float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 		TransitionStateBasedOnDistance(distanceToPlayer);
 		currentState.UpdateState(this);
 
@@ -41,8 +56,6 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
-
-
 	public void TransitionToState(IEnemyState nextState)
 	{
 		if (currentState != null)
@@ -56,6 +69,4 @@ public class EnemyController : MonoBehaviour
 			chasingState.SetPlayerTransform(playerTransform);
 		}
 	}
-
-	
 }
