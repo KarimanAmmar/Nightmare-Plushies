@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3033449795123022762}
   - component: {fileID: 7020845577613164050}
   - component: {fileID: 3593056456854021794}
+  - component: {fileID: 6499098803672156021}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -133,3 +134,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6499098803672156021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279707207717971157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00022172a2ad89e428a2414cbd214801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderingState: {fileID: 11400000, guid: 5a75a45130fc1c9478679f487aee4d83, type: 2}
+  chasingState: {fileID: 11400000, guid: c8b4d8959df33b543b4357700f53daed, type: 2}
+  attackingState: {fileID: 11400000, guid: 5ab9bceeb62384b498e59cb4a8c3fb7c, type: 2}
+  chaseDistance: 10
+  attackDistance: 2
