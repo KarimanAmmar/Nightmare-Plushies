@@ -14,7 +14,11 @@ public class Coin_Collector : MonoBehaviour
     /// </summary>    
     [SerializeField] int_Event UI_event;
     [SerializeField] GameEvent coin_event;
+    [SerializeField] float collectingRange;
+    private Collider[] nearbycoins;
     private int Coins_Count;
+    Vector3 pullPos;
+    
 
     private void OnEnable()
     {
@@ -29,6 +33,21 @@ public class Coin_Collector : MonoBehaviour
     {
         Coins_Count++;
         UI_event.Raise(Coins_Count);
+    }
+    private void OnTriggerEnter(Collider other)
+    {       //Logging.Log($"{other.gameObject.name}");
+            PullObject(other);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        other.attachedRigidbody.velocity=Vector3.zero;
+    }
+    private void PullObject(Collider other)
+    {
+        pullPos = transform.position;
+        Vector3 dir = (pullPos - other.transform.position).normalized;
+        other.gameObject.TryGetComponent<Collider>(out Collider component);
+        component.attachedRigidbody.AddForce(dir * 10f,ForceMode.Impulse);
     }
     // Update is called once per frame
 }
