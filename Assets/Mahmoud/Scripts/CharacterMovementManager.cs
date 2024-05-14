@@ -25,7 +25,7 @@ public class CharacterMovementManager : MonoBehaviour
 	{
 		if (isJoystick)
 		{
-			var movementDirection = new Vector3(-joystick.Direction.x, 0.0f, -joystick.Direction.y);
+			var movementDirection = new Vector3(joystick.Direction.x, 0.0f, joystick.Direction.y);
 			controller.SimpleMove(movementDirection * movementSpeed);
 		}
 
