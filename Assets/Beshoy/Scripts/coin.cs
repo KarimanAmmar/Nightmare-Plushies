@@ -5,14 +5,19 @@ using UnityEngine;
 public class coin : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] GameEvent coin_event;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "Player")
+        {
+           // Logging.Log(other.gameObject.name);
+            coin_event.GameAction.Invoke();
+        }
+
     }
+
 }
