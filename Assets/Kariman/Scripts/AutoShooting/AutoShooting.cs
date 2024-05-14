@@ -9,9 +9,10 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] EnemyDetection enemyDetection;
     [SerializeField] GameEvent IfEnemyDetected;
     [SerializeField] GameEvent IfEnemiesCleared;
+    [SerializeField] GameObject[] projectiles;
+
     private WaitForSeconds waitTime;
     int numOfProjectiles;
-    [SerializeField] GameObject[] projectiles;
     private Coroutine shootingCoroutine;
 
     private void Start()
