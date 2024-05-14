@@ -1,31 +1,24 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyPool", menuName = "ScriptableObjects/EnemyPool", order = 1)]
-public class EnemyPool : ScriptableObject
+public class EnemyPool : MonoBehaviour
 {
 	[SerializeField] private GameObject enemyPrefab;
 	[SerializeField] private EnemyType enemyType;
 	[SerializeField] private int poolSize = 5;
 	[SerializeField] private int maxPoolSize = 20;
 	[SerializeField] private int minPoolSize = 5;
-	public List<GameObject> pooledEnemies = new List<GameObject>();
+	private List<GameObject> pooledEnemies = new List<GameObject>();
 	private int activeEnemyCount = 0;
 
-	private void OnEnable()
+	private void Start()
 	{
 		CreatePool();
 	}
 
 	private void CreatePool()
 	{
-		// Clear the pooledEnemies list and destroy any objects inside it
-		foreach (GameObject enemy in pooledEnemies)
-		{
-			DestroyImmediate(enemy);
-		}
-		pooledEnemies.Clear();
+		ClearPool();
 
 		for (int i = 0; i < minPoolSize; i++)
 		{
@@ -35,10 +28,19 @@ public class EnemyPool : ScriptableObject
 		}
 	}
 
+	private void ClearPool()
+	{
+		foreach (GameObject enemy in pooledEnemies)
+		{
+			Destroy(enemy);
+		}
+		pooledEnemies.Clear();
+	}
 
 	private GameObject InstantiateEnemy()
 	{
 		GameObject enemy = Instantiate(enemyPrefab);
+		enemy.SetActive(false);
 		return enemy;
 	}
 

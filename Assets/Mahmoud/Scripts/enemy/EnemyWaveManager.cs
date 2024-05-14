@@ -9,21 +9,26 @@ public class EnemyWaveManager : MonoBehaviour
 	[SerializeField] private int currentWaveIndex = 0;
 	[SerializeField] private Transform playerTransform;
 	private int totalEnemiesInWave = 0;
+	private bool spawningInProgress = false;
 
 	private void Start()
 	{
 		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-		SpawnWave(currentWaveIndex);
+		StartCoroutine(SpawnWave(currentWaveIndex));
 	}
 
-	private void SpawnWave(int currentWaveIndex)
+	private IEnumerator SpawnWave(int currentWaveIndex)
 	{
+		spawningInProgress = true;
+
 		foreach (NumberOfEnemies enemyData in wavesData[currentWaveIndex].TypeOfEnemies)
 		{
 			int randomIndex = Random.Range(0, wavesData[currentWaveIndex].spawnPoints.Count);
 			Vector3 spawnPosition = wavesData[currentWaveIndex].spawnPoints[randomIndex].position;
-			StartCoroutine(SpawnEnemies(enemyData, spawnPosition));
+			yield return StartCoroutine(SpawnEnemies(enemyData, spawnPosition));
 		}
+
+		spawningInProgress = false;
 	}
 
 	private IEnumerator SpawnEnemies(NumberOfEnemies enemyData, Vector3 spawnPosition)
@@ -41,28 +46,11 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
-	public void CheckWaveCompletion()
-	{
-		if (wavesData[currentWaveIndex].isWaveCompleted)
-		{
-			currentWaveIndex++;
-			if (currentWaveIndex < wavesData.Count)
-			{
-				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-				SpawnWave(currentWaveIndex);
-			}
-			else
-			{
-				currentWaveIndex = 0; // Loop back to the first wave
-				SpawnWave(currentWaveIndex);
-			}
-		}
-	}
-
 	public void EnemyKill()
 	{
 		totalEnemiesInWave--;
-		if (totalEnemiesInWave <= 0)
+
+		if (totalEnemiesInWave <= 0 && !spawningInProgress)
 		{
 			WaveData waveData = wavesData[currentWaveIndex];
 			waveData.isWaveCompleted = true;
@@ -71,10 +59,28 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
+	private void CheckWaveCompletion()
+	{
+		if (wavesData[currentWaveIndex].isWaveCompleted)
+		{
+			currentWaveIndex++;
+
+			if (currentWaveIndex < wavesData.Count)
+			{
+				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
+				StartCoroutine(SpawnWave(currentWaveIndex));
+			}
+			else
+			{
+				currentWaveIndex = 0; // Loop back to the first wave
+				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
+				StartCoroutine(SpawnWave(currentWaveIndex));
+			}
+		}
+	}
+
 	private void Update()
 	{
-		CheckWaveCompletion();
-
 		if (Input.GetKeyDown(KeyCode.C))
 		{
 			int randomEnemyPoolIndex = Random.Range(0, enemyPools.Count);

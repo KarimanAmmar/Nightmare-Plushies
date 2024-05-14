@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -640,8 +640,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyPools.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b473f8cf764e6cc48b4e93be2f21aec7,
-        type: 2}
+      objectReference: {fileID: 1724837718}
     - target: {fileID: 7344825202435699025, guid: f8a78151a3918494cb648a79aef4fba3,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -2162,6 +2161,56 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1724837717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724837719}
+  - component: {fileID: 1724837718}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1724837718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724837717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d931cf55ab88c7d479ec2b23a4b6c301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 5160714044525415844, guid: 9ead8eb6064f69548b98fec2290643e8,
+    type: 3}
+  enemyType: 0
+  poolSize: 5
+  maxPoolSize: 20
+  minPoolSize: 5
+--- !u!4 &1724837719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724837717}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 155.9857, y: -21.076527, z: 32.797375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1923210500
 Mesh:
   m_ObjectHideFlags: 0
@@ -2626,3 +2675,4 @@ SceneRoots:
   - {fileID: 2074437229}
   - {fileID: 868234124}
   - {fileID: 465818996}
+  - {fileID: 1724837719}
