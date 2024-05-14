@@ -8,4 +8,5 @@ public class GameEvent : ScriptableObject
 {
     UnityAction gameAction;
     public UnityAction GameAction { get { return gameAction; } set { gameAction = value; } }
+
 }

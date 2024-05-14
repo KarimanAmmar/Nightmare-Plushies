@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooling : Singleton<ObjectPooling>
+public class ProjectilesObjectPooling : Singleton<ProjectilesObjectPooling>
 {
     [SerializeField] GameObject prefab;
     [SerializeField] GameObject parent;
@@ -18,13 +18,14 @@ public class ObjectPooling : Singleton<ObjectPooling>
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(prefab, parent.transform);
+            ProjectileBehavior projectileBehavior = obj.GetComponent<ProjectileBehavior>();
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
     }
     private void Start()
     {
-        waitTime = new WaitForSeconds(2.0f);
+        waitTime = new WaitForSeconds(5.0f);
     }
     public GameObject GetPooledObject()
     {

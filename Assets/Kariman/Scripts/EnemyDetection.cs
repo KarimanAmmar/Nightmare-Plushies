@@ -5,19 +5,20 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] Transform player;
-    private List<Transform> enemiesInRange = new List<Transform>();
+    [SerializeField] private List<Transform> enemiesInRange = new List<Transform>();
     private Transform closestEnemy;
     public List<Transform> EnemiesInRange => enemiesInRange;
     public Transform ClosestEnemy => closestEnemy;
     [SerializeField] GameEvent EnemyDetected;
     [SerializeField] GameEvent EnemiesCleared;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
             Transform newEnemy = other.transform;
             EnemiesInRange.Add(newEnemy);
-
+            SortEnemiesByDistance();
             // Check if the new enemy is closer than the current closest enemy
             if (closestEnemy == null || Vector3.Distance(player.position, newEnemy.position) < Vector3.Distance(player.position, closestEnemy.position))
             {
@@ -32,6 +33,7 @@ public class EnemyDetection : MonoBehaviour
         {
             Transform exitingEnemy = other.transform;
             RemoveEnemy(exitingEnemy);
+            SortEnemiesByDistance();
         }
     }
     void FindClosestEnemy()
@@ -49,7 +51,7 @@ public class EnemyDetection : MonoBehaviour
             }
         }
     }
-    public void RemoveEnemy(Transform enemyToRemove)
+    void RemoveEnemy(Transform enemyToRemove)
     {
         EnemiesInRange.Remove(enemyToRemove);
         if (closestEnemy == enemyToRemove)
@@ -61,16 +63,16 @@ public class EnemyDetection : MonoBehaviour
             EnemiesCleared.GameAction?.Invoke();
         }
     }
-
+    void SortEnemiesByDistance()
+    {
+        enemiesInRange.Sort((a, b) => Vector3.Distance(player.position, a.position).CompareTo(Vector3.Distance(player.position, b.position)));
+    }
     void Update()
     {
         if (closestEnemy != null && !closestEnemy.gameObject.activeSelf)
         {
             RemoveEnemy(closestEnemy);
+            SortEnemiesByDistance();
         }
     }
 }
-//void SortEnemiesByDistance()
-//{
-//    enemiesInRange.Sort((a, b) => Vector3.Distance(player.position, a.position).CompareTo(Vector3.Distance(player.position, b.position)));
-//}

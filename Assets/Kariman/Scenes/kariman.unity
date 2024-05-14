@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1308098532}
+  enemiesInRange: []
   EnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   EnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
 --- !u!114 &151758372
@@ -427,6 +428,7 @@ MonoBehaviour:
   enemyDetection: {fileID: 151758371}
   IfEnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   IfEnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
+  projectiles: []
 --- !u!135 &151758373
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1255,7 +1257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 8279707207717971157, guid: 80dfd2a06daeb2f4d9bf3dea21867946, type: 3}
   parent: {fileID: 1028012235}
-  poolSize: 5
+  poolSize: 10
 --- !u!4 &1028012237
 Transform:
   m_ObjectHideFlags: 0

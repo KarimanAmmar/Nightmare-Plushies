@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AutoShooting : MonoBehaviour
@@ -9,10 +10,14 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] GameEvent IfEnemyDetected;
     [SerializeField] GameEvent IfEnemiesCleared;
     private WaitForSeconds waitTime;
+    int numOfProjectiles;
+    [SerializeField] GameObject[] projectiles;
+    private Coroutine shootingCoroutine;
 
     private void Start()
     {
-        waitTime = new WaitForSeconds(2.0f);
+        waitTime = new WaitForSeconds(1.0f);
+        numOfProjectiles = 2;
     }
     private void OnEnable()
     {
@@ -24,42 +29,58 @@ public class AutoShooting : MonoBehaviour
         IfEnemyDetected.GameAction -= playerCanShoot;
         IfEnemiesCleared.GameAction -= playerCantShoot;
     }
-    public void playerCanShoot()
+    void playerCanShoot()
     {
-        StartCoroutine(SetBulletActive());
-        Logging.Log("started");
+        if (shootingCoroutine == null)
+        {
+            shootingCoroutine = StartCoroutine(SetBulletActive());
+            Logging.Log("started");
+        }
     }
-    public void playerCantShoot()
+
+    void playerCantShoot()
     {
-        StopCoroutine(SetBulletActive());
-        Logging.Log("stoped");
+        if (shootingCoroutine != null )
+        {
+            StopCoroutine(shootingCoroutine);
+            shootingCoroutine = null;
+            Logging.Log("stopped");
+        }
     }
+
     IEnumerator SetBulletActive()
     {
-        while(true)
+        GameObject[] projectiles = new GameObject[numOfProjectiles];
+
+        while (true)
         {
-            Logging.Log("in");
-
-            GameObject bullet = ObjectPooling.Instance.GetPooledObject();
-            if (bullet != null && enemyDetection != null)
+            for (int i = 0; i < numOfProjectiles; i++)
             {
-                if (enemyDetection.EnemiesInRange.Count != 0)
-                {
-                    // Calculate direction towards current target
-                    Vector3 direction = (enemyDetection.ClosestEnemy.position - firePoint.position).normalized;
-
-                    // Set bullet's position to firePoint
-                    bullet.transform.position = firePoint.position;
-
-                    // Calculate rotation to look towards target
-                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                    bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-                    // Activate bullet
-                    ObjectPooling.Instance.ActivatePooledObject(bullet);
-                }
+                projectiles[i] = ProjectilesObjectPooling.Instance.GetPooledObject();
             }
-            yield return waitTime;
+
+            if (projectiles.Length != 0 && enemyDetection != null && enemyDetection.EnemiesInRange.Count != 0)
+            {
+                int x = Mathf.Min(projectiles.Length, enemyDetection.EnemiesInRange.Count);
+
+                //for (int i = 0; i < 2 ; i++)
+                //{
+                    projectiles[0].transform.position = firePoint.position;
+                    ProjectilesObjectPooling.Instance.ActivatePooledObject(projectiles[0]);
+                    ProjectileBehavior projectileBehavior = projectiles[0].GetComponent<ProjectileBehavior>();
+
+                    if (projectileBehavior != null)
+                    {
+                        projectileBehavior.Initialize(enemyDetection.EnemiesInRange[0], 5);
+                        Logging.Log(0);
+                    }
+                
+                yield return waitTime;
+            }
+            else
+            {
+                yield return null;
+            }
         }
     }
 }
