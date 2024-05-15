@@ -60,7 +60,7 @@ public class AutoShooting : MonoBehaviour
                 projectiles[i] = ProjectilesObjectPooling.Instance.GetPooledObject();
             }
 
-            if (projectiles.Length != 0 && enemyDetection != null && enemyDetection.EnemiesInRange.Count != 0)
+            if (projectiles.Length != 0  && enemyDetection.EnemiesInRange.Count != 0 && enemyDetection != null)
             {
                 int x = Mathf.Min(projectiles.Length, enemyDetection.EnemiesInRange.Count);
 
