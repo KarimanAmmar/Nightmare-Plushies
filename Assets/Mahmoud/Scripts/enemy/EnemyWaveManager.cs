@@ -23,8 +23,8 @@ public class EnemyWaveManager : MonoBehaviour
 
 		foreach (NumberOfEnemies enemyData in wavesData[currentWaveIndex].TypeOfEnemies)
 		{
-			int randomIndex = Random.Range(0, wavesData[currentWaveIndex].spawnPoints.Count);
-			Vector3 spawnPosition = wavesData[currentWaveIndex].spawnPoints[randomIndex].position;
+			int randomIndex = Random.Range(0, wavesData[currentWaveIndex].SpawnPoints.Count);
+			Vector3 spawnPosition = wavesData[currentWaveIndex].SpawnPoints[randomIndex].position;
 			yield return StartCoroutine(SpawnEnemies(enemyData, spawnPosition));
 		}
 
@@ -33,16 +33,15 @@ public class EnemyWaveManager : MonoBehaviour
 
 	private IEnumerator SpawnEnemies(NumberOfEnemies enemyData, Vector3 spawnPosition)
 	{
-		if ((int)enemyData.enemyType < 0 || (int)enemyData.enemyType >= enemyPools.Count)
+		if ((int)enemyData.EnemyType < 0 || (int)enemyData.EnemyType >= enemyPools.Count)
 		{
-			Debug.LogError("Invalid enemy type index: " + (int)enemyData.enemyType);
 			yield break;
 		}
 
-		for (int i = 0; i < enemyData.numberOfEnemy; i++)
+		for (int i = 0; i < enemyData.NumberOfEnemy; i++)
 		{
-			enemyPools[(int)enemyData.enemyType].ActivateEnemy(spawnPosition);
-			yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
+			enemyPools[(int)enemyData.EnemyType].ActivateEnemy(spawnPosition);
+			yield return new WaitForSeconds(enemyData.DelayBetweenSpawns);
 		}
 	}
 
@@ -53,7 +52,7 @@ public class EnemyWaveManager : MonoBehaviour
 		if (totalEnemiesInWave <= 0 && !spawningInProgress)
 		{
 			WaveData waveData = wavesData[currentWaveIndex];
-			waveData.isWaveCompleted = true;
+			waveData.IsWaveCompleted = true;
 			wavesData[currentWaveIndex] = waveData;
 			CheckWaveCompletion();
 		}
@@ -61,7 +60,7 @@ public class EnemyWaveManager : MonoBehaviour
 
 	private void CheckWaveCompletion()
 	{
-		if (wavesData[currentWaveIndex].isWaveCompleted)
+		if (wavesData[currentWaveIndex].IsWaveCompleted)
 		{
 			currentWaveIndex++;
 
