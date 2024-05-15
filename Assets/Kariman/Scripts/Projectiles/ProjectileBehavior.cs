@@ -16,6 +16,10 @@ public class ProjectileBehavior : MonoBehaviour
 
     private void Update()
     {
+        Move();
+    }
+    void Move()
+    {
         if (targetPoint != null)
         {
             Vector3 direction = (targetPoint.position - transform.position).normalized;

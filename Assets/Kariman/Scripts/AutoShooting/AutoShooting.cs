@@ -9,9 +9,10 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] EnemyDetection enemyDetection;
     [SerializeField] GameEvent IfEnemyDetected;
     [SerializeField] GameEvent IfEnemiesCleared;
+    [SerializeField] GameObject[] projectiles;
+
     private WaitForSeconds waitTime;
     int numOfProjectiles;
-    [SerializeField] GameObject[] projectiles;
     private Coroutine shootingCoroutine;
 
     private void Start()
@@ -59,7 +60,7 @@ public class AutoShooting : MonoBehaviour
                 projectiles[i] = ProjectilesObjectPooling.Instance.GetPooledObject();
             }
 
-            if (projectiles.Length != 0 && enemyDetection != null && enemyDetection.EnemiesInRange.Count != 0)
+            if (projectiles.Length != 0  && enemyDetection.EnemiesInRange.Count != 0 && enemyDetection != null)
             {
                 int x = Mathf.Min(projectiles.Length, enemyDetection.EnemiesInRange.Count);
 

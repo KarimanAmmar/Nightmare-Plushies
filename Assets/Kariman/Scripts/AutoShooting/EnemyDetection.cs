@@ -5,10 +5,13 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] Transform player;
+
     [SerializeField] private List<Transform> enemiesInRange = new List<Transform>();
     private Transform closestEnemy;
     public List<Transform> EnemiesInRange => enemiesInRange;
     public Transform ClosestEnemy => closestEnemy;
+
+    //Auto Shooting Events
     [SerializeField] GameEvent EnemyDetected;
     [SerializeField] GameEvent EnemiesCleared;
 
