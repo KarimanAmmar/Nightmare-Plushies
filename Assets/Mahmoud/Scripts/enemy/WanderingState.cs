@@ -3,12 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy States/Wandering State")]
 public class WanderingState : ScriptableObject, IEnemyState
 {
-	public float patrolRadius = 5f;
-	public float moveSpeed = 3f;
-	private Vector3 initialPosition;
-	private Vector3 targetPosition;
-	[SerializeField]float wanderingDistance;
-	private Quaternion targetRotation;
+	[SerializeField] float patrolRadius = 5f;
+	[SerializeField] float moveSpeed = 3f;
+	[SerializeField] private Vector3 initialPosition;
+	[SerializeField] private Vector3 targetPosition;
+	[SerializeField] private float wanderingDistance;
+	[SerializeField] private Quaternion targetRotation;
 
 	public void EnterState(EnemyController enemy)
 	{
@@ -25,7 +25,7 @@ public class WanderingState : ScriptableObject, IEnemyState
 
 	public void ExitState(EnemyController enemy)
 	{
-		
+
 	}
 
 	private void ChooseRandomTargetPosition()

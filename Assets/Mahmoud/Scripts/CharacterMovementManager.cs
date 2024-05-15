@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class CharacterMovementManager : MonoBehaviour
 {
-	public VariableJoystick joystick;
-	public CharacterController controller;
-	public float movementSpeed;
-	public Canvas inputCanvas;
-	public bool isJoystick;
+	[SerializeField] private VariableJoystick joystick;
+	[SerializeField] private CharacterController controller;
+	[SerializeField] private float movementSpeed;
+	[SerializeField] private Canvas inputCanvas;
+	[SerializeField] private bool isJoystick;
 	private Vector3 defaultPosition;
 
 	private void Start()
