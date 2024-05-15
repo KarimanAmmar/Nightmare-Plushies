@@ -2,48 +2,58 @@ using UnityEngine;
 
 public class CharacterMovementManager : MonoBehaviour
 {
-	public VariableJoystick joystick;
-	public CharacterController controller;
-	public float movementSpeed;
-	public Canvas inputCanvas;
-	public bool isJoystick;
-	private Vector3 defaultPosition;
+	[SerializeField] VariableJoystick joystick;
+	[SerializeField] CharacterController controller;
+	[SerializeField] float movementSpeed;
+	[SerializeField] Canvas inputCanvas;
+	bool isJoystick;
+	Vector3 defaultPosition;
 
-	private void Start()
+	void Start()
 	{
 		EnableJoystickInput();
 		defaultPosition = joystick.transform.position;
 	}
 
-	public void EnableJoystickInput()
+	void EnableJoystickInput()
 	{
 		isJoystick = true;
 		inputCanvas.gameObject.SetActive(true);
 	}
 
-	private void Update()
+	void Update()
 	{
 		if (isJoystick)
 		{
-			var movementDirection = new Vector3(joystick.Direction.x, 0.0f, joystick.Direction.y);
-			controller.SimpleMove(movementDirection * movementSpeed);
+			Vector3 movementDirection = new Vector3(joystick.Direction.x, 0.0f, joystick.Direction.y);
+			MovePlayer(movementDirection);
+			RotatePlayer(movementDirection);
 		}
+	}
 
-		if (Input.touchCount > 0)
+	public void HandleTouchInput(Vector2 touchPosition)
+	{
+		Vector3 worldTouchPosition = Camera.main.ScreenToWorldPoint(touchPosition);
+		worldTouchPosition.z = 0;
+
+		Vector3 movementDirection = (worldTouchPosition - transform.position).normalized;
+		MovePlayer(movementDirection);
+		RotatePlayer(movementDirection);
+
+		joystick.transform.position = worldTouchPosition;
+	}
+
+	void MovePlayer(Vector3 direction)
+	{
+		controller.SimpleMove(direction * movementSpeed);
+	}
+
+	void RotatePlayer(Vector3 direction)
+	{
+		if (direction != Vector3.zero)
 		{
-			Touch touch = Input.GetTouch(0);
-			if (touch.phase == TouchPhase.Ended)
-			{
-				joystick.transform.position = defaultPosition;
-			}
-			else if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
-			{
-
-				Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-				touchPosition.z = 0; 
-
-				joystick.transform.position = touchPosition;
-			}
+			Quaternion targetRotation = Quaternion.LookRotation(direction);
+			controller.transform.rotation = targetRotation;
 		}
 	}
 }
