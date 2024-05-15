@@ -7,7 +7,7 @@ public class EnemyWaveManager : MonoBehaviour
 	[SerializeField] private List<EnemyPool> enemyPools;
 	[SerializeField] private List<WaveData> wavesData;
 	[SerializeField] private int currentWaveIndex = 0;
-	[SerializeField] private Transform playerTransform;
+	//[SerializeField] private Transform playerTransform;
 	private int totalEnemiesInWave = 0;
 	private bool spawningInProgress = false;
 
