@@ -6,10 +6,7 @@ public class coin : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameEvent coin_event;
-    void Start()
-    {
-        
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
