@@ -31,10 +31,7 @@ public class EnemyController : MonoBehaviour
 		{
 			playerTransform = player.transform;
 		}
-		else
-		{
-			Debug.LogError("Player not found!");
-		}
+		
 	}
 
 	/// <summary>

@@ -35,7 +35,6 @@ public class EnemyWaveManager : MonoBehaviour
 	{
 		if ((int)enemyData.EnemyType < 0 || (int)enemyData.EnemyType >= enemyPools.Count)
 		{
-			Debug.LogError("Invalid enemy type index: " + (int)enemyData.EnemyType);
 			yield break;
 		}
 
