@@ -6,8 +6,10 @@ public class CharacterMovementManager : MonoBehaviour
 	[SerializeField] CharacterController controller;
 	[SerializeField] float movementSpeed;
 	[SerializeField] Canvas inputCanvas;
-	bool isJoystick;
-	Vector3 defaultPosition;
+	[SerializeField] private TransformEvent transformClosestEnemy;
+	private bool isJoystick;
+	private Vector3 defaultPosition;
+	private Transform ClosestEnemy;
 
 	void Start()
 	{
@@ -28,6 +30,12 @@ public class CharacterMovementManager : MonoBehaviour
 			Vector3 movementDirection = new Vector3(joystick.Direction.x, 0.0f, joystick.Direction.y);
 			MovePlayer(movementDirection);
 			RotatePlayer(movementDirection);
+		}
+
+		if (ClosestEnemy != null)
+		{
+			Vector3 direction = ClosestEnemy.position - controller.transform.position;
+			RotatePlayer(direction);
 		}
 	}
 
@@ -55,5 +63,20 @@ public class CharacterMovementManager : MonoBehaviour
 			Quaternion targetRotation = Quaternion.LookRotation(direction);
 			controller.transform.rotation = targetRotation;
 		}
+	}
+
+	void OnEnable()
+	{
+		transformClosestEnemy.RegisterListener(OnTransformEventRaised);
+	}
+
+	void OnDisable()
+	{
+		transformClosestEnemy.UnregisterListener(OnTransformEventRaised);
+	}
+
+	void OnTransformEventRaised(Transform transformReceived)
+	{
+		ClosestEnemy = transformReceived;
 	}
 }

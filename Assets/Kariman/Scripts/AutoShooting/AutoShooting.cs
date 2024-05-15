@@ -11,7 +11,9 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] GameEvent IfEnemiesCleared;
     [SerializeField] GameObject[] projectiles;
 
-    private WaitForSeconds waitTime;
+	
+
+	private WaitForSeconds waitTime;
     int numOfProjectiles;
     private Coroutine shootingCoroutine;
 
