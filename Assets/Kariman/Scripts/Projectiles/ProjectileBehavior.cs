@@ -12,7 +12,6 @@ public class ProjectileBehavior : MonoBehaviour
     {
         targetPoint = target;
         speed = moveSpeed;
-        Logging.Log("bullet");
     }
 
     private void Update()

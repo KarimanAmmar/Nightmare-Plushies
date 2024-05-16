@@ -67,7 +67,10 @@ public class EnemyPool : MonoBehaviour
 				enemy.SetActive(true);
 				pooledEnemies.Add(enemy);
 			}
-			
+			else
+			{
+				Debug.LogWarning("Max pool size reached, cannot activate more enemies.");
+			}
 		}
 	}
 
@@ -77,6 +80,10 @@ public class EnemyPool : MonoBehaviour
 		if (activeEnemy != null)
 		{
 			DisableEnemy(activeEnemy);
+		}
+		else
+		{
+			Debug.LogWarning("No active enemies to disable.");
 		}
 	}
 }

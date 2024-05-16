@@ -803,7 +803,6 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: ENABLE_LOG
     Standalone: ENABLE_LOG
   additionalCompilerArguments: {}
   platformArchitecture: {}
