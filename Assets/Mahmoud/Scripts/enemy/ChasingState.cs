@@ -1,45 +1,29 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy States/Chasing State")]
-public class ChasingState : ScriptableObject, IEnemyState
+[System.Serializable]
+public class ChasingState : IEnemyState
 {
-	[SerializeField] float wanderingDistance;
-	public float moveSpeed = 5f;
-	private Transform playerTransform; 
-
-	public void SetPlayerTransform(Transform player)
-	{
-		playerTransform = player;
-	}
+	[SerializeField] private float moveSpeed = 5f;
+	private Rigidbody rb;
 
 	public void EnterState(EnemyController enemy)
 	{
-
+		rb = enemy.GetComponent<Rigidbody>();
 	}
 
 	public void ExitState(EnemyController enemy)
 	{
-		playerTransform = null;
+
 	}
 
-	public void UpdateState(EnemyController enemy)
+	public void UpdateState(EnemyController enemy, Vector3 playerPosition)
 	{
-		if (playerTransform == null)
-			return;
-
-		MoveTowardsPlayer(enemy);
-		RotateTowardsPlayer(enemy);
+		MoveTowardsPlayer(playerPosition);
 	}
 
-	private void MoveTowardsPlayer(EnemyController enemy)
+	private void MoveTowardsPlayer(Vector3 playerPosition)
 	{
-		enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
-	}
-
-	private void RotateTowardsPlayer(EnemyController enemy)
-	{
-		Vector3 direction = (playerTransform.position - enemy.transform.position).normalized;
-		Quaternion lookRotation = Quaternion.LookRotation(direction);
-		enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, lookRotation, Time.deltaTime * 5f);
+		Vector3 moveDirection = (playerPosition - rb.position).normalized;
+		rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.deltaTime);
 	}
 }

@@ -10,6 +10,7 @@ public class EnemyPool : MonoBehaviour
 	[SerializeField] private int minPoolSize = 5;
 	private List<GameObject> pooledEnemies = new List<GameObject>();
 	private int activeEnemyCount = 0;
+	private Transform playerTransform;
 
 	private void Start()
 	{
@@ -56,7 +57,9 @@ public class EnemyPool : MonoBehaviour
 		if (inactiveEnemy != null)
 		{
 			inactiveEnemy.transform.position = targetPosition;
+			inactiveEnemy.transform.SetParent(transform); 
 			inactiveEnemy.SetActive(true);
+			inactiveEnemy.GetComponent<EnemyController>().SetPlayerTransform(playerTransform);
 		}
 		else
 		{
@@ -64,8 +67,10 @@ public class EnemyPool : MonoBehaviour
 			{
 				GameObject enemy = InstantiateEnemy();
 				enemy.transform.position = targetPosition;
+				enemy.transform.SetParent(transform); 
 				enemy.SetActive(true);
 				pooledEnemies.Add(enemy);
+				enemy.GetComponent<EnemyController>().SetPlayerTransform(playerTransform);
 			}
 			else
 			{
@@ -85,5 +90,10 @@ public class EnemyPool : MonoBehaviour
 		{
 			Debug.LogWarning("No active enemies to disable.");
 		}
+	}
+
+	public void SetPlayerTransform(Transform player)
+	{
+		playerTransform = player;
 	}
 }
