@@ -3,9 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy States/Chasing State")]
 public class ChasingState : ScriptableObject, IEnemyState
 {
-	[SerializeField] float wanderingDistance;
-	public float moveSpeed = 5f;
-	private Transform playerTransform; 
+	[SerializeField] private float wanderingDistance;
+	[SerializeField] private float moveSpeed = 5f;
+	[SerializeField] private Transform playerTransform; 
 
 	public void SetPlayerTransform(Transform player)
 	{
