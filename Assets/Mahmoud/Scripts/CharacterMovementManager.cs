@@ -61,6 +61,7 @@ public class CharacterMovementManager : MonoBehaviour
 		if (direction != Vector3.zero)
 		{
 			Quaternion targetRotation = Quaternion.LookRotation(direction);
+			targetRotation.eulerAngles = new Vector3(0, targetRotation.eulerAngles.y, 0);
 			controller.transform.rotation = targetRotation;
 		}
 	}

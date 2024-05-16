@@ -8816,12 +8816,8 @@ MonoBehaviour:
   - {fileID: 1724837718}
   wavesData:
   - waveID: 0
-    waveName: wave1
-    TypeOfEnemies:
-    - enemyType: 0
-      numberOfEnemy: 5
-      delayBeforestart: 3
-      delayBetweenSpawns: 3
+    waveName: 
+    TypeOfEnemies: []
     spawnPoints:
     - {fileID: 803537274}
     - {fileID: 1597738659}
@@ -9205,7 +9201,7 @@ MonoBehaviour:
   controller: {fileID: 1894711774}
   movementSpeed: 5
   inputCanvas: {fileID: 2008884253}
-  isJoystick: 0
+  transformClosestEnemy: {fileID: 0}
 --- !u!4 &891393438
 Transform:
   m_ObjectHideFlags: 0
@@ -14110,6 +14106,7 @@ MonoBehaviour:
   enemiesInRange: []
   EnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   EnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
+  transformClosestEnemy: {fileID: 0}
 --- !u!1 &1232699335
 GameObject:
   m_ObjectHideFlags: 0
@@ -16148,6 +16145,7 @@ MonoBehaviour:
   enemiesInRange: []
   EnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   EnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
+  transformClosestEnemy: {fileID: 0}
 --- !u!1 &1463287201
 GameObject:
   m_ObjectHideFlags: 0
