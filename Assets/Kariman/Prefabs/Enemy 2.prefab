@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3593056456854021794}
   - component: {fileID: 6499098803672156021}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 92528219f7807cb46b31e526c58bfc15, type: 2}
+  - {fileID: 2100000, guid: 29c8b9fad0002b2438827d37d13e647f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,9 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderingState:
-    patrolRadius: 5
+    patrolRadius: 3
     moveSpeed: 1
   chasingState:
     moveSpeed: 2
-  attackDistance: 2
-  chaseDistance: 7
+  attackDistance: 5
+  chaseDistance: 13

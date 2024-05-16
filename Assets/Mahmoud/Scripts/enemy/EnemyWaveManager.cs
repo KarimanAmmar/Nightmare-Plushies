@@ -14,7 +14,21 @@ public class EnemyWaveManager : MonoBehaviour
 	private void Start()
 	{
 		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
+		StartWave();
+	}
+
+	private void StartWave()
+	{
+		SetPlayerTransformForEnemies(playerTransform);
 		StartCoroutine(SpawnWave(currentWaveIndex));
+	}
+
+	private void SetPlayerTransformForEnemies(Transform player)
+	{
+		foreach (EnemyPool pool in enemyPools)
+		{
+			pool.SetPlayerTransform(player);
+		}
 	}
 
 	private IEnumerator SpawnWave(int currentWaveIndex)
@@ -68,13 +82,13 @@ public class EnemyWaveManager : MonoBehaviour
 			if (currentWaveIndex < wavesData.Count)
 			{
 				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-				StartCoroutine(SpawnWave(currentWaveIndex));
+				StartWave();
 			}
 			else
 			{
 				currentWaveIndex = 0; // Loop back to the first wave
 				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-				StartCoroutine(SpawnWave(currentWaveIndex));
+				StartWave();
 			}
 		}
 	}

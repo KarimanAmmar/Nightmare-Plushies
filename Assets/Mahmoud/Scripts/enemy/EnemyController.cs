@@ -2,42 +2,37 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-	public IEnemyState currentState;
-	public WanderingState wanderingState;
-	public ChasingState chasingState;
-	public AttackingState attackingState;
-	// Reference to the player's transform
+	[SerializeField] private WanderingState wanderingState;
+	[SerializeField] private ChasingState chasingState;
+	[SerializeField] private AttackingState attackingState;
+	[SerializeField] private float attackDistance;
+	[SerializeField] private float chaseDistance;
 	private Transform playerTransform;
-	public float chaseDistance = 10f;
-	public float attackDistance = 2f;
+	private IEnemyState currentState;
+	private Rigidbody rb;
 
 	private void Awake()
 	{
-		GameObject player = GameObject.FindWithTag("Player");
-		if (player != null)
-		{
-			playerTransform = player.transform;
-		}
-		else
-		{
-			Debug.LogError("Player not found!");
-		}
+		rb = GetComponent<Rigidbody>();
 	}
+
 	private void Start()
 	{
 		TransitionToState(wanderingState);
 	}
 
-	public void SetPlayerTransform(Transform playerTransform)
-	{
-		this.playerTransform = playerTransform;
-	}
 	private void Update()
 	{
-		float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-		TransitionStateBasedOnDistance(distanceToPlayer);
-		currentState.UpdateState(this);
-
+		if (playerTransform != null)
+		{
+			float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+			TransitionStateBasedOnDistance(distanceToPlayer);
+			currentState.UpdateState(this, playerTransform.position);
+		}
+		else
+		{
+			Debug.LogWarning("PlayerTransform is null. Make sure the player's transform is assigned in the Inspector.");
+		}
 	}
 
 	private void TransitionStateBasedOnDistance(float distanceToPlayer)
@@ -63,10 +58,15 @@ public class EnemyController : MonoBehaviour
 
 		currentState = nextState;
 		currentState.EnterState(this);
+	}
 
-		if (nextState == chasingState)
-		{
-			chasingState.SetPlayerTransform(playerTransform);
-		}
+	public Rigidbody GetRigidbody()
+	{
+		return rb;
+	}
+
+	public void SetPlayerTransform(Transform player)
+	{
+		playerTransform = player;
 	}
 }
