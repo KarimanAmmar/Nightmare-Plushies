@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9322,6 +9322,8 @@ MonoBehaviour:
   controller: {fileID: 1894711774}
   movementSpeed: 5
   inputCanvas: {fileID: 2008884253}
+  transformClosestEnemy: {fileID: 11400000, guid: c230a80a0d5a4a04fafd9b2687e3d622,
+    type: 2}
 --- !u!4 &891393438
 Transform:
   m_ObjectHideFlags: 0
@@ -14194,6 +14196,7 @@ MonoBehaviour:
   enemiesInRange: []
   EnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   EnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
+  transformClosestEnemy: {fileID: 0}
 --- !u!1 &1232699335
 GameObject:
   m_ObjectHideFlags: 0
@@ -16232,6 +16235,8 @@ MonoBehaviour:
   enemiesInRange: []
   EnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   EnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
+  transformClosestEnemy: {fileID: 11400000, guid: c230a80a0d5a4a04fafd9b2687e3d622,
+    type: 2}
 --- !u!1 &1463287201
 GameObject:
   m_ObjectHideFlags: 0
