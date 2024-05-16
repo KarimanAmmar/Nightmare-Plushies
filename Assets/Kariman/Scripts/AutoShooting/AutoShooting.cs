@@ -54,7 +54,6 @@ public class AutoShooting : MonoBehaviour
         if (shootingCoroutine == null)
         {
             shootingCoroutine = StartCoroutine(SetBulletActive());
-            Logging.Log("started");
         }
     }
     void playerCantShoot()
@@ -63,7 +62,6 @@ public class AutoShooting : MonoBehaviour
         {
             StopCoroutine(shootingCoroutine);
             shootingCoroutine = null;
-            Logging.Log("stopped");
         }
     }
     IEnumerator SetBulletActive()
