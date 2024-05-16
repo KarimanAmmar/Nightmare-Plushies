@@ -7,7 +7,14 @@ public class ProjectileBehavior : MonoBehaviour
 
     Transform targetPoint;
     [SerializeField] float speed;
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            this.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
+        }
+    }
     public void Initialize(Transform target, float moveSpeed)
     {
         targetPoint = target;
