@@ -148,8 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderingState:
     patrolRadius: 5
-    moveSpeed: 1
+    moveSpeed: 3
   chasingState:
-    moveSpeed: 2
+    moveSpeed: 5
+  attackingState: {fileID: 0}
   attackDistance: 2
-  chaseDistance: 7
+  chaseDistance: 10
