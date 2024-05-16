@@ -8816,12 +8816,6 @@ MonoBehaviour:
   - {fileID: 1724837718}
   wavesData:
   - waveID: 0
-    waveName: wave1
-    TypeOfEnemies:
-    - enemyType: 0
-      numberOfEnemy: 5
-      delayBeforestart: 3
-      delayBetweenSpawns: 3
     spawnPoints:
     - {fileID: 803537274}
     - {fileID: 1597738659}
@@ -8829,7 +8823,7 @@ MonoBehaviour:
     delayBeforeWaveStarts: 0
     isWaveCompleted: 0
   currentWaveIndex: 0
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1894711773}
 --- !u!4 &705125719
 Transform:
   m_ObjectHideFlags: 0
@@ -17768,7 +17762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766262341}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.47626087, y: -0.000000021396541, z: 0.0000000115890915, w: 0.87930405}
+  m_LocalRotation: {x: 0.47626087, y: 0.00000002139654, z: -0.0000000115890915, w: 0.87930405}
   m_LocalPosition: {x: -10.485321, y: 20.16, z: -8.601999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20001,7 +19995,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074437226}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.47626087, y: -0.000000021396541, z: 0.0000000115890915, w: 0.87930405}
+  m_LocalRotation: {x: 0.47626087, y: 0.00000002139654, z: -0.0000000115890915, w: 0.87930405}
   m_LocalPosition: {x: -10.485321, y: 20.16, z: -8.601999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
