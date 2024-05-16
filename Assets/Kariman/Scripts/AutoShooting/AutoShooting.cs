@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AutoShooting : MonoBehaviour
@@ -17,8 +19,7 @@ public class AutoShooting : MonoBehaviour
 
     private void Start()
     {
-        waitTime = new WaitForSeconds(2.0f);
-        projectiles = new GameObject[10];
+        waitTime = new WaitForSeconds(1.0f);
         numOfProjectiles = 2;
     }
     private void OnEnable()
@@ -52,6 +53,8 @@ public class AutoShooting : MonoBehaviour
 
     IEnumerator SetBulletActive()
     {
+        GameObject[] projectiles = new GameObject[numOfProjectiles];
+
         while (true)
         {
             for (int i = 0; i < numOfProjectiles; i++)
@@ -60,21 +63,21 @@ public class AutoShooting : MonoBehaviour
             }
 
             if (projectiles.Length != 0  && enemyDetection.EnemiesInRange.Count != 0 && enemyDetection != null)
-            { 
-                int x = Mathf.Min(projectiles.Length , enemyDetection.EnemiesInRange.Count - 1);
+            {
+                int x = Mathf.Min(projectiles.Length, enemyDetection.EnemiesInRange.Count);
 
-                for (int i = 0; i < x; i++)
-                {
-                    projectiles[i].transform.position = firePoint.position;
-                    ProjectilesObjectPooling.Instance.ActivatePooledObject(projectiles[i]);
-                    ProjectileBehavior projectileBehavior = projectiles[i].GetComponent<ProjectileBehavior>();
+                //for (int i = 0; i < 2 ; i++)
+                //{
+                    projectiles[0].transform.position = firePoint.position;
+                    ProjectilesObjectPooling.Instance.ActivatePooledObject(projectiles[0]);
+                    ProjectileBehavior projectileBehavior = projectiles[0].GetComponent<ProjectileBehavior>();
 
                     if (projectileBehavior != null)
                     {
-                        projectileBehavior.Initialize(enemyDetection.EnemiesInRange[i], 5);
-                        Logging.Log(i);
+                        projectileBehavior.Initialize(enemyDetection.EnemiesInRange[0], 5);
+                        Logging.Log(0);
                     }
-                }
+                
                 yield return waitTime;
             }
             else
