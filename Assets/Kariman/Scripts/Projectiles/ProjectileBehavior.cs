@@ -5,27 +5,24 @@ using UnityEngine;
 public class ProjectileBehavior : MonoBehaviour
 {
     /// <summary>
-    /// note to kariman i will have 2 float event scriptables for damage one for player-> enemy 
+    /// note to kariman :
+    /// i will have 2 float event scriptables for damage one for player-> enemy 
     /// and the other is for enemy->player
+    /// all i added is floatevent ,damage value in float 
+    /// and invoke the event if the projectile collide with the enemy
     /// </summary>
 
     Transform targetPoint;
     [SerializeField] float speed;
     [SerializeField] private Float_event enemy_damage_event;
-    private void OnEnable()
-    {
-        enemy_damage_event.RegisterListener();
-    }
-    private void OnDisable()
-    {
-        enemy_damage_event.UnregisterListener();
-    }
+    [SerializeField] private float damage;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
+            enemy_damage_event.Raise(damage);
             this.gameObject.SetActive(false);
-            other.gameObject.SetActive(false);
+           // other.gameObject.SetActive(false);
         }
     }
     public void Initialize(Transform target, float moveSpeed)

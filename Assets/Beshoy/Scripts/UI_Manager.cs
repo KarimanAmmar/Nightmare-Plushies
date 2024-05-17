@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private Text count_Ui;
+    [SerializeField] private RawImage hp_bar;
     [SerializeField] private int_Event int_Event;
+    [SerializeField] private Float_event HP_UI_event;
     private void OnEnable()
     {
         int_Event.RegisterListener(Update_Count);
+        HP_UI_event.RegisterListener(Update_Hp);
     }
     private void OnDisable()
     {
         int_Event.UnregisterListener(Update_Count);
+        HP_UI_event.UnregisterListener(Update_Hp);
     }
     private void Start()
     {
@@ -22,5 +26,9 @@ public class UI_Manager : MonoBehaviour
     private void Update_Count(int count)
     {
         count_Ui.text = $"coins: {count}";
+    }
+    private void Update_Hp(float amount)
+    {
+        hp_bar.rectTransform.localScale =new Vector3(amount,1,1);
     }
 }
