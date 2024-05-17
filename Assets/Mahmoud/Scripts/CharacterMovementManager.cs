@@ -7,12 +7,9 @@ public class CharacterMovementManager : MonoBehaviour
 	[SerializeField] float movementSpeed;
 	[SerializeField] Canvas inputCanvas;
 	[SerializeField] private TransformEvent transformClosestEnemy;
-	[SerializeField] float rotationSpeed;
-
 	private bool isJoystick;
 	private Vector3 defaultPosition;
-	private Transform closestEnemy;
-	private bool isLerpingToEnemy = false;
+	private Transform ClosestEnemy;
 
 	void Start()
 	{
@@ -32,16 +29,13 @@ public class CharacterMovementManager : MonoBehaviour
 		{
 			Vector3 movementDirection = new Vector3(joystick.Direction.x, 0.0f, joystick.Direction.y);
 			MovePlayer(movementDirection);
-			if (!isLerpingToEnemy)
-			{
-				RotatePlayerLerp(movementDirection, Time.deltaTime * rotationSpeed);
-			}
+			RotatePlayer(movementDirection);
 		}
 
-		if (closestEnemy != null)
+		if (ClosestEnemy != null)
 		{
-			Vector3 direction = (closestEnemy.position - controller.transform.position).normalized;
-			RotatePlayerToEnemy(direction);
+			Vector3 direction = ClosestEnemy.position - controller.transform.position;
+			RotatePlayer(direction);
 		}
 	}
 
@@ -72,33 +66,6 @@ public class CharacterMovementManager : MonoBehaviour
 		}
 	}
 
-	void RotatePlayerToEnemy(Vector3 direction)
-	{
-		if (direction != Vector3.zero)
-		{
-			Quaternion targetRotation = Quaternion.LookRotation(direction);
-			targetRotation.eulerAngles = new Vector3(0, targetRotation.eulerAngles.y, 0);
-			if (!isLerpingToEnemy)
-			{
-				controller.transform.rotation = targetRotation;
-			}
-			else
-			{
-				controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-			}
-		}
-	}
-
-	void RotatePlayerLerp(Vector3 direction, float lerpSpeed)
-	{
-		if (direction != Vector3.zero)
-		{
-			Quaternion targetRotation = Quaternion.LookRotation(direction);
-			targetRotation.eulerAngles = new Vector3(0, targetRotation.eulerAngles.y, 0);
-			controller.transform.rotation = Quaternion.Lerp(controller.transform.rotation, targetRotation, lerpSpeed);
-		}
-	}
-
 	void OnEnable()
 	{
 		transformClosestEnemy.RegisterListener(OnTransformEventRaised);
@@ -111,14 +78,6 @@ public class CharacterMovementManager : MonoBehaviour
 
 	void OnTransformEventRaised(Transform transformReceived)
 	{
-		closestEnemy = transformReceived;
-		if (closestEnemy != null)
-		{
-			isLerpingToEnemy = true;
-		}
-		else
-		{
-			isLerpingToEnemy = false;
-		}
+		ClosestEnemy = transformReceived;
 	}
 }
