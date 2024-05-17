@@ -15,7 +15,5 @@ public class coin : MonoBehaviour
             coin_event.GameAction.Invoke();
             Destroy(gameObject);
         }
-
     }
-
 }
