@@ -42,12 +42,17 @@ public class Coin_Collector : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        other.attachedRigidbody.velocity=Vector3.zero;
-        if (other.gameObject.layer == 6)
+        if (other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
         {
-            PullObject(other);
+            rigidbody.velocity = Vector3.zero;
+            if (other.gameObject.layer == 6)
+            {
+                PullObject(other);
+
+            }
 
         }
+        
     }
     private void PullObject(Collider other)
     {
