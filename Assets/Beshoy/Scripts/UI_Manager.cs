@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private Text count_Ui;
-    [SerializeField] private RawImage hp_bar;
+    [SerializeField] private Image hp_bar;
     [SerializeField] private int_Event int_Event;
     [SerializeField] private Float_event HP_UI_event;
     private void OnEnable()
@@ -29,6 +29,6 @@ public class UI_Manager : MonoBehaviour
     }
     private void Update_Hp(float amount)
     {
-        hp_bar.rectTransform.localScale =new Vector3(amount,1,1);
+        hp_bar.fillAmount=amount;
     }
 }
