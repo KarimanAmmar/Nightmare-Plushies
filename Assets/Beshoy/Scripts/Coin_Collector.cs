@@ -15,7 +15,6 @@ public class Coin_Collector : MonoBehaviour
     private Collider[] nearbycoins;
     private int Coins_Count;
     Vector3 pullPos;
-    
 
     private void OnEnable()
     {
@@ -26,19 +25,13 @@ public class Coin_Collector : MonoBehaviour
     {
         coin_event.GameAction -=Collect_Coin;
     }
-    private void Collect_Coin()
-    {
-        Coins_Count++;
-        UI_event.Raise(Coins_Count);
-    }
+
     private void OnTriggerEnter(Collider other)
     {       //Logging.Log($"{other.gameObject.name}");
         if(other.gameObject.layer == 6)
         {
             PullObject(other);
-
         }
-            
     }
     private void OnTriggerExit(Collider other)
     {
@@ -46,8 +39,12 @@ public class Coin_Collector : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             PullObject(other);
-
         }
+    }
+    private void Collect_Coin()
+    {
+        Coins_Count++;
+        UI_event.Raise(Coins_Count);
     }
     private void PullObject(Collider other)
     {
@@ -55,7 +52,5 @@ public class Coin_Collector : MonoBehaviour
         Vector3 dir = (pullPos - other.transform.position).normalized;
         other.gameObject.TryGetComponent<Collider>(out Collider component);
         component.attachedRigidbody.AddForce(dir * 10f,ForceMode.Impulse);
-
     }
-    // Update is called once per frame
 }
