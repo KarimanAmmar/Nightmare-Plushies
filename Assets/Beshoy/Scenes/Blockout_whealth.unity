@@ -8886,8 +8886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd9ab0317f415141855ec7499a8d1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  HealEvent: {fileID: 11400000, guid: c67aae8b45f7ff5449d2b239017a4aab, type: 2}
+  DamageEvent: {fileID: 0}
+  HealEvent: {fileID: 0}
   is_healing: 0
 --- !u!1 &501852076
 GameObject:
@@ -16555,6 +16555,7 @@ MonoBehaviour:
   inputCanvas: {fileID: 2008884253}
   transformClosestEnemy: {fileID: 11400000, guid: c230a80a0d5a4a04fafd9b2687e3d622,
     type: 2}
+  rotationSpeed: 0
 --- !u!4 &891393438
 Transform:
   m_ObjectHideFlags: 0
@@ -20670,7 +20671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heal_amount: 10
   heal_time: 5
-  heal_event: {fileID: 11400000, guid: c67aae8b45f7ff5449d2b239017a4aab, type: 2}
+  heal_event: {fileID: 0}
 --- !u!135 &1032907708
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -32085,10 +32086,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad31edd4c7cba3a468131cdaa5101ba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  HealEvent: {fileID: 11400000, guid: c67aae8b45f7ff5449d2b239017a4aab, type: 2}
-  health_UI: {fileID: 11400000, guid: edd65f620a3937840b4aeaf766b65597, type: 2}
-  Max_health: 100
+  DamageEvent: {fileID: 0}
+  HealEvent: {fileID: 0}
+  health_UI: {fileID: 0}
+  Max_health: 0
 --- !u!1 &1895256978
 GameObject:
   m_ObjectHideFlags: 0
@@ -32885,9 +32886,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   count_Ui: {fileID: 640395782}
-  hp_bar: {fileID: 1646106453}
+  hp_bar: {fileID: 0}
   int_Event: {fileID: 11400000, guid: 0bcb377ba882d2e4e82bba308eba9e26, type: 2}
-  HP_UI_event: {fileID: 11400000, guid: edd65f620a3937840b4aeaf766b65597, type: 2}
+  HP_UI_event: {fileID: 0}
 --- !u!1 &1946178581
 GameObject:
   m_ObjectHideFlags: 0
@@ -34884,9 +34885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd9ab0317f415141855ec7499a8d1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  HealEvent: {fileID: 11400000, guid: c67aae8b45f7ff5449d2b239017a4aab, type: 2}
-  is_healing: 1
+  DamageEvent: {fileID: 0}
+  HealEvent: {fileID: 0}
+  is_healing: 0
 --- !u!135 &2040290559
 SphereCollider:
   m_ObjectHideFlags: 0
