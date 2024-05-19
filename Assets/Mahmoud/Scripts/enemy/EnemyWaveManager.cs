@@ -1,28 +1,159 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class EnemyWaveManager : MonoBehaviour
 {
+	#region Serialized Fields
+
 	[SerializeField] private List<EnemyPool> enemyPools;
 	[SerializeField] private List<WaveData> wavesData;
 	[SerializeField] private int currentWaveIndex = 0;
 	[SerializeField] private Transform playerTransform;
+
+	#endregion
+
+	#region Private Fields
+
 	private int totalEnemiesInWave = 0;
 	private bool spawningInProgress = false;
+	private static List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
+
+	#endregion
+
+	#region MonoBehaviour Callbacks
 
 	private void Start()
 	{
-		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
 		StartWave();
 	}
 
+	private void Update()
+	{
+		// Randomly disable an enemy pool when 'C' is pressed
+		if (Input.GetKeyDown(KeyCode.C))
+		{
+			int randomEnemyPoolIndex = Random.Range(0, enemyPools.Count);
+			enemyPools[randomEnemyPoolIndex].DisableRandomEnemy();
+		}
+	}
+
+	#endregion
+
+	#region Public Methods
+
+	/// <summary>
+	/// Registers a spawn point.
+	/// </summary>
+	public static void RegisterSpawnPoint(SpawnPoint point)
+	{
+		if (!spawnPoints.Contains(point))
+		{
+			spawnPoints.Add(point);
+		}
+	}
+
+	/// <summary>
+	/// Unregisters a spawn point.
+	/// </summary>
+	public static void UnregisterSpawnPoint(SpawnPoint point)
+	{
+		if (spawnPoints.Contains(point))
+		{
+			spawnPoints.Remove(point);
+		}
+	}
+
+	#endregion
+
+	#region Wave Management
+
+	/// <summary>
+	/// Starts the current wave.
+	/// </summary>
 	private void StartWave()
 	{
+		if (currentWaveIndex >= wavesData.Count)
+		{
+			Debug.LogWarning("No more waves to start.");
+			return;
+		}
+
 		SetPlayerTransformForEnemies(playerTransform);
+		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
 		StartCoroutine(SpawnWave(currentWaveIndex));
 	}
 
+	/// <summary>
+	/// Spawns enemies for the current wave.
+	/// </summary>
+	private IEnumerator SpawnWave(int waveIndex)
+	{
+		spawningInProgress = true;
+
+		WaveData waveData = wavesData[waveIndex];
+		yield return new WaitForSeconds(waveData.DelayBeforeWaveStarts);
+
+		List<NumberOfEnemies> shuffledEnemies = waveData.TypeOfEnemies.OrderBy(x => Random.value).ToList();
+
+		List<SpawnPoint> availablePoints = spawnPoints.FindAll(point => point.IsAvailable);
+
+		foreach (NumberOfEnemies enemyData in shuffledEnemies)
+		{
+			for (int i = 0; i < enemyData.numberOfEnemy; i++)
+			{
+				Transform spawnPosition = GetRandomAvailableSpawnPoint(availablePoints);
+				if (spawnPosition != null)
+				{
+					enemyPools[(int)enemyData.enemyType].ActivateEnemy(spawnPosition.position);
+					MarkSpawnPointUnavailable(spawnPosition);
+				}
+				else
+				{
+					Debug.LogWarning("No available spawn points.");
+				}
+
+				// Add delay between each spawn
+				yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
+			}
+		}
+
+		spawningInProgress = false;
+	}
+
+
+	/// <summary>
+	/// Gets a random available spawn point.
+	/// </summary>
+	private Transform GetRandomAvailableSpawnPoint(List<SpawnPoint> availablePoints)
+	{
+		if (availablePoints.Count > 0)
+		{
+			int randomIndex = Random.Range(0, availablePoints.Count);
+			return availablePoints[randomIndex].transform;
+		}
+		return null;
+	}
+
+	private Transform GetAvailableSpawnPoint()
+	{
+		List<SpawnPoint> availablePoints = spawnPoints.FindAll(point => point.IsAvailable);
+		if (availablePoints.Count > 0)
+		{
+			int randomIndex = Random.Range(0, availablePoints.Count);
+			return availablePoints[randomIndex].transform;
+		}
+		return null;
+	}
+
+	#endregion
+
+	#region Helper Methods
+
+	/// <summary>
+	/// Sets the player transform for all enemy pools.
+	/// </summary>
 	private void SetPlayerTransformForEnemies(Transform player)
 	{
 		foreach (EnemyPool pool in enemyPools)
@@ -31,74 +162,17 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
-	private IEnumerator SpawnWave(int currentWaveIndex)
+	/// <summary>
+	/// Marks a spawn point as unavailable.
+	/// </summary>
+	private void MarkSpawnPointUnavailable(Transform point)
 	{
-		spawningInProgress = true;
-
-		foreach (NumberOfEnemies enemyData in wavesData[currentWaveIndex].TypeOfEnemies)
+		SpawnPoint spawnPoint = point.GetComponent<SpawnPoint>();
+		if (spawnPoint != null)
 		{
-			int randomIndex = Random.Range(0, wavesData[currentWaveIndex].spawnPoints.Count);
-			Vector3 spawnPosition = wavesData[currentWaveIndex].spawnPoints[randomIndex].position;
-			yield return StartCoroutine(SpawnEnemies(enemyData, spawnPosition));
-		}
-
-		spawningInProgress = false;
-	}
-
-	private IEnumerator SpawnEnemies(NumberOfEnemies enemyData, Vector3 spawnPosition)
-	{
-		if ((int)enemyData.enemyType < 0 || (int)enemyData.enemyType >= enemyPools.Count)
-		{
-			Debug.LogError("Invalid enemy type index: " + (int)enemyData.enemyType);
-			yield break;
-		}
-
-		for (int i = 0; i < enemyData.numberOfEnemy; i++)
-		{
-			enemyPools[(int)enemyData.enemyType].ActivateEnemy(spawnPosition);
-			yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
+			spawnPoint.SetAvailability(false);
 		}
 	}
 
-	public void EnemyKill()
-	{
-		totalEnemiesInWave--;
-
-		if (totalEnemiesInWave <= 0 && !spawningInProgress)
-		{
-			WaveData waveData = wavesData[currentWaveIndex];
-			waveData.isWaveCompleted = true;
-			wavesData[currentWaveIndex] = waveData;
-			CheckWaveCompletion();
-		}
-	}
-
-	private void CheckWaveCompletion()
-	{
-		if (wavesData[currentWaveIndex].isWaveCompleted)
-		{
-			currentWaveIndex++;
-
-			if (currentWaveIndex < wavesData.Count)
-			{
-				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-				StartWave();
-			}
-			else
-			{
-				currentWaveIndex = 0; // Loop back to the first wave
-				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-				StartWave();
-			}
-		}
-	}
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.C))
-		{
-			int randomEnemyPoolIndex = Random.Range(0, enemyPools.Count);
-			enemyPools[randomEnemyPoolIndex].DisableRandomEnemy();
-		}
-	}
+	#endregion
 }

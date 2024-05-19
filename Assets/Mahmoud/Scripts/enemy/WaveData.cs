@@ -1,34 +1,34 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class WaveData
+[CreateAssetMenu(fileName = "WaveData", menuName = "Enemy/WaveData", order = 1)]
+public class WaveData : ScriptableObject
 {
-	public int waveID;
-	public string waveName;
-	public List<NumberOfEnemies> TypeOfEnemies;
-	public List<Transform> spawnPoints;
-	public float delayBeforeWaveStarts;
-	public bool isWaveCompleted;
+	[SerializeField] private int waveID;
+	[SerializeField] private string waveName;
+	[SerializeField] private List<NumberOfEnemies> typeOfEnemies;
+	[SerializeField] private float delayBeforeWaveStarts;
+	[HideInInspector] public bool isWaveCompleted;
+
+	public List<NumberOfEnemies> TypeOfEnemies => typeOfEnemies;
+	public float DelayBeforeWaveStarts => delayBeforeWaveStarts;
 
 	public int CalculateTotalEnemies()
 	{
 		int totalEnemies = 0;
-		foreach (NumberOfEnemies enemyData in TypeOfEnemies)
+		foreach (NumberOfEnemies enemyData in typeOfEnemies)
 		{
 			totalEnemies += enemyData.numberOfEnemy;
 		}
 		return totalEnemies;
 	}
-
 }
+
 
 [System.Serializable]
 public struct NumberOfEnemies
 {
 	public EnemyType enemyType;
 	public int numberOfEnemy;
-	public float delayBeforestart;
-	public int delayBetweenSpawns;
+	public float delayBetweenSpawns;
 }
