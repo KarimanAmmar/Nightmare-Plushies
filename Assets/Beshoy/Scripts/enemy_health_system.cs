@@ -37,10 +37,6 @@ public class enemy_health_system : MonoBehaviour
         {
             damgeable = true;
         }
-        else
-        {
-            damgeable= false;
-        }
     }
     private void take_damage(float damage)
     {
@@ -54,6 +50,7 @@ public class enemy_health_system : MonoBehaviour
             {
                 this.gameObject.SetActive(false);
             }
+            damgeable = false;
         }
     }
 }
