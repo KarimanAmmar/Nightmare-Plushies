@@ -14227,9 +14227,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1873818690}
   enemyDetection: {fileID: 1211989643}
+  projectiles: []
   IfEnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   IfEnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
-  projectiles: []
+  UpgradeProjectilesNum: {fileID: 0}
 --- !u!114 &1211989643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16266,9 +16267,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1463287202}
   enemyDetection: {fileID: 1462748672}
+  projectiles: []
   IfEnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   IfEnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
-  projectiles: []
+  UpgradeProjectilesNum: {fileID: 0}
 --- !u!114 &1462748672
 MonoBehaviour:
   m_ObjectHideFlags: 0
