@@ -1,18 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+/// <summary>
+/// this is a scriptable object that will hold :
+/// the values of the upgrades that will be added to the player stats 
+/// image & description of the upgrade itself(optional)
+/// </summary>
 
-public class Upgrade : MonoBehaviour
+[Serializable]
+public struct UpggradeValues
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   [SerializeField] private UpgradeType type;
+   [SerializeField] private float value;
+   public UpgradeType GetUpgradeType() { return type; }
+   public float GetValue() { return value; }
+    
+}
 
-    // Update is called once per frame
-    void Update()
+
+[CreateAssetMenu(menuName = "upgrades/upgrade", order = 0)]
+public class Upgrade : ScriptableObject
+{
+   [SerializeField] private UpggradeValues[] Upggrades;
+   public Array getupgrade()
     {
-        
+        return Upggrades;
     }
+     
 }

@@ -13,17 +13,23 @@ using UnityEngine;
 /// the ones that appear during the level (normal)
 /// and the ones that appear after deafeatinng the boss of the level(higher or rare)
 /// </summary>
+
+public enum UpgradeType
+{
+    health,
+    movementspeed,
+    damageReduction
+}
 public class UpgradeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+ 
+    public void select_upgrade(Upgrade upgrade)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        UpggradeValues[] selected = (UpggradeValues[])upgrade.getupgrade();
+        foreach (UpggradeValues v in selected)
+        {
+            Logging.Log($"your{v.GetUpgradeType()}is incresed by{v.GetValue()/100}%");
+        }
         
     }
 }
