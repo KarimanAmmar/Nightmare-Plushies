@@ -11,6 +11,11 @@ public class SpawnPoint : MonoBehaviour
 		isAvailable = availability;
 	}
 
+	public void ResetAvailability()
+	{
+		isAvailable = true;
+	}
+
 	private void OnEnable()
 	{
 		EnemyWaveManager.RegisterSpawnPoint(this);
