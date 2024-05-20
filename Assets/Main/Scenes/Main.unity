@@ -7684,19 +7684,7 @@ MonoBehaviour:
   enemyPools:
   - {fileID: 1724837718}
   wavesData:
-  - waveID: 0
-    waveName: wave1
-    TypeOfEnemies:
-    - enemyType: 0
-      numberOfEnemy: 5
-      delayBeforestart: 3
-      delayBetweenSpawns: 3
-    spawnPoints:
-    - {fileID: 803537274}
-    - {fileID: 1597738659}
-    - {fileID: 723712279}
-    delayBeforeWaveStarts: 0
-    isWaveCompleted: 0
+  - {fileID: 0}
   currentWaveIndex: 0
   playerTransform: {fileID: 0}
 --- !u!4 &705125719
