@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b976de6a5ec9e60448cc33f2d0e1050d, type: 3}
-  m_Name: healthUpgrade2
+  m_Name: damageReduction 1
   m_EditorClassIdentifier: 
   Upggrades:
-  - type: 0
-    value: 15
+  - type: 2
+    value: 10

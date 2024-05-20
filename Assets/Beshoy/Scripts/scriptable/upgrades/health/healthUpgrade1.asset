@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b976de6a5ec9e60448cc33f2d0e1050d, type: 3}
   m_Name: healthUpgrade1
   m_EditorClassIdentifier: 
-  Upggrade:
+  Upggrades:
   - type: 0
-    value: -5
+    value: 10

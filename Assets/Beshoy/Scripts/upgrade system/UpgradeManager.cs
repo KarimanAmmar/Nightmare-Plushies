@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public enum UpgradeType
 }
 public class UpgradeManager : MonoBehaviour
 {
+    [SerializeField] private Upgrade[] upgrades;
  
     public void select_upgrade(Upgrade upgrade)
     {
@@ -29,7 +31,24 @@ public class UpgradeManager : MonoBehaviour
         foreach (UpggradeValues v in selected)
         {
             Logging.Log($"your{v.GetUpgradeType()}is incresed by{v.GetValue()/100}%");
+            apply_Upgrade(v.GetUpgradeType());
         }
         
+    }
+
+    private void apply_Upgrade(UpgradeType type)
+    {
+        switch (type)
+        {
+            case UpgradeType.health:
+                Logging.Log($"upgrading health");
+            break;
+            case UpgradeType.movementspeed:
+                Logging.Log($"upgrading speed");
+            break;
+            case UpgradeType.damageReduction:
+                Logging.Log($"reducing damage");
+            break;
+        }
     }
 }
