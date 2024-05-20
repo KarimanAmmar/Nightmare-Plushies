@@ -1,37 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class EnemyWaveManager : MonoBehaviour
 {
-	#region Serialized Fields
-
 	[SerializeField] private List<EnemyPool> enemyPools;
 	[SerializeField] private List<WaveData> wavesData;
 	[SerializeField] private int currentWaveIndex = 0;
 	[SerializeField] private Transform playerTransform;
 
-	#endregion
-
-	#region Private Fields
-
 	private int totalEnemiesInWave = 0;
+	private int activeEnemies = 0;
 	private bool spawningInProgress = false;
 	private static List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
-	#endregion
-
-	#region MonoBehaviour Callbacks
-
 	private void Start()
 	{
+		RegisterSpawnPoints();
 		StartWave();
 	}
 
 	private void Update()
 	{
-		// Randomly disable an enemy pool when 'C' is pressed
 		if (Input.GetKeyDown(KeyCode.C))
 		{
 			int randomEnemyPoolIndex = Random.Range(0, enemyPools.Count);
@@ -39,13 +30,15 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
-	#endregion
+	private void RegisterSpawnPoints()
+	{
+		if (spawnPoints.Count == 0)
+		{
+			SpawnPoint[] allSpawnPoints = FindObjectsOfType<SpawnPoint>();
+			spawnPoints.AddRange(allSpawnPoints);
+		}
+	}
 
-	#region Public Methods
-
-	/// <summary>
-	/// Registers a spawn point.
-	/// </summary>
 	public static void RegisterSpawnPoint(SpawnPoint point)
 	{
 		if (!spawnPoints.Contains(point))
@@ -54,9 +47,6 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// Unregisters a spawn point.
-	/// </summary>
 	public static void UnregisterSpawnPoint(SpawnPoint point)
 	{
 		if (spawnPoints.Contains(point))
@@ -65,19 +55,26 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
-	#endregion
+	public void OnEnemyDefeated()
+	{
+		activeEnemies--;
+		if (activeEnemies <= 0 && !spawningInProgress)
+		{
+			currentWaveIndex++;
+			StartWave();
+		}
+	}
 
-	#region Wave Management
-
-	/// <summary>
-	/// Starts the current wave.
-	/// </summary>
 	private void StartWave()
 	{
 		if (currentWaveIndex >= wavesData.Count)
 		{
-			Debug.LogWarning("No more waves to start.");
 			return;
+		}
+
+		foreach (SpawnPoint spawnPoint in spawnPoints)
+		{
+			spawnPoint.ResetAvailability();
 		}
 
 		SetPlayerTransformForEnemies(playerTransform);
@@ -85,9 +82,6 @@ public class EnemyWaveManager : MonoBehaviour
 		StartCoroutine(SpawnWave(currentWaveIndex));
 	}
 
-	/// <summary>
-	/// Spawns enemies for the current wave.
-	/// </summary>
 	private IEnumerator SpawnWave(int waveIndex)
 	{
 		spawningInProgress = true;
@@ -96,7 +90,6 @@ public class EnemyWaveManager : MonoBehaviour
 		yield return new WaitForSeconds(waveData.DelayBeforeWaveStarts);
 
 		List<NumberOfEnemies> shuffledEnemies = waveData.TypeOfEnemies.OrderBy(x => Random.value).ToList();
-
 		List<SpawnPoint> availablePoints = spawnPoints.FindAll(point => point.IsAvailable);
 
 		foreach (NumberOfEnemies enemyData in shuffledEnemies)
@@ -106,15 +99,23 @@ public class EnemyWaveManager : MonoBehaviour
 				Transform spawnPosition = GetRandomAvailableSpawnPoint(availablePoints);
 				if (spawnPosition != null)
 				{
-					enemyPools[(int)enemyData.enemyType].ActivateEnemy(spawnPosition.position);
-					MarkSpawnPointUnavailable(spawnPosition);
-				}
-				else
-				{
-					Debug.LogWarning("No available spawn points.");
+					EnemyPool enemyPool = enemyPools[(int)enemyData.enemyType];
+					if (enemyPool != null)
+					{
+						GameObject enemy = enemyPool.ActivateEnemy(spawnPosition.position);
+						if (enemy != null)
+						{
+							EnemyController enemyController = enemy.GetComponent<EnemyController>();
+							if (enemyController != null)
+							{
+								enemyController.OnDefeated += OnEnemyDefeated;
+								activeEnemies++;
+								MarkSpawnPointUnavailable(spawnPosition);
+							}
+						}
+					}
 				}
 
-				// Add delay between each spawn
 				yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
 			}
 		}
@@ -122,10 +123,6 @@ public class EnemyWaveManager : MonoBehaviour
 		spawningInProgress = false;
 	}
 
-
-	/// <summary>
-	/// Gets a random available spawn point.
-	/// </summary>
 	private Transform GetRandomAvailableSpawnPoint(List<SpawnPoint> availablePoints)
 	{
 		if (availablePoints.Count > 0)
@@ -136,24 +133,6 @@ public class EnemyWaveManager : MonoBehaviour
 		return null;
 	}
 
-	private Transform GetAvailableSpawnPoint()
-	{
-		List<SpawnPoint> availablePoints = spawnPoints.FindAll(point => point.IsAvailable);
-		if (availablePoints.Count > 0)
-		{
-			int randomIndex = Random.Range(0, availablePoints.Count);
-			return availablePoints[randomIndex].transform;
-		}
-		return null;
-	}
-
-	#endregion
-
-	#region Helper Methods
-
-	/// <summary>
-	/// Sets the player transform for all enemy pools.
-	/// </summary>
 	private void SetPlayerTransformForEnemies(Transform player)
 	{
 		foreach (EnemyPool pool in enemyPools)
@@ -162,9 +141,6 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// Marks a spawn point as unavailable.
-	/// </summary>
 	private void MarkSpawnPointUnavailable(Transform point)
 	{
 		SpawnPoint spawnPoint = point.GetComponent<SpawnPoint>();
@@ -173,6 +149,4 @@ public class EnemyWaveManager : MonoBehaviour
 			spawnPoint.SetAvailability(false);
 		}
 	}
-
-	#endregion
 }

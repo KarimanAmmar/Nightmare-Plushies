@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -10,6 +11,22 @@ public class EnemyController : MonoBehaviour
 	private Transform playerTransform;
 	private IEnemyState currentState;
 	private Rigidbody rb;
+
+
+	public event Action OnDefeated;
+
+	private void OnDisable()
+	{
+		OnDefeated?.Invoke();
+	}
+
+	public void Defeat()
+	{
+		// Logic for when the enemy is defeated (e.g., reduce health to 0)
+		gameObject.SetActive(false);
+		OnDefeated?.Invoke();
+	}
+
 
 	private void Awake()
 	{
