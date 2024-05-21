@@ -4,7 +4,9 @@ public class CharacterMovementManager : MonoBehaviour
 {
 	[SerializeField] VariableJoystick joystick;
 	[SerializeField] CharacterController controller;
-	[SerializeField] float movementSpeed;
+	[SerializeField] float defaultSpeed;
+	private float movementSpeed;
+
 	[SerializeField] Canvas inputCanvas;
 	[SerializeField] private TransformEvent transformClosestEnemy;
 	[SerializeField] float rotationSpeed;
@@ -14,8 +16,11 @@ public class CharacterMovementManager : MonoBehaviour
 	private Transform closestEnemy;
 	private bool isLerpingToEnemy = false;
 
+
+
 	void Start()
 	{
+		movementSpeed = defaultSpeed;
 		EnableJoystickInput();
 		defaultPosition = joystick.transform.position;
 	}
@@ -120,5 +125,10 @@ public class CharacterMovementManager : MonoBehaviour
 		{
 			isLerpingToEnemy = false;
 		}
+	}
+
+	public void UpgradeSpeed(float newSpeed)
+	{
+		movementSpeed += (newSpeed/ 100)*movementSpeed;
 	}
 }
