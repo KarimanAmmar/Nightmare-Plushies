@@ -25832,7 +25832,7 @@ MonoBehaviour:
   enemyPools:
   - {fileID: 1724837718}
   wavesData:
-  - {fileID: 11400000, guid: 1196c4de822b17d4cbfaab31e0251197, type: 2}
+  - {fileID: 0}
   currentWaveIndex: 0
   playerTransform: {fileID: 1894711773}
 --- !u!4 &705125719

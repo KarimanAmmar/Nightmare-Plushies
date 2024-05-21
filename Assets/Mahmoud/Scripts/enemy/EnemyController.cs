@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("PlayerTransform is null. Make sure the player's transform is assigned in the Inspector.");
+			Logging.Warning("PlayerTransform is null. Make sure the player's transform is assigned in the Inspector.");
 		}
 	}
 
