@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 /// <summary>
 /// in this script :
@@ -42,7 +40,7 @@ public class UpgradeManager : MonoBehaviour
         switch (values.GetUpgradeType())
         {
             case UpgradeType.health:
-                plyrHelth.upgrade_health(values.GetValue());
+                plyrHelth.UpgradeHealth(values.GetValue());
             break;
             case UpgradeType.movementspeed:
                 Logging.Log($"upgrading speed");
@@ -50,6 +48,14 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.damageReduction:
                 plyrHelth.Upgrade_DamageReduction(values.GetValue());
             break;
+        }
+    }
+    private void draw_Upgrades()
+    {
+        Upgrade[] selected_upgrades= new Upgrade[3];
+        for (int i = 0; i < selected_upgrades.Length; i++)
+        {
+            selected_upgrades[i]= upgrades[Random.Range(0,upgrades.Length)];
         }
     }
 }

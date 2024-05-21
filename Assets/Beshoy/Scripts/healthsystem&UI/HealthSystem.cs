@@ -47,14 +47,14 @@ public class HealthSystem : MonoBehaviour
         Current_health += 10;
         Current_health = Mathf.Clamp(Current_health,0, Max_health);
         Update_UI();
-        Debug.Log($"current healt: {Current_health}");
+        Logging.Log($"current healt: {Current_health}");
     }
     private void Update_UI()
     {
         amount_Ui = Current_health / Max_health;
         health_UI.Raise(amount_Ui);
     }
-    public void upgrade_health(float value)
+    public void UpgradeHealth(float value)
     {
         Max_health+= (value/100f) * Max_health;
         Current_health += amount_Ui * Max_health - Current_health;
