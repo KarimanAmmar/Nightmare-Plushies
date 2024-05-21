@@ -24,6 +24,7 @@ public enum UpgradeType
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] private Upgrade[] upgrades;
+    [SerializeField] private HealthSystem plyrHelth;
  
     public void select_upgrade(Upgrade upgrade)
     {
@@ -31,23 +32,23 @@ public class UpgradeManager : MonoBehaviour
         foreach (UpggradeValues v in selected)
         {
             Logging.Log($"your{v.GetUpgradeType()}is incresed by{v.GetValue()/100}%");
-            apply_Upgrade(v.GetUpgradeType());
+            apply_Upgrade(v);
         }
         
     }
 
-    private void apply_Upgrade(UpgradeType type)
+    private void apply_Upgrade(UpggradeValues values)
     {
-        switch (type)
+        switch (values.GetUpgradeType())
         {
             case UpgradeType.health:
-                Logging.Log($"upgrading health");
+                plyrHelth.upgrade_health(values.GetValue());
             break;
             case UpgradeType.movementspeed:
                 Logging.Log($"upgrading speed");
             break;
             case UpgradeType.damageReduction:
-                Logging.Log($"reducing damage");
+                plyrHelth.Upgrade_DamageReduction(values.GetValue());
             break;
         }
     }

@@ -10939,6 +10939,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 461041f0551589642b37328d2d17b1d1, type: 2}
   - {fileID: 11400000, guid: 8d6aa4033575243429308561cf89a334, type: 2}
   - {fileID: 11400000, guid: 46ae1aa3378c1ec4b9014312ee69b221, type: 2}
+  plyrHelth: {fileID: 1894711780}
 --- !u!1001 &547104708
 PrefabInstance:
   m_ObjectHideFlags: 0
