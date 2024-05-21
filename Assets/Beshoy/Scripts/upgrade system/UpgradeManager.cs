@@ -57,5 +57,5 @@ public class UpgradeManager : MonoBehaviour
         {
             selected_upgrades[i]= upgrades[Random.Range(0,upgrades.Length)];
         }
-    }
+    }   
 }

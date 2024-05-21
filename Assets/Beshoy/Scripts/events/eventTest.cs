@@ -1,30 +1,18 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class eventTest : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    [SerializeField] private Float_event DamageEvent;
-    [SerializeField] private Float_event HealEvent;
-    [SerializeField] private bool is_healing;
-
-    private void OnTriggerEnter(Collider other)
+    // Start is called before the first frame update
+    void Start()
     {
-        if (other.gameObject.tag== "Player")
-        {
-            activateEvent();
-        }
+        
     }
 
-    private void activateEvent()
+    // Update is called once per frame
+    void Update()
     {
-        if (!is_healing)
-        {
-            DamageEvent.Raise(10);
-        }else
-        {
-            HealEvent.Raise(10);
-        }
+        
     }
 }
