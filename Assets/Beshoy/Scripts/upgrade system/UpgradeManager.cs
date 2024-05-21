@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Events;
 /// <summary>
 /// in this script :
 /// handle how the upgrades are selected for each the player can upgrade 
@@ -21,9 +22,21 @@ public enum UpgradeType
 }
 public class UpgradeManager : MonoBehaviour
 {
-    [SerializeField] private Upgrade[] upgrades;
-    [SerializeField] private HealthSystem plyrHelth;
- 
+    [SerializeField] private Upgrade[] Upgrades_List;
+    [SerializeField] private HealthSystem PlyrHelth;
+    [SerializeField] private GameEvent UI_Activate_Event;
+
+    private void OnEnable()
+    {
+        UI_Activate_Event.GameAction += StartUI;
+    }
+
+    
+
+    private void OnDisable()
+    {
+        UI_Activate_Event.GameAction -= StartUI;
+    }
     public void select_upgrade(Upgrade upgrade)
     {
         UpggradeValues[] selected = (UpggradeValues[])upgrade.getupgrade();
@@ -40,13 +53,13 @@ public class UpgradeManager : MonoBehaviour
         switch (values.GetUpgradeType())
         {
             case UpgradeType.health:
-                plyrHelth.UpgradeHealth(values.GetValue());
+                PlyrHelth.UpgradeHealth(values.GetValue());
             break;
             case UpgradeType.movementspeed:
                 Logging.Log($"upgrading speed");
             break;
             case UpgradeType.damageReduction:
-                plyrHelth.Upgrade_DamageReduction(values.GetValue());
+                PlyrHelth.Upgrade_DamageReduction(values.GetValue());
             break;
         }
     }
@@ -55,7 +68,11 @@ public class UpgradeManager : MonoBehaviour
         Upgrade[] selected_upgrades= new Upgrade[3];
         for (int i = 0; i < selected_upgrades.Length; i++)
         {
-            selected_upgrades[i]= upgrades[Random.Range(0,upgrades.Length)];
+            selected_upgrades[i]= Upgrades_List[Random.Range(0,Upgrades_List.Length)];
         }
-    }   
+    }
+    private void StartUI()
+    {
+        Logging.Log("UI activated");
+    }
 }

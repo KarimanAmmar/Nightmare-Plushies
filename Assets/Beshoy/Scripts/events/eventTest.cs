@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameEvent upgradeTsetEvent;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Comma))
+        {
+            upgradeTsetEvent.GameAction.Invoke();
+        }
     }
 }
