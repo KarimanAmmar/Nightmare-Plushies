@@ -56,8 +56,19 @@ public class HealthSystem : MonoBehaviour
     }
     public void UpgradeHealth(float value)
     {
-        Max_health= Max_health+((value/100f) * Max_health);
-        Current_health =  Current_health+(amount_Ui * Max_health);
+        amount_Ui = Current_health / Max_health;
+        if(amount_Ui < 1)
+        {
+            Max_health += ((value / 100f) * Max_health);
+            Current_health +=(amount_Ui * Max_health)-Current_health;
+            Logging.Log("yes");
+        }
+        else
+        {
+            Max_health += ((value / 100f) * Max_health);
+            Current_health = Max_health;
+            Logging.Log("no");
+        }        
         Update_UI();
 
     }
