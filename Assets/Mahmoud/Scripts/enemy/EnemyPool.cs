@@ -4,12 +4,10 @@ using UnityEngine;
 public class EnemyPool : MonoBehaviour
 {
 	[SerializeField] private GameObject enemyPrefab;
-	[SerializeField] private EnemyType enemyType;
 	[SerializeField] private int poolSize = 5;
 	[SerializeField] private int maxPoolSize = 20;
 	[SerializeField] private int minPoolSize = 5;
 	private List<GameObject> pooledEnemies = new List<GameObject>();
-	private int activeEnemyCount = 0;
 	private Transform playerTransform;
 
 	private void Start()
