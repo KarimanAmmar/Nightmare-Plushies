@@ -29,7 +29,7 @@ public class EnemyDetection : MonoBehaviour
             if (closestEnemy == null || Vector3.Distance(player.position, newEnemy.position) < Vector3.Distance(player.position, closestEnemy.position))
             {
                 closestEnemy = newEnemy;
-              //  FindClosestEnemy();
+                //FindClosestEnemy();
 				transformClosestEnemy.Raise(closestEnemy);
 				EnemyDetected.GameAction?.Invoke();
             }
@@ -41,7 +41,6 @@ public class EnemyDetection : MonoBehaviour
         {
             Transform exitingEnemy = other.transform;
 			RemoveEnemy(exitingEnemy);
-            SortEnemiesByDistance();
         }
     }
     void FindClosestEnemy()
@@ -59,7 +58,7 @@ public class EnemyDetection : MonoBehaviour
 				
 			}
         }
-	}
+    }
     void RemoveEnemy(Transform enemyToRemove)
     {
         EnemiesInRange.Remove(enemyToRemove);

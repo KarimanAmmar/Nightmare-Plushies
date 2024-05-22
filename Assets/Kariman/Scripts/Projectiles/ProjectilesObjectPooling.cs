@@ -25,7 +25,7 @@ public class ProjectilesObjectPooling : Singleton<ProjectilesObjectPooling>
     }
     private void Start()
     {
-        waitTime = new WaitForSeconds(5.0f);
+        waitTime = new WaitForSeconds(10.0f);
     }
     public GameObject GetPooledObject()
     {

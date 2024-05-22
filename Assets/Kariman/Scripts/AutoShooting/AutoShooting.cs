@@ -22,9 +22,9 @@ public class AutoShooting : MonoBehaviour
 
     private void Start()
     {
-        waitTime = new WaitForSeconds(2.0f);
+        waitTime = new WaitForSeconds(4.0f);
         projectiles = new GameObject[10];
-        numOfProjectiles = 1;
+        numOfProjectiles = 2;
         maxNumOfProjectiles = 3;
     }
     private void OnEnable()
@@ -75,14 +75,17 @@ public class AutoShooting : MonoBehaviour
 
                 for (int i = 0; i < MinToShoot; i++)
                 {
-                    projectiles[i] = ProjectilesObjectPooling.Instance.GetPooledObject();
-                    projectiles[i].transform.position = firePoint.position; 
-                    ProjectilesObjectPooling.Instance.ActivatePooledObject(projectiles[i]);
-                    ProjectileBehavior projectileBehavior = projectiles[i].GetComponent<ProjectileBehavior>();
-
-                    if (projectileBehavior != null)
+                    if (enemyDetection.EnemiesInRange[i].gameObject.activeSelf)
                     {
-                        projectileBehavior.Initialize(enemyDetection.EnemiesInRange[i], 5);
+                        projectiles[i] = ProjectilesObjectPooling.Instance.GetPooledObject();
+                        projectiles[i].transform.position = firePoint.position;
+                        ProjectilesObjectPooling.Instance.ActivatePooledObject(projectiles[i]);
+                        ProjectileBehavior projectileBehavior = projectiles[i].GetComponent<ProjectileBehavior>();
+
+                        if (projectileBehavior != null)
+                        {
+                            projectileBehavior.Initialize(enemyDetection.EnemiesInRange[i], 5);
+                        }
                     }
                 }
                 yield return waitTime;
