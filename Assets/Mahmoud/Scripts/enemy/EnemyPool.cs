@@ -50,16 +50,17 @@ public class EnemyPool : MonoBehaviour
 		enemy.SetActive(false);
 	}
 
-	public void ActivateEnemy(Vector3 targetPosition)
+	public GameObject ActivateEnemy(Vector3 targetPosition)
 	{
 		GameObject inactiveEnemy = pooledEnemies.Find(enemy => !enemy.activeSelf);
 
 		if (inactiveEnemy != null)
 		{
 			inactiveEnemy.transform.position = targetPosition;
-			inactiveEnemy.transform.SetParent(transform); 
+			inactiveEnemy.transform.SetParent(transform);
 			inactiveEnemy.SetActive(true);
 			inactiveEnemy.GetComponent<EnemyController>().SetPlayerTransform(playerTransform);
+			return inactiveEnemy;
 		}
 		else
 		{
@@ -67,14 +68,16 @@ public class EnemyPool : MonoBehaviour
 			{
 				GameObject enemy = InstantiateEnemy();
 				enemy.transform.position = targetPosition;
-				enemy.transform.SetParent(transform); 
+				enemy.transform.SetParent(transform);
 				enemy.SetActive(true);
 				pooledEnemies.Add(enemy);
 				enemy.GetComponent<EnemyController>().SetPlayerTransform(playerTransform);
+				return enemy;
 			}
 			else
 			{
 				Debug.LogWarning("Max pool size reached, cannot activate more enemies.");
+				return null;
 			}
 		}
 	}
@@ -95,5 +98,10 @@ public class EnemyPool : MonoBehaviour
 	public void SetPlayerTransform(Transform player)
 	{
 		playerTransform = player;
+	}
+
+	public bool AreAllEnemiesInactive()
+	{
+		return pooledEnemies.TrueForAll(enemy => !enemy.activeSelf);
 	}
 }

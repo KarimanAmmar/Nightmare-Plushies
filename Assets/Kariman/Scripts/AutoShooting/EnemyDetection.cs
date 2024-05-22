@@ -83,7 +83,6 @@ public class EnemyDetection : MonoBehaviour
         {
             RemoveEnemy(closestEnemy);
             SortEnemiesByDistance();
-			
 		}
     }
 }
