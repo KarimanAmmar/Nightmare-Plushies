@@ -13,7 +13,9 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private Float_event HealEvent;
     [SerializeField] private Float_event health_UI;
     [SerializeField] private float Max_health;
+    private float damageReduction = 0;
     private float Current_health;
+    private float amount_Ui;
     void Start()
     {
         Current_health = Max_health;
@@ -32,19 +34,36 @@ public class HealthSystem : MonoBehaviour
    
     public void take_Damage(float amount)
     {
-        Current_health -= 10;
+        float damage = amount - (damageReduction * amount);
+        Current_health -= damage;
         Current_health = Mathf.Clamp(Current_health, 0, Max_health);
-        float amount_Ui = Current_health / Max_health;
-        health_UI.Raise(amount_Ui);
-        Debug.Log($"current healt: {Current_health}");
+        Update_UI();
+        Logging.Log($"dmage taken:{damage}");
+        Logging.Log($"current healt: {Current_health}");
     }
 
     public void Gain_health(float amount)
     {
         Current_health += 10;
         Current_health = Mathf.Clamp(Current_health,0, Max_health);
-        float amount_Ui = Current_health / Max_health;
-        health_UI.Raise(amount_Ui);
-        Debug.Log($"current healt: {Current_health}");
+        Update_UI();
+        Logging.Log($"current healt: {Current_health}");
     }
+    private void Update_UI()
+    {
+        amount_Ui = Current_health / Max_health;
+        health_UI.Raise(amount_Ui);
+    }
+    public void UpgradeHealth(float value)
+    {
+        Max_health+= (value/100f) * Max_health;
+        Current_health += amount_Ui * Max_health - Current_health;
+        Update_UI();
+
+    }
+    public void Upgrade_DamageReduction(float amount)
+    {
+        damageReduction += amount/100f;
+    }
+
 }

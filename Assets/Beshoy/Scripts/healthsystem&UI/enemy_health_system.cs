@@ -21,15 +21,20 @@ public class enemy_health_system : MonoBehaviour
     private void OnEnable()
     {
         enemy_damage_event.RegisterListener(take_damage);
+        Update_UI();
     }
     private void OnDisable()
     {
         enemy_damage_event.UnregisterListener(take_damage);
+        enemy_current_heath = enemy_max_heath;
     }
     private void Start()
     {
         enemy_current_heath = enemy_max_heath;
         UI_Handler = GetComponent<Enemy_UI_handler>();
+        Update_UI();
+        
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -44,13 +49,18 @@ public class enemy_health_system : MonoBehaviour
         {
             enemy_current_heath -= damage;
             enemy_current_heath = Mathf.Clamp(enemy_current_heath, 0, enemy_max_heath);
-            fillamountUI = enemy_current_heath / enemy_max_heath;
-            UI_Handler.Update_UI(fillamountUI);
+            Update_UI();
             if (enemy_current_heath == 0)
             {
                 this.gameObject.SetActive(false);
             }
-            damgeable = false;
+            
         }
+        damgeable = false;
+    }
+    private void Update_UI()
+    {
+        fillamountUI = enemy_current_heath / enemy_max_heath;
+        UI_Handler.Update_UI(fillamountUI);
     }
 }

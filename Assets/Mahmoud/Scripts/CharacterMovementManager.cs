@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CharacterMovementManager : MonoBehaviour
 {
+	
 	[SerializeField] VariableJoystick joystick;
 	[SerializeField] CharacterController controller;
 	[SerializeField] float defaultSpeed;
