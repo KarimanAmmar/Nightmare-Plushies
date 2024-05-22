@@ -1,26 +1,25 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy States/Wandering State")]
-public class WanderingState : ScriptableObject, IEnemyState
+[System.Serializable]
+public class WanderingState : IEnemyState
 {
-	[SerializeField] float patrolRadius = 5f;
-	[SerializeField] float moveSpeed = 3f;
-	[SerializeField] private Vector3 initialPosition;
-	[SerializeField] private Vector3 targetPosition;
-	[SerializeField] private float wanderingDistance;
-	[SerializeField] private Quaternion targetRotation;
+	[SerializeField] private float patrolRadius = 5f;
+	[SerializeField] private float moveSpeed = 3f;
+	private Vector3 initialPosition;
+	private Vector3 targetPosition;
+	private Rigidbody rb;
 
 	public void EnterState(EnemyController enemy)
 	{
 		initialPosition = enemy.transform.position;
 		ChooseRandomTargetPosition();
+		rb = enemy.GetComponent<Rigidbody>();
 	}
 
-	public void UpdateState(EnemyController enemy)
+	public void UpdateState(EnemyController enemy, Vector3 playerPosition)
 	{
-		MoveTowardsTarget(enemy);
-		RotateTowardsTarget(enemy);
-		CheckReachedTarget(enemy);
+		MoveTowardsTarget();
+		CheckReachedTarget();
 	}
 
 	public void ExitState(EnemyController enemy)
@@ -32,37 +31,27 @@ public class WanderingState : ScriptableObject, IEnemyState
 	{
 		Vector2 randomPoint = Random.insideUnitCircle.normalized * patrolRadius;
 		targetPosition = initialPosition + new Vector3(randomPoint.x, 0f, randomPoint.y);
-		CalculateTargetRotation();
 	}
 
-	private void CalculateTargetRotation()
+	private void MoveTowardsTarget()
 	{
-		Vector3 direction = (targetPosition - initialPosition).normalized;
-		targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+		Vector3 moveDirection = (targetPosition - rb.position).normalized;
+		rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.deltaTime);
 	}
 
-	private void MoveTowardsTarget(EnemyController enemy)
+	private void CheckReachedTarget()
 	{
-		enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, targetPosition, moveSpeed * Time.deltaTime);
-	}
-
-	private void RotateTowardsTarget(EnemyController enemy)
-	{
-		Vector3 direction = (targetPosition - enemy.transform.position).normalized;
-		Quaternion lookRotation = Quaternion.LookRotation(direction);
-		enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, lookRotation, Time.deltaTime * 5f);
-	}
-
-	private void CheckReachedTarget(EnemyController enemy)
-	{
-		if (Vector3.Distance(enemy.transform.position, targetPosition) < 0.1f)
+		if (Vector3.Distance(rb.position, targetPosition) < 0.1f)
 		{
 			ChooseRandomTargetPosition();
 		}
 	}
 
-	public void SetPlayerTransform(Transform player)
+	private void OnCollisionEnter(Collision collision)
 	{
-		throw new System.NotImplementedException();
+		if (!collision.gameObject.CompareTag("Ground"))
+		{
+			ChooseRandomTargetPosition();
+		}
 	}
 }

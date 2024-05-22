@@ -14,8 +14,11 @@ public class EnemyDetection : MonoBehaviour
     //Auto Shooting Events
     [SerializeField] GameEvent EnemyDetected;
     [SerializeField] GameEvent EnemiesCleared;
+	//send transfrom of the closest enemy as event
+	[SerializeField] private TransformEvent transformClosestEnemy;
 
-    void OnTriggerEnter(Collider other)
+
+	void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
@@ -26,7 +29,9 @@ public class EnemyDetection : MonoBehaviour
             if (closestEnemy == null || Vector3.Distance(player.position, newEnemy.position) < Vector3.Distance(player.position, closestEnemy.position))
             {
                 closestEnemy = newEnemy;
-                EnemyDetected.GameAction?.Invoke();
+              //  FindClosestEnemy();
+				transformClosestEnemy.Raise(closestEnemy);
+				EnemyDetected.GameAction?.Invoke();
             }
         }
     }
@@ -35,7 +40,7 @@ public class EnemyDetection : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Transform exitingEnemy = other.transform;
-            RemoveEnemy(exitingEnemy);
+			RemoveEnemy(exitingEnemy);
             SortEnemiesByDistance();
         }
     }
@@ -51,9 +56,10 @@ public class EnemyDetection : MonoBehaviour
             {
                 closestDistance = distanceToPlayer;
                 closestEnemy = enemy;
-            }
+				
+			}
         }
-    }
+	}
     void RemoveEnemy(Transform enemyToRemove)
     {
         EnemiesInRange.Remove(enemyToRemove);
@@ -64,7 +70,8 @@ public class EnemyDetection : MonoBehaviour
         if (enemiesInRange.Count == 0)
         {
             EnemiesCleared.GameAction?.Invoke();
-        }
+			transformClosestEnemy.Raise(null);
+		}
     }
     void SortEnemiesByDistance()
     {
@@ -76,6 +83,6 @@ public class EnemyDetection : MonoBehaviour
         {
             RemoveEnemy(closestEnemy);
             SortEnemiesByDistance();
-        }
+		}
     }
 }

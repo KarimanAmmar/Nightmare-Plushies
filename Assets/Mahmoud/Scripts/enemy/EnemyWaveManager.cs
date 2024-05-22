@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyWaveManager : MonoBehaviour
@@ -7,75 +8,17 @@ public class EnemyWaveManager : MonoBehaviour
 	[SerializeField] private List<EnemyPool> enemyPools;
 	[SerializeField] private List<WaveData> wavesData;
 	[SerializeField] private int currentWaveIndex = 0;
-	//[SerializeField] private Transform playerTransform;
+	[SerializeField] private Transform playerTransform;
+
 	private int totalEnemiesInWave = 0;
+	private int activeEnemies = 0;
 	private bool spawningInProgress = false;
+	private static List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
 	private void Start()
 	{
-		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-		StartCoroutine(SpawnWave(currentWaveIndex));
-	}
-
-	private IEnumerator SpawnWave(int currentWaveIndex)
-	{
-		spawningInProgress = true;
-
-		foreach (NumberOfEnemies enemyData in wavesData[currentWaveIndex].TypeOfEnemies)
-		{
-			int randomIndex = Random.Range(0, wavesData[currentWaveIndex].SpawnPoints.Count);
-			Vector3 spawnPosition = wavesData[currentWaveIndex].SpawnPoints[randomIndex].position;
-			yield return StartCoroutine(SpawnEnemies(enemyData, spawnPosition));
-		}
-
-		spawningInProgress = false;
-	}
-
-	private IEnumerator SpawnEnemies(NumberOfEnemies enemyData, Vector3 spawnPosition)
-	{
-		if ((int)enemyData.EnemyType < 0 || (int)enemyData.EnemyType >= enemyPools.Count)
-		{
-			yield break;
-		}
-
-		for (int i = 0; i < enemyData.NumberOfEnemy; i++)
-		{
-			enemyPools[(int)enemyData.EnemyType].ActivateEnemy(spawnPosition);
-			yield return new WaitForSeconds(enemyData.DelayBetweenSpawns);
-		}
-	}
-
-	public void EnemyKill()
-	{
-		totalEnemiesInWave--;
-
-		if (totalEnemiesInWave <= 0 && !spawningInProgress)
-		{
-			WaveData waveData = wavesData[currentWaveIndex];
-			waveData.IsWaveCompleted = true;
-			wavesData[currentWaveIndex] = waveData;
-			CheckWaveCompletion();
-		}
-	}
-
-	private void CheckWaveCompletion()
-	{
-		if (wavesData[currentWaveIndex].IsWaveCompleted)
-		{
-			currentWaveIndex++;
-
-			if (currentWaveIndex < wavesData.Count)
-			{
-				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-				StartCoroutine(SpawnWave(currentWaveIndex));
-			}
-			else
-			{
-				currentWaveIndex = 0; // Loop back to the first wave
-				totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
-				StartCoroutine(SpawnWave(currentWaveIndex));
-			}
-		}
+		RegisterSpawnPoints();
+		StartWave();
 	}
 
 	private void Update()
@@ -84,6 +27,126 @@ public class EnemyWaveManager : MonoBehaviour
 		{
 			int randomEnemyPoolIndex = Random.Range(0, enemyPools.Count);
 			enemyPools[randomEnemyPoolIndex].DisableRandomEnemy();
+		}
+	}
+
+	private void RegisterSpawnPoints()
+	{
+		if (spawnPoints.Count == 0)
+		{
+			SpawnPoint[] allSpawnPoints = FindObjectsOfType<SpawnPoint>();
+			spawnPoints.AddRange(allSpawnPoints);
+		}
+	}
+
+	public static void RegisterSpawnPoint(SpawnPoint point)
+	{
+		if (!spawnPoints.Contains(point))
+		{
+			spawnPoints.Add(point);
+		}
+	}
+
+	public static void UnregisterSpawnPoint(SpawnPoint point)
+	{
+		if (spawnPoints.Contains(point))
+		{
+			spawnPoints.Remove(point);
+		}
+	}
+
+	public void OnEnemyDefeated()
+	{
+		activeEnemies--;
+		if (activeEnemies <= 0 && !spawningInProgress)
+		{
+			currentWaveIndex++;
+			StartWave();
+		}
+	}
+
+	private void StartWave()
+	{
+		if (currentWaveIndex >= wavesData.Count)
+		{
+			return;
+		}
+
+		foreach (SpawnPoint spawnPoint in spawnPoints)
+		{
+			spawnPoint.ResetAvailability();
+		}
+
+		SetPlayerTransformForEnemies(playerTransform);
+		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
+		StartCoroutine(SpawnWave(currentWaveIndex));
+	}
+
+	private IEnumerator SpawnWave(int waveIndex)
+	{
+		spawningInProgress = true;
+
+		WaveData waveData = wavesData[waveIndex];
+		yield return new WaitForSeconds(waveData.DelayBeforeWaveStarts);
+
+		List<NumberOfEnemies> shuffledEnemies = waveData.TypeOfEnemies.OrderBy(x => Random.value).ToList();
+		List<SpawnPoint> availablePoints = spawnPoints.FindAll(point => point.IsAvailable);
+
+		foreach (NumberOfEnemies enemyData in shuffledEnemies)
+		{
+			for (int i = 0; i < enemyData.numberOfEnemy; i++)
+			{
+				Transform spawnPosition = GetRandomAvailableSpawnPoint(availablePoints);
+				if (spawnPosition != null)
+				{
+					EnemyPool enemyPool = enemyPools[(int)enemyData.enemyType];
+					if (enemyPool != null)
+					{
+						GameObject enemy = enemyPool.ActivateEnemy(spawnPosition.position);
+						if (enemy != null)
+						{
+							EnemyController enemyController = enemy.GetComponent<EnemyController>();
+							if (enemyController != null)
+							{
+								enemyController.OnDefeated += OnEnemyDefeated;
+								activeEnemies++;
+								MarkSpawnPointUnavailable(spawnPosition);
+							}
+						}
+					}
+				}
+
+				yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
+			}
+		}
+
+		spawningInProgress = false;
+	}
+
+	private Transform GetRandomAvailableSpawnPoint(List<SpawnPoint> availablePoints)
+	{
+		if (availablePoints.Count > 0)
+		{
+			int randomIndex = Random.Range(0, availablePoints.Count);
+			return availablePoints[randomIndex].transform;
+		}
+		return null;
+	}
+
+	private void SetPlayerTransformForEnemies(Transform player)
+	{
+		foreach (EnemyPool pool in enemyPools)
+		{
+			pool.SetPlayerTransform(player);
+		}
+	}
+
+	private void MarkSpawnPointUnavailable(Transform point)
+	{
+		SpawnPoint spawnPoint = point.GetComponent<SpawnPoint>();
+		if (spawnPoint != null)
+		{
+			spawnPoint.SetAvailability(false);
 		}
 	}
 }

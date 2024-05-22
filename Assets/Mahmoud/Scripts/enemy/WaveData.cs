@@ -1,78 +1,34 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class WaveData
+[CreateAssetMenu(fileName = "WaveData", menuName = "Enemy/WaveData", order = 1)]
+public class WaveData : ScriptableObject
 {
-	[SerializeField]
-	private int waveID;
-	public int WaveID
-	{
-		get { return waveID; }
-		set { waveID = value; }
-	}
-	private string waveName;
-	public string WaveName
-	{
-		get { return waveName; }
-		set { waveName = value; }
-	}
-	private List<NumberOfEnemies> typeOfEnemies;
-	public List<NumberOfEnemies> TypeOfEnemies
-	{
-		get { return typeOfEnemies; }
-		set { typeOfEnemies = value; }
-	}
+	[SerializeField] private int waveID;
+	[SerializeField] private string waveName;
+	[SerializeField] private List<NumberOfEnemies> typeOfEnemies;
+	[SerializeField] private float delayBeforeWaveStarts;
+	[HideInInspector] public bool isWaveCompleted;
 
-	[SerializeField]
-	private List<Transform> spawnPoints;
-	public List<Transform> SpawnPoints
-	{
-		get { return spawnPoints; }
-		set { spawnPoints = value; }
-	}
-
-	[SerializeField]
-	private float delayBeforeWaveStarts;
-	public float DelayBeforeWaveStarts
-	{
-		get { return delayBeforeWaveStarts; }
-		set { delayBeforeWaveStarts = value; }
-	}
-
-	[SerializeField]
-	private bool isWaveCompleted;
-	public bool IsWaveCompleted
-	{
-		get { return isWaveCompleted; }
-		set { isWaveCompleted = value; }
-	}
+	public List<NumberOfEnemies> TypeOfEnemies => typeOfEnemies;
+	public float DelayBeforeWaveStarts => delayBeforeWaveStarts;
 
 	public int CalculateTotalEnemies()
 	{
 		int totalEnemies = 0;
-		foreach (NumberOfEnemies enemyData in TypeOfEnemies)
+		foreach (NumberOfEnemies enemyData in typeOfEnemies)
 		{
-			totalEnemies += enemyData.NumberOfEnemy;
+			totalEnemies += enemyData.numberOfEnemy;
 		}
 		return totalEnemies;
 	}
 }
 
+
 [System.Serializable]
 public struct NumberOfEnemies
 {
-	[SerializeField] 
-	private EnemyType enemyType;
-	[SerializeField] 
-	private int numberOfEnemy;
-	[SerializeField] 
-	private float delayBeforestart;
-	[SerializeField] 
-	private int delayBetweenSpawns;
-
-	public int NumberOfEnemy { get => numberOfEnemy; set => numberOfEnemy = value; }
-	public EnemyType EnemyType { get => enemyType; set => enemyType = value; }
-	public int DelayBetweenSpawns { get => delayBetweenSpawns; set => delayBetweenSpawns = value; }
+	public EnemyType enemyType;
+	public int numberOfEnemy;
+	public float delayBetweenSpawns;
 }
