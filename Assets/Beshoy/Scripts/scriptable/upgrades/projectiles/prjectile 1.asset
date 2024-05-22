@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b976de6a5ec9e60448cc33f2d0e1050d, type: 3}
   m_Name: prjectile 1
   m_EditorClassIdentifier: 
-  Upggrades:
-  - type: 3
-    value: 0
+  Upggrade:
+    type: 3
+    value: 1

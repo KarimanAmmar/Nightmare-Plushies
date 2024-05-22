@@ -60,6 +60,11 @@ public class UI_Manager : MonoBehaviour
     }
     private void DisplayOptions(Upgrade[] upgrades)
     {
+        for (int i = 0; i < upgrades.Length; i++)
+        {
+            options[i].setType(upgrades[i].GetType());
+            options[i].setValue(upgrades[i].GetValue());
+        }
 
     }
 }

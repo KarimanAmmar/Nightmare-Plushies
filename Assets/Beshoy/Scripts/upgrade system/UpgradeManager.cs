@@ -66,28 +66,27 @@ public class UpgradeManager : MonoBehaviour
     }
     public void select_upgrade(Upgrade upgrade)
     {
-        UpggradeValues[] selected = (UpggradeValues[])upgrade.getupgrade();
-        foreach (UpggradeValues v in selected)
-        {
-            Logging.Log($"your{v.GetUpgradeType()}is incresed by{v.GetValue()/100}%");
-            apply_Upgrade(v);
-        }
+        
+        
+            Logging.Log($"your{upgrade.GetType()}is incresed by{upgrade.GetValue()/100}%");
+            apply_Upgrade(upgrade);
+        
         UI_Deactivate_Event.GameAction.Invoke();
         
     }
 
-    private void apply_Upgrade(UpggradeValues values)
+    private void apply_Upgrade(Upgrade upgrade)
     {
-        switch (values.GetUpgradeType())
+        switch (upgrade.GetType())
         {
             case UpgradeType.health:
-                PlyrHelth.UpgradeHealth(values.GetValue());
+                PlyrHelth.UpgradeHealth(upgrade.GetValue());
             break;
             case UpgradeType.movementspeed:
                 Logging.Log($"upgrading speed");
             break;
             case UpgradeType.damageReduction:
-                PlyrHelth.Upgrade_DamageReduction(values.GetValue());
+                PlyrHelth.Upgrade_DamageReduction(upgrade.GetValue());
             break;
             case UpgradeType.projectiles:
                 projectile_event.GameAction.Invoke();

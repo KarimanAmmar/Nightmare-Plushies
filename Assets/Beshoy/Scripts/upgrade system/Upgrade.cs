@@ -23,10 +23,15 @@ public struct UpggradeValues
 [CreateAssetMenu(menuName = "upgrades/upgrade", order = 0)]
 public class Upgrade : ScriptableObject
 {
-   [SerializeField] private UpggradeValues[] Upggrades;
-   public Array getupgrade()
+   [SerializeField] private UpggradeValues Upggrade;
+
+   public UpgradeType GetType()
+   {
+        return Upggrade.GetUpgradeType();
+   }
+    public float GetValue()
     {
-        return Upggrades;
+        return Upggrade.GetValue();
     }
      
 }
