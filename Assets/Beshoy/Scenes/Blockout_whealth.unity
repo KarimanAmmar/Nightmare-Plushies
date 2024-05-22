@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 13964910}
   - component: {fileID: 13964909}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,6 +580,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8590984036861217831, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: damgeable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -597,7 +602,7 @@ GameObject:
   - component: {fileID: 69868244}
   - component: {fileID: 69868243}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.699936, y: 22.366077}
+  m_AnchoredPosition: {x: 0.000038146973, y: 22.221}
   m_SizeDelta: {x: -6.311096, y: -80.35498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69868243
@@ -1416,7 +1421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.046749115, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7551,6 +7556,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8590984036861217831, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: damgeable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11142,6 +11152,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ae48ad007c233a448b444807422a428, type: 2}
   PlyrHelth: {fileID: 1894711780}
   UI_Activate_Event: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
+  UI_Deactivate_Event: {fileID: 0}
+  projectile_event: {fileID: 11400000, guid: cbdb7fc1ffb62504fb210fa680139a25, type: 2}
 --- !u!1001 &547104708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12601,7 +12613,7 @@ MonoBehaviour:
         m_MethodName: select_upgrade
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 72a160102fae53d4ea277af299a17dfe,
+          m_ObjectArgument: {fileID: 11400000, guid: 4bb9bf7d6d9fbc34fa4db48cab6c6511,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: Upgrade, Assembly-CSharp
           m_IntArgument: 0
@@ -13213,7 +13225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.89236647}
   m_AnchorMax: {x: 0.24158368, y: 1}
-  m_AnchoredPosition: {x: 3.2999268, y: -1.1000061}
+  m_AnchoredPosition: {x: 3.2999268, y: -1.0999756}
   m_SizeDelta: {x: -14, y: -12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &640395782
@@ -13449,7 +13461,7 @@ GameObject:
   - component: {fileID: 665822019}
   - component: {fileID: 665822018}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15497,19 +15509,7 @@ MonoBehaviour:
   enemyPools:
   - {fileID: 1724837718}
   wavesData:
-  - waveID: 0
-    waveName: wave1
-    TypeOfEnemies:
-    - enemyType: 0
-      numberOfEnemy: 5
-      delayBeforestart: 3
-      delayBetweenSpawns: 3
-    spawnPoints:
-    - {fileID: 803537274}
-    - {fileID: 1597738659}
-    - {fileID: 723712279}
-    delayBeforeWaveStarts: 0
-    isWaveCompleted: 0
+  - {fileID: 0}
   currentWaveIndex: 0
   playerTransform: {fileID: 0}
 --- !u!4 &705125719
@@ -15682,7 +15682,7 @@ GameObject:
   - component: {fileID: 726959249}
   - component: {fileID: 726959248}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16490,7 +16490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.17969799, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -24427,6 +24427,8 @@ MonoBehaviour:
   IfEnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   IfEnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
   UpgradeProjectilesNum: {fileID: 0}
+  numOfProjectiles: 0
+  maxNumOfProjectiles: 0
 --- !u!114 &1211989643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27268,8 +27270,10 @@ MonoBehaviour:
   projectiles: []
   IfEnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   IfEnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
-  UpgradeProjectilesNum: {fileID: 11400000, guid: 0d37e6d0c857f734fa7b7ee81d96f46c,
+  UpgradeProjectilesNum: {fileID: 11400000, guid: cbdb7fc1ffb62504fb210fa680139a25,
     type: 2}
+  numOfProjectiles: 0
+  maxNumOfProjectiles: 5
 --- !u!114 &1462748672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29500,7 +29504,7 @@ GameObject:
   - component: {fileID: 1659608774}
   - component: {fileID: 1659608773}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29660,7 +29664,7 @@ GameObject:
   - component: {fileID: 1663956153}
   - component: {fileID: 1663956152}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31449,7 +31453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0.000061035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1744038730
@@ -32313,7 +32317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0.000061035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788282944
@@ -32329,7 +32333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34239,6 +34243,15 @@ MonoBehaviour:
   hp_bar: {fileID: 1646106453}
   int_Event: {fileID: 11400000, guid: 0bcb377ba882d2e4e82bba308eba9e26, type: 2}
   HP_UI_event: {fileID: 11400000, guid: edd65f620a3937840b4aeaf766b65597, type: 2}
+  options:
+  - UpgradeTypeName: {fileID: 1663956152}
+    UpgradeValue: {fileID: 1659608773}
+  - UpgradeTypeName: {fileID: 13964909}
+    UpgradeValue: {fileID: 726959248}
+  - UpgradeTypeName: {fileID: 665822018}
+    UpgradeValue: {fileID: 69868243}
+  MovementPanel: {fileID: 274679271}
+  UpgradePanel: {fileID: 1788282942}
 --- !u!1 &1946178581
 GameObject:
   m_ObjectHideFlags: 0
@@ -38429,6 +38442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590984036861217831, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: damgeable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8370297754353336500, guid: 6af37cc26fb842f4aa93c4e8925ed5ab, type: 3}

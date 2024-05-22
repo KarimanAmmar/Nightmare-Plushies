@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    [SerializeField] GameEvent upgradeTsetEvent;
+    [SerializeField] GameEvent upgradeTestEvent;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Comma))
         {
-            upgradeTsetEvent.GameAction.Invoke();
+            upgradeTestEvent.GameAction.Invoke();
         }
     }
 }

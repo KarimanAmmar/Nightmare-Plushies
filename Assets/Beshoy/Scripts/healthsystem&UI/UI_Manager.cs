@@ -9,6 +9,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Image hp_bar;
     [SerializeField] private int_Event int_Event;
     [SerializeField] private Float_event HP_UI_event;
+    [SerializeField] private Upgrade_Option[] options;
+    [SerializeField] private GameObject MovementPanel;
+    [SerializeField] private GameObject UpgradePanel;
     private void OnEnable()
     {
         int_Event.RegisterListener(Update_Count);

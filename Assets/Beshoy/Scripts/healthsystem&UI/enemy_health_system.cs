@@ -32,6 +32,7 @@ public class enemy_health_system : MonoBehaviour
     {
         enemy_current_heath = enemy_max_heath;
         UI_Handler = GetComponent<Enemy_UI_handler>();
+        Update_UI();
         
 
     }
@@ -53,8 +54,9 @@ public class enemy_health_system : MonoBehaviour
             {
                 this.gameObject.SetActive(false);
             }
-            damgeable=false;
+            
         }
+        damgeable = false;
     }
     private void Update_UI()
     {
