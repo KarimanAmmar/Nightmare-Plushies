@@ -23,6 +23,7 @@ public class UI_Manager : MonoBehaviour
         HP_UI_event.RegisterListener(Update_Hp);
         List_Event.RegisterListener(DisplayOptions);
         UI_Activate_Event.GameAction += ActivateUpgradesPanel;
+        UI_Deactivate_Event.GameAction += DeactivateUpgradesPanel;
     }
     private void OnDisable()
     {
@@ -30,6 +31,7 @@ public class UI_Manager : MonoBehaviour
         HP_UI_event.UnregisterListener(Update_Hp);
         List_Event.UnregisterListener(DisplayOptions);
         UI_Activate_Event.GameAction -=ActivateUpgradesPanel;
+        UI_Deactivate_Event.GameAction -= DeactivateUpgradesPanel;
     }
     private void Start()
     {

@@ -9,7 +9,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Comma))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             upgradeTestEvent.GameAction.Invoke();
         }

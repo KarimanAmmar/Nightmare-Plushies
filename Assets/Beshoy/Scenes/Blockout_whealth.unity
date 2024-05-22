@@ -5181,7 +5181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a891ac074ae70b4f8a35fa5ace50de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeTestEvent: {fileID: 0}
+  upgradeTestEvent: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
 --- !u!1 &287959642
 GameObject:
   m_ObjectHideFlags: 0
@@ -17398,7 +17398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 507779933}
   controller: {fileID: 1894711774}
-  movementSpeed: 5
+  defaultSpeed: 0
   inputCanvas: {fileID: 2008884253}
   transformClosestEnemy: {fileID: 11400000, guid: c230a80a0d5a4a04fafd9b2687e3d622,
     type: 2}
@@ -31399,7 +31399,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8279707207717971157, guid: c6e9579f135c5d94683b0474d8e748b0,
     type: 3}
-  enemyType: 0
   poolSize: 5
   maxPoolSize: 20
   minPoolSize: 5
@@ -32295,7 +32294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1788282943
 RectTransform:
   m_ObjectHideFlags: 0
