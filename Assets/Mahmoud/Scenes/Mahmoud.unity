@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.073993936, b: 0.055076145, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3672,7 +3672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.2802734, y: 25.94809}
+  m_AnchoredPosition: {x: 5.2802734, y: 25.94812}
   m_SizeDelta: {x: -307.15686, y: -72.79947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &327633807
@@ -21471,7 +21471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.2802734, y: 25.943695}
+  m_AnchoredPosition: {x: 5.2802734, y: 25.943726}
   m_SizeDelta: {x: -310.15686, y: -73.79947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1646106453
@@ -29282,7 +29282,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 5000
-  field of view: 27.7
+  field of view: 32.2
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -29308,8 +29308,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074437226}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14771092, y: -0.37776068, z: 0.061183862, w: 0.911995}
-  m_LocalPosition: {x: 101.770004, y: -9.260113, z: 88.3}
+  m_LocalRotation: {x: 0.20389782, y: -0.37324736, z: 0.08445724, w: 0.9010989}
+  m_LocalPosition: {x: 99.12, y: -6.760113, z: 91.95}
   m_LocalScale: {x: 2.5567024, y: 2.5567007, z: 2.556702}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -30731,16 +30731,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8451261620778060414, guid: ac7ed9caa34271547a3cb30fefe2c2b1,
-        type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 1894711773}
-    - target: {fileID: 8451261620778060414, guid: ac7ed9caa34271547a3cb30fefe2c2b1,
-        type: 3}
-      propertyPath: m_LookAt
-      value: 
-      objectReference: {fileID: 1894711773}
     - target: {fileID: 9095215329435637056, guid: ac7ed9caa34271547a3cb30fefe2c2b1,
         type: 3}
       propertyPath: m_Name

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyWaveManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class EnemyWaveManager : MonoBehaviour
 	[SerializeField] private List<WaveData> wavesData;
 	[SerializeField] private int currentWaveIndex = 0;
 	[SerializeField] private Transform playerTransform;
+	[SerializeField] private Text waveText;
+	[SerializeField] private float waveTextDuration = 3f;
+	[SerializeField] private float waveCompleteDuration = 6f;
 
 	private int totalEnemiesInWave = 0;
 	private int activeEnemies = 0;
@@ -61,7 +65,14 @@ public class EnemyWaveManager : MonoBehaviour
 		if (activeEnemies <= 0 && !spawningInProgress)
 		{
 			currentWaveIndex++;
-			StartWave();
+			if (currentWaveIndex >= wavesData.Count)
+			{
+				StartCoroutine(ShowWaveCompleteText());
+			}
+			else
+			{
+				StartWave();
+			}
 		}
 	}
 
@@ -80,6 +91,8 @@ public class EnemyWaveManager : MonoBehaviour
 		SetPlayerTransformForEnemies(playerTransform);
 		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
 		StartCoroutine(SpawnWave(currentWaveIndex));
+
+		StartCoroutine(ShowWaveText("Wave " + (currentWaveIndex + 1).ToString(), waveTextDuration));
 	}
 
 	private IEnumerator SpawnWave(int waveIndex)
@@ -148,5 +161,18 @@ public class EnemyWaveManager : MonoBehaviour
 		{
 			spawnPoint.SetAvailability(false);
 		}
+	}
+
+	private IEnumerator ShowWaveText(string text, float duration)
+	{
+		waveText.text = text;
+		waveText.gameObject.SetActive(true);
+		yield return new WaitForSeconds(duration);
+		waveText.gameObject.SetActive(false);
+	}
+
+	private IEnumerator ShowWaveCompleteText()
+	{
+		yield return ShowWaveText("Wave Complete", waveCompleteDuration);
 	}
 }
