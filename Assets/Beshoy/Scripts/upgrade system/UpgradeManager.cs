@@ -51,7 +51,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private GameEvent UI_Activate_Event;
     [SerializeField] private GameEvent UI_Deactivate_Event;
     [SerializeField] private GameEvent projectile_event;
-   // [SerializeField] private 
+    [SerializeField] private Upgrade_list_event List_Event;
 
     private void OnEnable()
     {
@@ -105,6 +105,6 @@ public class UpgradeManager : MonoBehaviour
     }
     private void StartUI()
     {
-        
+        List_Event.Raise(draw_Upgrades());
     }
 }

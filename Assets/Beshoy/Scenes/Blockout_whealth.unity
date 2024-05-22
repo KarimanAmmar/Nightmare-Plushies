@@ -5181,7 +5181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a891ac074ae70b4f8a35fa5ace50de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeTsetEvent: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
+  upgradeTestEvent: {fileID: 0}
 --- !u!1 &287959642
 GameObject:
   m_ObjectHideFlags: 0
@@ -11152,8 +11152,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ae48ad007c233a448b444807422a428, type: 2}
   PlyrHelth: {fileID: 1894711780}
   UI_Activate_Event: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
-  UI_Deactivate_Event: {fileID: 0}
+  UI_Deactivate_Event: {fileID: 11400000, guid: e2e907b5751f38040a8edc972448ebb3,
+    type: 2}
   projectile_event: {fileID: 11400000, guid: cbdb7fc1ffb62504fb210fa680139a25, type: 2}
+  List_Event: {fileID: 11400000, guid: 2af419f66fe7ad64cbe6302b5950cbd9, type: 2}
 --- !u!1001 &547104708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24427,8 +24429,6 @@ MonoBehaviour:
   IfEnemyDetected: {fileID: 11400000, guid: 671c75dff333e1c488e1a3dc255768a3, type: 2}
   IfEnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
   UpgradeProjectilesNum: {fileID: 0}
-  numOfProjectiles: 0
-  maxNumOfProjectiles: 0
 --- !u!114 &1211989643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27272,8 +27272,6 @@ MonoBehaviour:
   IfEnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
   UpgradeProjectilesNum: {fileID: 11400000, guid: cbdb7fc1ffb62504fb210fa680139a25,
     type: 2}
-  numOfProjectiles: 0
-  maxNumOfProjectiles: 5
 --- !u!114 &1462748672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34252,6 +34250,10 @@ MonoBehaviour:
     UpgradeValue: {fileID: 69868243}
   MovementPanel: {fileID: 274679271}
   UpgradePanel: {fileID: 1788282942}
+  List_Event: {fileID: 11400000, guid: 2af419f66fe7ad64cbe6302b5950cbd9, type: 2}
+  UI_Activate_Event: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
+  UI_Deactivate_Event: {fileID: 11400000, guid: e2e907b5751f38040a8edc972448ebb3,
+    type: 2}
 --- !u!1 &1946178581
 GameObject:
   m_ObjectHideFlags: 0

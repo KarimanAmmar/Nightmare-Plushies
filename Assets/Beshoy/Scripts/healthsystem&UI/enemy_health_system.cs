@@ -21,12 +21,13 @@ public class enemy_health_system : MonoBehaviour
     private void OnEnable()
     {
         enemy_damage_event.RegisterListener(take_damage);
-        Update_UI();
+        
     }
     private void OnDisable()
     {
         enemy_damage_event.UnregisterListener(take_damage);
         enemy_current_heath = enemy_max_heath;
+        Update_UI();
     }
     private void Start()
     {
