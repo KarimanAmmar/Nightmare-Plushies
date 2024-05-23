@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class eventTest : MonoBehaviour
+public class healthsystemtest : MonoBehaviour
 {
     [SerializeField] private Float_event DamageEvent;
     [SerializeField] private Float_event HealEvent;

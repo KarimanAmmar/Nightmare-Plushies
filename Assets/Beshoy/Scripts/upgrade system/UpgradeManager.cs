@@ -1,5 +1,7 @@
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -19,7 +21,7 @@ using UnityEngine.UI;
 public enum UpgradeType
 {
     health,
-    movementspeed,
+    speed,
     damageReduction,
     projectiles
 }
@@ -28,6 +30,7 @@ public struct Upgrade_Option
 {
    [SerializeField] private Text UpgradeTypeName;
    [SerializeField] private Text UpgradeValue;
+   [SerializeField] private Button UpgradeButton;
    // private Image UpgradeImage;
     public void setType(UpgradeType type)
     {
@@ -37,6 +40,10 @@ public struct Upgrade_Option
     {
         UpgradeValue.text = $"{value}";
 
+    }
+    public Button GetButton()
+    {
+       return UpgradeButton;
     }
     //public void setUpgradeImage(Sprite Icon) 
     //{ 
@@ -48,10 +55,11 @@ public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] private Upgrade[] Upgrades_List;
     [SerializeField] private HealthSystem PlyrHelth;
+    [SerializeField] private CharacterMovementManager movementManager;
     [SerializeField] private GameEvent UI_Activate_Event;
     [SerializeField] private GameEvent UI_Deactivate_Event;
     [SerializeField] private GameEvent projectile_event;
-   // [SerializeField] private 
+    [SerializeField] private Upgrade_list_event List_Event;
 
     private void OnEnable()
     {
@@ -65,46 +73,64 @@ public class UpgradeManager : MonoBehaviour
         UI_Activate_Event.GameAction -= StartUI;
     }
     public void select_upgrade(Upgrade upgrade)
-    {
-        UpggradeValues[] selected = (UpggradeValues[])upgrade.getupgrade();
-        foreach (UpggradeValues v in selected)
-        {
-            Logging.Log($"your{v.GetUpgradeType()}is incresed by{v.GetValue()/100}%");
-            apply_Upgrade(v);
-        }
+    {      
+        Logging.Log($"your{upgrade.GetType()}is incresed by{upgrade.GetValue()}%");
+        apply_Upgrade(upgrade);
         UI_Deactivate_Event.GameAction.Invoke();
-        
     }
 
-    private void apply_Upgrade(UpggradeValues values)
+    private void apply_Upgrade(Upgrade upgrade)
     {
-        switch (values.GetUpgradeType())
+        switch (upgrade.GetType())
         {
             case UpgradeType.health:
-                PlyrHelth.UpgradeHealth(values.GetValue());
+                PlyrHelth.UpgradeHealth(upgrade.GetValue());
             break;
-            case UpgradeType.movementspeed:
-                Logging.Log($"upgrading speed");
+            case UpgradeType.speed:
+                movementManager.UpgradeSpeed(upgrade.GetValue());
             break;
             case UpgradeType.damageReduction:
-                PlyrHelth.Upgrade_DamageReduction(values.GetValue());
+                PlyrHelth.Upgrade_DamageReduction(upgrade.GetValue());
             break;
             case UpgradeType.projectiles:
                 projectile_event.GameAction.Invoke();
             break;
         }
     }
+    private Dictionary<UpgradeType, bool> selectedUpgrades = new Dictionary<UpgradeType, bool>();
     private Upgrade[] draw_Upgrades()
     {
-        Upgrade[] selected_upgrades= new Upgrade[3];
+        
+        Upgrade[] selected_upgrades = new Upgrade[3];
+       
+
+        selectedUpgrades.Clear(); // Clear selections for each new draw
+
         for (int i = 0; i < selected_upgrades.Length; i++)
         {
-            selected_upgrades[i]= Upgrades_List[UnityEngine.Random.Range(0,Upgrades_List.Length)];
+            UpgradeType randomType;
+            do
+            {
+                randomType = (UpgradeType)UnityEngine.Random.Range(0, Enum.GetValues(typeof(UpgradeType)).Length);
+            } while (selectedUpgrades.ContainsKey(randomType)); // Keep looping if type already selected
+
+            selectedUpgrades.Add(randomType, true); // Mark type as selected
+
+            selected_upgrades[i] = Upgrades_List.Where(upgrade => upgrade.GetType() == randomType).FirstOrDefault();
+            // Select first upgrade of the chosen randomType from Upgrades_List
         }
+
         return selected_upgrades;
+    
+        //Upgrade[] selected_upgrades= new Upgrade[3];
+        //for (int i = 0; i < selected_upgrades.Length; i++)
+        //{
+        //    selected_upgrades[i]= Upgrades_List[UnityEngine.Random.Range(0,Upgrades_List.Length)];
+        //}
+        //return selected_upgrades;
     }
     private void StartUI()
     {
-        
+        List_Event.Raise(draw_Upgrades());
     }
 }

@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Event/UpgradeListEvent")]
-public class Upgrade_list_event : MonoBehaviour
+[CreateAssetMenu(menuName = "upgrades/UpgradeList Event", order = 6)]
+public class Upgrade_list_event : ScriptableObject
 {
-    private event System.Action<Upgrade[]> listeners;
+    private event System.Action<Upgrade[]> Listeners;
 
     public void Raise(Upgrade[] waveNumber)
     {
-        listeners?.Invoke(waveNumber);
+        Listeners?.Invoke(waveNumber);
     }
 
     public void RegisterListener(System.Action<Upgrade[]> listener)
     {
-        listeners += listener;
+        Listeners += listener;
     }
 
     public void UnregisterListener(System.Action<Upgrade[]> listener)
     {
-        listeners -= listener;
+        Listeners -= listener;
     }
 }
 

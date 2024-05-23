@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b976de6a5ec9e60448cc33f2d0e1050d, type: 3}
-  m_Name: projectile2
+  m_Script: {fileID: 11500000, guid: 45047954b508e4040946bf418de41b6c, type: 3}
+  m_Name: manager_to_UI_event
   m_EditorClassIdentifier: 
-  Upggrades:
-  - type: 3
-    value: 0
