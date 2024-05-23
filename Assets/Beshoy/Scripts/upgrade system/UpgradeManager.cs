@@ -38,7 +38,7 @@ public struct Upgrade_Option
     }
     public void setValue(float value)
     {
-        UpgradeValue.text = $"{value}";
+        UpgradeValue.text = $"+{value}%";
 
     }
     public Button GetButton()
