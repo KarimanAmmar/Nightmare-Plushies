@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
@@ -13,6 +15,10 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private GameObject MovementPanel;
     [SerializeField] private GameObject UpgradePanel;
     [SerializeField] private Upgrade_list_event List_Event;
+    /// <summary>
+    /// i referance the upgrade manager here to add to select upgrade function for each button
+    /// </summary>
+    [SerializeField] private UpgradeManager UpgradeManager;
     //when level up
     [SerializeField] private GameEvent UI_Activate_Event;
     [SerializeField] private GameEvent UI_Deactivate_Event;
@@ -48,14 +54,14 @@ public class UI_Manager : MonoBehaviour
     private void ActivateUpgradesPanel()
     {
         MovementPanel.SetActive(false);
-
+        Time.timeScale = 0;
         UpgradePanel.SetActive(true);
 
     }
     private void DeactivateUpgradesPanel()
     {
         MovementPanel.SetActive(true);
-
+        Time.timeScale = 1;
         UpgradePanel.SetActive(false);
     }
     private void DisplayOptions(Upgrade[] upgrades)
@@ -64,6 +70,13 @@ public class UI_Manager : MonoBehaviour
         {
             options[i].setType(upgrades[i].GetType());
             options[i].setValue(upgrades[i].GetValue());
+
+            
+            options[i].GetButton().onClick.RemoveAllListeners();
+
+            Upgrade currentUpgrade = upgrades[i];
+
+            options[i].GetButton().onClick.AddListener(() => UpgradeManager.select_upgrade(currentUpgrade));
         }
 
     }
