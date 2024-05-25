@@ -14,50 +14,47 @@ public class enemy_health_system : MonoBehaviour
     [SerializeField] private Float_event enemy_damage_event;
     [SerializeField] private float enemy_max_heath;
     [SerializeField]private bool damgeable;
-    private Enemy_UI_handler UI_Handler;
-    private float enemy_current_heath;
+    [SerializeField]private Enemy_UI_handler UI_Handler;
+    [SerializeField]private float enemy_current_heath;
     private float fillamountUI;
 
     private void OnEnable()
     {
-        enemy_damage_event.RegisterListener(take_damage);
+        enemy_damage_event.RegisterListener(Take_damage);
         
     }
     private void OnDisable()
     {
-        enemy_damage_event.UnregisterListener(take_damage);
+        enemy_damage_event.UnregisterListener(Take_damage);
         enemy_current_heath = enemy_max_heath;
         Update_UI();
     }
     private void Start()
     {
         enemy_current_heath = enemy_max_heath;
-        UI_Handler = GetComponent<Enemy_UI_handler>();
         Update_UI();
-        
-
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "projectile")
+        if (other.gameObject.layer ==7)
         {
             damgeable = true;
         }
     }
-    private void take_damage(float damage)
+    private void Take_damage(float damage)
     {
-        if (damgeable)
+        if (damgeable==true)
         {
             enemy_current_heath -= damage;
-            enemy_current_heath = Mathf.Clamp(enemy_current_heath, 0, enemy_max_heath);
+            enemy_current_heath = Mathf.Clamp(enemy_current_heath,0, enemy_max_heath);
             Update_UI();
+            damgeable = false;
             if (enemy_current_heath == 0)
             {
                 this.gameObject.SetActive(false);
             }
-            
         }
-        damgeable = false;
+       
     }
     private void Update_UI()
     {

@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class Enemy_UI_handler : MonoBehaviour
 {
     [SerializeField] private Image hp_bar;
+    private void Start()
+    {
+        hp_bar.fillAmount = 1;
+    }
     public void Update_UI(float amount)
     {
         hp_bar.fillAmount=amount;

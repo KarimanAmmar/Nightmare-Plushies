@@ -23679,7 +23679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.89236647}
   m_AnchorMax: {x: 0.24158368, y: 1}
-  m_AnchoredPosition: {x: 48.47769, y: -1.1000061}
+  m_AnchoredPosition: {x: 48.47766, y: -1.0999756}
   m_SizeDelta: {x: -14, y: -12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &640395782
@@ -61404,6 +61404,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 353603010}
     m_Modifications:
+    - target: {fileID: -7463376618977632157, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3399761377335399538, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
         type: 3}
       propertyPath: m_UseGravity
@@ -61469,10 +61474,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6064153044314089869, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: m_Height
+      value: 260.81036
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064153044314089869, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: m_Radius
+      value: 51.284035
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064153044314089869, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -2.1980345
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064153044314089869, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -3.6606312
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064153044314089869, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7489208334345181604, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
         type: 3}
       propertyPath: m_Name
       value: Enemy (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590984036861217831, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: damgeable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
