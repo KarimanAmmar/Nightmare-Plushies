@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6391962813617967002}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -40.080017, y: 1.0799999, z: 60.92}
   m_LocalScale: {x: 0.3, y: 0.017999997, z: 0.3}
   m_ConstrainProportionsScale: 1
@@ -98,8 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 1
-  coin_event: {fileID: 11400000, guid: 29f8235ab6db8e140b9237c35ec92848, type: 2}
+  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
 --- !u!135 &7133715354594800155
 SphereCollider:
   m_ObjectHideFlags: 0

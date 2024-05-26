@@ -58368,12 +58368,17 @@ PrefabInstance:
     - target: {fileID: -7463376618977632157, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7463376618977632157, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3399761377335399538, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
         type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5630483857503337737, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
         type: 3}
@@ -71955,10 +71960,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiProgressBarEvent: {fileID: 11400000, guid: fc03605ab091aef43b703d53fa5b54e2, type: 2}
-  Coin_event: {fileID: 11400000, guid: 29f8235ab6db8e140b9237c35ec92848, type: 2}
+  Coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   UpgradeEvent: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
+  ClearCountEvent: {fileID: 11400000, guid: 79a3ee1d59e199c4da1b09706c3f4ea7, type: 2}
   collectingRange: 1
-  Upgrade_Value: 29
+  Upgrade_Value: 6
 --- !u!1001 &1856978920
 PrefabInstance:
   m_ObjectHideFlags: 0

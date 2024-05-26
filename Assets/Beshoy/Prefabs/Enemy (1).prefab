@@ -281,7 +281,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 6
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -325,6 +325,8 @@ MonoBehaviour:
   damgeable: 0
   UI_Handler: {fileID: 8337885077770929248}
   enemy_current_heath: 0
+  CoinDrop: {fileID: 6391962813617967002, guid: de0a38cd5df742340a63ca22361309b5,
+    type: 3}
 --- !u!114 &8337885077770929248
 MonoBehaviour:
   m_ObjectHideFlags: 0

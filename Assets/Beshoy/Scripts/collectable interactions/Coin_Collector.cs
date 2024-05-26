@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Coin_Collector : MonoBehaviour
@@ -14,8 +15,9 @@ public class Coin_Collector : MonoBehaviour
     /// when the player collect enough points it will activate the upgrade system
     /// </summary>    
     [SerializeField] Float_event UiProgressBarEvent;
-    [SerializeField] Float_event Coin_event;
+    [SerializeField] GameEvent Coin_event;
     [SerializeField] GameEvent UpgradeEvent;
+    [SerializeField] private GameEvent ClearCountEvent;
     [SerializeField] float collectingRange;
     [SerializeField] float Upgrade_Value;//the required nuber of the score to activate the upgrade
     private float AmountUi;//for a progress UI to show the player how much left before leveling up(or the next upgrade)
@@ -26,22 +28,24 @@ public class Coin_Collector : MonoBehaviour
 
     private void OnEnable()
     {
-        Coin_event.RegisterListener(Collect_Coin);
-        
+        Coin_event.GameAction+=Collect_Coin;
+        ClearCountEvent.GameAction += ClearCount;
+
     }
     private void OnDisable()
     {
-        Coin_event.UnregisterListener(Collect_Coin);
+        Coin_event.GameAction-=Collect_Coin;
+        ClearCountEvent.GameAction-= ClearCount;
     }
-    private void Collect_Coin(float value)
+    private void Collect_Coin()
     {
-        Coins_Count+=value;
+        Coins_Count++;
         AmountUi = Coins_Count/Upgrade_Value;
         Logging.Log(Coins_Count);
         Logging.Log(Upgrade_Value);
         Logging.Log(AmountUi);
         UiProgressBarEvent.Raise(AmountUi);
-        if(Coins_Count%Upgrade_Value==0)
+        if(Coins_Count==Upgrade_Value)
         {
             UpgradeEvent.GameAction.Invoke();
         }
@@ -77,5 +81,9 @@ public class Coin_Collector : MonoBehaviour
         component.attachedRigidbody.AddForce(dir * 10f,ForceMode.Impulse);
 
     }
-    // Update is called once per frame
+    private void ClearCount()
+    {
+       Coins_Count = 0;
+       Logging.Log("coin count returned to 0");
+    }
 }

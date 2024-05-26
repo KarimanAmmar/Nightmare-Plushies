@@ -25,7 +25,7 @@ public class Upgrade : ScriptableObject
 {
    [SerializeField] private UpggradeValues Upggrade;
 
-   public UpgradeType GetType()
+   public UpgradeType GetUpgradeType()
    {
         return Upggrade.GetUpgradeType();
    }

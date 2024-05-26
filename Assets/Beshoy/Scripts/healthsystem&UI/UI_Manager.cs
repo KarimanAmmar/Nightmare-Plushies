@@ -76,7 +76,7 @@ public class UI_Manager : MonoBehaviour
     {
         for (int i = 0; i < upgrades.Length; i++)
         {
-            options[i].setType(upgrades[i].GetType());
+            options[i].setType(upgrades[i].GetUpgradeType());
             options[i].setValue(upgrades[i].GetValue());
 
             
