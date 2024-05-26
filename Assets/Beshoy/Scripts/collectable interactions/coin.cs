@@ -5,14 +5,15 @@ using UnityEngine;
 public class coin : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameEvent coin_event;
+    [SerializeField] int coinValue;
+    [SerializeField] Float_event coin_event;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
            // Logging.Log(other.gameObject.name);
-            coin_event.GameAction.Invoke();
+            coin_event.Raise(coinValue);
             Destroy(gameObject);
         }
     }

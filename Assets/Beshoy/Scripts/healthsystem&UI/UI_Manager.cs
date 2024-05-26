@@ -5,12 +5,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+/// <summary>
+/// /new things added :
+/// removing the coint UI count because its no longer needed
+/// create a function to display a progress bar for the level up
+/// </summary>
 public class UI_Manager : MonoBehaviour
 {
-    [SerializeField] private Text count_Ui;
-    [SerializeField] private Image hp_bar;
-    [SerializeField] private int_Event int_Event;
+    [SerializeField] private Image HpBar;
+    [SerializeField] private Image LevelBar;
     [SerializeField] private Float_event HP_UI_event;
+    [SerializeField] private Float_event LevelUP_UI_Event;
     [SerializeField] private Upgrade_Option[] options;
     [SerializeField] private GameObject MovementPanel;
     [SerializeField] private GameObject UpgradePanel;
@@ -25,31 +30,34 @@ public class UI_Manager : MonoBehaviour
     //
     private void OnEnable()
     {
-        int_Event.RegisterListener(Update_Count);
+        
         HP_UI_event.RegisterListener(Update_Hp);
+        LevelUP_UI_Event.RegisterListener(Update_Level);
         List_Event.RegisterListener(DisplayOptions);
         UI_Activate_Event.GameAction += ActivateUpgradesPanel;
         UI_Deactivate_Event.GameAction += DeactivateUpgradesPanel;
     }
     private void OnDisable()
     {
-        int_Event.UnregisterListener(Update_Count);
+        
         HP_UI_event.UnregisterListener(Update_Hp);
+        LevelUP_UI_Event.UnregisterListener(Update_Level);
         List_Event.UnregisterListener(DisplayOptions);
         UI_Activate_Event.GameAction -=ActivateUpgradesPanel;
         UI_Deactivate_Event.GameAction -= DeactivateUpgradesPanel;
     }
     private void Start()
     {
-        count_Ui.text = "coins: 0";
+        LevelBar.fillAmount = 0;
     }
-    private void Update_Count(int count)
-    {
-        count_Ui.text = $"coins: {count}";
-    }
+    
     private void Update_Hp(float amount)
     {
-        hp_bar.fillAmount=amount;
+        HpBar.fillAmount=amount;
+    }
+    private void Update_Level(float amount)
+    {
+       LevelBar.fillAmount=amount;
     }
     private void ActivateUpgradesPanel()
     {
