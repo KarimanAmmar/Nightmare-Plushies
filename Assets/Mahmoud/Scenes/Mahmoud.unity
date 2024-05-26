@@ -813,7 +813,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -38181,7 +38181,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -60936,7 +60936,7 @@ PrefabInstance:
     - target: {fileID: 1549087886270644589, guid: e6ee595b7cc94e141973b26f3a798729,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1549087886270644589, guid: e6ee595b7cc94e141973b26f3a798729,
         type: 3}
