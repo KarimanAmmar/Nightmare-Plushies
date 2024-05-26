@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: Spwan Ground
   m_Shader: {fileID: -6465566751694194690, guid: 1e5db32f34703064d9914bdb0490e255,
     type: 3}
   m_Parent: {fileID: 0}
