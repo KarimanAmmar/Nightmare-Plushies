@@ -162,10 +162,10 @@ GameObject:
   - component: {fileID: 4603874156319233606}
   - component: {fileID: 5407996479149054648}
   - component: {fileID: 3399761377335399538}
+  - component: {fileID: -7463376618977632157}
   - component: {fileID: 3018556286834616866}
   - component: {fileID: 8590984036861217831}
   - component: {fileID: 8337885077770929248}
-  - component: {fileID: -7463376618977632157}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -266,6 +266,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!136 &-7463376618977632157
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489208334345181604}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 6
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 51.284035
+  m_Height: 260.81036
+  m_Direction: 1
+  m_Center: {x: -2.1980345, y: -3.6606312, z: 0}
 --- !u!114 &3018556286834616866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +323,8 @@ MonoBehaviour:
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
   enemy_max_heath: 100
   damgeable: 0
+  UI_Handler: {fileID: 8337885077770929248}
+  enemy_current_heath: 0
 --- !u!114 &8337885077770929248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,29 +338,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp_bar: {fileID: 745364172755886113}
---- !u!136 &-7463376618977632157
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7489208334345181604}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 51.284035
-  m_Height: 260.81036
-  m_Direction: 1
-  m_Center: {x: -2.1980345, y: -3.6606312, z: 0}
 --- !u!1 &8310353197410578715
 GameObject:
   m_ObjectHideFlags: 0
