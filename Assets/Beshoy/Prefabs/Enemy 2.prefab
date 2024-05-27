@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 68853820177713406}
   - component: {fileID: 2700097012010723668}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 7589365660227540600}
   - component: {fileID: 3947868163793810571}
   m_Layer: 5
-  m_Name: bar
+  m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,6 +403,10 @@ MonoBehaviour:
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
   enemy_max_heath: 100
   damgeable: 0
+  UI_Handler: {fileID: 2248206772031157818}
+  enemy_current_heath: 0
+  CoinDrop: {fileID: 6391962813617967002, guid: de0a38cd5df742340a63ca22361309b5,
+    type: 3}
 --- !u!114 &2248206772031157818
 MonoBehaviour:
   m_ObjectHideFlags: 0
