@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3163951304587981441
+--- !u!114 &-2395251455648180351
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,13 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
+  m_Name: New Material 1
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: 39d51152982236b47aeab49d72e7531c, type: 2}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ModifiedSerializedProperties: 2
+  m_ValidKeywords:
+  - _OCCLUSIONMAP
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -36,11 +37,15 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _OcclusionMap:
+        m_Texture: {fileID: 2800000, guid: ef9ba45b8d1a1c6488791a982bcbc505, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Metallic: 0
+    - _Smoothness: 0.5
     m_Colors:
-    - _BaseColor: {r: 0.24528301, g: 0.24065502, b: 0.24065502, a: 1}
-    - _Color: {r: 0.24528295, g: 0.24065498, b: 0.24065498, a: 1}
+    - _BaseColor: {r: 0, g: 0, b: 0, a: 0.72156864}
+    - _Color: {r: 0, g: 0, b: 0, a: 0.72156864}
   m_BuildTextureStacks: []
