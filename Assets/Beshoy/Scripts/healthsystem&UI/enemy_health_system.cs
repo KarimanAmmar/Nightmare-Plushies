@@ -40,17 +40,10 @@ public class enemy_health_system : MonoBehaviour
         enemy_current_heath = enemy_max_heath;
         Update_UI();
     }
-    private void OnTriggerEnter(Collider other)
+   
+    public void Take_damage(float damage)
     {
-        if (other.gameObject.layer ==7)
-        {
-            damgeable = true;
-        }
-    }
-    private void Take_damage(float damage)
-    {
-        if (damgeable==true)
-        {
+        
             enemy_current_heath -= damage;
             enemy_current_heath = Mathf.Clamp(enemy_current_heath,0, enemy_max_heath);
             Update_UI();
@@ -60,8 +53,7 @@ public class enemy_health_system : MonoBehaviour
                 DropCoin();
                 this.gameObject.SetActive(false);
             }
-        }
-       
+               
     }
     private void Update_UI()
     {
