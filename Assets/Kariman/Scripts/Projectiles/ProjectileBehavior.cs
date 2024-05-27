@@ -12,7 +12,8 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            enemy_damage_event.Raise(damage);
+            other.gameObject.GetComponent<enemy_health_system>().Take_damage(damage);
+           //enemy_damage_event.Raise(damage);
             this.gameObject.SetActive(false);
         }
     }
