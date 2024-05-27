@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8224125371106889997}
   - component: {fileID: 1167660768878594309}
   - component: {fileID: 2181142438841123137}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1448259238785079412}
   serializedVersion: 2
   m_LocalRotation: {x: 0.14771092, y: -0.37776068, z: 0.061183862, w: 0.911995}
-  m_LocalPosition: {x: 1954.9999, y: 900, z: -1880.0002}
+  m_LocalPosition: {x: 1955.0002, y: 900, z: -1879.9999}
   m_LocalScale: {x: 255.67012, y: 255.67007, z: 255.6701}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -183,8 +183,8 @@ GameObject:
   - component: {fileID: 6586515647839982086}
   - component: {fileID: 1137154098501381678}
   - component: {fileID: 3167773899571874569}
-  m_Layer: 6
-  m_Name: coin_collector
+  m_Layer: 8
+  m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 4732977844542097799}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 125, z: 0}
+  m_LocalPosition: {x: 0, y: 136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,12 +217,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4399004516b4e43beace12504e6998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UiProgressBarEvent: {fileID: 0}
-  Coin_event: {fileID: 0}
-  UpgradeEvent: {fileID: 0}
-  ClearCountEvent: {fileID: 0}
-  collectingRange: 10
-  Upgrade_Value: 0
+  UiProgressBarEvent: {fileID: 11400000, guid: fc03605ab091aef43b703d53fa5b54e2, type: 2}
+  Coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  UpgradeEvent: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
+  ClearCountEvent: {fileID: 11400000, guid: 79a3ee1d59e199c4da1b09706c3f4ea7, type: 2}
+  collectingRange: 1
+  Upgrade_Value: 6
 --- !u!135 &3167773899571874569
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4920458606491028671}
   - component: {fileID: 6112710901088146555}
   - component: {fileID: 1267602253967673265}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4924943908979675801}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 56.81, y: 7.97, z: 137.48}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
@@ -492,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5470649473068306610}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 7993429978267379706}
   - component: {fileID: 8257370756478394013}
   - component: {fileID: 149793718869074200}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

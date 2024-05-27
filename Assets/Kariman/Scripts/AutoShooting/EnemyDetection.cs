@@ -20,7 +20,7 @@ public class EnemyDetection : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag(GameConstant.EnemyTag))
         {
             Transform newEnemy = other.transform;
             EnemiesInRange.Add(newEnemy);
@@ -37,7 +37,7 @@ public class EnemyDetection : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag(GameConstant.EnemyTag))
         {
             Transform exitingEnemy = other.transform;
 			RemoveEnemy(exitingEnemy);
