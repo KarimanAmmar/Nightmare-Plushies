@@ -10006,7 +10006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.2000122, y: 10.811798}
+  m_AnchoredPosition: {x: 2.2000122, y: 10.811768}
   m_SizeDelta: {x: -24.038498, y: -21.623505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &327633807
@@ -16133,7 +16133,7 @@ GameObject:
   - component: {fileID: 515463818}
   - component: {fileID: 515463817}
   m_Layer: 5
-  m_Name: levelbar
+  m_Name: levelprogressbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63995,7 +63995,7 @@ GameObject:
   - component: {fileID: 1646106454}
   - component: {fileID: 1646106453}
   m_Layer: 5
-  m_Name: Image
+  m_Name: healthBar_red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64017,7 +64017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.2000122, y: 10.809967}
+  m_AnchoredPosition: {x: 2.2000122, y: 10.809937}
   m_SizeDelta: {x: -27.038498, y: -22.623505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1646106453
