@@ -9,15 +9,14 @@ public class EnemyWaveManager : MonoBehaviour
 	[SerializeField] private List<WaveData> wavesData;
 	[SerializeField] private int currentWaveIndex = 0;
 	[SerializeField] private Transform playerTransform;
-
+	[SerializeField] private List<Transform> spawnPoints;
+	[SerializeField] GameEvent WavesCompelete;
 	private int totalEnemiesInWave = 0;
 	private int activeEnemies = 0;
 	private bool spawningInProgress = false;
-	private static List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
 	private void Start()
 	{
-		RegisterSpawnPoints();
 		StartWave();
 	}
 
@@ -27,31 +26,6 @@ public class EnemyWaveManager : MonoBehaviour
 		{
 			int randomEnemyPoolIndex = Random.Range(0, enemyPools.Count);
 			enemyPools[randomEnemyPoolIndex].DisableRandomEnemy();
-		}
-	}
-
-	private void RegisterSpawnPoints()
-	{
-		if (spawnPoints.Count == 0)
-		{
-			SpawnPoint[] allSpawnPoints = FindObjectsOfType<SpawnPoint>();
-			spawnPoints.AddRange(allSpawnPoints);
-		}
-	}
-
-	public static void RegisterSpawnPoint(SpawnPoint point)
-	{
-		if (!spawnPoints.Contains(point))
-		{
-			spawnPoints.Add(point);
-		}
-	}
-
-	public static void UnregisterSpawnPoint(SpawnPoint point)
-	{
-		if (spawnPoints.Contains(point))
-		{
-			spawnPoints.Remove(point);
 		}
 	}
 
@@ -69,12 +43,8 @@ public class EnemyWaveManager : MonoBehaviour
 	{
 		if (currentWaveIndex >= wavesData.Count)
 		{
+			WavesCompelete.GameAction?.Invoke();
 			return;
-		}
-
-		foreach (SpawnPoint spawnPoint in spawnPoints)
-		{
-			spawnPoint.ResetAvailability();
 		}
 
 		SetPlayerTransformForEnemies(playerTransform);
@@ -90,13 +60,12 @@ public class EnemyWaveManager : MonoBehaviour
 		yield return new WaitForSeconds(waveData.DelayBeforeWaveStarts);
 
 		List<NumberOfEnemies> shuffledEnemies = waveData.TypeOfEnemies.OrderBy(x => Random.value).ToList();
-		List<SpawnPoint> availablePoints = spawnPoints.FindAll(point => point.IsAvailable);
 
 		foreach (NumberOfEnemies enemyData in shuffledEnemies)
 		{
 			for (int i = 0; i < enemyData.numberOfEnemy; i++)
 			{
-				Transform spawnPosition = GetRandomAvailableSpawnPoint(availablePoints);
+				Transform spawnPosition = GetRandomSpawnPoint(GetNearestSpawnPoints(playerTransform.position, 3));
 				if (spawnPosition != null)
 				{
 					EnemyPool enemyPool = enemyPools[(int)enemyData.enemyType];
@@ -110,7 +79,6 @@ public class EnemyWaveManager : MonoBehaviour
 							{
 								enemyController.OnDefeated += OnEnemyDefeated;
 								activeEnemies++;
-								MarkSpawnPointUnavailable(spawnPosition);
 							}
 						}
 					}
@@ -123,12 +91,17 @@ public class EnemyWaveManager : MonoBehaviour
 		spawningInProgress = false;
 	}
 
-	private Transform GetRandomAvailableSpawnPoint(List<SpawnPoint> availablePoints)
+	private List<Transform> GetNearestSpawnPoints(Vector3 position, int count)
 	{
-		if (availablePoints.Count > 0)
+		return spawnPoints.OrderBy(sp => Vector3.Distance(position, sp.position)).Take(count).ToList();
+	}
+
+	private Transform GetRandomSpawnPoint(List<Transform> points)
+	{
+		if (points.Count > 0)
 		{
-			int randomIndex = Random.Range(0, availablePoints.Count);
-			return availablePoints[randomIndex].transform;
+			int randomIndex = Random.Range(0, points.Count);
+			return points[randomIndex];
 		}
 		return null;
 	}
@@ -138,15 +111,6 @@ public class EnemyWaveManager : MonoBehaviour
 		foreach (EnemyPool pool in enemyPools)
 		{
 			pool.SetPlayerTransform(player);
-		}
-	}
-
-	private void MarkSpawnPointUnavailable(Transform point)
-	{
-		SpawnPoint spawnPoint = point.GetComponent<SpawnPoint>();
-		if (spawnPoint != null)
-		{
-			spawnPoint.SetAvailability(false);
 		}
 	}
 }
