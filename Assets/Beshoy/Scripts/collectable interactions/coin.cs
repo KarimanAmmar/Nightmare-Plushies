@@ -9,7 +9,7 @@ public class coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == GameConstant.PlayerTag)
         {
            // Logging.Log(other.gameObject.name);
             coin_event.GameAction.Invoke();
