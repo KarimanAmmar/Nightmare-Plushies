@@ -11,9 +11,7 @@ public class pullingScript : MonoBehaviour
         if (other.gameObject.layer == GameConstant.MagneticLayer)
         {
             PullObject(other);
-
         }
-
     }
     private void OnTriggerExit(Collider other)
     {
@@ -23,11 +21,8 @@ public class pullingScript : MonoBehaviour
             if (other.gameObject.layer == GameConstant.MagneticLayer)
             {
                 PullObject(other);
-
             }
-
         }
-
     }
     private void PullObject(Collider other)
     {
@@ -35,7 +30,5 @@ public class pullingScript : MonoBehaviour
         Vector3 dir = (pullPos - other.transform.position).normalized;
         other.gameObject.TryGetComponent<Collider>(out Collider component);
         component.attachedRigidbody.AddForce(dir * 10f, ForceMode.Impulse);
-
     }
-
 }

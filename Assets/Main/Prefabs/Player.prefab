@@ -181,8 +181,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6586515647839982086}
-  - component: {fileID: 1137154098501381678}
   - component: {fileID: 3167773899571874569}
+  - component: {fileID: 1137154098501381678}
+  - component: {fileID: 3904513435775779904}
   m_Layer: 8
   m_Name: Collector
   m_TagString: Untagged
@@ -205,24 +206,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7770755795722291961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1137154098501381678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4732977844542097799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca4399004516b4e43beace12504e6998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UiProgressBarEvent: {fileID: 11400000, guid: fc03605ab091aef43b703d53fa5b54e2, type: 2}
-  Coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
-  UpgradeEvent: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
-  ClearCountEvent: {fileID: 11400000, guid: 79a3ee1d59e199c4da1b09706c3f4ea7, type: 2}
-  collectingRange: 1
-  Upgrade_Value: 6
 --- !u!135 &3167773899571874569
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -242,8 +225,38 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 239.5
+  m_Radius: 400
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1137154098501381678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732977844542097799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca4399004516b4e43beace12504e6998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UiProgressBarEvent: {fileID: 11400000, guid: fc03605ab091aef43b703d53fa5b54e2, type: 2}
+  Coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  UpgradeEvent: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
+  ClearCountEvent: {fileID: 11400000, guid: 79a3ee1d59e199c4da1b09706c3f4ea7, type: 2}
+  Upgrade_Value: 6
+--- !u!114 &3904513435775779904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732977844542097799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220647969eeb47647b56ff2a9f7034b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectingRange: 0
 --- !u!1 &4924943908979675801
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +521,7 @@ Transform:
   m_GameObject: {fileID: 5222771521075306402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -99.5, y: 139.4, z: 17.7}
+  m_LocalPosition: {x: -112.9, y: 135.6, z: 17.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -523,9 +536,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 672619345266833819}
+  - component: {fileID: 149793718869074200}
   - component: {fileID: 7993429978267379706}
   - component: {fileID: 8257370756478394013}
-  - component: {fileID: 149793718869074200}
   m_Layer: 8
   m_Name: ShootingManager
   m_TagString: Untagged
@@ -548,6 +561,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7770755795722291961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &149793718869074200
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482769456561479415}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 800
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7993429978267379706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,24 +619,3 @@ MonoBehaviour:
   IfEnemiesCleared: {fileID: 11400000, guid: 6655a3b3053db8044a7c1c29c5d36dba, type: 2}
   UpgradeProjectilesNum: {fileID: 11400000, guid: 0d37e6d0c857f734fa7b7ee81d96f46c,
     type: 2}
---- !u!135 &149793718869074200
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5482769456561479415}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 714.58
-  m_Center: {x: 0, y: 0, z: 0}
