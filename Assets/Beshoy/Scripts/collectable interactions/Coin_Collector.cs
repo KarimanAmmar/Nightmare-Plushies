@@ -52,7 +52,7 @@ public class Coin_Collector : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {       //Logging.Log($"{other.gameObject.name}");
-        if(other.gameObject.layer == 6)
+        if(other.gameObject.layer == GameConstant.MagneticLayer)
         {
             PullObject(other);
 
@@ -64,7 +64,7 @@ public class Coin_Collector : MonoBehaviour
         if (other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
         {
             rigidbody.velocity = Vector3.zero;
-            if (other.gameObject.layer == 6)
+            if (other.gameObject.layer == GameConstant.MagneticLayer)
             {
                 PullObject(other);
 
