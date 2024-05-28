@@ -10,11 +10,13 @@ public class ProjectileBehavior : MonoBehaviour
     [SerializeField] private float damage;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        this.gameObject.SetActive(false);
+        if (other.CompareTag(GameConstant.EnemyTag))
         {
-            other.gameObject.GetComponent<enemy_health_system>().Take_damage(damage);
-           //enemy_damage_event.Raise(damage);
-            this.gameObject.SetActive(false);
+            if(other.gameObject.GetComponent<enemy_health_system>() != null)
+            {
+                other.gameObject.GetComponent<enemy_health_system>().Take_damage(damage);
+            }
         }
     }
     public void Initialize(Transform target, float moveSpeed)
