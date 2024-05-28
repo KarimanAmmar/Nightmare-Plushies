@@ -25,7 +25,6 @@ public class Coin_Collector : MonoBehaviour
     private float Coins_Count;
     Vector3 pullPos;
     
-
     private void OnEnable()
     {
         Coin_event.GameAction+=Collect_Coin;
@@ -45,6 +44,7 @@ public class Coin_Collector : MonoBehaviour
         Logging.Log(Upgrade_Value);
         Logging.Log(AmountUi);
         UiProgressBarEvent.Raise(AmountUi);
+
         if(Coins_Count==Upgrade_Value)
         {
             UpgradeEvent.GameAction.Invoke();
@@ -55,9 +55,7 @@ public class Coin_Collector : MonoBehaviour
         if(other.gameObject.layer == 6)
         {
             PullObject(other);
-
         }
-            
     }
     private void OnTriggerExit(Collider other)
     {
@@ -67,11 +65,8 @@ public class Coin_Collector : MonoBehaviour
             if (other.gameObject.layer == 6)
             {
                 PullObject(other);
-
             }
-
         }
-        
     }
     private void PullObject(Collider other)
     {
@@ -79,7 +74,6 @@ public class Coin_Collector : MonoBehaviour
         Vector3 dir = (pullPos - other.transform.position).normalized;
         other.gameObject.TryGetComponent<Collider>(out Collider component);
         component.attachedRigidbody.AddForce(dir * 10f,ForceMode.Impulse);
-
     }
     private void ClearCount()
     {
