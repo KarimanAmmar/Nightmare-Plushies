@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!135 &7133715354594800155
 SphereCollider:
   m_ObjectHideFlags: 0
