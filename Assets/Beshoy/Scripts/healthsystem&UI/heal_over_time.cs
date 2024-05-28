@@ -18,7 +18,7 @@ public class heal_over_time : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == GameConstant.PlayerTag)
         {
             enableHealing();
             
@@ -27,7 +27,7 @@ public class heal_over_time : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == GameConstant.PlayerTag)
         {
            disableHealing();
 
