@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 772a15ef1aaa6ab4e88377f11ada3563
+guid: f59294be37db7f04c8d3c4488c43a94c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Jack_Jump
+      name: Jack_jump
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
