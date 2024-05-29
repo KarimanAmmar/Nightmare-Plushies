@@ -89649,6 +89649,16 @@ PrefabInstance:
       propertyPath: colliderTobeactive
       value: 
       objectReference: {fileID: 779597869}
+    - target: {fileID: 4232028915775363757, guid: d124fbc818a238749b57ea79d06c8ff7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606926527532794760, guid: d124fbc818a238749b57ea79d06c8ff7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8468723378040019598, guid: d124fbc818a238749b57ea79d06c8ff7,
         type: 3}
       propertyPath: m_LocalPosition.x
