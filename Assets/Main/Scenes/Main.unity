@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &6339135
 MeshRenderer:
@@ -8643,7 +8643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &274533895
 MeshRenderer:
@@ -10774,7 +10774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!135 &332054859
 SphereCollider:
@@ -14046,7 +14046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &409654953
 MeshRenderer:
@@ -16838,7 +16838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &465331190
 MeshRenderer:
@@ -16986,7 +16986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &469901857
 MeshRenderer:
@@ -38809,7 +38809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &874931175
 MeshRenderer:
@@ -41046,7 +41046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &934540251
 MeshRenderer:
@@ -41382,7 +41382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &941924521
 MeshRenderer:
@@ -53713,7 +53713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &1291014508
 MeshRenderer:
@@ -54040,7 +54040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &1293030189
 MeshRenderer:
@@ -58064,7 +58064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &1376981194
 MeshRenderer:
@@ -70264,7 +70264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &1685465982
 MeshRenderer:
@@ -75611,7 +75611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &1782106885
 MeshRenderer:
@@ -76695,7 +76695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &1810675077
 MeshRenderer:
@@ -87155,7 +87155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collectable_event: {fileID: 0}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
   colliderTobeactive: {fileID: 0}
 --- !u!23 &2081084273
 MeshRenderer:
