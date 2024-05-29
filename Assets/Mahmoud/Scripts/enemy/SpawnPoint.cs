@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-	private bool isAvailable = true;
+	[SerializeField] private bool isAvailable = true;
 
-	public bool IsAvailable => isAvailable;
+	public bool IsAvailable
+	{
+		get { return isAvailable; }
+	}
 
 	public void SetAvailability(bool availability)
 	{
@@ -14,15 +17,5 @@ public class SpawnPoint : MonoBehaviour
 	public void ResetAvailability()
 	{
 		isAvailable = true;
-	}
-
-	private void OnEnable()
-	{
-		EnemyWaveManager.RegisterSpawnPoint(this);
-	}
-
-	private void OnDisable()
-	{
-		EnemyWaveManager.UnregisterSpawnPoint(this);
 	}
 }

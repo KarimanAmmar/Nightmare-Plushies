@@ -9,14 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87c3f957b80e05418049aa8344845be, type: 3}
-  m_Name: Wave1
+  m_Script: {fileID: 11500000, guid: 60989b9de8a742a42b2f56bd0c924371, type: 3}
+  m_Name: WavesCompelete
   m_EditorClassIdentifier: 
-  waveID: 0
-  waveName: Wave 1
-  typeOfEnemies:
-  - enemyType: 0
-    numberOfEnemy: 15
-    delayBetweenSpawns: 2
-  delayBeforeWaveStarts: 2
-  isWaveCompleted: 0
