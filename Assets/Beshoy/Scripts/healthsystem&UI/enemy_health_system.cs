@@ -14,7 +14,6 @@ public class enemy_health_system : MonoBehaviour
     /// </summary>
     [SerializeField]private Float_event enemy_damage_event;
     [SerializeField]private float enemy_max_heath;
-    [SerializeField]private bool damgeable;
     [SerializeField]private Enemy_UI_handler UI_Handler;
     [SerializeField]private float enemy_current_heath;
     [SerializeField]private GameObject CoinDrop;
@@ -47,7 +46,6 @@ public class enemy_health_system : MonoBehaviour
             enemy_current_heath -= damage;
             enemy_current_heath = Mathf.Clamp(enemy_current_heath,0, enemy_max_heath);
             Update_UI();
-            damgeable = false;
             if (enemy_current_heath == 0)
             {
                 DropCoin();

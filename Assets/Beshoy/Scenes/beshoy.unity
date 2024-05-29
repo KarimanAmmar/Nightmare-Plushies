@@ -313,7 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &990838
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -644,7 +645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &6339135
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2137,7 +2139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.2000122, y: 10.809967}
+  m_AnchoredPosition: {x: 2.2000122, y: 10.809937}
   m_SizeDelta: {x: -27.038498, y: -22.623505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &56988483
@@ -2186,10 +2188,10 @@ MonoBehaviour:
   - UpgradeTypeName: {fileID: 89461911}
     UpgradeValue: {fileID: 713389327}
     UpgradeButton: {fileID: 1477719938}
-  MovementPanel: {fileID: 0}
+  MovementPanel: {fileID: 274679271}
   UpgradePanel: {fileID: 204892210}
   List_Event: {fileID: 11400000, guid: 2af419f66fe7ad64cbe6302b5950cbd9, type: 2}
-  UpgradeManager: {fileID: 0}
+  UpgradeManager: {fileID: 639227694}
   UI_Activate_Event: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
   UI_Deactivate_Event: {fileID: 11400000, guid: e2e907b5751f38040a8edc972448ebb3,
     type: 2}
@@ -4571,7 +4573,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 0}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &161139213
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8640,7 +8643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &274533895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9942,7 +9946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &310956279
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10769,7 +10774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 0}
+  colliderTobeactive: {fileID: 0}
 --- !u!135 &332054859
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11097,7 +11103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &338029834
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12282,7 +12289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &369817096
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12717,7 +12725,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &377200377
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13347,7 +13356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &384011262
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13494,7 +13504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &395001506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14035,7 +14046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 409654951}
 --- !u!23 &409654953
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16326,7 +16338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &454454850
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16825,7 +16838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 465331188}
 --- !u!23 &465331190
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16972,7 +16986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 469901855}
 --- !u!23 &469901857
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22233,7 +22248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &605078473
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24251,6 +24267,68 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 632939840}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &639227692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639227693}
+  - component: {fileID: 639227694}
+  m_Layer: 0
+  m_Name: UpgradeSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &639227693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639227692}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 970392067}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &639227694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639227692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667a0cfa1c7e9214082a70cca25873ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Upgrades_List:
+  - {fileID: 11400000, guid: 461041f0551589642b37328d2d17b1d1, type: 2}
+  - {fileID: 11400000, guid: 8d6aa4033575243429308561cf89a334, type: 2}
+  - {fileID: 11400000, guid: 46ae1aa3378c1ec4b9014312ee69b221, type: 2}
+  - {fileID: 11400000, guid: 24eb2040012793742b7c77ab469d9638, type: 2}
+  - {fileID: 11400000, guid: adb3e4df636b69647b72e6672825f11d, type: 2}
+  - {fileID: 11400000, guid: 887ce2a35dcc0474b9c9c747a0b1ceb5, type: 2}
+  - {fileID: 11400000, guid: 4bb9bf7d6d9fbc34fa4db48cab6c6511, type: 2}
+  - {fileID: 11400000, guid: 72a160102fae53d4ea277af299a17dfe, type: 2}
+  - {fileID: 11400000, guid: fdbbabae1bfa3254aa062a1fb4abc241, type: 2}
+  - {fileID: 11400000, guid: 1ae48ad007c233a448b444807422a428, type: 2}
+  PlyrHelth: {fileID: 387788236666563688}
+  movementManager: {fileID: 891393437}
+  UI_Activate_Event: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
+  UI_Deactivate_Event: {fileID: 11400000, guid: e2e907b5751f38040a8edc972448ebb3,
+    type: 2}
+  projectile_event: {fileID: 11400000, guid: 0d37e6d0c857f734fa7b7ee81d96f46c, type: 2}
+  List_Event: {fileID: 11400000, guid: 2af419f66fe7ad64cbe6302b5950cbd9, type: 2}
 --- !u!1 &639295301
 GameObject:
   m_ObjectHideFlags: 0
@@ -25497,7 +25575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &675343047
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34427,7 +34506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &792089954
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35047,7 +35127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &803021714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36507,7 +36588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &833665528
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37090,7 +37172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &851405948
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38283,7 +38366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &872775818
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38594,7 +38678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &874931175
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40697,7 +40782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &934279579
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40829,7 +40915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &934540251
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41164,7 +41251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 941924519}
 --- !u!23 &941924521
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41535,7 +41623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &957478155
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42154,6 +42243,7 @@ Transform:
   - {fileID: 891393438}
   - {fileID: 966187073}
   - {fileID: 1214280756}
+  - {fileID: 639227693}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &979075825
@@ -47817,7 +47907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1117836174
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48445,7 +48536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1134067250
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49700,7 +49792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1174963387
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53592,7 +53685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1291014508
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53918,7 +54012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 1293030187}
 --- !u!23 &1293030189
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53978,7 +54073,7 @@ Transform:
   m_GameObject: {fileID: 1293030185}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -38.59001, y: 1.0799999, z: 63.429993}
+  m_LocalPosition: {x: -55.56, y: 1.0799999, z: 83.44}
   m_LocalScale: {x: 0.3, y: 0.017999997, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -54259,7 +54354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1295907882
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -55721,7 +55817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1336637068
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -57894,7 +57991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 1376981192}
 --- !u!23 &1376981194
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58255,7 +58353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1384348883
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63213,7 +63312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1535697335
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68676,7 +68776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1642893122
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -69022,7 +69123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 0}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1650783540
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70033,7 +70135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1685465982
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -75334,7 +75437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1782106885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -75964,7 +76068,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1796263274
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -76416,7 +76521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1810675077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -76757,7 +76863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1814141547
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -77083,7 +77190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1824255390
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -77329,7 +77437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &1829209605
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -77414,7 +77523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.2000122, y: 10.811798}
+  m_AnchoredPosition: {x: 2.2000122, y: 10.811768}
   m_SizeDelta: {x: -24.038498, y: -21.623505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837632401
@@ -86675,7 +86784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &2081084273
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -87914,7 +88024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: 344cd85e729501647905f1fb6621c3ee, type: 2}
+  Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!23 &2112445870
 MeshRenderer:
   m_ObjectHideFlags: 0
