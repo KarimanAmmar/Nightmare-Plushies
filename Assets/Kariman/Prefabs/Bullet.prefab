@@ -14833,5 +14833,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
-  damage: 20
-  deactive: 1
+  damage: 10
