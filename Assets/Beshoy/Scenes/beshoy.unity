@@ -2139,7 +2139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.2000122, y: 10.809937}
+  m_AnchoredPosition: {x: 2.1999512, y: 10.809937}
   m_SizeDelta: {x: -27.038498, y: -22.623505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &56988483
@@ -26526,6 +26526,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1196c4de822b17d4cbfaab31e0251197, type: 2}
   currentWaveIndex: 0
   playerTransform: {fileID: 9160774544610976032}
+  spawnPoints: []
+  WavesCompelete: {fileID: 0}
 --- !u!4 &705125719
 Transform:
   m_ObjectHideFlags: 0
@@ -77523,7 +77525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.2000122, y: 10.811768}
+  m_AnchoredPosition: {x: 2.1999512, y: 10.811768}
   m_SizeDelta: {x: -24.038498, y: -21.623505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837632401
