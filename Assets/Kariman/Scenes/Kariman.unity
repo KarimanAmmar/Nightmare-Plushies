@@ -26464,6 +26464,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1196c4de822b17d4cbfaab31e0251197, type: 2}
   currentWaveIndex: 0
   playerTransform: {fileID: 1894711773}
+  spawnPoints: []
+  WavesCompelete: {fileID: 0}
 --- !u!4 &705125719
 Transform:
   m_ObjectHideFlags: 0
