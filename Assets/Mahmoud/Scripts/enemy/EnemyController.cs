@@ -12,7 +12,6 @@ public class EnemyController : MonoBehaviour
 	private IEnemyState currentState;
 	private Rigidbody rb;
 
-
 	public event Action OnDefeated;
 
 	private void OnDisable()
@@ -22,15 +21,15 @@ public class EnemyController : MonoBehaviour
 
 	public void Defeat()
 	{
-		// Logic for when the enemy is defeated (e.g., reduce health to 0)
 		gameObject.SetActive(false);
 		OnDefeated?.Invoke();
 	}
 
-
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
+		// Example of setting an initial attack behavior
+		attackingState = new AttackingState(new ExplodesAttack());
 	}
 
 	private void Start()
@@ -48,7 +47,7 @@ public class EnemyController : MonoBehaviour
 		}
 		else
 		{
-			Logging.Warning("PlayerTransform is null. Make sure the player's transform is assigned in the Inspector.");
+			Debug.LogWarning("PlayerTransform is null. Make sure the player's transform is assigned in the Inspector.");
 		}
 	}
 
@@ -85,5 +84,21 @@ public class EnemyController : MonoBehaviour
 	public void SetPlayerTransform(Transform player)
 	{
 		playerTransform = player;
+	}
+
+	// Methods to switch attack behaviors
+	public void SwitchToExplodesAttack()
+	{
+		attackingState.SetAttackBehavior(new ExplodesAttack());
+	}
+
+	public void SwitchToBlowsAttack()
+	{
+		attackingState.SetAttackBehavior(new BlowsAttack());
+	}
+
+	public void SwitchToAimsAttack()
+	{
+		attackingState.SetAttackBehavior(new AimsAttack());
 	}
 }
