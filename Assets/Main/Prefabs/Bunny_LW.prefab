@@ -390,7 +390,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6587654623018747649}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -447,10 +447,12 @@ MonoBehaviour:
   wanderingState:
     patrolRadius: 5
     moveSpeed: 3
+    rotationSpeed: 5
   chasingState:
     moveSpeed: 5
   attackDistance: 2
   chaseDistance: 10
+  enemyType: 
 --- !u!114 &8013647937150743630
 MonoBehaviour:
   m_ObjectHideFlags: 0

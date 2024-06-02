@@ -6,18 +6,81 @@ using UnityEngine;
 public class EnemyWaveManager : MonoBehaviour
 {
 	[SerializeField] private List<EnemyPool> enemyPools;
-	[SerializeField] private List<WaveData> wavesData;
+	[SerializeField] private List<Wave> wavesData;
 	[SerializeField] private int currentWaveIndex = 0;
 	[SerializeField] private Transform playerTransform;
-	[SerializeField] private List<Transform> spawnPoints;
-	[SerializeField] GameEvent WavesCompelete;
+	[SerializeField] private GameEvent WavesCompelete;
 	private int totalEnemiesInWave = 0;
 	private int activeEnemies = 0;
 	private bool spawningInProgress = false;
 
 	private void Start()
 	{
-		StartWave();
+		// Check if required components are assigned
+		if (enemyPools == null || enemyPools.Count == 0)
+		{
+			Debug.LogError("Enemy pools are not assigned.");
+			return;
+		}
+
+		if (wavesData == null || wavesData.Count == 0)
+		{
+			Debug.LogError("Waves data are not assigned.");
+			return;
+		}
+
+		if (playerTransform == null)
+		{
+			Debug.LogError("Player transform is not assigned.");
+			return;
+		}
+
+		if (WavesCompelete == null)
+		{
+			Debug.LogError("WavesCompelete GameEvent is not assigned.");
+			return;
+		}
+
+		foreach (var wave in wavesData)
+		{
+			if (wave.StartWavesByTrigger)
+			{
+				if (wave.StartTrigger == null)
+				{
+					Debug.LogError("StartTrigger is not assigned in one of the waves.");
+					continue;
+				}
+
+				var waveStartTrigger = wave.StartTrigger.GetComponent<WaveStartTrigger>();
+				if (waveStartTrigger == null)
+				{
+					Debug.LogError($"WaveStartTrigger component is missing on {wave.StartTrigger.gameObject.name}.");
+					continue;
+				}
+
+				wave.StartTrigger.gameObject.SetActive(true);
+				waveStartTrigger.OnPlayerEnter += OnPlayerEnterWaveTrigger;
+			}
+		}
+
+		// Start the first wave if it's not set to start by trigger
+		if (!wavesData[currentWaveIndex].StartWavesByTrigger)
+		{
+			StartWave();
+		}
+	}
+
+	private void OnPlayerEnterWaveTrigger(Collider trigger)
+	{
+		for (int i = 0; i < wavesData.Count; i++)
+		{
+			if (wavesData[i].StartTrigger == trigger)
+			{
+				currentWaveIndex = i;
+				StartWave();
+				break;
+			}
+		}
 	}
 
 	private void Update()
@@ -34,9 +97,36 @@ public class EnemyWaveManager : MonoBehaviour
 		activeEnemies--;
 		if (activeEnemies <= 0 && !spawningInProgress)
 		{
+			wavesData[currentWaveIndex].waveData.isWaveCompleted = true;
 			currentWaveIndex++;
-			StartWave();
+			if (currentWaveIndex < wavesData.Count)
+			{
+				if (wavesData[currentWaveIndex].StartWavesByTrigger)
+				{
+					wavesData[currentWaveIndex].StartTrigger.gameObject.SetActive(true);
+				}
+				else
+				{
+					StartCoroutine(StartNextWaveWithDelay());
+				}
+			}
+			else
+			{
+				WavesCompelete.GameAction?.Invoke();
+			}
 		}
+	}
+
+	private IEnumerator StartNextWaveWithDelay()
+	{
+		if (currentWaveIndex <= 0)
+		{
+			yield break;
+		}
+
+		var delay = wavesData[currentWaveIndex - 1].waveData.DelayBeforeWaveStarts;
+		yield return new WaitForSeconds(delay);
+		StartWave();
 	}
 
 	private void StartWave()
@@ -48,7 +138,7 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 
 		SetPlayerTransformForEnemies(playerTransform);
-		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
+		totalEnemiesInWave = wavesData[currentWaveIndex].waveData.CalculateTotalEnemies();
 		StartCoroutine(SpawnWave(currentWaveIndex));
 	}
 
@@ -56,7 +146,7 @@ public class EnemyWaveManager : MonoBehaviour
 	{
 		spawningInProgress = true;
 
-		WaveData waveData = wavesData[waveIndex];
+		WaveData waveData = wavesData[waveIndex].waveData;
 		yield return new WaitForSeconds(waveData.DelayBeforeWaveStarts);
 
 		List<NumberOfEnemies> shuffledEnemies = waveData.TypeOfEnemies.OrderBy(x => Random.value).ToList();
@@ -65,7 +155,7 @@ public class EnemyWaveManager : MonoBehaviour
 		{
 			for (int i = 0; i < enemyData.numberOfEnemy; i++)
 			{
-				Transform spawnPosition = GetRandomSpawnPoint(GetNearestSpawnPoints(playerTransform.position, 3));
+				Transform spawnPosition = GetRandomSpawnPoint(wavesData[waveIndex].SpawnPoints);
 				if (spawnPosition != null)
 				{
 					EnemyPool enemyPool = enemyPools[(int)enemyData.enemyType];
@@ -89,11 +179,11 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 
 		spawningInProgress = false;
-	}
 
-	private List<Transform> GetNearestSpawnPoints(Vector3 position, int count)
-	{
-		return spawnPoints.OrderBy(sp => Vector3.Distance(position, sp.position)).Take(count).ToList();
+		if (!wavesData[waveIndex].StartWavesByTrigger && currentWaveIndex < wavesData.Count - 1)
+		{
+			StartCoroutine(StartNextWaveWithDelay());
+		}
 	}
 
 	private Transform GetRandomSpawnPoint(List<Transform> points)
