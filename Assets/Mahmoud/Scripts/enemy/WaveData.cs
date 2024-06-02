@@ -24,7 +24,6 @@ public class WaveData : ScriptableObject
 	}
 }
 
-
 [System.Serializable]
 public struct NumberOfEnemies
 {
