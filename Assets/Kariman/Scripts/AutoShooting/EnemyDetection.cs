@@ -54,8 +54,7 @@ public class EnemyDetection : MonoBehaviour
             if (distanceToPlayer < closestDistance)
             {
                 closestDistance = distanceToPlayer;
-                closestEnemy = enemy;
-				
+                closestEnemy = enemy;				
 			}
         }
 		transformClosestEnemy.Raise(closestEnemy);
