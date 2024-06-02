@@ -1,9 +1,8 @@
 public enum EnemyType
 {
-	Normal,
-	flying,
-	advanced,
+	Exploding,
+	Blowing,
+	Aiming,
 	Boss,
-	MiniBoss,
-	Elite
+	MiniBoss
 }
