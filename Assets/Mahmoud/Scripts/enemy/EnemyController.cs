@@ -12,8 +12,9 @@ public class EnemyController : MonoBehaviour
 	private IEnemyState currentState;
 	private Rigidbody rb;
 
-
 	public event Action OnDefeated;
+
+	[SerializeField] private EnemyType enemyType;
 
 	private void OnDisable()
 	{
@@ -22,19 +23,45 @@ public class EnemyController : MonoBehaviour
 
 	public void Defeat()
 	{
-		// Logic for when the enemy is defeated (e.g., reduce health to 0)
 		gameObject.SetActive(false);
 		OnDefeated?.Invoke();
 	}
 
-
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
+
+		// Initialize the attack behavior based on the enemy type
+		switch (enemyType)
+		{
+			case EnemyType.Exploding:
+				attackingState = new AttackingState(new ExplodesAttack());
+				break;
+			case EnemyType.Blowing:
+				attackingState = new AttackingState(new BlowsAttack());
+				break;
+			case EnemyType.Aiming:
+				attackingState = new AttackingState(new AimsAttack());
+				break;
+			default:
+				Debug.LogError("Unknown enemy type!");
+				break;
+		}
 	}
 
 	private void Start()
 	{
+		// Find player transform (assuming there is only one player)
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		if (player != null)
+		{
+			playerTransform = player.transform;
+		}
+		else
+		{
+			Debug.LogError("Player not found! Make sure the player object has the 'Player' tag.");
+		}
+
 		TransitionToState(wanderingState);
 	}
 
@@ -45,10 +72,6 @@ public class EnemyController : MonoBehaviour
 			float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 			TransitionStateBasedOnDistance(distanceToPlayer);
 			currentState.UpdateState(this, playerTransform.position);
-		}
-		else
-		{
-			Logging.Warning("PlayerTransform is null. Make sure the player's transform is assigned in the Inspector.");
 		}
 	}
 
@@ -71,7 +94,9 @@ public class EnemyController : MonoBehaviour
 	public void TransitionToState(IEnemyState nextState)
 	{
 		if (currentState != null)
+		{
 			currentState.ExitState(this);
+		}
 
 		currentState = nextState;
 		currentState.EnterState(this);

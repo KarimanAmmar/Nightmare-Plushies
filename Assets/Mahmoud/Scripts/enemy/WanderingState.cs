@@ -5,6 +5,7 @@ public class WanderingState : IEnemyState
 {
 	[SerializeField] private float patrolRadius = 5f;
 	[SerializeField] private float moveSpeed = 3f;
+	[SerializeField] private float rotationSpeed = 5f;
 	private Vector3 initialPosition;
 	private Vector3 targetPosition;
 	private Rigidbody rb;
@@ -29,13 +30,18 @@ public class WanderingState : IEnemyState
 
 	private void ChooseRandomTargetPosition()
 	{
-		Vector2 randomPoint = Random.insideUnitCircle.normalized * patrolRadius;
+		Vector2 randomPoint = Random.insideUnitCircle * patrolRadius;
 		targetPosition = initialPosition + new Vector3(randomPoint.x, 0f, randomPoint.y);
 	}
 
 	private void MoveTowardsTarget()
 	{
 		Vector3 moveDirection = (targetPosition - rb.position).normalized;
+
+		// Rotate towards the target position
+		Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+		rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
 		rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.deltaTime);
 	}
 
