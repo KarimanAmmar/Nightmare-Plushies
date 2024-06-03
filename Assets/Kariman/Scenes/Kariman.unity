@@ -15265,7 +15265,7 @@ PrefabInstance:
     - target: {fileID: 380153810886053164, guid: ac7ed9caa34271547a3cb30fefe2c2b1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.409191
+      value: 15.54
       objectReference: {fileID: 0}
     - target: {fileID: 380153810886053164, guid: ac7ed9caa34271547a3cb30fefe2c2b1,
         type: 3}
@@ -27009,23 +27009,16 @@ MonoBehaviour:
   enemyPools:
   - {fileID: 1724837718}
   wavesData:
-  - {fileID: 11400000, guid: 1196c4de822b17d4cbfaab31e0251197, type: 2}
-  - {fileID: 11400000, guid: 719269854679f2b4ab3a570724145434, type: 2}
+  - waveData: {fileID: 0}
+    spawnPoints: []
+    startTrigger: {fileID: 0}
+    startWavesByTrigger: 0
+  - waveData: {fileID: 0}
+    spawnPoints: []
+    startTrigger: {fileID: 0}
+    startWavesByTrigger: 0
   currentWaveIndex: 0
   playerTransform: {fileID: 1894711773}
-  spawnPoints:
-  - {fileID: 2123031907}
-  - {fileID: 1461206616}
-  - {fileID: 33805962}
-  - {fileID: 868477268}
-  - {fileID: 1500388013}
-  - {fileID: 184280761}
-  - {fileID: 87460091}
-  - {fileID: 217896814}
-  - {fileID: 1042135921}
-  - {fileID: 144763977}
-  - {fileID: 1886336406}
-  - {fileID: 378837239}
   WavesCompelete: {fileID: 11400000, guid: a192019dae282cb4590f11f79a472440, type: 2}
 --- !u!4 &705125719
 Transform:
@@ -85445,6 +85438,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1971759001622098037, guid: d25944a4266720349bfdf8118c922554,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3471805035147313068, guid: f37e5fa407dc9ce48b23b63a5ed25572,
+        type: 3}
     - target: {fileID: 2468794090687013601, guid: d25944a4266720349bfdf8118c922554,
         type: 3}
       propertyPath: field of view
@@ -85498,7 +85497,7 @@ PrefabInstance:
     - target: {fileID: 7770755795722291961, guid: d25944a4266720349bfdf8118c922554,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.409191
+      value: 6.54
       objectReference: {fileID: 0}
     - target: {fileID: 7770755795722291961, guid: d25944a4266720349bfdf8118c922554,
         type: 3}
