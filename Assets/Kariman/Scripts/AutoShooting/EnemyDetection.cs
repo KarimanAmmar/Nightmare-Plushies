@@ -30,7 +30,7 @@ public class EnemyDetection : MonoBehaviour
             {
                 closestEnemy = newEnemy;
                 //FindClosestEnemy();
-				transformClosestEnemy.Raise(closestEnemy);
+				
 				EnemyDetected.GameAction?.Invoke();
             }
         }
@@ -55,7 +55,7 @@ public class EnemyDetection : MonoBehaviour
             {
                 closestDistance = distanceToPlayer;
                 closestEnemy = enemy;
-				
+				transformClosestEnemy.Raise(closestEnemy);
 			}
         }
     }
