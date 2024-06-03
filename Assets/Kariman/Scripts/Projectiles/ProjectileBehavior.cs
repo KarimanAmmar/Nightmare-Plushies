@@ -13,10 +13,7 @@ public class ProjectileBehavior : MonoBehaviour
         speed = moveSpeed;
     }
 
-    private void Update()
-    {
-        Move();
-    }
+    private void Update() => Move();
     void Move()
     {
         if (targetPoint != null)
