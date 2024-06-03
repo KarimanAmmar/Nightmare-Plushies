@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.VFX;
 public class DissolvingController : MonoBehaviour
 {
-    [SerializeField] VisualEffect VFXGraph;
     [SerializeField] MeshRenderer playerMesh;
     [SerializeField] float dissolveRate = 0.0125f;
     [SerializeField] float refreshRate = 0.025f;
@@ -28,10 +27,6 @@ public class DissolvingController : MonoBehaviour
     }
     IEnumerator DissolveControl()
     {
-        if(VFXGraph != null)
-        {
-            VFXGraph.Play();
-        }
         if (meshMaterial.Length > 0)
         {
             float counter = 0;

@@ -31,7 +31,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: -1
   stringTagMap:
     RenderType: TransparentCutout
   disabledShaderPasses: []
@@ -67,9 +67,9 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _Cull: 2
-    - _DissolveAmount: 0.986
+    - _DissolveAmount: 0
     - _DissolveScale: 40
-    - _DissolveWidth: 0.014
+    - _DissolveWidth: 0.02
     - _DstBlend: 0
     - _Metallic: 0
     - _NormalStrength: 0.5
@@ -85,5 +85,5 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
-    - _DissolveColor: {r: 0, g: 0.2513838, b: 2.2715242, a: 0}
+    - _DissolveColor: {r: 0.3994303, g: 1.660377, b: 1.557209, a: 0}
   m_BuildTextureStacks: []
