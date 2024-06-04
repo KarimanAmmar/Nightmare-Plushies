@@ -19,25 +19,25 @@ public class EnemyWaveManager : MonoBehaviour
 		// Check if required components are assigned
 		if (enemyPools == null || enemyPools.Count == 0)
 		{
-			Debug.LogError("Enemy pools are not assigned.");
+			Logging.Error("Enemy pools are not assigned.");
 			return;
 		}
 
 		if (wavesData == null || wavesData.Count == 0)
 		{
-			Debug.LogError("Waves data are not assigned.");
+			Logging.Error("Waves data are not assigned.");
 			return;
 		}
 
 		if (playerTransform == null)
 		{
-			Debug.LogError("Player transform is not assigned.");
+			Logging.Error("Player transform is not assigned.");
 			return;
 		}
 
 		if (WavesCompelete == null)
 		{
-			Debug.LogError("WavesCompelete GameEvent is not assigned.");
+			Logging.Error("WavesCompelete GameEvent is not assigned.");
 			return;
 		}
 
@@ -47,14 +47,14 @@ public class EnemyWaveManager : MonoBehaviour
 			{
 				if (wave.StartTrigger == null)
 				{
-					Debug.LogError("StartTrigger is not assigned in one of the waves.");
+					Logging.Error("StartTrigger is not assigned in one of the waves.");
 					continue;
 				}
 
 				var waveStartTrigger = wave.StartTrigger.GetComponent<WaveStartTrigger>();
 				if (waveStartTrigger == null)
 				{
-					Debug.LogError($"WaveStartTrigger component is missing on {wave.StartTrigger.gameObject.name}.");
+					Logging.Error($"WaveStartTrigger component is missing on {wave.StartTrigger.gameObject.name}.");
 					continue;
 				}
 
@@ -95,10 +95,14 @@ public class EnemyWaveManager : MonoBehaviour
 	public void OnEnemyDefeated()
 	{
 		activeEnemies--;
+		Logging.Log($"Enemy defeated. Active enemies remaining: {activeEnemies}");
+
 		if (activeEnemies <= 0 && !spawningInProgress)
 		{
+			Logging.Log($"Wave {currentWaveIndex} completed.");
 			wavesData[currentWaveIndex].waveData.isWaveCompleted = true;
 			currentWaveIndex++;
+
 			if (currentWaveIndex < wavesData.Count)
 			{
 				if (wavesData[currentWaveIndex].StartWavesByTrigger)
@@ -112,6 +116,7 @@ public class EnemyWaveManager : MonoBehaviour
 			}
 			else
 			{
+				Logging.Log("All waves completed. Invoking WavesCompelete event.");
 				WavesCompelete.GameAction?.Invoke();
 			}
 		}
@@ -125,6 +130,7 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 
 		var delay = wavesData[currentWaveIndex - 1].waveData.DelayBeforeWaveStarts;
+		Logging.Log($"Waiting for {delay} seconds before starting next wave.");
 		yield return new WaitForSeconds(delay);
 		StartWave();
 	}
@@ -133,10 +139,12 @@ public class EnemyWaveManager : MonoBehaviour
 	{
 		if (currentWaveIndex >= wavesData.Count)
 		{
+			Logging.Log("No more waves to start. Invoking WavesCompelete event.");
 			WavesCompelete.GameAction?.Invoke();
 			return;
 		}
 
+		Logging.Log($"Starting wave {currentWaveIndex}.");
 		SetPlayerTransformForEnemies(playerTransform);
 		totalEnemiesInWave = wavesData[currentWaveIndex].waveData.CalculateTotalEnemies();
 		StartCoroutine(SpawnWave(currentWaveIndex));
@@ -169,6 +177,7 @@ public class EnemyWaveManager : MonoBehaviour
 							{
 								enemyController.OnDefeated += OnEnemyDefeated;
 								activeEnemies++;
+								Logging.Log($"Enemy spawned. Active enemies: {activeEnemies}");
 							}
 						}
 					}
@@ -180,7 +189,13 @@ public class EnemyWaveManager : MonoBehaviour
 
 		spawningInProgress = false;
 
-		if (!wavesData[waveIndex].StartWavesByTrigger && currentWaveIndex < wavesData.Count - 1)
+		// Check if all waves are completed
+		if (currentWaveIndex >= wavesData.Count - 1)
+		{
+			Logging.Log("All waves completed. Invoking WavesCompelete event.");
+			WavesCompelete.GameAction?.Invoke();
+		}
+		else if (!wavesData[waveIndex].StartWavesByTrigger && currentWaveIndex < wavesData.Count - 1)
 		{
 			StartCoroutine(StartNextWaveWithDelay());
 		}
