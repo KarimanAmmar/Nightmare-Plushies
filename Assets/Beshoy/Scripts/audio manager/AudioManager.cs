@@ -19,6 +19,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioMixer Mixer;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource SfxSource;
+    private bool MasterMute;
     
     public void PlySfx(AudioClip clip)
     {
@@ -31,6 +32,46 @@ public class AudioManager : Singleton<AudioManager>
     }
     public void Mute()
     {
-        
+        MasterMute =!MasterMute;
+        SfxSource.mute = !SfxSource.mute;
+        musicSource.mute = !musicSource.mute;
     }
+    public void Mute_sfx()
+    {
+        if (!MasterMute) 
+        {
+            SfxSource.mute = !SfxSource.mute;
+        }
+    }
+    public void Mute_Music()
+    {
+        if (!MasterMute)
+        {
+            musicSource.mute = !musicSource.mute;
+        }
+    }
+    public void Master_SetVolume(float volume) 
+    {
+        if (Mixer != null)
+        {
+            Mixer.SetFloat("MasterVolume",Mathf.Log10(volume)*20);
+        }
+    }
+    public void Sfx_SetVolume(float volume)
+    {
+        if (Mixer != null)
+        {
+            Mixer.SetFloat("SfxVolume", Mathf.Log10(volume)*20);
+        }
+    }
+    public void Music_SetVolume(float volume)
+    {
+        if (Mixer != null)
+        {
+            Mixer.SetFloat("MusicVolume", Mathf.Log10(volume)*20); 
+        }
+    }
+
+
+
 }
