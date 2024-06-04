@@ -8,7 +8,6 @@ public class ProjectilesObjectPooling : Singleton<ProjectilesObjectPooling>
     [SerializeField] GameObject parent;
     [SerializeField] int poolSize;
     private List<GameObject> pooledObjects; 
-    private WaitForSeconds waitTime;
 
     protected override void Awake()
     {
@@ -22,10 +21,6 @@ public class ProjectilesObjectPooling : Singleton<ProjectilesObjectPooling>
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
-    }
-    private void Start()
-    {
-        waitTime = new WaitForSeconds(10.0f);
     }
     public GameObject GetPooledObject()
     {
@@ -41,12 +36,5 @@ public class ProjectilesObjectPooling : Singleton<ProjectilesObjectPooling>
     public void ActivatePooledObject(GameObject obj)
     {
         obj.SetActive(true);
-        StartCoroutine(DeactivatePooledObject(obj));
-    }
-
-    IEnumerator DeactivatePooledObject(GameObject obj)
-    {
-        yield return waitTime;
-        obj.SetActive(false);
     }
 }
