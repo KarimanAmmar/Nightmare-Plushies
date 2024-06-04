@@ -8,12 +8,19 @@ using UnityEngine.UI;
 public class Enemy_UI_handler : MonoBehaviour
 {
     [SerializeField] private Image hp_bar;
+    [SerializeField] private RectTransform canvas;
+    private Camera cam;
     private void Start()
     {
         hp_bar.fillAmount = 1;
+        cam = Camera.main;
+        //canvas.transform.rotation = Quaternion.LookRotation(cam.transform.position);
+        Logging.Log(cam);
+        canvas.LookAt(cam.transform.position);
     }
     public void Update_UI(float amount)
     {
         hp_bar.fillAmount=amount;
+        canvas.LookAt(cam.transform.position);
     }
 }
