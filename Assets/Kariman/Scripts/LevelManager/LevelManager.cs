@@ -8,27 +8,33 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform[] playerNewPositions;
     [SerializeField] Transform playerCurrentPos;
     [SerializeField] GameEvent levelCompleted;
-
-    int currentArena;
     [SerializeField] CharacterController characterController;
+
+    private WaitForSeconds waitTime;
+    int currentArena;
 
     private void Start()
     {
         currentArena = 0;
+        waitTime = new WaitForSeconds(2);
     }
 
     private void OnEnable()
     {
-        levelCompleted.GameAction += ChangeLevel;
+        levelCompleted.GameAction += StartChange;
     }
 
     private void OnDisable()
     {
-        levelCompleted.GameAction -= ChangeLevel;
+        levelCompleted.GameAction -= StartChange;
     }
-
-    void ChangeLevel()
+    void StartChange()
     {
+        StartCoroutine(ChangeLevel());
+    }
+    IEnumerator ChangeLevel()
+    {
+        yield return waitTime;
         for (int i = 0; i < arenas.Length; i++)
         {
             if (arenas[i].activeSelf)
