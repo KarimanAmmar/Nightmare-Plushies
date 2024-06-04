@@ -73,6 +73,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.04882
       objectReference: {fileID: 0}
+    - target: {fileID: 3018556286834616866, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: enemyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018556286834616866, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: chaseDistance
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018556286834616866, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
+      propertyPath: attackDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3080267229829886985, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -85,8 +100,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399761377335399538, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
         type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399761377335399538, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
+        type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4603874156319233606, guid: 6af37cc26fb842f4aa93c4e8925ed5ab,
         type: 3}

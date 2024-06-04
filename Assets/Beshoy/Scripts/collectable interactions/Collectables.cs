@@ -11,7 +11,6 @@ public class Collectables : MonoBehaviour
     {
         if (other.gameObject.tag == GameConstant.PlayerTag)
         {
-            // Logging.Log(other.gameObject.name);
             Collectable_event.GameAction.Invoke();
             Destroy(gameObject);
 

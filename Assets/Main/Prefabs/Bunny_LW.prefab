@@ -390,7 +390,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6587654623018747649}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -404,7 +404,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
@@ -447,10 +447,12 @@ MonoBehaviour:
   wanderingState:
     patrolRadius: 5
     moveSpeed: 3
+    rotationSpeed: 5
   chasingState:
     moveSpeed: 5
   attackDistance: 2
   chaseDistance: 10
+  enemyType: 
 --- !u!114 &8013647937150743630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +467,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
   enemy_max_heath: 100
-  damgeable: 0
   UI_Handler: {fileID: 3860479047920445659}
   enemy_current_heath: 0
   CoinDrop: {fileID: 6391962813617967002, guid: de0a38cd5df742340a63ca22361309b5,
