@@ -29,4 +29,8 @@ public class AudioManager : Singleton<AudioManager>
     {
         musicSource.PlayOneShot(clip);
     }
+    public void Mute()
+    {
+        
+    }
 }

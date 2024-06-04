@@ -18,9 +18,13 @@ public class Enemy_UI_handler : MonoBehaviour
         Logging.Log(cam);
         canvas.LookAt(cam.transform.position);
     }
+    private void LateUpdate()
+    {
+        // Update the rotation of the canvas to face the camera every frame
+        canvas.LookAt(canvas.position + cam.transform.rotation * Vector3.forward, cam.transform.rotation * Vector3.up);
+    }
     public void Update_UI(float amount)
     {
         hp_bar.fillAmount=amount;
-        canvas.LookAt(cam.transform.position);
     }
 }
