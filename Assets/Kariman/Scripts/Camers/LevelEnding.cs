@@ -10,7 +10,7 @@ public class LevelEnding : MonoBehaviour
     [SerializeField] string fadeOutAnimName;
     private WaitForSeconds waitTime;
 
-    private void Start() => waitTime = new WaitForSeconds(2.0f);
+    private void Start() => waitTime = new WaitForSeconds(1.9f);
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(GameConstant.PlayerTag))
