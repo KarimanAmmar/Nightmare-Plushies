@@ -7,10 +7,12 @@ public class DissolvingController : MonoBehaviour
     [SerializeField] MeshRenderer playerMesh;
     [SerializeField] float dissolveRate = 0.0125f;
     [SerializeField] float refreshRate = 0.025f;
+    [SerializeField] GameEvent DissolveEvent;
     private Material[] meshMaterial;
     private WaitForSeconds waitTime;
 
-
+    private void OnEnable() => DissolveEvent.GameAction += StartDissolve;
+    private void OnDisable() => DissolveEvent.GameAction -= StartDissolve;
     private void Start()
     {
         waitTime = new WaitForSeconds(refreshRate);
@@ -18,13 +20,7 @@ public class DissolvingController : MonoBehaviour
         if (playerMesh != null)
             meshMaterial = playerMesh.materials;
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            StartCoroutine(DissolveControl());
-        }
-    }
+    void StartDissolve() => StartCoroutine(DissolveControl());
     IEnumerator DissolveControl()
     {
         if (meshMaterial.Length > 0)

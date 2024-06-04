@@ -22,7 +22,7 @@ public class AutoShooting : MonoBehaviour
 
     private void Start()
     {
-        waitTime = new WaitForSeconds(4.0f);
+        waitTime = new WaitForSeconds(1.5f);
         projectiles = new GameObject[10];
         numOfProjectiles = 2;
         maxNumOfProjectiles = 3;
