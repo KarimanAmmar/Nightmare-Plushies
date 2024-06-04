@@ -77,9 +77,9 @@ public class AutoShooting : MonoBehaviour
                 {
                     if (enemyDetection.EnemiesInRange[i].gameObject.activeSelf)
                     {
-                        projectiles[i] = ProjectilesObjectPooling.Instance.GetPooledObject();
+                        projectiles[i] = ObjectPooling.Instance.GetPooledObject();
                         projectiles[i].transform.position = firePoint.position;
-                        ProjectilesObjectPooling.Instance.ActivatePooledObject(projectiles[i]);
+                        ObjectPooling.Instance.ActivatePooledObject(projectiles[i]);
                         ProjectileBehavior projectileBehavior = projectiles[i].GetComponent<ProjectileBehavior>();
 
                         if (projectileBehavior != null)

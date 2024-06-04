@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectilesObjectPooling : Singleton<ProjectilesObjectPooling>
+public class ObjectPooling : Singleton<ObjectPooling>
 {
     [SerializeField] GameObject prefab;
     [SerializeField] GameObject parent;
@@ -33,8 +33,5 @@ public class ProjectilesObjectPooling : Singleton<ProjectilesObjectPooling>
         }
         return null;
     }
-    public void ActivatePooledObject(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
+    public void ActivatePooledObject(GameObject obj) => obj.SetActive(true);
 }

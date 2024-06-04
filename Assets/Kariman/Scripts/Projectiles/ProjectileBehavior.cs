@@ -8,11 +8,7 @@ public class ProjectileBehavior : MonoBehaviour
     [SerializeField] float speed;
     WaitForSeconds waitTime;
 
-
-    private void Start()
-    {
-        waitTime = new WaitForSeconds(2);
-    }
+    private void Start()=> waitTime = new WaitForSeconds(2);
     private void Update() => Move();
     void Move()
     {
