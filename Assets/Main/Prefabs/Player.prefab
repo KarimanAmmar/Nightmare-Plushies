@@ -117,7 +117,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 56.81, y: 7.97, z: 137.48}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.013923464, y: 0.013923466, z: 0.013923464}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6586515647839982086}
@@ -332,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5470649473068306610}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 149793718869074200}
   - component: {fileID: 7993429978267379706}
   - component: {fileID: 8257370756478394013}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ShootingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
