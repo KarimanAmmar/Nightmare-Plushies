@@ -177,7 +177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7129687897896832923
 Transform:
   m_ObjectHideFlags: 0
@@ -220,8 +220,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2765523141536222949}
   - component: {fileID: 4550726243170499743}
-  - component: {fileID: 7211113243418209160}
-  - component: {fileID: 7622016282230801295}
+  - component: {fileID: 3125563583799057389}
+  - component: {fileID: 5153372877699750400}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -256,34 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7211113243418209160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231592862462958910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0.27
-  m_DeadZoneHeight: 0.29
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
---- !u!114 &7622016282230801295
+--- !u!114 &3125563583799057389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 37.26, z: -10.01}
+  m_FollowOffset: {x: 0, y: 27, z: 32}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -305,6 +278,33 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+--- !u!114 &5153372877699750400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231592862462958910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 1.7, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_HorizontalDamping: 0.5
+  m_VerticalDamping: 0.5
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_DeadZoneWidth: 0.2
+  m_DeadZoneHeight: 0.2
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
 --- !u!1 &1882684596786465490
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +342,7 @@ Transform:
   - {fileID: 5217759699896106682}
   - {fileID: 7355072172854927101}
   - {fileID: 860540645092041018}
+  - {fileID: 6796741736851467659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3617783232668684579
@@ -409,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8260848871978353535
 Transform:
   m_ObjectHideFlags: 0
@@ -458,7 +459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6756028579027453729
 Transform:
   m_ObjectHideFlags: 0
@@ -552,8 +553,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5484675253082900146}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.60850114, y: 0.000000024615408, z: -0.000000018875237, w: 0.79355305}
-  m_LocalPosition: {x: -72.15532, y: 62.84811, z: 122.74799}
+  m_LocalRotation: {x: -0.000000010513579, y: 0.9445749, z: -0.32829612, w: -0.000000030249712}
+  m_LocalPosition: {x: -65.54532, y: 52.58811, z: 39.44799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -715,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4882462490564298912
 Transform:
   m_ObjectHideFlags: 0
@@ -809,8 +810,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7826392547909105429}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.60850114, y: 0.000000024615408, z: -0.000000018875237, w: 0.79355305}
-  m_LocalPosition: {x: -72.15532, y: 62.84811, z: 122.74799}
+  m_LocalRotation: {x: -0.000000010513579, y: 0.9445749, z: -0.32829612, w: -0.000000030249712}
+  m_LocalPosition: {x: -65.54532, y: 52.58811, z: 39.44799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -953,6 +954,76 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &8162147622787736561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6796741736851467659}
+  - component: {fileID: 590240428675239446}
+  m_Layer: 0
+  m_Name: WaveManager Arena 1  (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6796741736851467659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162147622787736561}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.053055, y: 1.7883224, z: -1.0860119}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4445196787713725185}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &590240428675239446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162147622787736561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3943bbcc2cf8e24eaf2495608a1e355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPools:
+  - {fileID: 6604989614756953232}
+  wavesData:
+  - waveData: {fileID: 11400000, guid: 1196c4de822b17d4cbfaab31e0251197, type: 2}
+    spawnPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    startTrigger: {fileID: 0}
+    startWavesByTrigger: 0
+  - waveData: {fileID: 11400000, guid: 719269854679f2b4ab3a570724145434, type: 2}
+    spawnPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    startTrigger: {fileID: 0}
+    startWavesByTrigger: 0
+  currentWaveIndex: 0
+  playerTransform: {fileID: 0}
+  WavesComplete: {fileID: 0}
 --- !u!1 &9062757580488732944
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,7 +1034,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5946639922966611475}
   - component: {fileID: 114678528794988624}
-  - component: {fileID: 5439533490324961729}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1006,16 +1076,3 @@ MonoBehaviour:
   playerCurrentPos: {fileID: 0}
   levelCompleted: {fileID: 11400000, guid: 79a3ee1d59e199c4da1b09706c3f4ea7, type: 2}
   characterController: {fileID: 0}
---- !u!114 &5439533490324961729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9062757580488732944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8445196280111498ec9b47deceb879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelcomp: {fileID: 11400000, guid: 79a3ee1d59e199c4da1b09706c3f4ea7, type: 2}
