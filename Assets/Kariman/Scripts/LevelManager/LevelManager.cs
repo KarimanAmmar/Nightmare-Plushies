@@ -8,33 +8,29 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Transform[] playerNewPositions;
     [SerializeField] Transform playerCurrentPos;
     [SerializeField] GameEvent levelCompleted;
-    [SerializeField] CharacterController characterController;
+    [SerializeField] AudioClip[] LevelMusic; 
 
-    private WaitForSeconds waitTime;
     int currentArena;
+    [SerializeField] CharacterController characterController;
 
     private void Start()
     {
         currentArena = 0;
-        waitTime = new WaitForSeconds(2);
+        StartCoroutine(playMusic());
     }
 
     private void OnEnable()
     {
-        levelCompleted.GameAction += StartChange;
+        levelCompleted.GameAction += ChangeLevel;
     }
 
     private void OnDisable()
     {
-        levelCompleted.GameAction -= StartChange;
+        levelCompleted.GameAction -= ChangeLevel;
     }
-    void StartChange()
+
+    void ChangeLevel()
     {
-        StartCoroutine(ChangeLevel());
-    }
-    IEnumerator ChangeLevel()
-    {
-        yield return waitTime;
         for (int i = 0; i < arenas.Length; i++)
         {
             if (arenas[i].activeSelf)
@@ -64,5 +60,19 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+    }
+    IEnumerator playMusic()
+    {
+        for (int i=0;i<LevelMusic.Length;)
+        {
+            AudioManager.Instance.PlyMusic(LevelMusic[i]);
+            yield return new WaitForSeconds(LevelMusic[i].length);
+            i ++;
+            if(i == LevelMusic.Length)
+            {
+                i= 0;
+            }
+        }
+
     }
 }
