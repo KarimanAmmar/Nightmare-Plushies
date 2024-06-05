@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour
 	public event Action OnDefeated;
 
 	[SerializeField] private EnemyType enemyType;
+	[SerializeField] private MonoBehaviour attackBehavior; // Use MonoBehaviour to hold any attack behavior
+
+	private IAttackBehavior attackBehaviorInstance;
 
 	private void OnDisable()
 	{
@@ -31,27 +34,19 @@ public class EnemyController : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody>();
 
-		// Initialize the attack behavior based on the enemy type
-		switch (enemyType)
+		if (attackBehavior is IAttackBehavior)
 		{
-			case EnemyType.Exploding:
-				attackingState = new AttackingState(new ExplodesAttack());
-				break;
-			case EnemyType.Blowing:
-				attackingState = new AttackingState(new BlowsAttack());
-				break;
-			case EnemyType.Aiming:
-				attackingState = new AttackingState(new AimsAttack());
-				break;
-			default:
-				Debug.LogError("Unknown enemy type!");
-				break;
+			attackBehaviorInstance = (IAttackBehavior)attackBehavior;
+			attackingState = new AttackingState(attackBehaviorInstance);
+		}
+		else
+		{
+			Debug.LogError("Attack behavior must implement IAttackBehavior interface");
 		}
 	}
 
 	private void Start()
 	{
-		// Find player transform (assuming there is only one player)
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		if (player != null)
 		{
