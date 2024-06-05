@@ -21,6 +21,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioSource SfxSource;
     private bool MasterMute;
     
+
     public void PlySfx(AudioClip clip)
     {
         SfxSource.PlayOneShot(clip);
