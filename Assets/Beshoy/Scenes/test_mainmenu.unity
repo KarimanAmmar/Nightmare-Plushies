@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed48c52fca199749801706c5313cabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Main_beshoy
+  sceneName: Main
 --- !u!1 &1993569141
 GameObject:
   m_ObjectHideFlags: 0
