@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DamageableObject : MonoBehaviour
 {
-    [SerializeField] private Float_event enemy_damage_event;
     [SerializeField] private float damage;
     [SerializeField] bool deactive = true;
+    [SerializeField] AudioClip HitAudio;
     private void OnTriggerEnter(Collider other)
     {
         if (deactive)
@@ -20,5 +20,6 @@ public class DamageableObject : MonoBehaviour
                 other.gameObject.GetComponent<enemy_health_system>().Take_damage(damage);
             }
         }
+        AudioManager.Instance.PlySfx(HitAudio);
     }
 }
