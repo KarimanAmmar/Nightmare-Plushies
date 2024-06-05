@@ -74,7 +74,7 @@ public class UpgradeManager : MonoBehaviour
     }
     public void select_upgrade(Upgrade upgrade)
     {      
-        Logging.Log($"your{upgrade.GetUpgradeType()}is incresed by{upgrade.GetValue()}%");
+        //Logging.Log($"your{upgrade.GetUpgradeType()}is incresed by{upgrade.GetValue()}%");
         apply_Upgrade(upgrade);
         UI_Deactivate_Event.GameAction.Invoke();
     }
@@ -122,12 +122,6 @@ public class UpgradeManager : MonoBehaviour
 
         return selected_upgrades;
     
-        //Upgrade[] selected_upgrades= new Upgrade[3];
-        //for (int i = 0; i < selected_upgrades.Length; i++)
-        //{
-        //    selected_upgrades[i]= Upgrades_List[UnityEngine.Random.Range(0,Upgrades_List.Length)];
-        //}
-        //return selected_upgrades;
     }
     private void StartUI()
     {
