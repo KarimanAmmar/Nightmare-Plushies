@@ -17,8 +17,15 @@ public class EnemyDetection : MonoBehaviour
 	//send transfrom of the closest enemy as event
 	[SerializeField] private TransformEvent transformClosestEnemy;
 
-
-	void OnTriggerEnter(Collider other)
+    void Update()
+    {
+        if (closestEnemy != null && !closestEnemy.gameObject.activeSelf)
+        {
+            RemoveEnemy(closestEnemy);
+            SortEnemiesByDistance();
+        }
+    }
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(GameConstant.EnemyTag))
         {
@@ -75,13 +82,5 @@ public class EnemyDetection : MonoBehaviour
     void SortEnemiesByDistance()
     {
         enemiesInRange.Sort((a, b) => Vector3.Distance(player.position, a.position).CompareTo(Vector3.Distance(player.position, b.position)));
-    }
-    void Update()
-    {
-        if (closestEnemy != null && !closestEnemy.gameObject.activeSelf)
-        {
-            RemoveEnemy(closestEnemy);
-            SortEnemiesByDistance();
-		}
     }
 }
