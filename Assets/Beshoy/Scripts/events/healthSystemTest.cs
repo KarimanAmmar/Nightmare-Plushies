@@ -7,11 +7,12 @@ public class healthsystemtest : MonoBehaviour
 {
     [SerializeField] private Float_event DamageEvent;
     [SerializeField] private Float_event HealEvent;
+    [SerializeField] private float damage;
     [SerializeField] private bool is_healing;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag== "Player")
+        if (other.gameObject.tag== GameConstant.PlayerTag)
         {
             activateEvent();
         }
@@ -21,10 +22,10 @@ public class healthsystemtest : MonoBehaviour
     {
         if (!is_healing)
         {
-            DamageEvent.Raise(10);
+            DamageEvent.Raise(damage);
         }else
         {
-            HealEvent.Raise(10);
+            HealEvent.Raise(damage);
         }
     }
 }

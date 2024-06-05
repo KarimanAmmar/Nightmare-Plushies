@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DoorAnimator: {fileID: 4367162814119632713}
   AnimName: Open
+  opensfx: {fileID: 8300000, guid: 5e0462aa202bb6848bab14ee861ae9d7, type: 3}
 --- !u!1001 &4115498847384658977
 PrefabInstance:
   m_ObjectHideFlags: 0
