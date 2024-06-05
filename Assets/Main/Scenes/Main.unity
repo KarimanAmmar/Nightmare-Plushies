@@ -2184,7 +2184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.1999512, y: 10.809952}
+  m_AnchoredPosition: {x: 2.1999512, y: 10.809937}
   m_SizeDelta: {x: -27.038498, y: -22.623505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &56988483
@@ -73078,7 +73078,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7472158, y: 0.9188193}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.1999512, y: 10.811783}
+  m_AnchoredPosition: {x: 2.1999512, y: 10.811768}
   m_SizeDelta: {x: -24.038498, y: -21.623505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837632401
@@ -85889,6 +85889,11 @@ PrefabInstance:
       objectReference: {fileID: 816529061}
     - target: {fileID: 1709772020714893173, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -65.54532
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709772020714893173, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 52.58811
       objectReference: {fileID: 0}
@@ -85900,12 +85905,12 @@ PrefabInstance:
     - target: {fileID: 1709772020714893173, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000001107216
+      value: -0.000000030249716
       objectReference: {fileID: 0}
     - target: {fileID: 1709772020714893173, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000003848236
+      value: -0.000000010513581
       objectReference: {fileID: 0}
     - target: {fileID: 1709772020714893173, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -85940,12 +85945,12 @@ PrefabInstance:
     - target: {fileID: 2845627023545746593, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.000000011072164
+      value: -0.000000030249716
       objectReference: {fileID: 0}
     - target: {fileID: 2845627023545746593, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000000038482377
+      value: -0.000000010513581
       objectReference: {fileID: 0}
     - target: {fileID: 2845627023545746593, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -85982,21 +85987,6 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1894711773}
-    - target: {fileID: 3674650326969675707, guid: 8c743f0daf1077f44b3fcf927a01c3af,
-        type: 3}
-      propertyPath: m_Priority
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3674650326969675707, guid: 8c743f0daf1077f44b3fcf927a01c3af,
-        type: 3}
-      propertyPath: m_Lens.FieldOfView
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3674650326969675707, guid: 8c743f0daf1077f44b3fcf927a01c3af,
-        type: 3}
-      propertyPath: m_Lens.NearClipPlane
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 4445196787713725185, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -86046,16 +86036,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561691469230253719, guid: 8c743f0daf1077f44b3fcf927a01c3af,
-        type: 3}
-      propertyPath: field of view
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8561691469230253719, guid: 8c743f0daf1077f44b3fcf927a01c3af,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7211113243418209160, guid: 8c743f0daf1077f44b3fcf927a01c3af, type: 3}
@@ -86119,7 +86099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 27, z: 32}
-  m_XDamping: 1.5
+  m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
   m_AngularDampingMode: 0
