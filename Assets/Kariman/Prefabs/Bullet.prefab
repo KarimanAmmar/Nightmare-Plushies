@@ -14835,3 +14835,4 @@ MonoBehaviour:
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
   damage: 20
   deactive: 1
+  HitAudio: {fileID: 8300000, guid: 2f090a6476bde204cb1d90618697e87d, type: 3}
