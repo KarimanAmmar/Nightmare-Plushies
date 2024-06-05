@@ -112,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 16, y: 146.9}
+  m_AnchoredPosition: {x: -4, y: 271}
   m_SizeDelta: {x: 330, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5958825821818594054
@@ -441,4 +441,4 @@ CapsuleCollider:
   m_Radius: 64.88228
   m_Height: 264.3113
   m_Direction: 1
-  m_Center: {x: 1.0005951, y: -5.4111004, z: 0}
+  m_Center: {x: 1.0005951, y: 111.68, z: 0}
