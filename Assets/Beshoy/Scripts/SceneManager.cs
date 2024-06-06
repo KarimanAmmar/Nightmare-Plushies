@@ -9,6 +9,6 @@ public class Scenemanager : MonoBehaviour
 
     public void OpenScene()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName,LoadSceneMode.Single);
     }
 }
