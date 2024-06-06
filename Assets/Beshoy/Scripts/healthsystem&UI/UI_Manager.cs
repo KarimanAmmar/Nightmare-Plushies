@@ -20,6 +20,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private GameObject MovementPanel;
     [SerializeField] private GameObject UpgradePanel;
     [SerializeField] private Upgrade_list_event List_Event;
+    [SerializeField] private AudioClip ClickAudio;
     /// <summary>
     /// i referance the upgrade manager here to add to select upgrade function for each button
     /// </summary>
@@ -79,12 +80,16 @@ public class UI_Manager : MonoBehaviour
             options[i].setType(upgrades[i].GetUpgradeType());
             options[i].setValue(upgrades[i].GetValue());
 
+            if (options[i].GetButton().onClick != null)
+            {
+                options[i].GetButton().onClick.RemoveAllListeners();
+            }
             
-            options[i].GetButton().onClick.RemoveAllListeners();
 
             Upgrade currentUpgrade = upgrades[i];
 
             options[i].GetButton().onClick.AddListener(() => UpgradeManager.select_upgrade(currentUpgrade));
+            options[i].GetButton().onClick.AddListener(() => AudioManager.Instance.PlySfx(ClickAudio));
         }
 
     }
