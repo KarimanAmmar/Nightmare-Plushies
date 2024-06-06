@@ -24,13 +24,20 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlySfx(AudioClip clip)
     {
-        SfxSource.PlayOneShot(clip);
+        if (clip!=null)
+        {
+            SfxSource.PlayOneShot(clip);
+        }
+        
         //SfxSource.clip = clip;
         //SfxSource.Play();
     }
     public void PlyMusic(AudioClip clip)
     {
-        musicSource.PlayOneShot(clip);
+        if (clip != null)
+        {
+            musicSource.PlayOneShot(clip);
+        }
     }
     public void Mute()
     {

@@ -48342,7 +48342,7 @@ MonoBehaviour:
   enemy_max_heath: 100
   UI_Handler: {fileID: 3247964289318469735}
   enemy_current_heath: 30
-  CoinDrop: {fileID: 6391962813617967002, guid: de0a38cd5df742340a63ca22361309b5,
+  CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
     type: 3}
 --- !u!114 &3247964289318469735
 MonoBehaviour:
