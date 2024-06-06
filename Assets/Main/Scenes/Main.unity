@@ -2236,6 +2236,7 @@ MonoBehaviour:
   MovementPanel: {fileID: 274679271}
   UpgradePanel: {fileID: 204892210}
   List_Event: {fileID: 11400000, guid: 2af419f66fe7ad64cbe6302b5950cbd9, type: 2}
+  ClickAudio: {fileID: 0}
   UpgradeManager: {fileID: 844572696}
   UI_Activate_Event: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
   UI_Deactivate_Event: {fileID: 11400000, guid: e2e907b5751f38040a8edc972448ebb3,
@@ -59347,6 +59348,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7441490233929954947, guid: d124fbc818a238749b57ea79d06c8ff7,
+        type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8468723378040019598, guid: d124fbc818a238749b57ea79d06c8ff7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -86068,6 +86074,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5275264057841415588, guid: e09dbdfeca22e814da01e5b51b9cebcd,
         type: 3}
+    - target: {fileID: 7826392547909105429, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7211113243418209160, guid: 8c743f0daf1077f44b3fcf927a01c3af, type: 3}
     - {fileID: 7622016282230801295, guid: 8c743f0daf1077f44b3fcf927a01c3af, type: 3}
