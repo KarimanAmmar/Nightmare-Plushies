@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
-  colliderTobeactive: {fileID: 0}
+  colliderTobeactive: {fileID: 7133715354594800155}
 --- !u!135 &7133715354594800155
 SphereCollider:
   m_ObjectHideFlags: 0
