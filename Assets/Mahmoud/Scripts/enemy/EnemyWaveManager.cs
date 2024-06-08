@@ -79,7 +79,6 @@ public class EnemyWaveManager : MonoBehaviour
 		else if (activeEnemies <= 0 && !spawningInProgress)
 		{
 			wavesData[currentWaveIndex].waveData.MarkWaveCompleted();
-			Logging.Log($"Wave {currentWaveIndex + 1} completed.");
 			StartNextWave();
 		}
 	}
