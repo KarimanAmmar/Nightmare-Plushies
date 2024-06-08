@@ -23,7 +23,8 @@ public enum UpgradeType
     health,
     speed,
     damageReduction,
-    projectiles
+    projectiles,
+    GhostFriend
 }
 [Serializable]
 public struct Upgrade_Option
@@ -59,6 +60,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private GameEvent UI_Activate_Event;
     [SerializeField] private GameEvent UI_Deactivate_Event;
     [SerializeField] private GameEvent projectile_event;
+    [SerializeField] private GameEvent GhostFriend_event;
     [SerializeField] private Upgrade_list_event List_Event;
 
     private void OnEnable()
@@ -95,6 +97,9 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.projectiles:
                 projectile_event.GameAction.Invoke();
             break;
+            case UpgradeType.GhostFriend:
+                GhostFriend_event.GameAction.Invoke();
+            break;
         }
     }
     private Dictionary<UpgradeType, bool> selectedUpgrades = new Dictionary<UpgradeType, bool>();
@@ -117,6 +122,7 @@ public class UpgradeManager : MonoBehaviour
             selectedUpgrades.Add(randomType, true); // Mark type as selected
 
             selected_upgrades[i] = Upgrades_List.Where(upgrade => upgrade.GetUpgradeType() == randomType).FirstOrDefault();
+            Logging.Log($"{selected_upgrades[i]}");
             // Select first upgrade of the chosen randomType from Upgrades_List
         }
 
