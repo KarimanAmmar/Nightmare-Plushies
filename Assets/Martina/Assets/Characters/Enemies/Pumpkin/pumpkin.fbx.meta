@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: c367b6674f898e74298f786f8fb6379d
+guid: b1ef41d07a7d78149abc70c3aa042fc7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cannon_Wheel
+    second: {fileID: 2100000, guid: a9206de1138ee8d4d98fcef7b2082606, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pumpkin
+    second: {fileID: 2100000, guid: f67bb9071f27a8a4a914ce9eed6133e8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
