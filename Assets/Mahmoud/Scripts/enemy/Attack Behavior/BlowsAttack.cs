@@ -3,38 +3,41 @@ using UnityEngine;
 public class BlowsAttack : MonoBehaviour, IAttackBehavior
 {
 	[SerializeField] private Animator animator;
-	[SerializeField] private ParticleSystem particleSystem;
-	[SerializeField] private Collider attackCollider;
-	[SerializeField] private int damage;
+	
+	private bool hasDealtDamage = true;
+	[SerializeField] private string attackAnimation = "Attack";
+	[SerializeField] private string idleAnimation = "idle";
+	[SerializeField] private float attackMoveSpeed = 2f; // Speed at which the attacker moves towards the player
+
+	private Transform playerTransform;
+	private bool isAttacking = false;
+
+
+	private void Update()
+	{
+		if (isAttacking && playerTransform != null)
+		{
+			// Move towards the player
+			Vector3 direction = (playerTransform.position - transform.position).normalized;
+			transform.position += direction * attackMoveSpeed * Time.deltaTime;
+
+			// Face the player
+			transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
+		}
+	}
 
 	public void Attack(EnemyController enemy, Vector3 playerPosition)
 	{
-		Logging.Log("Performing blows attack");
+		float distance = Vector3.Distance(enemy.transform.position, playerPosition);
 
-		// Implement your blows attack logic here
-		if (animator != null)
+		if (distance <= 4f && hasDealtDamage)
 		{
-			animator.SetTrigger("Blow");
+			animator.SetBool("Attack", true);
 		}
-
-		if (particleSystem != null)
-		{
-			particleSystem.Play();
-		}
-
-		if (attackCollider != null)
-		{
-			// Enable the collider for the duration of the attack
-			attackCollider.enabled = true;
-
-		}
+		isAttacking = true;
+		playerTransform = enemy.transform;
 	}
 
-	public void EndAttack()
-	{
-		if (attackCollider != null)
-		{
-			attackCollider.enabled = false;
-		}
-	}
+
+	
 }
