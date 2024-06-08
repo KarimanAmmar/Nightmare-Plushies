@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8468723378040019598}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,7 +523,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 290955111751975407, guid: 62d2a7f5da1084f6994dcbca19a2ddb2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -568,7 +569,7 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -612,7 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c992daea824de641b374c85be20e579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin_event: {fileID: 11400000, guid: a1a6207c07bad6244b1cb5f827de4f31, type: 2}
+  Collectable_event: {fileID: 11400000, guid: a1a6207c07bad6244b1cb5f827de4f31, type: 2}
+  colliderTobeactive: {fileID: 0}
 --- !u!1001 &7022002193534257833
 PrefabInstance:
   m_ObjectHideFlags: 0
