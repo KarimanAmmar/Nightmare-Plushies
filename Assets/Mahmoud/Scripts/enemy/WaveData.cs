@@ -8,7 +8,7 @@ public class WaveData : ScriptableObject
 	[SerializeField] private string waveName;
 	[SerializeField] private List<NumberOfEnemies> typeOfEnemies;
 	[SerializeField] private float delayBeforeWaveStarts;
-	[HideInInspector] public bool isWaveCompleted;
+	[SerializeField] public bool isWaveCompleted = false;
 
 	public List<NumberOfEnemies> TypeOfEnemies => typeOfEnemies;
 	public float DelayBeforeWaveStarts => delayBeforeWaveStarts;
@@ -22,8 +22,12 @@ public class WaveData : ScriptableObject
 		}
 		return totalEnemies;
 	}
-}
+	public void MarkWaveCompleted()
+	{
+		isWaveCompleted = true;
+	}
 
+}
 
 [System.Serializable]
 public struct NumberOfEnemies

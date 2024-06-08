@@ -22,7 +22,7 @@ public class AutoShooting : MonoBehaviour
 
     private void Start()
     {
-        waitTime = new WaitForSeconds(4.0f);
+        waitTime = new WaitForSeconds(1.5f);
         projectiles = new GameObject[10];
         numOfProjectiles = 2;
         maxNumOfProjectiles = 3;
@@ -77,9 +77,9 @@ public class AutoShooting : MonoBehaviour
                 {
                     if (enemyDetection.EnemiesInRange[i].gameObject.activeSelf)
                     {
-                        projectiles[i] = ProjectilesObjectPooling.Instance.GetPooledObject();
+                        projectiles[i] = ObjectPooling.Instance.GetPooledObject();
                         projectiles[i].transform.position = firePoint.position;
-                        ProjectilesObjectPooling.Instance.ActivatePooledObject(projectiles[i]);
+                        ObjectPooling.Instance.ActivatePooledObject(projectiles[i]);
                         ProjectileBehavior projectileBehavior = projectiles[i].GetComponent<ProjectileBehavior>();
 
                         if (projectileBehavior != null)

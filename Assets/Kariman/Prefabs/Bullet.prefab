@@ -14712,6 +14712,7 @@ GameObject:
   - component: {fileID: 3033449795123022762}
   - component: {fileID: 7020845577613164050}
   - component: {fileID: -9114978108847167742}
+  - component: {fileID: -2666719627500099149}
   m_Layer: 7
   m_Name: Bullet
   m_TagString: projectile
@@ -14818,6 +14819,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d4bf07b10da3949b9a335b9ee97178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
+--- !u!114 &-2666719627500099149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279707207717971157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf36d01e3e0974186f0438b921290c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
-  damage: 10
+  damage: 20
+  deactive: 1
+  HitAudio: {fileID: 8300000, guid: 2f090a6476bde204cb1d90618697e87d, type: 3}

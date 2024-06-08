@@ -112,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 16, y: 146.9}
+  m_AnchoredPosition: {x: -4, y: 271}
   m_SizeDelta: {x: 330, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5958825821818594054
@@ -299,7 +299,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3325510984268359643}
-  m_Mesh: {fileID: -479233940399864944, guid: 698248618f0afaa4493335f51533fef6, type: 3}
+  m_Mesh: {fileID: -3471805035147313068, guid: c3c1c83f0d859534ebfc03b00785682a, type: 3}
 --- !u!23 &4368417460104735855
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -403,6 +403,9 @@ MonoBehaviour:
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
   enemy_max_heath: 100
   damgeable: 0
+  UI_Handler: {fileID: 0}
+  enemy_current_heath: 0
+  CoinDrop: {fileID: 0}
 --- !u!114 &2248206772031157818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,4 +441,4 @@ CapsuleCollider:
   m_Radius: 64.88228
   m_Height: 264.3113
   m_Direction: 1
-  m_Center: {x: 1.0005951, y: -5.4111004, z: 0}
+  m_Center: {x: 1.0005951, y: 111.68, z: 0}

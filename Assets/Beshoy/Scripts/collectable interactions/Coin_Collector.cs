@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Coin_Collector : MonoBehaviour
@@ -8,59 +9,52 @@ public class Coin_Collector : MonoBehaviour
     /// event listenner
     /// method used to increase number of coins when listen to event
     /// method and event to display the current number of coins in UI 
+    /// new things added:
+    /// switching the coin event from game event to int event
+    /// adding the upgrade system event so that
+    /// when the player collect enough points it will activate the upgrade system
     /// </summary>    
-    [SerializeField] int_Event UI_event;
-    [SerializeField] GameEvent coin_event;
-    [SerializeField] float collectingRange;
-    private Collider[] nearbycoins;
-    private int Coins_Count;
-    Vector3 pullPos;
+    [SerializeField] Float_event UiProgressBarEvent;
+    [SerializeField] GameEvent Coin_event;
+    [SerializeField] GameEvent UpgradeEvent;
+    [SerializeField] private GameEvent ClearCountEvent;
+    [SerializeField] private AudioClip collectsfx;
+   // [SerializeField] float collectingRange;
+    [SerializeField] float Upgrade_Value;//the required nuber of the score to activate the upgrade
+    private float AmountUi;//for a progress UI to show the player how much left before leveling up(or the next upgrade)
+   // private Collider[] nearbycoins;
+    private float Coins_Count;
+   // Vector3 pullPos;
     
-
     private void OnEnable()
     {
-        coin_event.GameAction += Collect_Coin;
-        
+        Coin_event.GameAction+=Collect_Coin;
+        ClearCountEvent.GameAction += ClearCount;
+
     }
     private void OnDisable()
     {
-        coin_event.GameAction -=Collect_Coin;
+        Coin_event.GameAction-=Collect_Coin;
+        ClearCountEvent.GameAction-= ClearCount;
     }
     private void Collect_Coin()
     {
         Coins_Count++;
-        UI_event.Raise(Coins_Count);
-    }
-    private void OnTriggerEnter(Collider other)
-    {       //Logging.Log($"{other.gameObject.name}");
-        if(other.gameObject.layer == 6)
+        //AmountUi = Coins_Count/Upgrade_Value;
+        //Logging.Log(Coins_Count);
+        //Logging.Log(Upgrade_Value);
+        //Logging.Log(AmountUi);
+        AudioManager.Instance.PlySfx(collectsfx);
+        UiProgressBarEvent.Raise(AmountUi);
+
+        if(Coins_Count==Upgrade_Value)
         {
-            PullObject(other);
-
+            UpgradeEvent.GameAction.Invoke();
         }
-            
     }
-    private void OnTriggerExit(Collider other)
+    private void ClearCount()
     {
-        if (other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
-        {
-            rigidbody.velocity = Vector3.zero;
-            if (other.gameObject.layer == 6)
-            {
-                PullObject(other);
-
-            }
-
-        }
-        
+       Coins_Count = 0;
+       Logging.Log("coin count returned to 0");
     }
-    private void PullObject(Collider other)
-    {
-        pullPos = transform.position;
-        Vector3 dir = (pullPos - other.transform.position).normalized;
-        other.gameObject.TryGetComponent<Collider>(out Collider component);
-        component.attachedRigidbody.AddForce(dir * 10f,ForceMode.Impulse);
-
-    }
-    // Update is called once per frame
 }

@@ -17,8 +17,8 @@ MonoBehaviour:
   typeOfEnemies:
   - enemyType: 0
     numberOfEnemy: 1
-    delayBetweenSpawns: 2
-  - enemyType: 1
+    delayBetweenSpawns: 1
+  - enemyType: 0
     numberOfEnemy: 1
     delayBetweenSpawns: 1
   delayBeforeWaveStarts: 2

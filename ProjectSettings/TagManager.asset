@@ -14,10 +14,10 @@ TagManager:
   - Wall
   - Water
   - UI
-  - magnetic
-  - Polt
-  - 
-  - 
+  - Magnetic
+  - Projectile
+  - Player
+  - RenderAbove
   - 
   - 
   - 

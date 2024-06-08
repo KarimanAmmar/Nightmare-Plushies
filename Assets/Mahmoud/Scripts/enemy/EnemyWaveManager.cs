@@ -6,79 +6,125 @@ using UnityEngine;
 public class EnemyWaveManager : MonoBehaviour
 {
 	[SerializeField] private List<EnemyPool> enemyPools;
-	[SerializeField] private List<WaveData> wavesData;
+	[SerializeField] private List<Wave> wavesData;
 	[SerializeField] private int currentWaveIndex = 0;
 	[SerializeField] private Transform playerTransform;
-
-	private int totalEnemiesInWave = 0;
+	[SerializeField] private GameEvent WavesComplete;
 	private int activeEnemies = 0;
 	private bool spawningInProgress = false;
-	private static List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
-	private void Start()
+	private void Awake()
 	{
-		RegisterSpawnPoints();
-		StartWave();
-	}
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.C))
+		if (enemyPools == null || enemyPools.Count == 0 || wavesData == null || wavesData.Count == 0 || playerTransform == null || WavesComplete == null)
 		{
-			int randomEnemyPoolIndex = Random.Range(0, enemyPools.Count);
-			enemyPools[randomEnemyPoolIndex].DisableRandomEnemy();
+			Logging.Error("One or more required components are not assigned.");
+			return;
+		}
+
+		foreach (var wave in wavesData)
+		{
+			wave.waveData.isWaveCompleted = false; // Ensure isWaveCompleted is initially false
+			if (wave.StartWavesByTrigger)
+			{
+				if (wave.StartTrigger == null)
+				{
+					Logging.Error("StartTrigger is not assigned in one of the waves.");
+					continue;
+				}
+
+				var waveStartTrigger = wave.StartTrigger.GetComponent<WaveStartTrigger>();
+				if (waveStartTrigger == null)
+				{
+					Logging.Error($"WaveStartTrigger component is missing on {wave.StartTrigger.gameObject.name}.");
+					continue;
+				}
+
+				wave.StartTrigger.gameObject.SetActive(true);
+				waveStartTrigger.OnPlayerEnter += OnPlayerEnterWaveTrigger;
+			}
+		}
+
+		if (!wavesData[currentWaveIndex].StartWavesByTrigger)
+		{
+			StartWave();
 		}
 	}
 
-	private void RegisterSpawnPoints()
+	private void OnPlayerEnterWaveTrigger(Collider trigger)
 	{
-		if (spawnPoints.Count == 0)
+		for (int i = 0; i < wavesData.Count; i++)
 		{
-			SpawnPoint[] allSpawnPoints = FindObjectsOfType<SpawnPoint>();
-			spawnPoints.AddRange(allSpawnPoints);
+			if (wavesData[i].StartTrigger == trigger)
+			{
+				currentWaveIndex = i;
+				StartWave();
+				break;
+			}
 		}
 	}
 
-	public static void RegisterSpawnPoint(SpawnPoint point)
+	/*private void Update()
 	{
-		if (!spawnPoints.Contains(point))
-		{
-			spawnPoints.Add(point);
-		}
-	}
-
-	public static void UnregisterSpawnPoint(SpawnPoint point)
-	{
-		if (spawnPoints.Contains(point))
-		{
-			spawnPoints.Remove(point);
-		}
-	}
+		CheckAllWavesCompleted();
+	}*/
 
 	public void OnEnemyDefeated()
 	{
 		activeEnemies--;
-		if (activeEnemies <= 0 && !spawningInProgress)
+
+		if (activeEnemies <= 0 && !spawningInProgress && currentWaveIndex >= wavesData.Count)
 		{
-			currentWaveIndex++;
-			StartWave();
+			CheckAllWavesCompleted();
 		}
+		else if (activeEnemies <= 0 && !spawningInProgress)
+		{
+			wavesData[currentWaveIndex].waveData.MarkWaveCompleted();
+			StartNextWave();
+		}
+	}
+
+	private void StartNextWave()
+	{
+		currentWaveIndex++;
+
+		if (currentWaveIndex < wavesData.Count)
+		{
+			if (wavesData[currentWaveIndex].StartWavesByTrigger)
+			{
+				wavesData[currentWaveIndex].StartTrigger.gameObject.SetActive(true);
+			}
+			else
+			{
+				StartCoroutine(StartNextWaveWithDelay());
+			}
+		}
+		else
+		{
+			CheckAllWavesCompleted();
+		}
+	}
+
+	private IEnumerator StartNextWaveWithDelay()
+	{
+		if (currentWaveIndex <= 0)
+		{
+			yield break;
+		}
+
+		var delay = wavesData[currentWaveIndex - 1].waveData.DelayBeforeWaveStarts;
+		yield return new WaitForSeconds(delay);
+		StartWave();
 	}
 
 	private void StartWave()
 	{
 		if (currentWaveIndex >= wavesData.Count)
 		{
+			CheckAllWavesCompleted();
 			return;
 		}
 
-		foreach (SpawnPoint spawnPoint in spawnPoints)
-		{
-			spawnPoint.ResetAvailability();
-		}
-
 		SetPlayerTransformForEnemies(playerTransform);
-		totalEnemiesInWave = wavesData[currentWaveIndex].CalculateTotalEnemies();
 		StartCoroutine(SpawnWave(currentWaveIndex));
 	}
 
@@ -86,17 +132,16 @@ public class EnemyWaveManager : MonoBehaviour
 	{
 		spawningInProgress = true;
 
-		WaveData waveData = wavesData[waveIndex];
+		WaveData waveData = wavesData[waveIndex].waveData;
 		yield return new WaitForSeconds(waveData.DelayBeforeWaveStarts);
 
 		List<NumberOfEnemies> shuffledEnemies = waveData.TypeOfEnemies.OrderBy(x => Random.value).ToList();
-		List<SpawnPoint> availablePoints = spawnPoints.FindAll(point => point.IsAvailable);
 
 		foreach (NumberOfEnemies enemyData in shuffledEnemies)
 		{
 			for (int i = 0; i < enemyData.numberOfEnemy; i++)
 			{
-				Transform spawnPosition = GetRandomAvailableSpawnPoint(availablePoints);
+				Transform spawnPosition = GetRandomSpawnPoint(wavesData[waveIndex].SpawnPoints);
 				if (spawnPosition != null)
 				{
 					EnemyPool enemyPool = enemyPools[(int)enemyData.enemyType];
@@ -110,7 +155,6 @@ public class EnemyWaveManager : MonoBehaviour
 							{
 								enemyController.OnDefeated += OnEnemyDefeated;
 								activeEnemies++;
-								MarkSpawnPointUnavailable(spawnPosition);
 							}
 						}
 					}
@@ -121,14 +165,23 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 
 		spawningInProgress = false;
+
+		if (currentWaveIndex >= wavesData.Count - 1)
+		{
+			CheckAllWavesCompleted();
+		}
+		else if (!wavesData[waveIndex].StartWavesByTrigger && currentWaveIndex < wavesData.Count - 1)
+		{
+			StartCoroutine(StartNextWaveWithDelay());
+		}
 	}
 
-	private Transform GetRandomAvailableSpawnPoint(List<SpawnPoint> availablePoints)
+	private Transform GetRandomSpawnPoint(List<Transform> points)
 	{
-		if (availablePoints.Count > 0)
+		if (points.Count > 0)
 		{
-			int randomIndex = Random.Range(0, availablePoints.Count);
-			return availablePoints[randomIndex].transform;
+			int randomIndex = Random.Range(0, points.Count);
+			return points[randomIndex];
 		}
 		return null;
 	}
@@ -141,12 +194,23 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
-	private void MarkSpawnPointUnavailable(Transform point)
+	private void CheckAllWavesCompleted()
 	{
-		SpawnPoint spawnPoint = point.GetComponent<SpawnPoint>();
-		if (spawnPoint != null)
+		bool allWavesCompleted = true;
+		foreach (var wave in wavesData)
 		{
-			spawnPoint.SetAvailability(false);
+			if (!wave.waveData.isWaveCompleted)
+			{
+				allWavesCompleted = false;
+				break;
+			}
+		}
+
+		if (allWavesCompleted)
+		{
+			WavesComplete.GameAction?.Invoke();
+			Logging.Log("All waves completed.");
+			Debug.Log("All waves completed.");
 		}
 	}
 }

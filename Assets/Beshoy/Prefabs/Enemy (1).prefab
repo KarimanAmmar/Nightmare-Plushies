@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 659717835164868512}
   - component: {fileID: 745364172755886113}
   m_Layer: 5
-  m_Name: bar
+  m_Name: healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 775919360213025009}
   - component: {fileID: 6864274412458152936}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,10 +162,10 @@ GameObject:
   - component: {fileID: 4603874156319233606}
   - component: {fileID: 5407996479149054648}
   - component: {fileID: 3399761377335399538}
+  - component: {fileID: -7463376618977632157}
   - component: {fileID: 3018556286834616866}
   - component: {fileID: 8590984036861217831}
   - component: {fileID: 8337885077770929248}
-  - component: {fileID: -7463376618977632157}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -196,7 +196,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7489208334345181604}
-  m_Mesh: {fileID: -479233940399864944, guid: 698248618f0afaa4493335f51533fef6, type: 3}
+  m_Mesh: {fileID: -3471805035147313068, guid: c3c1c83f0d859534ebfc03b00785682a, type: 3}
 --- !u!23 &5407996479149054648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -266,6 +266,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!136 &-7463376618977632157
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489208334345181604}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 6
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 51.28403
+  m_Height: 262.5901
+  m_Direction: 1
+  m_Center: {x: -2.1980352, y: 109.5197, z: 0.000000056085305}
 --- !u!114 &3018556286834616866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +323,10 @@ MonoBehaviour:
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
   enemy_max_heath: 100
   damgeable: 0
+  UI_Handler: {fileID: 8337885077770929248}
+  enemy_current_heath: 0
+  CoinDrop: {fileID: 6391962813617967002, guid: de0a38cd5df742340a63ca22361309b5,
+    type: 3}
 --- !u!114 &8337885077770929248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,29 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp_bar: {fileID: 745364172755886113}
---- !u!136 &-7463376618977632157
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7489208334345181604}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 51.284035
-  m_Height: 260.81036
-  m_Direction: 1
-  m_Center: {x: -2.1980345, y: -3.6606312, z: 0}
 --- !u!1 &8310353197410578715
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 16, y: 146.9}
+  m_AnchoredPosition: {x: 16, y: 273.9}
   m_SizeDelta: {x: 330, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &916322637552942769

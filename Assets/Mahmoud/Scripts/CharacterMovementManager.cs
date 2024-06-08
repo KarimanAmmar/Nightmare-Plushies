@@ -36,7 +36,7 @@ public class CharacterMovementManager : MonoBehaviour
 	{
 		if (isJoystick)
 		{
-			Vector3 movementDirection = new Vector3(joystick.Direction.x, 0.0f, joystick.Direction.y);
+			Vector3 movementDirection = new Vector3(-joystick.Direction.x, 0.0f, -joystick.Direction.y);
 			MovePlayer(movementDirection);
 			if (!isLerpingToEnemy)
 			{

@@ -38,7 +38,7 @@ public struct Upgrade_Option
     }
     public void setValue(float value)
     {
-        UpgradeValue.text = $"{value}";
+        UpgradeValue.text = $"+{value}%";
 
     }
     public Button GetButton()
@@ -74,14 +74,14 @@ public class UpgradeManager : MonoBehaviour
     }
     public void select_upgrade(Upgrade upgrade)
     {      
-        Logging.Log($"your{upgrade.GetType()}is incresed by{upgrade.GetValue()}%");
+        Logging.Log($"your{upgrade.GetUpgradeType()}is incresed by{upgrade.GetValue()}%");
         apply_Upgrade(upgrade);
         UI_Deactivate_Event.GameAction.Invoke();
     }
 
     private void apply_Upgrade(Upgrade upgrade)
     {
-        switch (upgrade.GetType())
+        switch (upgrade.GetUpgradeType())
         {
             case UpgradeType.health:
                 PlyrHelth.UpgradeHealth(upgrade.GetValue());
@@ -116,18 +116,12 @@ public class UpgradeManager : MonoBehaviour
 
             selectedUpgrades.Add(randomType, true); // Mark type as selected
 
-            selected_upgrades[i] = Upgrades_List.Where(upgrade => upgrade.GetType() == randomType).FirstOrDefault();
+            selected_upgrades[i] = Upgrades_List.Where(upgrade => upgrade.GetUpgradeType() == randomType).FirstOrDefault();
             // Select first upgrade of the chosen randomType from Upgrades_List
         }
 
         return selected_upgrades;
     
-        //Upgrade[] selected_upgrades= new Upgrade[3];
-        //for (int i = 0; i < selected_upgrades.Length; i++)
-        //{
-        //    selected_upgrades[i]= Upgrades_List[UnityEngine.Random.Range(0,Upgrades_List.Length)];
-        //}
-        //return selected_upgrades;
     }
     private void StartUI()
     {

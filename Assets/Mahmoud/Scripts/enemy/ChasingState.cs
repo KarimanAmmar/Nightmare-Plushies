@@ -4,6 +4,7 @@ using UnityEngine;
 public class ChasingState : IEnemyState
 {
 	[SerializeField] private float moveSpeed = 5f;
+	[SerializeField] private float rotationSpeed = 5f; // Added rotation speed for smoother looking at the player
 	private Rigidbody rb;
 
 	public void EnterState(EnemyController enemy)
@@ -13,7 +14,7 @@ public class ChasingState : IEnemyState
 
 	public void ExitState(EnemyController enemy)
 	{
-
+		// Any cleanup when exiting the state can be done here
 	}
 
 	public void UpdateState(EnemyController enemy, Vector3 playerPosition)
@@ -30,8 +31,8 @@ public class ChasingState : IEnemyState
 
 	private void LookAtPlayer(Vector3 playerPosition)
 	{
-		Vector3 lookDirection = (playerPosition - rb.position).normalized;
-		Quaternion targetRotation = Quaternion.LookRotation(new Vector3(lookDirection.x, 0f, lookDirection.z));
-		rb.rotation = Quaternion.Lerp(rb.rotation, targetRotation, Time.deltaTime);
+		Vector3 direction = (playerPosition - rb.position).normalized;
+		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)); // Ensure the enemy stays upright
+		rb.rotation = Quaternion.Slerp(rb.rotation, lookRotation, rotationSpeed * Time.deltaTime);
 	}
 }

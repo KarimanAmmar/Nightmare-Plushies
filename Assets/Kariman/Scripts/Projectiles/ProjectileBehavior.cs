@@ -6,26 +6,10 @@ public class ProjectileBehavior : MonoBehaviour
 {
     Transform targetPoint;
     [SerializeField] float speed;
-    [SerializeField] private Float_event enemy_damage_event;
-    [SerializeField] private float damage;
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            enemy_damage_event.Raise(damage);
-            this.gameObject.SetActive(false);
-        }
-    }
-    public void Initialize(Transform target, float moveSpeed)
-    {
-        targetPoint = target;
-        speed = moveSpeed;
-    }
+    WaitForSeconds waitTime;
 
-    private void Update()
-    {
-        Move();
-    }
+    private void Start()=> waitTime = new WaitForSeconds(2);
+    private void Update() => Move();
     void Move()
     {
         if (targetPoint != null)
@@ -33,5 +17,16 @@ public class ProjectileBehavior : MonoBehaviour
             Vector3 direction = (targetPoint.position - transform.position).normalized;
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
+    }
+    public void Initialize(Transform target, float moveSpeed)
+    {
+        targetPoint = target;
+        speed = moveSpeed;
+        StartCoroutine(DeactivateObject());
+    }
+    IEnumerator DeactivateObject()
+    {
+        yield return waitTime;
+        this.gameObject.SetActive(false);
     }
 }

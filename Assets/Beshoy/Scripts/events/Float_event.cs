@@ -7,9 +7,9 @@ public class Float_event : ScriptableObject
 {
     private event System.Action<float> listeners;
 
-    public void Raise(float waveNumber)
+    public void Raise(float value)
     {
-        listeners?.Invoke(waveNumber);
+        listeners?.Invoke(value);
     }
 
     public void RegisterListener(System.Action<float> listener)

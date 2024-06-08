@@ -17,10 +17,17 @@ public class EnemyDetection : MonoBehaviour
 	//send transfrom of the closest enemy as event
 	[SerializeField] private TransformEvent transformClosestEnemy;
 
-
-	void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (other.CompareTag("Enemy"))
+        if (closestEnemy != null && !closestEnemy.gameObject.activeSelf)
+        {
+            RemoveEnemy(closestEnemy);
+            SortEnemiesByDistance();
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(GameConstant.EnemyTag))
         {
             Transform newEnemy = other.transform;
             EnemiesInRange.Add(newEnemy);
@@ -29,7 +36,7 @@ public class EnemyDetection : MonoBehaviour
             if (closestEnemy == null || Vector3.Distance(player.position, newEnemy.position) < Vector3.Distance(player.position, closestEnemy.position))
             {
                 closestEnemy = newEnemy;
-                //FindClosestEnemy();
+				//FindClosestEnemy();
 				transformClosestEnemy.Raise(closestEnemy);
 				EnemyDetected.GameAction?.Invoke();
             }
@@ -37,7 +44,7 @@ public class EnemyDetection : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag(GameConstant.EnemyTag))
         {
             Transform exitingEnemy = other.transform;
 			RemoveEnemy(exitingEnemy);
@@ -54,11 +61,11 @@ public class EnemyDetection : MonoBehaviour
             if (distanceToPlayer < closestDistance)
             {
                 closestDistance = distanceToPlayer;
-                closestEnemy = enemy;
-				
+                closestEnemy = enemy;				
 			}
         }
-    }
+		transformClosestEnemy.Raise(closestEnemy);
+	}
     void RemoveEnemy(Transform enemyToRemove)
     {
         EnemiesInRange.Remove(enemyToRemove);
@@ -75,13 +82,5 @@ public class EnemyDetection : MonoBehaviour
     void SortEnemiesByDistance()
     {
         enemiesInRange.Sort((a, b) => Vector3.Distance(player.position, a.position).CompareTo(Vector3.Distance(player.position, b.position)));
-    }
-    void Update()
-    {
-        if (closestEnemy != null && !closestEnemy.gameObject.activeSelf)
-        {
-            RemoveEnemy(closestEnemy);
-            SortEnemiesByDistance();
-		}
     }
 }
