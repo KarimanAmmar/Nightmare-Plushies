@@ -22,11 +22,11 @@ public class WaveData : ScriptableObject
 		}
 		return totalEnemies;
 	}
+
 	public void MarkWaveCompleted()
 	{
 		isWaveCompleted = true;
 	}
-
 }
 
 [System.Serializable]

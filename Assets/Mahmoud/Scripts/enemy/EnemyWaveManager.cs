@@ -63,20 +63,11 @@ public class EnemyWaveManager : MonoBehaviour
 		}
 	}
 
-	/*private void Update()
-	{
-		CheckAllWavesCompleted();
-	}*/
-
 	public void OnEnemyDefeated()
 	{
 		activeEnemies--;
 
-		if (activeEnemies <= 0 && !spawningInProgress && currentWaveIndex >= wavesData.Count)
-		{
-			CheckAllWavesCompleted();
-		}
-		else if (activeEnemies <= 0 && !spawningInProgress)
+		if (activeEnemies <= 0 && !spawningInProgress)
 		{
 			wavesData[currentWaveIndex].waveData.MarkWaveCompleted();
 			StartNextWave();
@@ -124,6 +115,7 @@ public class EnemyWaveManager : MonoBehaviour
 			return;
 		}
 
+		activeEnemies = wavesData[currentWaveIndex].waveData.CalculateTotalEnemies();
 		SetPlayerTransformForEnemies(playerTransform);
 		StartCoroutine(SpawnWave(currentWaveIndex));
 	}
@@ -135,33 +127,20 @@ public class EnemyWaveManager : MonoBehaviour
 		WaveData waveData = wavesData[waveIndex].waveData;
 		yield return new WaitForSeconds(waveData.DelayBeforeWaveStarts);
 
-		List<NumberOfEnemies> shuffledEnemies = waveData.TypeOfEnemies.OrderBy(x => Random.value).ToList();
+		// List to store all active spawn coroutines
+		List<Coroutine> activeSpawns = new List<Coroutine>();
 
-		foreach (NumberOfEnemies enemyData in shuffledEnemies)
+		// Start a coroutine for each type of enemy
+		foreach (NumberOfEnemies enemyData in waveData.TypeOfEnemies)
 		{
-			for (int i = 0; i < enemyData.numberOfEnemy; i++)
-			{
-				Transform spawnPosition = GetRandomSpawnPoint(wavesData[waveIndex].SpawnPoints);
-				if (spawnPosition != null)
-				{
-					EnemyPool enemyPool = enemyPools[(int)enemyData.enemyType];
-					if (enemyPool != null)
-					{
-						GameObject enemy = enemyPool.ActivateEnemy(spawnPosition.position);
-						if (enemy != null)
-						{
-							EnemyController enemyController = enemy.GetComponent<EnemyController>();
-							if (enemyController != null)
-							{
-								enemyController.OnDefeated += OnEnemyDefeated;
-								activeEnemies++;
-							}
-						}
-					}
-				}
+			Coroutine spawnCoroutine = StartCoroutine(SpawnEnemyType(enemyData, waveIndex));
+			activeSpawns.Add(spawnCoroutine);
+		}
 
-				yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
-			}
+		// Wait for all spawn coroutines to finish
+		foreach (Coroutine spawnCoroutine in activeSpawns)
+		{
+			yield return spawnCoroutine;
 		}
 
 		spawningInProgress = false;
@@ -173,6 +152,32 @@ public class EnemyWaveManager : MonoBehaviour
 		else if (!wavesData[waveIndex].StartWavesByTrigger && currentWaveIndex < wavesData.Count - 1)
 		{
 			StartCoroutine(StartNextWaveWithDelay());
+		}
+	}
+
+	private IEnumerator SpawnEnemyType(NumberOfEnemies enemyData, int waveIndex)
+	{
+		for (int i = 0; i < enemyData.numberOfEnemy; i++)
+		{
+			Transform spawnPosition = GetRandomSpawnPoint(wavesData[waveIndex].SpawnPoints);
+			if (spawnPosition != null)
+			{
+				EnemyPool enemyPool = enemyPools[(int)enemyData.enemyType];
+				if (enemyPool != null)
+				{
+					GameObject enemy = enemyPool.ActivateEnemy(spawnPosition.position);
+					if (enemy != null)
+					{
+						EnemyController enemyController = enemy.GetComponent<EnemyController>();
+						if (enemyController != null)
+						{
+							enemyController.OnDefeated += OnEnemyDefeated;
+						}
+					}
+				}
+			}
+
+			yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
 		}
 	}
 
