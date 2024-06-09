@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4018785312538289677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2916067175729815383}
+  m_Layer: 0
+  m_Name: 'FirePoint '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2916067175729815383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018785312538289677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.023, y: 2.344, z: 0.803}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2755892808476381531}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2428667894330341040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11,17 +42,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47.737335
+      value: 318.13156
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.2
+      value: 5.508095
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -409.24905
+      value: 144.13232
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
@@ -106,17 +137,31 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_Name
-      value: pumpkin
+      value: pumpkin_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2916067175729815383}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2206642460933340092}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6947324481221137761}
   m_SourcePrefab: {fileID: 100100000, guid: b1ef41d07a7d78149abc70c3aa042fc7, type: 3}
+--- !u!4 &2755892808476381531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2428667894330341040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3275582874098174945 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
@@ -144,3 +189,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6947324481221137761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275582874098174945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b86112fee8f8c4a87d4666df509f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  enemyDetection: {fileID: 0}
+  projectiles: []
+  IfEnemyDetected: {fileID: 0}
+  IfEnemiesCleared: {fileID: 0}
+  UpgradeProjectilesNum: {fileID: 0}
