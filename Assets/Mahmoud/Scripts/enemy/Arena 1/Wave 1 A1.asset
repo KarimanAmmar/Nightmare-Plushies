@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: Wave 1 A1
   m_EditorClassIdentifier: 
   waveID: 0
-  waveName: 
+  waveName: Wave 1
   typeOfEnemies:
   - enemyType: 0
-    numberOfEnemy: 2
-    delayBetweenSpawns: 1
-  - enemyType: 1
-    numberOfEnemy: 2
-    delayBetweenSpawns: 1
-  delayBeforeWaveStarts: 0
-  isWaveCompleted: 1
+    numberOfEnemy: 8
+    delayBetweenSpawns: 2
+  delayBeforeWaveStarts: 2
+  isWaveCompleted: 0

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveID: 1
   waveName: Wave 1 Arena 2
-  typeOfEnemies: []
+  typeOfEnemies:
+  - enemyType: 0
+    numberOfEnemy: 2
+    delayBetweenSpawns: 1
   delayBeforeWaveStarts: 0
   isWaveCompleted: 0

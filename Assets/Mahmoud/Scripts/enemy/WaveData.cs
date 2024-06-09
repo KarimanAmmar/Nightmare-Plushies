@@ -13,6 +13,8 @@ public class WaveData : ScriptableObject
 	public List<NumberOfEnemies> TypeOfEnemies => typeOfEnemies;
 	public float DelayBeforeWaveStarts => delayBeforeWaveStarts;
 
+	public int WaveID { get => waveID; set => waveID = value; }
+
 	public int CalculateTotalEnemies()
 	{
 		int totalEnemies = 0;
@@ -22,11 +24,11 @@ public class WaveData : ScriptableObject
 		}
 		return totalEnemies;
 	}
-
 	public void MarkWaveCompleted()
 	{
 		isWaveCompleted = true;
 	}
+
 }
 
 [System.Serializable]

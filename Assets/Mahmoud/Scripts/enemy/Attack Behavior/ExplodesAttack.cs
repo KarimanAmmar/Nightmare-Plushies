@@ -10,7 +10,7 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 	[SerializeField] private float scaleDuration = 3f;
 	[SerializeField] private float maxScale = 1.3f;
 	[SerializeField] private float scaleSpeed = 1.5f;
-
+	[SerializeField] private GameEvent enemyDefeatedEvent;
 	private bool isAttacking = false;
 
 	void Awake()
@@ -50,6 +50,7 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 		{
 			particleSystem.gameObject.SetActive(false);
 			root.SetActive(false);
+			enemyDefeatedEvent.GameAction?.Invoke();
 		}
 	}
 }
