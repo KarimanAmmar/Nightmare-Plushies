@@ -785,7 +785,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.05
+      value: 0.3
       mode: 0
       spread: 0
       speed:
@@ -5673,7 +5673,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.1
+      value: 0.3
       mode: 0
       spread: 0
       speed:
@@ -10034,7 +10034,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 2
       minColor: {r: 1, g: 0.72868973, b: 0.033018887, a: 1}
-      maxColor: {r: 1, g: 0.598363, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.70456165, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -14729,9 +14729,9 @@ Transform:
   m_GameObject: {fileID: 8279707207717971157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 1.51, z: 5.67}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.862, y: 1.51, z: 7.95}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2443173845503496971}
   m_Father: {fileID: 0}
@@ -14820,6 +14820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  waitTimeNum: 3
 --- !u!114 &-2666719627500099149
 MonoBehaviour:
   m_ObjectHideFlags: 0
