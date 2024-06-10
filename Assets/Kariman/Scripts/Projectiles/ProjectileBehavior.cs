@@ -6,9 +6,9 @@ public class ProjectileBehavior : MonoBehaviour
 {
     Transform targetPoint;
     [SerializeField] float speed;
+    [SerializeField] int waitTimeNum = 3;
     WaitForSeconds waitTime;
-
-    private void Start()=> waitTime = new WaitForSeconds(2);
+    private void Start()=> waitTime = new WaitForSeconds(waitTimeNum);
     private void Update() => Move();
     void Move()
     {
