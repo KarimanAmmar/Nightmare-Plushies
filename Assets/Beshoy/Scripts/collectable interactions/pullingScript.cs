@@ -17,13 +17,10 @@ public class pullingScript : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+        if (other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigidbody)&& other.gameObject.layer == GameConstant.MagneticLayer)
         {
             rigidbody.velocity = Vector3.zero;
-            if (other.gameObject.layer == GameConstant.MagneticLayer)
-            {
-                PullObject(other);
-            }
+            PullObject(other);
         }
     }
     private void PullObject(Collider other)

@@ -6,44 +6,70 @@ using UnityEngine;
 public class projection : MonoBehaviour
 {
     [SerializeField] Transform firePoint; // Transform for projectile spawn location
+    [SerializeField] Transform directionPoint; // Transform to control the direction of the projectile
     [SerializeField] GameObject projectilePrefab; // Prefab of the projectile to be fired
-    [SerializeField] float gravity; // Gravity value affecting the projectile (adjust based on your scene)
+    [SerializeField] float maxDistance;
+    [SerializeField] float launchAngle = 45.0f;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == GameConstant.PlayerLayer)
         {
-            FireCannon(other.transform.localPosition);
+            FireProjectile(other.transform.position); // Use position instead of localPosition
         }
     }
-    public void FireCannon(Vector3 targetPosition)
-     {
-        // Get cannon position from the firePoint transform
+
+    public void FireProjectile(Vector3 targetPosition)
+    {
         Vector3 cannonPosition = firePoint.position;
-
-        // Get target position from the targetTransform
-        Vector3 targettPosition = targetPosition;
-
-        // Calculate direction vector from cannon to target
         Vector3 direction = targetPosition - cannonPosition;
-
-        // Calculate distance between cannon and target
         float distance = Vector3.Distance(cannonPosition, targetPosition);
 
-        // Calculate a fixed launch force (adjust as needed)
-        float launchForce = 10000.0f; // Adjust launch force based on your projectile and scene
+        if (distance > maxDistance)
+        {
+            Debug.LogWarning("Target is beyond maximum reachable distance!");
+            return;
+        }
 
-        // Calculate a fixed launch angle for upward trajectory (adjust as needed)
-        float launchAngle = 45.0f; // Adjust launch angle for desired trajectory
+        // Calculate the angle in radians
+        float angle = launchAngle*(distance/maxDistance) * Mathf.Deg2Rad;
 
-        // Rotate firePoint to look at target
-        firePoint.LookAt(targetPosition, Vector3.up);
+        // Calculate the horizontal distance
+        float horizontalDistance = new Vector2(direction.x, direction.z).magnitude;
 
-        // Calculate launch velocity based on distance and launch force
-        float launchVelocity = Mathf.Sqrt(2f * launchForce / distance);
+        // Calculate the initial velocity required to reach the target
+        float g = Mathf.Abs(Physics.gravity.y);
+        float initialVelocity = Mathf.Sqrt(horizontalDistance * g / Mathf.Sin(2 * angle));
 
-        // Instantiate projectile at firePoint with calculated velocity
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        projectile.GetComponent<Rigidbody>().velocity = direction.normalized * launchVelocity;
+        // Time to reach the target
+        float timeOfFlight = horizontalDistance / (initialVelocity * Mathf.Cos(angle));
+
+        // Vertical component of the initial velocity
+        float verticalVelocity = initialVelocity * Mathf.Sin(angle);
+
+        // Correct the forward direction to be horizontal
+        direction.y = 0;
+        direction.Normalize();
+
+        // Rotate directionPoint to look at the target
+        directionPoint.LookAt(targetPosition);
+
+        // Calculate the initial velocity vector
+        Vector3 initialVelocityVector = direction * initialVelocity;
+        initialVelocityVector.y = verticalVelocity;
+
+        // Instantiate projectile at firePoint with directionPoint's rotation
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, directionPoint.rotation);
+        Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+
+        if (projectileRb != null)
+        {
+            projectileRb.isKinematic = false;
+            projectileRb.velocity = initialVelocityVector; // Set the velocity
+        }
+        else
+        {
+            Debug.LogError("Projectile prefab does not have a Rigidbody component!");
+        }
     }
 }
