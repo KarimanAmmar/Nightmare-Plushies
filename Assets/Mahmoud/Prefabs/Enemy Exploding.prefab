@@ -48323,7 +48323,7 @@ MonoBehaviour:
   chasingState:
     moveSpeed: 5
     rotationSpeed: 5
-  attackDistance: 5
+  attackDistance: 3
   chaseDistance: 12
   enemyType: 0
   attackBehavior: {fileID: 4641430719983155835}
