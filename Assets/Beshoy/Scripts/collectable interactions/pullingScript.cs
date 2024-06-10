@@ -1,41 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class pullingScript : MonoBehaviour
+public class PullingScript : MonoBehaviour
 {
-    [SerializeField] float collectingRange;
-    [SerializeField] float attractionForce;
-    Vector3 pullPos;
-    private void OnTriggerEnter(Collider other)
-    {       //Logging.Log($"{other.gameObject.name}");
-        if (other.gameObject.layer == GameConstant.MagneticLayer)
-        {
-            PullObject(other);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigidbody)&& other.gameObject.layer == GameConstant.MagneticLayer)
-        {
-            rigidbody.velocity = Vector3.zero;
-            PullObject(other);
-        }
-    }
-    private void PullObject(Collider other)
-    {
-        if (other.gameObject.layer==GameConstant.MagneticLayer&&
-            Physics.OverlapSphere(transform.position,collectingRange).Contains(other)) 
-        {
-            pullPos = transform.position;
-            Vector3 dir = (pullPos - other.transform.position).normalized;
-            other.attachedRigidbody.AddForce(dir * attractionForce, ForceMode.Impulse);
-        }
+    [SerializeField] float collectingRange = 5f;
+    [SerializeField] float attractionForce = 10f;
 
-        //pullPos = transform.position;
-        //Vector3 dir = (pullPos - other.transform.position).normalized;
-        //other.gameObject.TryGetComponent<Collider>(out Collider component);
-        //component.attachedRigidbody.AddForce(dir * 10f, ForceMode.Impulse);
+    private void FixedUpdate()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, collectingRange, 1 << GameConstant.MagneticLayer);
+        foreach (var collider in colliders)
+        {
+            if (collider.TryGetComponent<Rigidbody>(out Rigidbody rb))
+            {
+                PullObject(rb);
+            }
+        }
+    }
+
+    private void PullObject(Rigidbody rb)
+    {
+        Vector3 direction = (transform.position - rb.position).normalized;
+        rb.MovePosition(Vector3.Lerp(rb.position, transform.position, attractionForce * Time.fixedDeltaTime));
     }
 }
