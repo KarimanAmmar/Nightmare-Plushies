@@ -17,9 +17,10 @@ public class EnemyShooting : MonoBehaviour
     //Pooling
     [SerializeField] GameObject prefab;
     [SerializeField] GameObject parent;
-    [SerializeField] int poolSize;
     List<GameObject> pooledObjects;
     GameObject projectile;
+    [SerializeField] int poolSize;
+    [SerializeField] int projectileSpeed = 5;
 
     private void Awake()
     {
@@ -74,9 +75,10 @@ public class EnemyShooting : MonoBehaviour
             projectile.SetActive(true);
             ProjectileBehavior projectileBehavior = projectile.GetComponent<ProjectileBehavior>();
 
-            if (projectileBehavior != null)
+            if (projectileBehavior != null && PlayerPos.transform != null)
             {
-                projectileBehavior.Initialize(PlayerPos.transform, 5);
+                projectileBehavior.Initialize(PlayerPos.transform, projectileSpeed);
+                Logging.Log(PlayerPos.transform.position);
             }
             Logging.Log("ienum");
             yield return waitTime;

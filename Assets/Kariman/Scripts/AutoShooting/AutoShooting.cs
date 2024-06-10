@@ -9,6 +9,7 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] EnemyDetection enemyDetection;
     [SerializeField] GameObject[] projectiles;
+    [SerializeField] int projectileSpeed = 5;
 
     //GameEvents
     [SerializeField] GameEvent IfEnemyDetected;
@@ -84,7 +85,7 @@ public class AutoShooting : MonoBehaviour
 
                         if (projectileBehavior != null)
                         {
-                            projectileBehavior.Initialize(enemyDetection.EnemiesInRange[i], 5);
+                            projectileBehavior.Initialize(enemyDetection.EnemiesInRange[i], projectileSpeed);
                         }
                     }
                 }
