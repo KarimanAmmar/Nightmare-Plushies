@@ -16,7 +16,6 @@ public class PlayerAnimationController : MonoBehaviour
 
     bool isFlooting = false;
     bool isShooting = false;
-    bool isSlashing = false;
 
     private void OnEnable()
     {
@@ -34,33 +33,30 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (isFlooting)
         {
-           // PlayerAnimator.SetBool()
+            PlayerAnimator.SetBool(flootingName, true);
+            isFlooting= false;
         }
         else
         {
-
+            PlayerAnimator.SetBool(flootingName, false);
+            isFlooting = true;
         }
     }
     void PlayShooting()
     {
         if (isShooting)
         {
-
+            PlayerAnimator.SetBool(shootingName, true);
+            isShooting = false;
         }
         else
         {
-
+            PlayerAnimator.SetBool(shootingName, false);
+            isShooting = true;
         }
     }
     void PlaySlashing()
     {
-        if (isSlashing)
-        {
-
-        }
-        else
-        {
-
-        }
+        PlayerAnimator.SetTrigger(slashingName);
     }
 }
