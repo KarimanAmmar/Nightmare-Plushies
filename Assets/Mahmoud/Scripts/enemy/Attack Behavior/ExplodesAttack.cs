@@ -26,7 +26,7 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 
 		float distance = Vector3.Distance(enemy.transform.position, playerPosition);
 
-		if (distance <= 4f && !isAttacking)
+		if (distance <= 3f && !isAttacking)
 		{
 			EnableParticleSystem();
 		}
