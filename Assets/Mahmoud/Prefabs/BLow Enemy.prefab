@@ -461,6 +461,7 @@ MonoBehaviour:
   enemy_current_heath: 60
   CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
     type: 3}
+  enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
 --- !u!114 &5988337223099523517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ced770ec5055142808fd6137ab812a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 5
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
 --- !u!1 &3939775380177041279
 GameObject:

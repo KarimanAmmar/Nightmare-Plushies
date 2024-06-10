@@ -17,6 +17,7 @@ public class enemy_health_system : MonoBehaviour
     [SerializeField]private Enemy_UI_handler UI_Handler;
     [SerializeField]private float enemy_current_heath;
     [SerializeField]private GameObject CoinDrop;
+    [SerializeField]private GameEvent enemyDefeatedEvent;
     private float fillamountUI;
 
     private void OnEnable()
@@ -50,7 +51,8 @@ public class enemy_health_system : MonoBehaviour
             {
                 DropCoin();
                 this.gameObject.SetActive(false);
-            }
+			enemyDefeatedEvent.GameAction?.Invoke();
+		}
                
     }
     private void Update_UI()
