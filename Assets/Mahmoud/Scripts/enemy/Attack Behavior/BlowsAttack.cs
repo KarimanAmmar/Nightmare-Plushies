@@ -3,38 +3,39 @@ using UnityEngine;
 public class BlowsAttack : MonoBehaviour, IAttackBehavior
 {
 	[SerializeField] private Animator animator;
-	[SerializeField] private ParticleSystem particleSystem;
-	[SerializeField] private Collider attackCollider;
-	[SerializeField] private int damage;
 
-	public void Attack(EnemyController enemy, Vector3 playerPosition)
+	private bool hasDealtDamage = true;
+	[SerializeField] private string attackAnimation = "Attack";
+	[SerializeField] private string idleAnimation = "idle";
+	[SerializeField] private float attackMoveSpeed = 2f;
+
+	private Transform playerTransform;
+	private bool isAttacking = false;
+
+	[SerializeField] private float offset = .5f; 
+
+	private void Update()
 	{
-		Logging.Log("Performing blows attack");
-
-		// Implement your blows attack logic here
-		if (animator != null)
+		if (isAttacking && playerTransform != null)
 		{
-			animator.SetTrigger("Blow");
-		}
+			// Move towards the player with offset
+			Vector3 direction = (playerTransform.position - transform.position).normalized;
+			transform.position += (direction * attackMoveSpeed * Time.deltaTime) + (direction * -offset);
 
-		if (particleSystem != null)
-		{
-			particleSystem.Play();
-		}
-
-		if (attackCollider != null)
-		{
-			// Enable the collider for the duration of the attack
-			attackCollider.enabled = true;
-
+			// Face the player
+			transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z));
 		}
 	}
 
-	public void EndAttack()
+	public void Attack(EnemyController enemy, Vector3 playerPosition)
 	{
-		if (attackCollider != null)
+		float distance = Vector3.Distance(enemy.transform.position, playerPosition);
+
+		if (distance <= 4f && hasDealtDamage)
 		{
-			attackCollider.enabled = false;
+			animator.SetBool("Attack", true);
 		}
+		isAttacking = true;
+		playerTransform = enemy.transform;
 	}
 }

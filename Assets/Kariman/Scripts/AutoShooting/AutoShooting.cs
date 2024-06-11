@@ -9,11 +9,13 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] EnemyDetection enemyDetection;
     [SerializeField] GameObject[] projectiles;
+    [SerializeField] int projectileSpeed = 5;
 
     //GameEvents
     [SerializeField] GameEvent IfEnemyDetected;
     [SerializeField] GameEvent IfEnemiesCleared;
     [SerializeField] GameEvent UpgradeProjectilesNum;
+    [SerializeField] GameEvent ShootingAnimation;
     //
 	private WaitForSeconds waitTime;
     int numOfProjectiles;
@@ -24,7 +26,7 @@ public class AutoShooting : MonoBehaviour
     {
         waitTime = new WaitForSeconds(1.5f);
         projectiles = new GameObject[10];
-        numOfProjectiles = 2;
+        numOfProjectiles = 1;
         maxNumOfProjectiles = 3;
     }
     private void OnEnable()
@@ -55,6 +57,7 @@ public class AutoShooting : MonoBehaviour
         if (shootingCoroutine == null)
         {
             shootingCoroutine = StartCoroutine(SetBulletActive());
+            ShootingAnimation.GameAction?.Invoke();
         }
     }
     void playerCantShoot()
@@ -63,6 +66,7 @@ public class AutoShooting : MonoBehaviour
         {
             StopCoroutine(shootingCoroutine);
             shootingCoroutine = null;
+            ShootingAnimation.GameAction?.Invoke();
         }
     }
     IEnumerator SetBulletActive()
@@ -84,7 +88,7 @@ public class AutoShooting : MonoBehaviour
 
                         if (projectileBehavior != null)
                         {
-                            projectileBehavior.Initialize(enemyDetection.EnemiesInRange[i], 5);
+                            projectileBehavior.Initialize(enemyDetection.EnemiesInRange[i], projectileSpeed);
                         }
                     }
                 }
