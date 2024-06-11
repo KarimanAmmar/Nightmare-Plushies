@@ -44,12 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e9faeb6d1d27c418fbe024e90801b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2206642460933340092}
-  attackAnimation: Attack
-  fireRate: 2
-  attackDistance: 5
-  thisObjectPooling: {fileID: 0}
-  firePoint: {fileID: 1253925785573246762}
 --- !u!1001 &2428667894330341040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,7 +55,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 322.11
+      value: 318.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
@@ -71,7 +65,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 144.82
+      value: 135.38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
@@ -158,6 +152,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pumpkin_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -182,6 +181,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6151791839101155533}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2404428144067490957}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5673708591251063877}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 692320261508284107}
   m_SourcePrefab: {fileID: 100100000, guid: b1ef41d07a7d78149abc70c3aa042fc7, type: 3}
 --- !u!4 &2755892808476381531 stripped
 Transform:
@@ -238,7 +249,7 @@ MonoBehaviour:
   attackDistance: 5
   chaseDistance: 8
   enemyType: 2
-  attackBehavior: {fileID: 0}
+  attackBehavior: {fileID: 266169812385328994}
 --- !u!135 &8252909993069072144
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -287,3 +298,65 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!135 &2404428144067490957
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275582874098174945}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 9
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5673708591251063877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275582874098174945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c520028ec4521634db28b65fb84ee99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2206642460933340092}
+  attackAnimation: Attack
+  fireRate: 1
+  firePoint: {fileID: 1253925785573246762}
+  prefab: {fileID: 8279707207717971157, guid: 80dfd2a06daeb2f4d9bf3dea21867946, type: 3}
+  parent: {fileID: 3275582874098174945}
+  poolSize: 5
+  projectileSpeed: 5
+--- !u!135 &692320261508284107
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275582874098174945}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 9
+  m_Center: {x: 0, y: 0, z: 0}

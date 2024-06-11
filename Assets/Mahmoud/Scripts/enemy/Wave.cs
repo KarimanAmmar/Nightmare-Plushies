@@ -5,11 +5,10 @@ using UnityEngine;
 public struct Wave
 {
 	public WaveData waveData;
+	[SerializeField] private Collider waveCollider;
+	[SerializeField] private bool IsTrigger;
 	[SerializeField] private List<Transform> spawnPoints;
-	[SerializeField] private Collider startTrigger;
-	[SerializeField] private bool startWavesByTrigger;
-
-	public Collider StartTrigger { get => startTrigger; set => startTrigger = value; }
 	public List<Transform> SpawnPoints { get => spawnPoints; set => spawnPoints = value; }
-	public bool StartWavesByTrigger { get => startWavesByTrigger; set => startWavesByTrigger = value; }
+	public Collider WaveCollider { get => waveCollider; set => waveCollider = value; }
+	public bool IsTrigger1 { get => IsTrigger; set => IsTrigger = value; }
 }
