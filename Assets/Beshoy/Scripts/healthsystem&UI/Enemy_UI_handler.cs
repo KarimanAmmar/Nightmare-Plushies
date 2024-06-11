@@ -15,7 +15,7 @@ public class Enemy_UI_handler : MonoBehaviour
         hp_bar.fillAmount = 1;
         cam = Camera.main;
         //canvas.transform.rotation = Quaternion.LookRotation(cam.transform.position);
-        Logging.Log(cam);
+        //Logging.Log(cam);
         canvas.LookAt(cam.transform.position);
     }
     private void LateUpdate()
