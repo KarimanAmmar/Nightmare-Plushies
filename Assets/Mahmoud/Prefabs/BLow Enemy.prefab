@@ -783,7 +783,8 @@ MonoBehaviour:
   animator: {fileID: 8669542863778166777}
   attackAnimation: Attack
   idleAnimation: Idle
-  attackMoveSpeed: 4
+  attackMoveSpeed: 3
+  offset: 2
 --- !u!1 &4288332023701414855
 GameObject:
   m_ObjectHideFlags: 0

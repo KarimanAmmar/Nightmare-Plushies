@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Shoot
+      name: Take 001
       takeName: Take 001
-      internalID: 1827226128182048838
+      internalID: -998496362607748373
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
