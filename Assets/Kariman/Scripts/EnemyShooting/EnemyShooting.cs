@@ -24,7 +24,6 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] int projectileSpeed = 5;
 
     //projection calculation
-    [SerializeField] Transform target;
     [SerializeField] float maxDistance;
     [SerializeField] float launchAngle = 45.0f;
 
@@ -76,11 +75,6 @@ public class EnemyShooting : MonoBehaviour
     {
         while (true)
         {
-            //projectile = GetPooledObject();
-            //projectile.transform.position = firePoint.position;
-            //projectile.SetActive(true);
-            //Rigidbody rigidbody = projectile.GetComponent<Rigidbody>();
-
             if (PlayerPos.transform != null)
             {
 
@@ -88,7 +82,7 @@ public class EnemyShooting : MonoBehaviour
                 float distance = Vector3.Distance(firePoint.position, PlayerPos.position);
 
                 // Calculate the angle in radians
-                float angle =(launchAngle - (launchAngle * (distance / maxDistance))) * Mathf.Deg2Rad;
+                float angle = (launchAngle - (launchAngle * (distance / maxDistance))) * Mathf.Deg2Rad;
 
                 // Calculate the horizontal distance
                 float horizontalDistance = new Vector2(direction.x, direction.z).magnitude;
@@ -111,7 +105,10 @@ public class EnemyShooting : MonoBehaviour
                 initialVelocityVector.y = verticalVelocity;
 
                 // Instantiate projectile at firePoint with directionPoint's rotation
-                GameObject projectile = Instantiate(prefab, firePoint.position, transform.rotation);
+                //GameObject projectile = Instantiate(prefab, firePoint.position, transform.rotation);
+                projectile = GetPooledObject();
+                projectile.transform.position = firePoint.position;
+                projectile.SetActive(true);
                 Rigidbody rigidbody = projectile.GetComponent<Rigidbody>();
 
 
