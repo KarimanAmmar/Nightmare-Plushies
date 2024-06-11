@@ -12,7 +12,7 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 	[SerializeField] private float scaleSpeed = 1.5f;
 	[SerializeField] private GameEvent enemyDefeatedEvent;
 	private bool isAttacking = false;
-
+	[SerializeField] private List<Material> materials;
 	void Awake()
 	{
 		if (particleSystem != null)
