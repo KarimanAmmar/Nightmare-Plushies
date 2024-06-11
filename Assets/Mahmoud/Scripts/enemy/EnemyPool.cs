@@ -7,6 +7,7 @@ public class EnemyPool : MonoBehaviour
 	[SerializeField] private int poolSize = 5;
 	[SerializeField] private int maxPoolSize = 20;
 	[SerializeField] private int minPoolSize = 5;
+	//[SerializeField] private ParticleSystem particleSystem;
 	private List<GameObject> pooledEnemies = new List<GameObject>();
 	private Transform playerTransform;
 
@@ -57,6 +58,7 @@ public class EnemyPool : MonoBehaviour
 			inactiveEnemy.transform.position = targetPosition;
 			inactiveEnemy.transform.SetParent(transform);
 			inactiveEnemy.SetActive(true);
+			//particleSystem.Play();
 			// Set player transform here if needed
 			return inactiveEnemy;
 		}
