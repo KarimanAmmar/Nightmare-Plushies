@@ -40,7 +40,7 @@ public class Coin_Collector : MonoBehaviour
     private void Collect_Coin()
     {
         Coins_Count++;
-        //AmountUi = Coins_Count/Upgrade_Value;
+        AmountUi = Coins_Count/Upgrade_Value;
         //Logging.Log(Coins_Count);
         //Logging.Log(Upgrade_Value);
         //Logging.Log(AmountUi);
