@@ -339,6 +339,9 @@ MonoBehaviour:
   parent: {fileID: 3275582874098174945}
   poolSize: 5
   projectileSpeed: 5
+  target: {fileID: 0}
+  maxDistance: 0
+  launchAngle: 45
 --- !u!135 &692320261508284107
 SphereCollider:
   m_ObjectHideFlags: 0
