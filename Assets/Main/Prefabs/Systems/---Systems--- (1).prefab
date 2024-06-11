@@ -102,12 +102,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 72a160102fae53d4ea277af299a17dfe, type: 2}
   - {fileID: 11400000, guid: fdbbabae1bfa3254aa062a1fb4abc241, type: 2}
   - {fileID: 11400000, guid: 1ae48ad007c233a448b444807422a428, type: 2}
+  - {fileID: 11400000, guid: 4b9b13c0d7392164ab932d1b214025a5, type: 2}
   PlyrHelth: {fileID: 0}
   movementManager: {fileID: 3354264228829478500}
   UI_Activate_Event: {fileID: 11400000, guid: 7f54ad50bf6dd8e48b767a3a64686375, type: 2}
   UI_Deactivate_Event: {fileID: 11400000, guid: e2e907b5751f38040a8edc972448ebb3,
     type: 2}
   projectile_event: {fileID: 11400000, guid: 0d37e6d0c857f734fa7b7ee81d96f46c, type: 2}
+  GhostFriend_event: {fileID: 11400000, guid: a1a6207c07bad6244b1cb5f827de4f31, type: 2}
   List_Event: {fileID: 11400000, guid: 2af419f66fe7ad64cbe6302b5950cbd9, type: 2}
 --- !u!1 &285418190073261758
 GameObject:
@@ -707,7 +709,7 @@ Transform:
   m_GameObject: {fileID: 5484675253082900146}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0000000056487877, y: 0.9445749, z: -0.3282961, w: -0.000000016252717}
-  m_LocalPosition: {x: 389.64465, y: 54.358112, z: 147.958}
+  m_LocalPosition: {x: 390.48468, y: 54.358112, z: 153.29799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -964,7 +966,7 @@ Transform:
   m_GameObject: {fileID: 7826392547909105429}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0000000056487877, y: 0.9445749, z: -0.3282961, w: -0.000000016252717}
-  m_LocalPosition: {x: 389.64465, y: 54.358112, z: 147.958}
+  m_LocalPosition: {x: 390.48468, y: 54.358112, z: 153.29799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1184,8 +1186,8 @@ MonoBehaviour:
     - {fileID: 0}
   playerTransform: {fileID: 0}
   enemyPools:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6604989614756953232}
+  - {fileID: 2702891633912667821}
   currentWaveIndex: 0
   TotalEnemy: 0
   activeEnemies: 0
