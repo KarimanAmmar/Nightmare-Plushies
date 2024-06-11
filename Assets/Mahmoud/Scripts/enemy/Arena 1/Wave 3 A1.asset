@@ -16,10 +16,13 @@ MonoBehaviour:
   waveName: Wave3
   typeOfEnemies:
   - enemyType: 0
-    numberOfEnemy: 8
+    numberOfEnemy: 9
     delayBetweenSpawns: 2
   - enemyType: 1
     numberOfEnemy: 7
+    delayBetweenSpawns: 2
+  - enemyType: 2
+    numberOfEnemy: 4
     delayBetweenSpawns: 2
   delayBeforeWaveStarts: 5
   isWaveCompleted: 0

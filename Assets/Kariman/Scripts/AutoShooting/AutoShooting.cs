@@ -26,7 +26,7 @@ public class AutoShooting : MonoBehaviour
     {
         waitTime = new WaitForSeconds(1.5f);
         projectiles = new GameObject[10];
-        numOfProjectiles = 2;
+        numOfProjectiles = 1;
         maxNumOfProjectiles = 3;
     }
     private void OnEnable()

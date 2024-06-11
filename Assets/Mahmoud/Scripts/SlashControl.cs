@@ -27,12 +27,13 @@ public class SlashControl : MonoBehaviour
 
 	void Slash_Logic()
 	{
-		StartCoroutine(Play_ParticleAfterDelay(0.001f)); // Start coroutine to play particles with a small delay
-		StartCoroutine(MoveSlashControl());
+		StartCoroutine(Play_ParticleAfterDelay(0.002f)); // Start coroutine to play particles with a small delay
+		StartCoroutine(MoveSlashControl(0.001f));
 	}
 
-	private IEnumerator MoveSlashControl()
+	private IEnumerator MoveSlashControl(float delay)
 	{
+		yield return new WaitForSeconds(delay);
 		float elapsedTime = 0f;
 		startPos = slashControl.transform.localPosition;
 		while (elapsedTime < moveDuration)
