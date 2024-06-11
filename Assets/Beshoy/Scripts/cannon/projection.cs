@@ -8,28 +8,26 @@ public class projection : MonoBehaviour
     [SerializeField] Transform firePoint; // Transform for projectile spawn location
     [SerializeField] Transform directionPoint; // Transform to control the direction of the projectile
     [SerializeField] GameObject projectilePrefab; // Prefab of the projectile to be fired
+    [SerializeField] Transform target;
     [SerializeField] float maxDistance;
     [SerializeField] float launchAngle = 45.0f;
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.gameObject.layer == GameConstant.PlayerLayer)
-        {
-            FireProjectile(other.transform.position); // Use position instead of localPosition
-        }
+        StartCoroutine(Cannon());
     }
-
+    IEnumerator Cannon()
+    {
+       
+        FireProjectile(target.position);
+        yield return new WaitForSeconds(3);
+        StartCoroutine(Cannon());
+    }
     public void FireProjectile(Vector3 targetPosition)
     {
         Vector3 cannonPosition = firePoint.position;
         Vector3 direction = targetPosition - cannonPosition;
         float distance = Vector3.Distance(cannonPosition, targetPosition);
-
-        if (distance > maxDistance)
-        {
-            Debug.LogWarning("Target is beyond maximum reachable distance!");
-            return;
-        }
 
         // Calculate the angle in radians
         float angle = launchAngle*(distance/maxDistance) * Mathf.Deg2Rad;

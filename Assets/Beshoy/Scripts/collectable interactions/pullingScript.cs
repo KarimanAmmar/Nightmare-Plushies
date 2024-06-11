@@ -7,6 +7,7 @@ public class PullingScript : MonoBehaviour
     [SerializeField] float collectingRange = 5f;
     [SerializeField] float attractionForce = 10f;
 
+
     private void FixedUpdate()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, collectingRange, 1 << GameConstant.MagneticLayer);
