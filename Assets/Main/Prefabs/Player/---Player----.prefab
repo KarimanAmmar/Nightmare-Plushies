@@ -26315,6 +26315,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrade Paticles
       objectReference: {fileID: 0}
+    - target: {fileID: 5161962369115200697, guid: a32cb320f8680094e9bd7c9e6c67087a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5315622633338012598, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_IsActive
