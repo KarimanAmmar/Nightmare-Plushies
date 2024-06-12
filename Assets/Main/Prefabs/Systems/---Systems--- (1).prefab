@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4d281453f228a4790d4da2a3e77787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireSlash: {fileID: 11400000, guid: 5e96c8427d9c65c41ae5b2f48e1768d2, type: 2}
+  fireSlash: {fileID: 11400000, guid: b6adcc8602ecd364d910297177e3d8d9, type: 2}
   slashDamage: 10
   slashEffects:
   - {fileID: 0}
