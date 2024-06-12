@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 286782858976739697}
   - component: {fileID: 5400506007160897347}
   m_Layer: 0
-  m_Name: cannon
+  m_Name: Pumpkin Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
