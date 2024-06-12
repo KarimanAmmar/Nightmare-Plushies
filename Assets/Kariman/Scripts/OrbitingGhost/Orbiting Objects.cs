@@ -13,6 +13,7 @@ public class OrbitingObjects : MonoBehaviour
     [SerializeField] float radius;
     [SerializeField] float rotationSpeed;
 
+    private Vector3 lastPosition;
     private void OnEnable()
     {
         ghostClaimed.GameAction += PositionGhosts;
@@ -23,6 +24,7 @@ public class OrbitingObjects : MonoBehaviour
     }
     void Start()
     {
+        lastPosition = transform.position;
         rotatingGhosts = new GameObject[maxGhosts];
 
         // Initialize the rotating objects
