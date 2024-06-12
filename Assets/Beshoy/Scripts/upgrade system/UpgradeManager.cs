@@ -61,6 +61,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private GameEvent UI_Deactivate_Event;
     [SerializeField] private GameEvent projectile_event;
     [SerializeField] private GameEvent GhostFriend_event;
+    [SerializeField] private GameEvent UpgradeEffect_event;
     [SerializeField] private Upgrade_list_event List_Event;
 
     private void OnEnable()
@@ -79,6 +80,8 @@ public class UpgradeManager : MonoBehaviour
         //Logging.Log($"your{upgrade.GetUpgradeType()}is incresed by{upgrade.GetValue()}%");
         apply_Upgrade(upgrade);
         UI_Deactivate_Event.GameAction.Invoke();
+
+        UpgradeEffect_event.GameAction.Invoke();
     }
 
     private void apply_Upgrade(Upgrade upgrade)
@@ -101,6 +104,9 @@ public class UpgradeManager : MonoBehaviour
                 GhostFriend_event.GameAction.Invoke();
             break;
         }
+        
+        
+        
     }
     private Dictionary<UpgradeType, bool> selectedUpgrades = new Dictionary<UpgradeType, bool>();
     private Upgrade[] draw_Upgrades()
