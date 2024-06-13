@@ -5,6 +5,7 @@ using UnityEngine;
 public class ParticalEventListenner : MonoBehaviour
 {
     [SerializeField] private GameEvent UpgradeEffect;
+    [SerializeField] private ParticleSystem particle;
 
     private void OnEnable()
     {
@@ -18,6 +19,7 @@ public class ParticalEventListenner : MonoBehaviour
 
     private void PlayEffect()
     {
-        Logging.Log("partical played");
+        //Logging.Log("partical played");
+        particle.Play();
     }
 }
