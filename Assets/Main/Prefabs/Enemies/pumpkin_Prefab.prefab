@@ -96,7 +96,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 9
+  m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2384136030194667117
 MonoBehaviour:
@@ -114,10 +114,12 @@ MonoBehaviour:
   attackAnimation: Attack
   fireRate: 1
   firePoint: {fileID: 1253925785573246762}
-  prefab: {fileID: 8279707207717971157, guid: 80dfd2a06daeb2f4d9bf3dea21867946, type: 3}
+  prefab: {fileID: 5063334039247748940, guid: e915accc0b00d254183e32d078b45952, type: 3}
   parent: {fileID: 3275582874098174945}
   poolSize: 5
   projectileSpeed: 5
+  maxDistance: 12
+  launchAngle: 45
 --- !u!1001 &2428667894330341040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,17 +131,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 318.28
+      value: 550.2995
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5080967
+      value: 5.5081177
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 135.38
+      value: 130.41864
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
@@ -228,6 +230,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -259,6 +266,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6151791839101155533}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8396887174459214042}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4100268813191322368}
   m_SourcePrefab: {fileID: 100100000, guid: b1ef41d07a7d78149abc70c3aa042fc7, type: 3}
 --- !u!4 &2755892808476381531 stripped
 Transform:
@@ -312,8 +327,8 @@ MonoBehaviour:
   chasingState:
     moveSpeed: 5
     rotationSpeed: 5
-  attackDistance: 5
-  chaseDistance: 8
+  attackDistance: 12
+  chaseDistance: 15
   enemyType: 2
   attackBehavior: {fileID: 266169812385328994}
 --- !u!135 &8252909993069072144
@@ -364,3 +379,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &8396887174459214042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275582874098174945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e5ace2f30b97641bb82aebf33c6954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
+  enemy_max_heath: 60
+  UI_Handler: {fileID: -4100268813191322368}
+  enemy_current_heath: 60
+  CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
+    type: 3}
+  enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
+--- !u!114 &-4100268813191322368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3275582874098174945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ac811d8c6303d4b85bb5fbe42a0b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp_bar: {fileID: 3792869930020861410, guid: bc8c3abf9ee69b440a7390d2b0caefdd, type: 3}
+  canvas: {fileID: 7955817649926766393, guid: bc8c3abf9ee69b440a7390d2b0caefdd, type: 3}
