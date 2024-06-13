@@ -161,7 +161,7 @@ MonoBehaviour:
   ghostClaimed: {fileID: 11400000, guid: a1a6207c07bad6244b1cb5f827de4f31, type: 2}
   maxGhosts: 5
   currentGhosts: 0
-  radius: 300
+  radius: 600
   rotationSpeed: 200
 --- !u!1 &593003505284710600
 GameObject:
