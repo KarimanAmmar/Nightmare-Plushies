@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Beshoy/Scenes/test_mainmenu.unity
     guid: 3e3e7c9f43ebc6e4db33ba757f13298f
   - enabled: 1
-    path: Assets/Mahmoud/Scenes/Main.unity
-    guid: 0a7a0686ea909fa4ea039b7e000f864b
+    path: Assets/Main/Scenes/Old/Main.unity
+    guid: b17f3f7216e099144a1b00507d7b61ef
   m_configObjects: {}
