@@ -4,99 +4,128 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-	[SerializeField] private List<Wave> Waves;
-	[SerializeField] private Transform playerTransform;
-	[SerializeField] private List<EnemyPool> enemyPools;
-	[SerializeField] private int currentWaveIndex = 0;
-	[SerializeField] private int TotalEnemy;
-	private bool spawningInProgress = false;
-	[SerializeField] private int activeEnemies = 0;
-	[SerializeField] private GameEvent enemyDefeatedEvent;
-	[SerializeField] private GameEvent WavesCompeleted;
-	private bool allWavesCompleted = false;  
+    [SerializeField] private List<Wave> waves;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private List<EnemyPool> enemyPools;
+    [SerializeField] private GameEvent enemyDefeatedEvent;
+    [SerializeField] private GameEvent wavesCompletedEvent; 
+    [SerializeField] private GameEvent startNextWave;
+    [SerializeField] private int_Event waveCompletedEvent; 
 
-	private void Awake()
-	{
-		foreach (Wave wave in Waves)
+    private int currentWaveIndex = -1;
+    private int totalEnemies;
+    private int activeEnemies = 0;
+    private bool spawningInProgress = false;
+    private bool waitingForNextWaveTrigger = false;
+    private bool allWavesCompleted = false;
+
+    private void Awake()
+    {
+        foreach (Wave wave in waves)
+        {
+            wave.waveData.isWaveCompleted = false;
+        }
+        SetPlayerTransformForEnemies(playerTransform);
+
+        // Subscribe to the enemyDefeatedEvent and startNextWave GameActions
+        enemyDefeatedEvent.GameAction += DecrementActiveEnemies;
+        startNextWave.GameAction += TriggerNextWave;
+    }
+
+    private void Start()
+    {
+        if (waves.Count > 0)
+        {
+            NextWave();
+        }
+    }
+
+    private void Update()
+    {
+        if (activeEnemies == 0 && !allWavesCompleted && !waitingForNextWaveTrigger)
+        {
+            NextWave();
+        }
+    }
+
+    private void SpawnEnemies(Wave wave)
+    {
+        totalEnemies = wave.waveData.CalculateTotalEnemies();
+        activeEnemies = totalEnemies;
+
+        StartCoroutine(SpawnEnemyCoroutine(wave));
+    }
+
+    private IEnumerator SpawnEnemyCoroutine(Wave wave)
+    {
+        foreach (NumberOfEnemies enemyData in wave.waveData.TypeOfEnemies)
+        {
+            for (int i = 0; i < enemyData.numberOfEnemy; i++)
+            {
+                Transform spawnPoint = wave.SpawnPoints[Random.Range(0, wave.SpawnPoints.Count)];
+                GameObject newEnemy = enemyPools[(int)enemyData.enemyType].ActivateEnemy(spawnPoint.position);
+                yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
+            }
+        }
+
+        spawningInProgress = false;
+    }
+
+    private void SetPlayerTransformForEnemies(Transform player)
+    {
+        foreach (EnemyPool pool in enemyPools)
+        {
+            pool.SetPlayerTransform(player);
+        }
+    }
+
+    private void NextWave()
+    {
+        currentWaveIndex++;
+        if (currentWaveIndex < waves.Count)
+        {
+            Wave currentWave = waves[currentWaveIndex];
+            if (currentWave.ByTrigger)
+            {
+                waitingForNextWaveTrigger = true;
+            }
+            else
+            {
+                SpawnEnemies(currentWave);
+            }
+        }
+        else
+        {
+            if (!allWavesCompleted)
+            {
+                wavesCompletedEvent.GameAction?.Invoke();
+                allWavesCompleted = true;
+            }
+        }
+	}
+
+    private void DecrementActiveEnemies()
+    {
+        activeEnemies--;
+        if (activeEnemies == 0)
 		{
-			wave.waveData.isWaveCompleted = false;
+			waveCompletedEvent.Raise(currentWaveIndex+1);
 		}
-		SetPlayerTransformForEnemies(playerTransform);
+    }
 
-		// Subscribe to the enemyDefeatedEvent
-		enemyDefeatedEvent.GameAction += DecrementActiveEnemies;
-	}
+    private void TriggerNextWave()
+    {
+        if (waitingForNextWaveTrigger)
+        {
+            waitingForNextWaveTrigger = false;
+            SpawnEnemies(waves[currentWaveIndex]);
+        }
+    }
 
-	private void Start()
-	{
-		if (Waves.Count > 0)
-		{
-			currentWaveIndex = -1;
-		}
-	}
-
-	private void Update()
-	{
-		if (activeEnemies == 0 && !allWavesCompleted)  // Check if not all waves are completed
-		{
-			NextWave();
-		}
-	}
-
-	private void SpawnEnemies(Wave wave)
-	{
-		TotalEnemy = wave.waveData.CalculateTotalEnemies();
-		activeEnemies = TotalEnemy;
-		//spawningInProgress = true;
-
-		StartCoroutine(SpawnEnemyCoroutine(wave));
-	}
-
-	private IEnumerator SpawnEnemyCoroutine(Wave wave)
-	{
-		foreach (NumberOfEnemies enemyData in wave.waveData.TypeOfEnemies)
-		{
-			for (int i = 0; i < enemyData.numberOfEnemy; i++)
-			{
-				Transform spawnPoint = wave.SpawnPoints[Random.Range(0, wave.SpawnPoints.Count)];
-				GameObject newEnemy = enemyPools[(int)enemyData.enemyType].ActivateEnemy(spawnPoint.position);
-				yield return new WaitForSeconds(enemyData.delayBetweenSpawns);
-			}
-		}
-	}
-
-	private void SetPlayerTransformForEnemies(Transform player)
-	{
-		foreach (EnemyPool pool in enemyPools)
-		{
-			pool.SetPlayerTransform(player);
-		}
-	}
-
-	private void NextWave()
-	{
-		currentWaveIndex++;
-		if (currentWaveIndex < Waves.Count)
-		{
-			SpawnEnemies(Waves[currentWaveIndex]);
-		}
-		else
-		{
-			if (!allWavesCompleted)  
-			{
-				WavesCompeleted.GameAction?.Invoke();
-				allWavesCompleted = true;  
-			}
-		}
-	}
-
-	private void DecrementActiveEnemies()
-	{
-		activeEnemies--;
-	}
-
-	private void OnDestroy()
-	{
-		enemyDefeatedEvent.GameAction -= DecrementActiveEnemies;
-	}
+    private void OnDestroy()
+    {
+        // Unsubscribe from events to prevent memory leaks
+        enemyDefeatedEvent.GameAction -= DecrementActiveEnemies;
+        startNextWave.GameAction -= TriggerNextWave;
+    }
 }

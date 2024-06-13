@@ -1748,7 +1748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed48c52fca199749801706c5313cabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: main
+  sceneName: Main
   loading_screen: {fileID: 624532817}
   Menu_screen: {fileID: 654161088}
   loading_bar: {fileID: 1944774328}

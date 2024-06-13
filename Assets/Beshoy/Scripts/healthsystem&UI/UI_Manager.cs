@@ -17,8 +17,10 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Float_event HP_UI_event;
     [SerializeField] private Float_event LevelUP_UI_Event;
     [SerializeField] private Upgrade_Option[] options;
+    [Header(" UI panels ")]
     [SerializeField] private GameObject MovementPanel;
     [SerializeField] private GameObject UpgradePanel;
+    [SerializeField] private GameObject SettingPanel;
     [SerializeField] private Upgrade_list_event List_Event;
     [SerializeField] private AudioClip ClickAudio;
     /// <summary>
@@ -50,6 +52,9 @@ public class UI_Manager : MonoBehaviour
     private void Start()
     {
         LevelBar.fillAmount = 0;
+        MovementPanel.SetActive(true);
+        UpgradePanel.SetActive(false);
+        SettingPanel.SetActive(false);
     }
     
     private void Update_Hp(float amount)
@@ -60,17 +65,45 @@ public class UI_Manager : MonoBehaviour
     {
        LevelBar.fillAmount=amount;
     }
+    private void PauseGame()
+    {
+        Time.timeScale=0.0f;
+    }
+    private void ResumeGame()
+    {
+        Time.timeScale=1.0f;
+    }
+    public void OpenSettings()
+    {
+        PauseGame();
+        OpenSettingsPanel();
+    }
+    public void CloseSettings()
+    {
+        CloseSettingsPanel();
+        ResumeGame();
+    }
+    private void OpenSettingsPanel()
+    {
+        MovementPanel.SetActive(false);
+        SettingPanel.SetActive(true);
+    }
+    private void CloseSettingsPanel()
+    {
+        SettingPanel.SetActive(false);
+        MovementPanel.SetActive(true);
+    }
     private void ActivateUpgradesPanel()
     {
         MovementPanel.SetActive(false);
-        Time.timeScale = 0;
+        PauseGame();
         UpgradePanel.SetActive(true);
 
     }
     private void DeactivateUpgradesPanel()
     {
         MovementPanel.SetActive(true);
-        Time.timeScale = 1;
+        ResumeGame();
         UpgradePanel.SetActive(false);
     }
     private void DisplayOptions(Upgrade[] upgrades)
@@ -78,7 +111,8 @@ public class UI_Manager : MonoBehaviour
         for (int i = 0; i < upgrades.Length; i++)
         {
             options[i].setType(upgrades[i].GetUpgradeType());
-            options[i].setValue(upgrades[i].GetValue());
+            options[i].setValue(upgrades[i].GetString());
+            options[i].GetButton().gameObject.SetActive(true);
 
             if (options[i].GetButton().onClick != null)
             {

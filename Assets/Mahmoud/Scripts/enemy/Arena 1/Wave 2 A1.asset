@@ -15,8 +15,14 @@ MonoBehaviour:
   waveID: 0
   waveName: Wave 2
   typeOfEnemies:
+  - enemyType: 0
+    numberOfEnemy: 7
+    delayBetweenSpawns: 2
   - enemyType: 1
-    numberOfEnemy: 10
+    numberOfEnemy: 5
+    delayBetweenSpawns: 2
+  - enemyType: 2
+    numberOfEnemy: 3
     delayBetweenSpawns: 2
   delayBeforeWaveStarts: 5
   isWaveCompleted: 0

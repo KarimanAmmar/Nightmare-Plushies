@@ -16,6 +16,7 @@ public struct UpggradeValues
    [SerializeField] private float value;
    public UpgradeType GetUpgradeType() { return type; }
    public float GetValue() { return value; }
+   public UpgradeType Type { get { return type; } }
     
 }
 
@@ -33,5 +34,23 @@ public class Upgrade : ScriptableObject
     {
         return Upggrade.GetValue();
     }
-     
+    public string GetString()
+    {
+        switch(GetUpgradeType())
+        {
+            case UpgradeType.projectiles:
+                return $"+{GetValue()} Projectile";
+            case UpgradeType.health:
+                return $"+{GetValue()}%";
+            case UpgradeType.speed:
+                return $"+{GetValue()}%";
+            case UpgradeType.damageReduction:
+                return $"+{GetValue()}%";    
+            case UpgradeType.GhostFriend:
+                return $"+{GetValue()} Ghost";
+                
+            default:
+                return$"not found";
+        }
+    }
 }
