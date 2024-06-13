@@ -10,7 +10,7 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private string attackAnimation = "Attack";
     [SerializeField] int fireRate = 1;
     [SerializeField] Transform firePoint;
-
+    [SerializeField] Transform parentPumpkin;
     //Coroutine
     WaitForSeconds waitTime;
     private Coroutine shootingCoroutine;
@@ -45,6 +45,13 @@ public class EnemyShooting : MonoBehaviour
         if (other.CompareTag(GameConstant.PlayerTag))
         {
             CanShoot(other.gameObject.transform);
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag(GameConstant.PlayerTag))
+        {
+            parentPumpkin.transform.LookAt(other.gameObject.transform);
         }
     }
     private void OnTriggerExit(Collider other)
