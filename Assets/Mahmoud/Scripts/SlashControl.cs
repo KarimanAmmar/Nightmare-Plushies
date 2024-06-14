@@ -11,6 +11,7 @@ public class SlashControl : MonoBehaviour
 	[SerializeField] private float speed = 1f;
 	[SerializeField] private float moveDuration = 1f;
 	[SerializeField] private Transform Player;
+	[SerializeField] private CharacterMovementManager characterMovementManager;
 	private bool canSlash = true;
 	private Vector3 startPos;
 
@@ -27,7 +28,7 @@ public class SlashControl : MonoBehaviour
 
 	void Slash_Logic()
 	{
-		StartCoroutine(Play_ParticleAfterDelay(0.002f)); // Start coroutine to play particles with a small delay
+		StartCoroutine(Play_ParticleAfterDelay(0.002f));
 		StartCoroutine(MoveSlashControl(0.001f));
 	}
 
@@ -65,6 +66,7 @@ public class SlashControl : MonoBehaviour
 		yield return new WaitForSeconds(delay); // Wait for the specified delay
 		slashControl.transform.parent = null;
 		slashControl.SetActive(true);
+		characterMovementManager.IsSlashFire = false;
 		foreach (ParticleSystem slashEffect in slashEffects)
 		{
 			slashEffect.Play();
