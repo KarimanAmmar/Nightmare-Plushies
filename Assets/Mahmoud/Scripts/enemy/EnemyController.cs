@@ -19,6 +19,14 @@ public class EnemyController : MonoBehaviour
 
 	private IAttackBehavior attackBehaviorInstance;
 
+	private void OnEnable()
+	{
+		if (playerTransform != null)
+		{
+			InitializeState();
+		}
+	}
+
 	private void OnDisable()
 	{
 		OnDefeated?.Invoke();
@@ -51,12 +59,16 @@ public class EnemyController : MonoBehaviour
 		if (player != null)
 		{
 			playerTransform = player.transform;
+			InitializeState();
 		}
 		else
 		{
 			Debug.LogError("Player not found! Make sure the player object has the 'Player' tag.");
 		}
+	}
 
+	private void InitializeState()
+	{
 		TransitionToState(wanderingState);
 	}
 
