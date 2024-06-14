@@ -10034,7 +10034,7 @@ Transform:
   m_LocalScale: {x: 0.58, y: 0.58, z: 0.58}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 7130745865355317250}
+  - {fileID: 2687218556077964193}
   - {fileID: 7501875722963913330}
   - {fileID: 3020954108723116906}
   - {fileID: 6897274569280066447}
@@ -10212,6 +10212,38 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!1 &4546507255504912549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2687218556077964193}
+  m_Layer: 8
+  m_Name: Upgrade System Paticles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2687218556077964193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4546507255504912549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7130745865355317250}
+  m_Father: {fileID: 2562104881122658072}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4918155857279343456
 GameObject:
   m_ObjectHideFlags: 0
@@ -26223,7 +26255,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2562104881122658072}
+    m_TransformParent: {fileID: 2687218556077964193}
     m_Modifications:
     - target: {fileID: 1642370055684280705, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
@@ -26233,52 +26265,52 @@ PrefabInstance:
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7241374
+      value: 1.7241383
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.724138
+      value: 1.7241385
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.724138
+      value: 1.7241385
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.01
+      value: 0.010006608
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.39
+      value: -4.3899994
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.43
+      value: 1.4300032
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0025780525
+      value: -0.002578052
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0025780525
+      value: 0.002578052
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071021
+      value: 0.70710206
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071021
+      value: 0.70710206
       objectReference: {fileID: 0}
     - target: {fileID: 2016704743857492587, guid: a32cb320f8680094e9bd7c9e6c67087a,
         type: 3}

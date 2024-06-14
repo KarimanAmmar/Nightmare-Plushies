@@ -49,6 +49,7 @@ public class SlashControl : MonoBehaviour
 
 	void Stop_Particle()
 	{
+		
 		foreach (ParticleSystem slashEffect in slashEffects)
 		{
 			slashEffect.Stop();
