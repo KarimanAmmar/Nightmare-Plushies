@@ -26,8 +26,6 @@ public class WaveManager : MonoBehaviour
 			wave.waveData.isWaveCompleted = false;
 		}
 		SetPlayerTransformForEnemies(playerTransform);
-
-		// Subscribe to the enemyDefeatedEvent and startNextWave GameActions
 		enemyDefeatedEvent.GameAction += DecrementActiveEnemies;
 		startNextWave.GameAction += TriggerNextWave;
 	}
@@ -64,12 +62,12 @@ public class WaveManager : MonoBehaviour
 		{
 			int numberOfEnemiesToSpawn = enemyData.numberOfEnemy;
 
-			if (isFirstEnemyType && currentWaveIndex == 0)
+			/*if (isFirstEnemyType && currentWaveIndex == 0)
 			{
 				numberOfEnemiesToSpawn += 1;
 				isFirstEnemyType = false;
 				Debug.Log("Spawning first type of enemy with one additional count: " + numberOfEnemiesToSpawn);
-			}
+			}*/
 
 			for (int i = 0; i < numberOfEnemiesToSpawn; i++)
 			{
