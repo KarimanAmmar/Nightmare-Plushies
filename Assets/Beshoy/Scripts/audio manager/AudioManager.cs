@@ -27,6 +27,7 @@ public class AudioManager : Singleton<AudioManager>
         if (clip!=null)
         {
             SfxSource.PlayOneShot(clip);
+            //AudioSource.PlayClipAtPoint(clip,);
         }
         
         //SfxSource.clip = clip;

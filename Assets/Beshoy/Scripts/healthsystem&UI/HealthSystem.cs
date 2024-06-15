@@ -12,6 +12,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private Float_event DamageEvent;
     [SerializeField] private Float_event HealEvent;
     [SerializeField] private Float_event health_UI;
+    [SerializeField] private GameEvent DeathEvent;
     [SerializeField] private float Max_health;
     private float damageReduction = 0;
     private float Current_health;
@@ -38,6 +39,10 @@ public class HealthSystem : MonoBehaviour
         Current_health -= damage;
         Current_health = Mathf.Clamp(Current_health, 0, Max_health);
         Update_UI();
+        if (Current_health == 0)
+        {
+            DeathEvent.GameAction.Invoke();
+        }
         Logging.Log($"dmage taken:{damage}");
         Logging.Log($"current healt: {Current_health}");
     }

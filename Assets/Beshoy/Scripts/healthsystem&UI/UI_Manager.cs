@@ -14,23 +14,24 @@ public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private Image HpBar;
     [SerializeField] private Image LevelBar;
+    [Header(" Events ")]
     [SerializeField] private Float_event HP_UI_event;
     [SerializeField] private Float_event LevelUP_UI_Event;
-    [SerializeField] private Upgrade_Option[] options;
+    [SerializeField] private Upgrade_list_event List_Event;
+    [SerializeField] private GameEvent UI_Activate_Event;
+    [SerializeField] private GameEvent UI_Deactivate_Event;
+    [SerializeField] private GameEvent UI_Death_Event;
     [Header(" UI panels ")]
     [SerializeField] private GameObject MovementPanel;
     [SerializeField] private GameObject UpgradePanel;
     [SerializeField] private GameObject SettingPanel;
-    [SerializeField] private Upgrade_list_event List_Event;
+    [SerializeField] private GameObject DeathPanel;
+    [SerializeField] private Upgrade_Option[] options;
     [SerializeField] private AudioClip ClickAudio;
     /// <summary>
     /// i referance the upgrade manager here to add to select upgrade function for each button
     /// </summary>
     [SerializeField] private UpgradeManager UpgradeManager;
-    //when level up
-    [SerializeField] private GameEvent UI_Activate_Event;
-    [SerializeField] private GameEvent UI_Deactivate_Event;
-    //
     private void OnEnable()
     {
         
@@ -39,6 +40,8 @@ public class UI_Manager : MonoBehaviour
         List_Event.RegisterListener(DisplayOptions);
         UI_Activate_Event.GameAction += ActivateUpgradesPanel;
         UI_Deactivate_Event.GameAction += DeactivateUpgradesPanel;
+        UI_Death_Event.GameAction += DisplayDeath;
+
     }
     private void OnDisable()
     {
@@ -48,6 +51,7 @@ public class UI_Manager : MonoBehaviour
         List_Event.UnregisterListener(DisplayOptions);
         UI_Activate_Event.GameAction -=ActivateUpgradesPanel;
         UI_Deactivate_Event.GameAction -= DeactivateUpgradesPanel;
+        UI_Death_Event.GameAction -= DisplayDeath;
     }
     private void Start()
     {
@@ -55,6 +59,7 @@ public class UI_Manager : MonoBehaviour
         MovementPanel.SetActive(true);
         UpgradePanel.SetActive(false);
         SettingPanel.SetActive(false);
+        DeathPanel.SetActive(false);
     }
     
     private void Update_Hp(float amount)
@@ -92,6 +97,12 @@ public class UI_Manager : MonoBehaviour
     {
         SettingPanel.SetActive(false);
         MovementPanel.SetActive(true);
+    }
+
+    private void DisplayDeath()
+    {
+        PauseGame();
+        DeathPanel.SetActive(true);
     }
     private void ActivateUpgradesPanel()
     {
