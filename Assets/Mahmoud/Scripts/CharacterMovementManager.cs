@@ -7,7 +7,7 @@ public class CharacterMovementManager : MonoBehaviour
 	[SerializeField] CharacterController controller;
 	[SerializeField] float defaultSpeed;
 	private float movementSpeed;
-
+	[SerializeField]  private bool isSlashFire = false;
 	[SerializeField] Canvas inputCanvas;
 	[SerializeField] private TransformEvent transformClosestEnemy;
 	[SerializeField] float rotationSpeed;
@@ -16,8 +16,7 @@ public class CharacterMovementManager : MonoBehaviour
 	private Vector3 defaultPosition;
 	private Transform closestEnemy;
 	private bool isLerpingToEnemy = false;
-
-
+	public bool IsSlashFire { get => isSlashFire; set => isSlashFire = value; }
 
 	void Start()
 	{
@@ -34,7 +33,7 @@ public class CharacterMovementManager : MonoBehaviour
 
 	void Update()
 	{
-		if (isJoystick)
+		if (isJoystick && !IsSlashFire)
 		{
 			Vector3 movementDirection = new Vector3(-joystick.Direction.x, 0.0f, -joystick.Direction.y);
 			MovePlayer(movementDirection);
@@ -44,11 +43,13 @@ public class CharacterMovementManager : MonoBehaviour
 			}
 		}
 
-		if (closestEnemy != null)
+		if (closestEnemy != null && !IsSlashFire)
 		{
 			Vector3 direction = (closestEnemy.position - controller.transform.position).normalized;
 			RotatePlayerToEnemy(direction);
 		}
+
+
 	}
 
 	public void HandleTouchInput(Vector2 touchPosition)
