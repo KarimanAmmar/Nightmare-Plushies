@@ -136,6 +136,9 @@ public class EnemyShooting : MonoBehaviour
                 return pooledObjects[i];
             }
         }
-        return null;
+        GameObject obj = Instantiate(prefab, parent.transform);
+        obj.SetActive(false);
+        pooledObjects.Add(obj);
+        return obj;
     }
 }
