@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -137,5 +138,15 @@ public class UI_Manager : MonoBehaviour
             options[i].GetButton().onClick.AddListener(() => AudioManager.Instance.PlySfx(ClickAudio));
         }
 
+    }
+    public void ReTry()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
+    }
+    public void Exit()
+    {
+        string mainMenu = "test_mainmenu";
+        SceneManager.LoadScene(mainMenu);
     }
 }
