@@ -17,7 +17,7 @@ public class ObjectPooling : Singleton<ObjectPooling>
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(prefab, parent.transform);
-            ProjectileBehavior projectileBehavior = obj.GetComponent<ProjectileBehavior>();
+            //ProjectileBehavior projectileBehavior = obj.GetComponent<ProjectileBehavior>();
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
@@ -31,7 +31,10 @@ public class ObjectPooling : Singleton<ObjectPooling>
                 return pooledObjects[i];
             }
         }
-        return null;
+        GameObject obj = Instantiate(prefab, parent.transform);
+        obj.SetActive(false);
+        pooledObjects.Add(obj);
+        return obj;
     }
     public void ActivatePooledObject(GameObject obj) => obj.SetActive(true);
 }
