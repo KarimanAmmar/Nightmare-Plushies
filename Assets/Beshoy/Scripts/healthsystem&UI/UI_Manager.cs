@@ -15,6 +15,7 @@ public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private Image HpBar;
     [SerializeField] private Image LevelBar;
+    [SerializeField] private Text Time_text;
     [Header(" Events ")]
     [SerializeField] private Float_event HP_UI_event;
     [SerializeField] private Float_event LevelUP_UI_Event;
@@ -33,6 +34,9 @@ public class UI_Manager : MonoBehaviour
     /// i referance the upgrade manager here to add to select upgrade function for each button
     /// </summary>
     [SerializeField] private UpgradeManager UpgradeManager;
+
+    private float elapsedTime = 0;
+    private bool isCounting = true;
     private void OnEnable()
     {
         
@@ -56,6 +60,7 @@ public class UI_Manager : MonoBehaviour
     }
     private void Start()
     {
+        StartCoroutine(UpdateTime());
         LevelBar.fillAmount = 0;
         MovementPanel.SetActive(true);
         UpgradePanel.SetActive(false);
@@ -74,10 +79,12 @@ public class UI_Manager : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale=0.0f;
+        StopCounter();
     }
     private void ResumeGame()
     {
         Time.timeScale=1.0f;
+        StartCounter();
     }
     public void OpenSettings()
     {
@@ -148,5 +155,31 @@ public class UI_Manager : MonoBehaviour
     {
         string mainMenu = "test_mainmenu";
         SceneManager.LoadScene(mainMenu);
+    }
+    IEnumerator UpdateTime()
+    {
+        while (true)
+        {
+            if (isCounting)
+            {
+                elapsedTime += Time.deltaTime;
+
+                int minutes = (int)elapsedTime / 60;
+                int seconds = (int)elapsedTime % 60;
+
+                Time_text.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            }
+            yield return null; // Wait for the next frame
+        }
+    }
+
+    public void StopCounter()
+    {
+        isCounting = false;
+    }
+
+    public void StartCounter()
+    {
+        isCounting = true;
     }
 }
