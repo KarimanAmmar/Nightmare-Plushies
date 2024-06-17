@@ -161,7 +161,7 @@ MonoBehaviour:
   ghostClaimed: {fileID: 11400000, guid: a1a6207c07bad6244b1cb5f827de4f31, type: 2}
   maxGhosts: 5
   currentGhosts: 0
-  radius: 300
+  radius: 600
   rotationSpeed: 200
 --- !u!1 &593003505284710600
 GameObject:
@@ -210,74 +210,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3275582874098174945, guid: bc3eb8b3792e3884193ff79337f18388,
     type: 3}
   poolSize: 5
-  maxPoolSize: 20
+  maxPoolSize: 10
   minPoolSize: 5
---- !u!1 &1142806314521230878
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4390173857804034230}
-  - component: {fileID: 9199909233228499409}
-  - component: {fileID: 30680147494004677}
-  m_Layer: 0
-  m_Name: Triger Wave 2 Arena 1 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4390173857804034230
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142806314521230878}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 387.51617, y: 27.288107, z: 87.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4445196787713725185}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &9199909233228499409
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142806314521230878}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 22.620384, y: 1, z: 6.624069}
-  m_Center: {x: 1.2677193, y: 0, z: 0.8758774}
---- !u!114 &30680147494004677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142806314521230878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74387ce3482615248b94d0d685ea6565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1231592862462958910
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +450,6 @@ Transform:
   - {fileID: 2128323742169396423}
   - {fileID: 2406123654736001402}
   - {fileID: 1287580057620938}
-  - {fileID: 4390173857804034230}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2313653592017827665
@@ -668,10 +601,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d931cf55ab88c7d479ec2b23a4b6c301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5275264057841415588, guid: e09dbdfeca22e814da01e5b51b9cebcd,
+  enemyPrefab: {fileID: 5275264057841415588, guid: d78140c613f8a9c458a6fe2b33085954,
     type: 3}
   poolSize: 5
-  maxPoolSize: 20
+  maxPoolSize: 10
   minPoolSize: 5
 --- !u!1 &5112653908908640275
 GameObject:
@@ -717,10 +650,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d931cf55ab88c7d479ec2b23a4b6c301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2353764348533598964, guid: 35e455515fa24294e99b01304614d314,
+  enemyPrefab: {fileID: 2353764348533598964, guid: 3eeb3ee060b6f794dbe7cfe726870bd7,
     type: 3}
   poolSize: 5
-  maxPoolSize: 20
+  maxPoolSize: 10
   minPoolSize: 5
 --- !u!1 &5159370705676545325
 GameObject:
@@ -864,7 +797,7 @@ MonoBehaviour:
     FieldOfView: 30
     OrthographicSize: 10
     NearClipPlane: 0.01
-    FarClipPlane: 5000
+    FarClipPlane: 100
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -1095,7 +1028,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 5000
+  far clip plane: 100
   field of view: 30
   orthographic: 0
   orthographic size: 10
@@ -1244,48 +1177,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3943bbcc2cf8e24eaf2495608a1e355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Waves:
+  waves:
   - waveData: {fileID: 11400000, guid: 6e1ae6a34c4fd8b419d32b30bccd543c, type: 2}
-    waveCollider: {fileID: 9199909233228499409}
-    IsTrigger: 0
-    miniBoss: {fileID: 2353764348533598964, guid: bc8c3abf9ee69b440a7390d2b0caefdd,
-      type: 3}
+    byTrigger: 0
     spawnPoints:
-    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
   - waveData: {fileID: 11400000, guid: e38f9a44f24324a459d20ed35fc1e627, type: 2}
-    waveCollider: {fileID: 9199909233228499409}
-    IsTrigger: 0
-    miniBoss: {fileID: 2353764348533598964, guid: bc8c3abf9ee69b440a7390d2b0caefdd,
-      type: 3}
+    byTrigger: 0
     spawnPoints:
-    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
   - waveData: {fileID: 11400000, guid: 5f7e162aae06fc948b1c22fa267d7e1e, type: 2}
-    waveCollider: {fileID: 9199909233228499409}
-    IsTrigger: 0
-    miniBoss: {fileID: 2353764348533598964, guid: bc8c3abf9ee69b440a7390d2b0caefdd,
-      type: 3}
-    spawnPoints:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - waveData: {fileID: 11400000, guid: 6e1ae6a34c4fd8b419d32b30bccd543c, type: 2}
-    waveCollider: {fileID: 9199909233228499409}
-    IsTrigger: 0
-    miniBoss: {fileID: 2353764348533598964, guid: bc8c3abf9ee69b440a7390d2b0caefdd,
-      type: 3}
+    byTrigger: 0
     spawnPoints:
     - {fileID: 0}
     - {fileID: 0}
@@ -1298,11 +1208,11 @@ MonoBehaviour:
   - {fileID: 6604989614756953232}
   - {fileID: 2702891633912667821}
   - {fileID: 1135556628237354828}
-  currentWaveIndex: 0
-  TotalEnemy: 0
-  activeEnemies: 0
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
-  WavesCompeleted: {fileID: 11400000, guid: a192019dae282cb4590f11f79a472440, type: 2}
+  wavesCompletedEvent: {fileID: 11400000, guid: a192019dae282cb4590f11f79a472440,
+    type: 2}
+  startNextWave: {fileID: 11400000, guid: d888fa8b19f668842bb843d39704b381, type: 2}
+  waveCompletedEvent: {fileID: 11400000, guid: eae4739ef32eb8e4b85c391f4190f365, type: 2}
 --- !u!1 &8989827071080620482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,15 +1257,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3943bbcc2cf8e24eaf2495608a1e355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Waves: []
+  waves: []
   playerTransform: {fileID: 0}
   enemyPools:
   - {fileID: 0}
-  currentWaveIndex: 0
-  TotalEnemy: 0
-  activeEnemies: 0
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
-  WavesCompeleted: {fileID: 11400000, guid: a192019dae282cb4590f11f79a472440, type: 2}
+  wavesCompletedEvent: {fileID: 0}
+  startNextWave: {fileID: 0}
+  waveCompletedEvent: {fileID: 0}
 --- !u!1 &9062757580488732944
 GameObject:
   m_ObjectHideFlags: 0
