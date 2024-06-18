@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Scenemanager : MonoBehaviour
 {
     [SerializeField] private string sceneName;
     [SerializeField] GameObject loading_screen;
     [SerializeField] GameObject Menu_screen;
-    [SerializeField] Slider loading_bar;
+    [SerializeField] UnityEngine.UI.Slider loading_bar;
     
     public void OpenScene()
     {
@@ -19,13 +20,13 @@ public class Scenemanager : MonoBehaviour
     IEnumerator OpenAsyncScene() 
     {
         loading_screen.SetActive(true);
-        yield return new WaitForSeconds(2);
-        
-        while (loading_bar.value!=1)
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        while (!operation.isDone)
         {
-            loading_bar.value += 0.1f;
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            loading_bar.value = progress;
             yield return null;
         }
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        
     }
 }
