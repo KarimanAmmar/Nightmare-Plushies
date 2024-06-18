@@ -436,6 +436,7 @@ MonoBehaviour:
     patrolRadius: 5
     moveSpeed: 3
     rotationSpeed: 5
+    obstacleDetectionDistance: 1
   chasingState:
     moveSpeed: 7
     rotationSpeed: 5

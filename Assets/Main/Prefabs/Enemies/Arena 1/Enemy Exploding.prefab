@@ -52484,6 +52484,7 @@ MonoBehaviour:
     patrolRadius: 5
     moveSpeed: 3
     rotationSpeed: 5
+    obstacleDetectionDistance: 1
   chasingState:
     moveSpeed: 5
     rotationSpeed: 5
@@ -52504,9 +52505,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
-  enemy_max_heath: 100
+  enemy_max_heath: 60
   UI_Handler: {fileID: 3247964289318469735}
-  enemy_current_heath: 30
+  enemy_current_heath: 60
   CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
     type: 3}
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
