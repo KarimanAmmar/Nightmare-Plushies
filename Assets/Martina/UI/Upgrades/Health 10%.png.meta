@@ -121,18 +121,50 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Health 10%_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 166
+        width: 437
+        height: 754
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c210a63f0a621874dbdbfb1e8fd4394e
+      internalID: -1973418139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 91df85df5882cb341b9fb6d2f05e7e2a
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Health 10%_0: -126752769
+      Health 10%_1: -1973418139
+      Health 10%_10: 1070645455
+      Health 10%_2: 1226161872
+      Health 10%_3: 2014114188
+      Health 10%_4: -1250931968
+      Health 10%_5: 1447724212
+      Health 10%_6: -849110008
+      Health 10%_7: -1272551076
+      Health 10%_8: 1574645877
+      Health 10%_9: -474928946
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

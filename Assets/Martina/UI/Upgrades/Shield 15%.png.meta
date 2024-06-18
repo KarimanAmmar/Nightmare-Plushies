@@ -121,18 +121,55 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Shield 15%_1
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 165
+        width: 438
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c164ccc7e2f8599478e7a5a1f8b379d8
+      internalID: 1700844342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6a4810ceb266df74399a8b144f82b84c
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shield 15%_0: -1334463809
+      Shield 15%_1: 1700844342
+      Shield 15%_10: -1031193726
+      Shield 15%_11: -197416622
+      Shield 15%_12: 136121165
+      Shield 15%_13: -774815425
+      Shield 15%_14: -1711557223
+      Shield 15%_15: 1749217310
+      Shield 15%_2: -988063788
+      Shield 15%_3: 270046154
+      Shield 15%_4: 975096492
+      Shield 15%_5: 532850656
+      Shield 15%_6: -713012072
+      Shield 15%_7: 837327841
+      Shield 15%_8: -594451066
+      Shield 15%_9: -1445375486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

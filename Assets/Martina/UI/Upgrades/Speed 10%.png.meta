@@ -121,18 +121,53 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Speed 10%_1
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 165
+        width: 444
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28d4dee6763ec9d4b9ce3de2dd4f491d
+      internalID: 1676645639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 306ccef25f563a842adbc8016da33e20
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Speed 10%_0: -792370158
+      Speed 10%_1: 1676645639
+      Speed 10%_10: 948032727
+      Speed 10%_11: 1799426510
+      Speed 10%_12: -1344763111
+      Speed 10%_13: -1586791394
+      Speed 10%_2: -368354680
+      Speed 10%_3: 1238866829
+      Speed 10%_4: 219384684
+      Speed 10%_5: 55858822
+      Speed 10%_6: -515130167
+      Speed 10%_7: -1548054796
+      Speed 10%_8: -1361822093
+      Speed 10%_9: -1666045406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

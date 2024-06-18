@@ -15,3 +15,4 @@ MonoBehaviour:
   Upggrade:
     type: 2
     value: 5
+    UpgradeImage: {fileID: 1192962215, guid: 66efaa92b2570c94c969b9ddf61d9b75, type: 3}

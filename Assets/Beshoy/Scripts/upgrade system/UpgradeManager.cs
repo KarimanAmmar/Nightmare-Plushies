@@ -29,28 +29,23 @@ public enum UpgradeType
 [Serializable]
 public struct Upgrade_Option
 {
-   [SerializeField] private Text UpgradeTypeName;
-   [SerializeField] private Text UpgradeValue;
+   //[SerializeField] private Text UpgradeTypeName;
+   //[SerializeField] private Text UpgradeValue;
    [SerializeField] private Button UpgradeButton;
    // private Image UpgradeImage;
-    public void setType(UpgradeType type)
-    {
-        UpgradeTypeName.text = type.ToString();
-    }
-    public void setValue(string value)
-    {
-        UpgradeValue.text = value;
+    //public void setType(UpgradeType type)
+    //{
+    //    UpgradeTypeName.text = type.ToString();
+    //}
+    //public void setValue(string value)
+    //{
+    //    UpgradeValue.text = value;
 
-    }
+    //}
     public Button GetButton()
     {
        return UpgradeButton;
     }
-    //public void setUpgradeImage(Sprite Icon) 
-    //{ 
-    //    UpgradeImage.sprite= Icon;
-    //}
-
 }
 public class UpgradeManager : MonoBehaviour
 {

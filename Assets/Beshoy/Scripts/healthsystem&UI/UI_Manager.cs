@@ -129,8 +129,8 @@ public class UI_Manager : MonoBehaviour
     {
         for (int i = 0; i < upgrades.Length; i++)
         {
-            options[i].setType(upgrades[i].GetUpgradeType());
-            options[i].setValue(upgrades[i].GetString());
+            //options[i].setType(upgrades[i].GetUpgradeType());
+           // options[i].setValue(upgrades[i].GetString());
             options[i].GetButton().gameObject.SetActive(true);
 
             if (options[i].GetButton().onClick != null)
@@ -140,7 +140,7 @@ public class UI_Manager : MonoBehaviour
             
 
             Upgrade currentUpgrade = upgrades[i];
-
+            options[i].GetButton().image.sprite = currentUpgrade.GETImage();
             options[i].GetButton().onClick.AddListener(() => UpgradeManager.select_upgrade(currentUpgrade));
             options[i].GetButton().onClick.AddListener(() => AudioManager.Instance.PlySfx(ClickAudio));
         }
