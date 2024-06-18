@@ -13,14 +13,18 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private Float_event HealEvent;
     [SerializeField] private Float_event health_UI;
     [SerializeField] private GameEvent DeathEvent;
+    [SerializeField] private RectTransform Healthbar;
     [SerializeField] private float Max_health;
+    private Camera _camera;
     private float damageReduction = 0;
     private float Current_health;
     private float amount_Ui;
     void Start()
     {
         Current_health = Max_health;
-        
+        _camera = Camera.main;
+        Healthbar.LookAt(_camera.transform.position);
+
     }
     private void OnEnable()
     {
@@ -32,7 +36,14 @@ public class HealthSystem : MonoBehaviour
         DamageEvent.UnregisterListener(take_Damage);
         HealEvent.UnregisterListener(Gain_health);
     }
-   
+    private void LateUpdate()
+    {
+        if (_camera != null)
+        {
+            Healthbar.LookAt(Healthbar.position + _camera.transform.rotation * Vector3.forward, _camera.transform.rotation * Vector3.up); ;
+        }
+    }
+
     public void take_Damage(float amount)
     {
         float damage = amount - (damageReduction * amount);
