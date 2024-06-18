@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 /// <summary>
 /// this is a scriptable object that will hold :
 /// the values of the upgrades that will be added to the player stats 
@@ -14,9 +15,12 @@ public struct UpggradeValues
 {
    [SerializeField] private UpgradeType type;
    [SerializeField] private float value;
+   [SerializeField] private Sprite UpgradeImage;
    public UpgradeType GetUpgradeType() { return type; }
    public float GetValue() { return value; }
    public UpgradeType Type { get { return type; } }
+
+   public Sprite GetImage() { return UpgradeImage; }
     
 }
 
@@ -33,6 +37,11 @@ public class Upgrade : ScriptableObject
     public float GetValue()
     {
         return Upggrade.GetValue();
+    }
+
+    public Sprite GETImage()
+    {
+        return Upggrade.GetImage();
     }
     public string GetString()
     {
