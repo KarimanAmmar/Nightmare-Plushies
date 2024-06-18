@@ -1,5 +1,166 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3037539266324622973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322562169383488584}
+  - component: {fileID: 1344962640135202763}
+  m_Layer: 0
+  m_Name: WaveManager Arena 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &322562169383488584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037539266324622973}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.053055, y: 1.7883224, z: -1.0860119}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6603776080712540611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344962640135202763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037539266324622973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3943bbcc2cf8e24eaf2495608a1e355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - waveData: {fileID: 11400000, guid: f1c0c48deaa08364cb9dfc4646495347, type: 2}
+    byTrigger: 1
+    spawnPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - waveData: {fileID: 11400000, guid: bdb1aef6516c12a4e9fd558a92ed4a77, type: 2}
+    byTrigger: 0
+    spawnPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - waveData: {fileID: 11400000, guid: 7fc31939d9c181b45877735d1fdcc503, type: 2}
+    byTrigger: 1
+    spawnPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - waveData: {fileID: 11400000, guid: 21b2605ecae6aba49aaee8c95e07660d, type: 2}
+    byTrigger: 0
+    spawnPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - waveData: {fileID: 11400000, guid: fa178a9d06f46a744b5696b2f89126b2, type: 2}
+    byTrigger: 0
+    spawnPoints:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  playerTransform: {fileID: 0}
+  enemyPools:
+  - {fileID: 4448556672973966930}
+  - {fileID: 4870440862733610095}
+  - {fileID: 7626739361473131918}
+  enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
+  wavesCompletedEvent: {fileID: 11400000, guid: 28b84b4dee181e64e990310f71e6f39c,
+    type: 2}
+  startNextWave: {fileID: 11400000, guid: d888fa8b19f668842bb843d39704b381, type: 2}
+  waveCompletedEvent: {fileID: 11400000, guid: c8a656a6e0d0ca64680d4e1558a84bef, type: 2}
+  totalEnemies: 0
+  activeEnemies: 0
 --- !u!1001 &7356016146722976450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18,6 +179,12 @@ PrefabInstance:
       propertyPath: poolSize
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1135556628237354828, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 7956494908221633824, guid: 62cdd4b19a1e3ed47b1f56c4e66dbe04,
+        type: 3}
     - target: {fileID: 1135556628237354828, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: minPoolSize
@@ -48,6 +215,12 @@ PrefabInstance:
       propertyPath: poolSize
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2702891633912667821, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 4140567204899074684, guid: 8ddd56013e2add240a4a0b9c1cc68630,
+        type: 3}
     - target: {fileID: 2702891633912667821, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: minPoolSize
@@ -170,6 +343,11 @@ PrefabInstance:
       propertyPath: waves.Array.data[3].spawnPoints.Array.size
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3354264228829478500, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: defaultSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4445196787713725185, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -237,6 +415,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6604989614756953232, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 985137509129829471, guid: 91a62841172877042bff995ce717a19f,
+        type: 3}
+    - target: {fileID: 6604989614756953232, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
       propertyPath: minPoolSize
       value: 10
       objectReference: {fileID: 0}
@@ -247,8 +431,18 @@ PrefabInstance:
       objectReference: {fileID: 5231331452647099558}
     - target: {fileID: 8162147622787736561, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
+      propertyPath: m_Name
+      value: WaveManager Arena 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162147622787736561, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989827071080620482, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: m_Name
+      value: WaveManager Arena 2
       objectReference: {fileID: 0}
     - target: {fileID: 8989827071080620482, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -257,7 +451,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4445196787713725185, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 322562169383488584}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8162147622787736561, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -321,6 +519,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca8e26162ff3db4b9d29a55c015208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6603776080712540611 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4445196787713725185, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+    type: 3}
+  m_PrefabInstance: {fileID: 7356016146722976450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7626739361473131918 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1135556628237354828, guid: 8c743f0daf1077f44b3fcf927a01c3af,
