@@ -243,9 +243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_damage_event: {fileID: 11400000, guid: 810a0197a843cfe4ea371aa148b07d05, type: 2}
-  enemy_max_heath: 50
+  enemy_max_heath: 40
   UI_Handler: {fileID: 1516299914399608301}
-  enemy_current_heath: 50
+  enemy_current_heath: 40
   CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
     type: 3}
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
