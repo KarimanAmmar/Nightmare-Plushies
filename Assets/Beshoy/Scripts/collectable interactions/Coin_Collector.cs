@@ -55,6 +55,8 @@ public class Coin_Collector : MonoBehaviour
     private void ClearCount()
     {
        Coins_Count = 0;
-       Logging.Log("coin count returned to 0");
+       AmountUi = Coins_Count / Upgrade_Value;
+       UiProgressBarEvent.Raise(AmountUi);
+        //Logging.Log("coin count returned to 0");
     }
 }
