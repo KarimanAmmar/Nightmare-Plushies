@@ -15,9 +15,12 @@ public class EnemyController : MonoBehaviour
 	public event Action OnDefeated;
 
 	[SerializeField] private EnemyType enemyType;
-	[SerializeField] private MonoBehaviour attackBehavior; // Use MonoBehaviour to hold any attack behavior
+	[SerializeField] private MonoBehaviour attackBehavior;
 
 	private IAttackBehavior attackBehaviorInstance;
+
+	public IEnemyState CurrentState { get => currentState; set => currentState = value; }
+	public WanderingState WanderingState { get => wanderingState; set => wanderingState = value; }
 
 	private void OnEnable()
 	{
@@ -69,7 +72,7 @@ public class EnemyController : MonoBehaviour
 
 	private void InitializeState()
 	{
-		TransitionToState(wanderingState);
+		TransitionToState(WanderingState);
 	}
 
 	private void Update()
@@ -78,40 +81,45 @@ public class EnemyController : MonoBehaviour
 		{
 			float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 			TransitionStateBasedOnDistance(distanceToPlayer);
-			currentState.UpdateState(this, playerTransform.position);
+			CurrentState.UpdateState(this, playerTransform.position);
 		}
 	}
 
 	private void TransitionStateBasedOnDistance(float distanceToPlayer)
 	{
-		if (currentState != attackingState && distanceToPlayer <= attackDistance)
+		if (CurrentState != attackingState && distanceToPlayer <= attackDistance)
 		{
 			TransitionToState(attackingState);
 		}
-		else if (currentState != chasingState && distanceToPlayer > attackDistance && distanceToPlayer <= chaseDistance)
+		else if (CurrentState != chasingState && distanceToPlayer > attackDistance && distanceToPlayer <= chaseDistance)
 		{
 			TransitionToState(chasingState);
 		}
-		else if (currentState != wanderingState && distanceToPlayer > chaseDistance)
+		else if (CurrentState != WanderingState && distanceToPlayer > chaseDistance)
 		{
-			TransitionToState(wanderingState);
+			TransitionToState(WanderingState);
 		}
 	}
 
 	public void TransitionToState(IEnemyState nextState)
 	{
-		if (currentState != null)
+		if (CurrentState != null)
 		{
-			currentState.ExitState(this);
+			CurrentState.ExitState(this);
 		}
 
-		currentState = nextState;
-		currentState.EnterState(this);
+		CurrentState = nextState;
+		CurrentState.EnterState(this);
 	}
 
 	public Rigidbody GetRigidbody()
 	{
 		return rb;
+	}
+
+	public Transform GetPlayerTransform()
+	{
+		return playerTransform;
 	}
 
 	public void SetPlayerTransform(Transform player)
