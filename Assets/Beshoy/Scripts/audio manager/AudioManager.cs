@@ -27,6 +27,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] int poolSize;
     [SerializeField] GameObject parent;
     List<GameObject> pooledObjects;
+    GameObject source;
     private bool MasterMute;
 
     private void Awake()
@@ -47,12 +48,8 @@ public class AudioManager : Singleton<AudioManager>
         if (clip!=null)
         {
             SfxSource.PlayOneShot(clip);
-            PlaYSoundEffects(clip);
-            //AudioSource.PlayClipAtPoint(clip,);
+           // PlaYSoundEffects(clip);
         }
-        
-        //SfxSource.clip = clip;
-        //SfxSource.Play();
     }
     public void PlaYSoundEffects(AudioClip clip)
     {
@@ -60,9 +57,16 @@ public class AudioManager : Singleton<AudioManager>
     }
     IEnumerator PlaySound(AudioClip clip) 
     {
-        Logging.Log("played");
-        yield return new WaitForSeconds(clip.length);
-        Logging.Log("finished");
+        source= GetPooledObject();
+        source.SetActive(true);
+        source.TryGetComponent<AudioSource>(out AudioSource OutputSoucre);
+        if (OutputSoucre != null)
+        {
+           OutputSoucre.PlayOneShot(clip);
+        }
+        yield return new WaitForSeconds(OutputSoucre.clip.length);
+        source.SetActive(false);
+       
     }  
     public void PlyMusic(AudioClip clip)
     {
@@ -112,7 +116,20 @@ public class AudioManager : Singleton<AudioManager>
             Mixer.SetFloat("MusicVolume", Mathf.Log10(volume)*20); 
         }
     }
-
+    public GameObject GetPooledObject()
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (!pooledObjects[i].activeInHierarchy)
+            {
+                return pooledObjects[i];
+            }
+        }
+        GameObject obj = Instantiate(SFXSource, this.transform);
+        obj.SetActive(false);
+        pooledObjects.Add(obj);
+        return obj;
+    }
 
 
 }

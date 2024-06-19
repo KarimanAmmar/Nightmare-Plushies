@@ -156,6 +156,7 @@ public class UI_Manager : MonoBehaviour
     {
         string mainMenu = "test_mainmenu";
         SceneManager.LoadScene(mainMenu);
+        Time.timeScale = 1.0f;
     }
     IEnumerator UpdateTime()
     {

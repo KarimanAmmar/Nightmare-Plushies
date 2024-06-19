@@ -146,6 +146,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: audioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7744723952488734185, guid: cf2d0671ad623bc48a8ec8ebc4990947,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 852063371}
+    - target: {fileID: 7744723952488734185, guid: cf2d0671ad623bc48a8ec8ebc4990947,
+        type: 3}
+      propertyPath: poolSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744723952488734185, guid: cf2d0671ad623bc48a8ec8ebc4990947,
+        type: 3}
+      propertyPath: SFXSource
+      value: 
+      objectReference: {fileID: 7798691486136201952, guid: 7a2423bb85583164b832d0fee7e007b3,
+        type: 3}
     - target: {fileID: 8144569874984074488, guid: cf2d0671ad623bc48a8ec8ebc4990947,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -213,7 +229,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3103499}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 852063371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dfc9c399855075429428c324433bb5d, type: 3}
@@ -355,7 +371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471147200
@@ -814,6 +830,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654161088}
   m_CullTransparentMesh: 1
+--- !u!1 &852063371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4804751367913036707, guid: cf2d0671ad623bc48a8ec8ebc4990947,
+    type: 3}
+  m_PrefabInstance: {fileID: 3103499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &865993366
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,10 +1013,10 @@ RectTransform:
   - {fileID: 1104703262}
   m_Father: {fileID: 1435754785}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -408.39}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.2813542, y: 0.06421949}
+  m_AnchorMax: {x: 0.71500003, y: 0.18180479}
+  m_AnchoredPosition: {x: 4.5, y: -1.3900146}
+  m_SizeDelta: {x: -731, y: -28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1225649128
 MonoBehaviour:
@@ -2736,7 +2758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa620a8bb0e6f9445b8c3053f5244d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Master_slider: {fileID: 0}
   Sfx_slider: {fileID: 7420729905480876575}
   Music_slider: {fileID: 4530237681953853298}
 --- !u!222 &6951347203913238026
