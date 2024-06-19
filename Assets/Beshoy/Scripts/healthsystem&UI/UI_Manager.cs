@@ -150,6 +150,7 @@ public class UI_Manager : MonoBehaviour
     {
         string sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1.0f;
     }
     public void Exit()
     {
