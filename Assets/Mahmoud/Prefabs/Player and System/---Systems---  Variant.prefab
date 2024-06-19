@@ -174,6 +174,12 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].spawnPoints.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 844859395642344895, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: UpgradeEffect_event
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f73f92b2afa4314694f96c4616e3b6f,
+        type: 2}
     - target: {fileID: 1135556628237354828, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: poolSize
@@ -183,7 +189,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 7956494908221633824, guid: 62cdd4b19a1e3ed47b1f56c4e66dbe04,
+      objectReference: {fileID: 5228082681964585595, guid: ba01152f8fcf417428e900eaa90029f5,
         type: 3}
     - target: {fileID: 1135556628237354828, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -345,6 +351,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3354264228829478500, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
+      propertyPath: Floating
+      value: 
+      objectReference: {fileID: 11400000, guid: 9184a4c8ea0ad394b9aeab6c58afa6e9,
+        type: 2}
+    - target: {fileID: 3354264228829478500, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
       propertyPath: defaultSpeed
       value: 8
       objectReference: {fileID: 0}
@@ -417,7 +429,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 985137509129829471, guid: 91a62841172877042bff995ce717a19f,
+      objectReference: {fileID: 5195352096027166640, guid: 276abf7fe4b53ac40ab0a2c3527a39e2,
         type: 3}
     - target: {fileID: 6604989614756953232, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -450,7 +462,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2313653592017827665, guid: 8c743f0daf1077f44b3fcf927a01c3af, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4445196787713725185, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}

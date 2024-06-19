@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e9faeb6d1d27c418fbe024e90801b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 5
 --- !u!1 &4923664656892850681
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,18 +397,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 538.1367
+      value: 550.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.508112
+      value: 5.44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 139.97891
+      value: 117.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
@@ -443,6 +459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b1ef41d07a7d78149abc70c3aa042fc7,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7330231815333398700, guid: b1ef41d07a7d78149abc70c3aa042fc7,
         type: 3}
@@ -594,6 +615,7 @@ MonoBehaviour:
     patrolRadius: 5
     moveSpeed: 3
     rotationSpeed: 5
+    obstacleDetectionDistance: 1
   chasingState:
     moveSpeed: 5
     rotationSpeed: 5

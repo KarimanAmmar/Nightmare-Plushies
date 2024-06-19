@@ -8,6 +8,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1300568177741628171, guid: a1e71d33b265db842b9faf320b07ada9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2811fbf0e3d88f4281b08bbb2f091c4, type: 2}
+    - target: {fileID: 1302006586166208134, guid: a1e71d33b265db842b9faf320b07ada9,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2407808408409321381, guid: 1216ad4e2d5753442bccf21489bf7601,
+        type: 3}
+    - target: {fileID: 2338296553829158249, guid: a1e71d33b265db842b9faf320b07ada9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2811fbf0e3d88f4281b08bbb2f091c4, type: 2}
+    - target: {fileID: 2370021739653327551, guid: a1e71d33b265db842b9faf320b07ada9,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1637526288758671210, guid: 1216ad4e2d5753442bccf21489bf7601,
+        type: 3}
+    - target: {fileID: 3017098101150558866, guid: a1e71d33b265db842b9faf320b07ada9,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -688620019613803009, guid: 1216ad4e2d5753442bccf21489bf7601,
+        type: 3}
     - target: {fileID: 4540140060424899128, guid: a1e71d33b265db842b9faf320b07ada9,
         type: 3}
       propertyPath: waveEventNum
@@ -68,6 +96,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8882013304768791443, guid: a1e71d33b265db842b9faf320b07ada9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2811fbf0e3d88f4281b08bbb2f091c4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
