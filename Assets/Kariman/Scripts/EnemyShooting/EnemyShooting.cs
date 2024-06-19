@@ -134,11 +134,15 @@ public class EnemyShooting : MonoBehaviour
 				yield return waitTime;
 				isShooting = false;
 			}
-			Logging.Log("ienum");
+			else
+			{
+                yield return null;
+            }
+            Logging.Log("ienum");
 		}
-	}
+    }
 
-	public GameObject GetPooledObject()
+    public GameObject GetPooledObject()
 	{
 		for (int i = 0; i < pooledObjects.Count; i++)
 		{
