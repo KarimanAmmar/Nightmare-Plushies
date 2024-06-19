@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -79,9 +80,26 @@ public class EnemyPool : MonoBehaviour
 	private void SetupEnemy(GameObject enemy, Vector3 targetPosition)
 	{
 		enemy.transform.position = targetPosition;
+		StartCoroutine(ActivateEnemyWithDelay(enemy));
 		enemy.SetActive(true);
-		enemy.GetComponent<EnemyController>().CurrentState = enemy.GetComponent<EnemyController>().WanderingState;
 		// if (particleSystem != null) particleSystem.Play();
+	}
+
+	private IEnumerator ActivateEnemyWithDelay(GameObject enemy)
+	{
+		EnemyController enemyController = enemy.GetComponent<EnemyController>();
+		if (enemyController != null)
+		{
+			enemyController.enabled = false;
+		}
+
+		yield return new WaitForSeconds(1f);
+
+		if (enemy != null && enemyController != null)
+		{
+			enemyController.enabled = true;
+			enemyController.CurrentState = enemyController.WanderingState;
+		}
 	}
 
 	public void SetPlayerTransform(Transform player)

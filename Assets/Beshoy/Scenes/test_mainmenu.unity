@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1478,7 +1478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed48c52fca199749801706c5313cabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: beshoy
+  sceneName: Mahmoud
   loading_screen: {fileID: 624532817}
   Menu_screen: {fileID: 654161088}
   loading_bar: {fileID: 1225649128}

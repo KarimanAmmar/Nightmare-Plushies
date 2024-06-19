@@ -26,7 +26,7 @@ public class ShieldSystem : MonoBehaviour
     IEnumerator pulseshield() 
     {
         TenSecActive = true;
-        Debug.Log($"is pulse shield active?{TenSecActive}");
+        //Logging.Log($"is pulse shield active?{TenSecActive}");
         yield return new WaitForSeconds(10);
         StartCoroutine(pulseshield());
     }
@@ -36,12 +36,12 @@ public class ShieldSystem : MonoBehaviour
         if (TenSecActive)
         {
             TenSecActive= false;
-            Debug.Log("pulse shield Down");
+            //Logging.Log("pulse shield Down");
         }
         else if(OneHitActive)
         {
             OneHitActive= false;
-            Debug.Log("permenant shield Down");
+            //Logging.Log("permenant shield Down");
         }
         else
         {
