@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2008159056537071239}
   - component: {fileID: 803083075738461248}
   m_Layer: 6
-  m_Name: coin 1
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -36.000015, y: 1.0799999, z: 63.569992}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055156747617547688}
-  m_Mesh: {fileID: 4711208715938537054, guid: fd1fa11527292a641941f0979c5fe06a, type: 3}
+  m_Mesh: {fileID: 450443091681560433, guid: 23c43ec4af04bf44f8154e459bb3e7ef, type: 3}
 --- !u!23 &4630074698675065658
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f3e4029d51daeb446acaefdf6fcbf523, type: 2}
+  - {fileID: 2100000, guid: 7cf18e4be189b29469ad95fbf3b2743f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
