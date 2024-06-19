@@ -57,6 +57,7 @@ public class UI_Manager : MonoBehaviour
         UI_Activate_Event.GameAction -=ActivateUpgradesPanel;
         UI_Deactivate_Event.GameAction -= DeactivateUpgradesPanel;
         UI_Death_Event.GameAction -= DisplayDeath;
+        StopCoroutine(UpdateTime());
     }
     private void Start()
     {
