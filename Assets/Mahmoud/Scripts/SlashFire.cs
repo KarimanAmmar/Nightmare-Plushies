@@ -21,8 +21,9 @@ public class SlashFire : MonoBehaviour
 		{
 			fireCooldownImage.fillAmount = 0f;
 		}
-	}
 
+	}
+	
 	private void Update()
 	{
 		if (PlayFire.Horizontal != 0 || PlayFire.Vertical != 0)
