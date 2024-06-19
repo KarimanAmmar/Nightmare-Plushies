@@ -91,7 +91,12 @@ public class EnemyPool : MonoBehaviour
 		if (enemyController != null)
 		{
 			enemyController.enabled = false;
-			yield return new WaitForSeconds(1f);
+		}
+
+		yield return new WaitForSeconds(1f);
+
+		if (enemy != null && enemyController != null)
+		{
 			enemyController.enabled = true;
 			enemyController.CurrentState = enemyController.WanderingState;
 		}
