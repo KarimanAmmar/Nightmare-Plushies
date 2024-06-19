@@ -5,7 +5,7 @@ public class AimsAttack : MonoBehaviour, IAttackBehavior
 	[SerializeField] private float rotationSpeed = 5f;
 	private Transform playerTransform;
 	private Rigidbody rb;
-
+	[SerializeField] private EnemyShooting enemyShooting;
 	public void EnterState(EnemyController enemy)
 	{
 		rb = enemy.GetComponent<Rigidbody>();

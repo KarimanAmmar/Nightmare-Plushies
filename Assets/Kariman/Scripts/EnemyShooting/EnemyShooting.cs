@@ -28,6 +28,8 @@ public class EnemyShooting : MonoBehaviour
 	[SerializeField] float maxDistance;
 	[SerializeField] float launchAngle = 45.0f;
 
+	public bool IsShooting { get => isShooting; set => isShooting = value; }
+
 	private void Awake()
 	{
 		pooledObjects = new List<GameObject>();
@@ -84,9 +86,9 @@ public class EnemyShooting : MonoBehaviour
 	{
 		while (true)
 		{
-			if (playerPos != null && !isShooting)
+			if (playerPos != null && !IsShooting)
 			{
-				isShooting = true;
+				IsShooting = true;
 
 				Vector3 direction = playerPos.position - firePoint.position;
 				float distance = Vector3.Distance(firePoint.position, playerPos.position);
@@ -132,7 +134,7 @@ public class EnemyShooting : MonoBehaviour
 
 				Logging.Log(playerPos.transform.position);
 				yield return waitTime;
-				isShooting = false;
+				IsShooting = false;
 			}
 			else
 			{
