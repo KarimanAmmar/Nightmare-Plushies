@@ -76,7 +76,7 @@ public class UpgradeManager : MonoBehaviour
         apply_Upgrade(upgrade);
         UI_Deactivate_Event.GameAction.Invoke();
 
-        UpgradeEffect_event.GameAction.Invoke();
+        //UpgradeEffect_event.GameAction.Invoke();
     }
 
     private void apply_Upgrade(Upgrade upgrade)
