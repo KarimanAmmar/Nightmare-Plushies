@@ -5,13 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Beshoy/Scenes/test_mainmenu.unity
     guid: 3e3e7c9f43ebc6e4db33ba757f13298f
   - enabled: 1
-    path: Assets/Mahmoud/Scenes/Mahmoud/Old.unity
-    guid: 3d0ae35d93ed9bb40a969e6b2d4a4008
-  - enabled: 1
-    path: Assets/Beshoy/Scenes/beshoy.unity
-    guid: e2df1a2a24594154e86f25077b418671
+    path: Assets/Mahmoud/Scenes/Main.unity
+    guid: 4e67468eeb46905459332ffb184e15d2
   m_configObjects: {}
