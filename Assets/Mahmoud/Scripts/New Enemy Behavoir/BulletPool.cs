@@ -18,6 +18,14 @@ public class BulletPool : MonoBehaviour
 			bullet.transform.localPosition = Vector3.zero;
 			bullet.transform.localRotation = Quaternion.identity;
 			bullet.SetActive(false);
+
+			// Attach EnemyBullet component to manage its behavior
+			EnemyBullet enemyBullet = bullet.GetComponent<EnemyBullet>();
+			if (enemyBullet != null)
+			{
+				enemyBullet.ParentTransform = transform; 
+			}
+
 			bulletPool.Add(bullet);
 		}
 	}

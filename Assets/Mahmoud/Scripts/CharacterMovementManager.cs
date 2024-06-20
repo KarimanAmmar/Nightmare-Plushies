@@ -67,8 +67,10 @@ public class CharacterMovementManager : MonoBehaviour
 
 	void MovePlayer(Vector3 direction)
 	{
-		controller.SimpleMove(direction * movementSpeed);
+		Vector3 newPosition = controller.transform.position + new Vector3(direction.x, 0.0f, direction.z) * movementSpeed * Time.deltaTime;
+		controller.Move(newPosition - controller.transform.position);
 	}
+
 
 	void RotatePlayer(Vector3 direction)
 	{

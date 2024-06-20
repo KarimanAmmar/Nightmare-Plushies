@@ -81,6 +81,7 @@ public class EnemyController : MonoBehaviour
 		{
 			float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 			TransitionStateBasedOnDistance(distanceToPlayer);
+			if(currentState == chasingState || currentState == wanderingState) 
 			CurrentState.UpdateState(this, playerTransform.position);
 		}
 	}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -7,6 +5,14 @@ public class EnemyBullet : MonoBehaviour
 	[SerializeField] private Float_event damage_event;
 	[SerializeField] private float damageValue;
 	[SerializeField] private float lifetime = 5f;
+	private Transform parentTransform;
+
+	// Property to set parentTransform
+	public Transform ParentTransform
+	{
+		get { return parentTransform; }
+		set { parentTransform = value; }
+	}
 
 	private void OnEnable()
 	{
@@ -17,6 +23,11 @@ public class EnemyBullet : MonoBehaviour
 	{
 		CancelInvoke();
 		ResetTransform();
+
+		if (gameObject.activeSelf && parentTransform != null)
+		{
+			transform.parent = parentTransform; 
+		}
 	}
 
 	void Deactivate()
@@ -30,7 +41,7 @@ public class EnemyBullet : MonoBehaviour
 		if (other.gameObject.layer == GameConstant.PlayerLayer)
 		{
 			damage_event.Raise(damageValue);
-			this.gameObject.SetActive(false);
+			gameObject.SetActive(false);
 		}
 	}
 

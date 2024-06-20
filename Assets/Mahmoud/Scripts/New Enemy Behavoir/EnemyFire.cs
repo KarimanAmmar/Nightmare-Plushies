@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class EnemyFire : MonoBehaviour
 {
@@ -7,19 +6,14 @@ public class EnemyFire : MonoBehaviour
 	[SerializeField] private Transform firePoint;
 	[SerializeField] private bool isFire = false;
 	[SerializeField] private float bulletSpeed = 20f;
-
-	void Update()
+	
+	public void FireBullet()
 	{
-		if (isFire)
-		{
-			FireBullet();
-		}
-	}
-
-	void FireBullet()
-	{
-		isFire = false;
 		GameObject bullet = bulletPool.GetBullet();
+		bullet.transform.parent = null;
+		// Ensure bullet is active when fired
+		bullet.SetActive(true);
+
 		Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
 		if (rb != null)
@@ -28,8 +22,8 @@ public class EnemyFire : MonoBehaviour
 			rb.angularVelocity = Vector3.zero;
 		}
 
-		bullet.transform.localPosition = Vector3.zero;
-		bullet.transform.localRotation = Quaternion.identity;
+		bullet.transform.position = firePoint.position;
+		bullet.transform.rotation = firePoint.rotation;
 
 		if (rb != null)
 		{
