@@ -759,6 +759,7 @@ MonoBehaviour:
   projectileSpeed: 5
   maxDistance: 12
   launchAngle: 45
+  shootClip: {fileID: 8300000, guid: 331e6917c4b6438478f4144651bd42b2, type: 3}
 --- !u!1 &6461094521984804410
 GameObject:
   m_ObjectHideFlags: 0

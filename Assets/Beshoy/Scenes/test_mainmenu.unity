@@ -138,6 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4360129744312488131, guid: cf2d0671ad623bc48a8ec8ebc4990947,
         type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a301311c979fda47b00698507540058, type: 3}
+    - target: {fileID: 4360129744312488131, guid: cf2d0671ad623bc48a8ec8ebc4990947,
+        type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
@@ -397,7 +402,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0, g: 1, b: 0.058154345, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -435,7 +440,7 @@ MonoBehaviour:
         m_MethodName: PlySfx
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 99403e8bffb53504180e6793aae1f7c6,
+          m_ObjectArgument: {fileID: 8300000, guid: 01352aadf417a6e4fb9d42883a784c06,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -1424,7 +1429,7 @@ MonoBehaviour:
         m_MethodName: PlySfx
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 99403e8bffb53504180e6793aae1f7c6,
+          m_ObjectArgument: {fileID: 8300000, guid: a8459f04c688cc44893a631e488c336a,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -1500,7 +1505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed48c52fca199749801706c5313cabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Mahmoud
+  sceneName: Beshoy
   loading_screen: {fileID: 624532817}
   Menu_screen: {fileID: 654161088}
   loading_bar: {fileID: 1225649128}
@@ -1797,7 +1802,7 @@ MonoBehaviour:
         m_MethodName: PlySfx
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 99403e8bffb53504180e6793aae1f7c6,
+          m_ObjectArgument: {fileID: 8300000, guid: a8459f04c688cc44893a631e488c336a,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
