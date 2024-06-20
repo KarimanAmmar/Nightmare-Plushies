@@ -19,7 +19,7 @@ public class SlashFire : MonoBehaviour
 	{
 		if (fireCooldownImage != null)
 		{
-			fireCooldownImage.fillAmount = 0f;
+			fireCooldownImage.fillAmount = 1f;
 		}
 
 	}
@@ -93,7 +93,6 @@ public class SlashFire : MonoBehaviour
 
 		if (fireCooldownImage != null)
 		{
-			fireCooldownImage.fillAmount = 0f;
 			DisableFire.SetActive(false);
 		}
 	}
