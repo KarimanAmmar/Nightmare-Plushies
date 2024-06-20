@@ -1,56 +1,34 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PullingScript : MonoBehaviour
+public class pullingScript : MonoBehaviour
 {
- 
-    [SerializeField] private float collectingRange = 5f;
-    [SerializeField] private float attractionForce = 10f;
-    [SerializeField] private float updateInterval = 0.1f; // Update every 0.1 seconds
-    
-    private Collider[] colliders;
-    private const int maxColliders = 20; // Maximum number of colliders to check; adjust as needed
-
-    private void Awake()
-    {
-        // Allocate the collider array once and reuse it
-        colliders = new Collider[maxColliders];
-    }
-
-    private void OnEnable()
-    {
-        StartCoroutine(PullObjectsCoroutine());
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(PullObjectsCoroutine());
-    }
-
-    private IEnumerator PullObjectsCoroutine()
-    {
-        while (true)
+    [SerializeField] float collectingRange;
+    Vector3 pullPos;
+    private void OnTriggerEnter(Collider other)
+    {       //Logging.Log($"{other.gameObject.name}");
+        if (other.gameObject.layer == GameConstant.MagneticLayer)
         {
-            // Non-allocating version of OverlapSphere
-            int numColliders = Physics.OverlapSphereNonAlloc(transform.position, collectingRange, colliders, GameConstant.MagneticLayer);
-
-            for (int i = 0; i < numColliders; i++)
-            {
-                if (colliders[i].TryGetComponent<Rigidbody>(out Rigidbody rb))
-                {
-                    PullObject(rb);
-                }
-            }
-
-            yield return new WaitForSeconds(updateInterval);
+            PullObject(other);
         }
     }
-
-    private void PullObject(Rigidbody rb)
+    private void OnTriggerExit(Collider other)
     {
-        Vector3 direction = (transform.position - rb.position).normalized;
-        Vector3 newPosition = Vector3.MoveTowards(rb.position, transform.position, attractionForce * Time.deltaTime);
-        rb.MovePosition(newPosition);
+        if (other.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+        {
+            rigidbody.velocity = Vector3.zero;
+            if (other.gameObject.layer == GameConstant.MagneticLayer)
+            {
+                PullObject(other);
+            }
+        }
+    }
+    private void PullObject(Collider other)
+    {
+        pullPos = transform.position;
+        Vector3 dir = (pullPos - other.transform.position).normalized;
+        other.gameObject.TryGetComponent<Collider>(out Collider component);
+        component.attachedRigidbody.AddForce(dir * 10f, ForceMode.Impulse);
     }
 }
-

@@ -13,6 +13,8 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 	[SerializeField] private GameEvent enemyDefeatedEvent;
 	private bool isAttacking = false;
 	[SerializeField] private List<Material> materials;
+	//audio
+	[SerializeField] private jackSFX jackSFX;
 	void Awake()
 	{
 		if (particleSystem != null)
@@ -28,6 +30,7 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 
 		if (distance <= 3f && !isAttacking)
 		{
+			
 			EnableParticleSystem();
 		}
 	}
@@ -48,7 +51,8 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 		
 		if (root != null)
 		{
-			particleSystem.gameObject.SetActive(false);
+            jackSFX.PlayExploadeClip();
+            particleSystem.gameObject.SetActive(false);
 			root.SetActive(false);
 			enemyDefeatedEvent.GameAction?.Invoke();
 		}
