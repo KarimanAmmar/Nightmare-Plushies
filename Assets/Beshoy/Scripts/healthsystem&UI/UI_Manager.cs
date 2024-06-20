@@ -154,8 +154,7 @@ public class UI_Manager : MonoBehaviour
     }
     public void Exit()
     {
-        string mainMenu = "test_mainmenu";
-        SceneManager.LoadScene(mainMenu);
+        SceneManager.LoadScene(GameConstant.GamePlayScene);
     }
     IEnumerator UpdateTime()
     {
