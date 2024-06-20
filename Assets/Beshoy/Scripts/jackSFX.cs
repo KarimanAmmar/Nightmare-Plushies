@@ -24,7 +24,7 @@ public class jackSFX : MonoBehaviour
     { 
         if (jumpClip != null)
         {
-           AudioSource.PlayClipAtPoint(jumpClip,transform.position,1);
+           AudioSource.PlayClipAtPoint(jumpClip,transform.position,0.7f);
 
         }
     }
