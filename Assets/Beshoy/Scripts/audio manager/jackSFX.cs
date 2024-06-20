@@ -7,7 +7,7 @@ public class jackSFX : MonoBehaviour
     [SerializeField] private GameEvent jumpSfxEvent;
 
     [SerializeField] private GameEvent exploadeEvent;
-    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private AudioSource jumpClip;
 
     [SerializeField] private AudioSource exploadesource;
     private void OnEnable()
@@ -25,7 +25,7 @@ public class jackSFX : MonoBehaviour
     { 
         if (jumpClip != null)
         {
-           AudioSource.PlayClipAtPoint(jumpClip,transform.position,0.7f);
+          jumpClip.Play();
 
         }
     }

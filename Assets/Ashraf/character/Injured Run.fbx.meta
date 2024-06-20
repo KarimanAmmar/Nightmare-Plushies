@@ -56,15 +56,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.67002517
-        functionName: PlayWalkClip
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 92a3c20cbebead348b799d2baa99c6be,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

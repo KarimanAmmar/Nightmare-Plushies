@@ -14835,4 +14835,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   deactive: 1
-  HitAudio: {fileID: 8300000, guid: 2f090a6476bde204cb1d90618697e87d, type: 3}
+  HitAudio: {fileID: 0}
