@@ -20,15 +20,16 @@ public class jackSFX : MonoBehaviour
         exploadeEvent.GameAction -= PlayExploadeClip;
 
     }
-    private void PlayJumpClip() 
+    public void PlayJumpClip() 
     { 
         if (jumpClip != null)
         {
-            AudioSource.PlayClipAtPoint(jumpClip,transform.position);
+           AudioSource.PlayClipAtPoint(jumpClip,transform.position,1);
+
         }
     }
 
-    private void PlayExploadeClip()
+    public void PlayExploadeClip()
     {
         if (exploadeClip != null)
         {

@@ -28563,7 +28563,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4660323877903669666}
   - component: {fileID: 3753043984530440639}
-  - component: {fileID: 415751075367097488}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -28606,22 +28605,6 @@ MonoBehaviour:
   scaleSpeed: 1.5
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
   materials: []
---- !u!114 &415751075367097488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2807512724492428726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f6947d0c2608b847a5a4578a76524cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSfxEvent: {fileID: 11400000, guid: bff799c3dd2d20148bf1c00d673b1cfc, type: 2}
-  exploadeEvent: {fileID: 11400000, guid: 8417c6e2d632e1847a4ac551f3209e0f, type: 2}
-  jumpClip: {fileID: 8300000, guid: 35712405615de8a4aa7e2ecaf784098f, type: 3}
-  exploadeClip: {fileID: 8300000, guid: 451a5ba1af3a9fc4f80e53f6800a21e7, type: 3}
 --- !u!1 &3595958783283371017
 GameObject:
   m_ObjectHideFlags: 0
@@ -62463,7 +62446,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 964917794902d8b4e95a18313b028d9d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.75
   Loop: 1
   Mute: 0
   Spatialize: 0
