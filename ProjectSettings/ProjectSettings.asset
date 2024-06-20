@@ -68,9 +68,9 @@ PlayerSettings:
   disableDepthAndStencilBuffers: 0
   androidStartInFullscreen: 1
   androidRenderOutsideSafeArea: 1
-  androidUseSwappy: 0
+  androidUseSwappy: 1
   androidBlitType: 0
-  androidResizableWindow: 0
+  androidResizableWindow: 1
   androidDefaultWindowWidth: 1920
   androidDefaultWindowHeight: 1080
   androidMinimumWindowWidth: 400
@@ -154,9 +154,9 @@ PlayerSettings:
   m_ColorGamuts: 00000000
   targetPixelDensity: 30
   resolutionScalingMode: 0
-  resetResolutionOnWindowResize: 0
-  androidSupportedAspectRatio: 1
-  androidMaxAspectRatio: 2.1
+  resetResolutionOnWindowResize: 1
+  androidSupportedAspectRatio: 0
+  androidMaxAspectRatio: 9
   applicationIdentifier:
     Android: com.DefaultCompany.NightmarePlushies
     Standalone: com.DefaultCompany.Final-Project
