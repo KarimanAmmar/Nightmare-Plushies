@@ -69,6 +69,7 @@ MonoBehaviour:
   opensfx: {fileID: 8300000, guid: 5e0462aa202bb6848bab14ee861ae9d7, type: 3}
   DoorAnimator: {fileID: 7858140888469038325}
   waveEvent: {fileID: 11400000, guid: eae4739ef32eb8e4b85c391f4190f365, type: 2}
+  doorCollider: {fileID: 0}
   AnimName: Open
   waveEventNum: 6
 --- !u!1001 &5796700794913642710
@@ -243,6 +244,34 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6507565956235997468, guid: 158b13235586ac94c9ac8b0b908b8e74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2811fbf0e3d88f4281b08bbb2f091c4, type: 2}
+    - target: {fileID: -3683219779510948879, guid: 158b13235586ac94c9ac8b0b908b8e74,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2407808408409321381, guid: 1216ad4e2d5753442bccf21489bf7601,
+        type: 3}
+    - target: {fileID: -635612778668955675, guid: 158b13235586ac94c9ac8b0b908b8e74,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -688620019613803009, guid: 1216ad4e2d5753442bccf21489bf7601,
+        type: 3}
+    - target: {fileID: -137578589723547704, guid: 158b13235586ac94c9ac8b0b908b8e74,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1637526288758671210, guid: 1216ad4e2d5753442bccf21489bf7601,
+        type: 3}
+    - target: {fileID: -107955116091867106, guid: 158b13235586ac94c9ac8b0b908b8e74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2811fbf0e3d88f4281b08bbb2f091c4, type: 2}
     - target: {fileID: 919132149155446097, guid: 158b13235586ac94c9ac8b0b908b8e74,
         type: 3}
       propertyPath: m_Name
@@ -253,6 +282,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 5548347787350822524, guid: 158b13235586ac94c9ac8b0b908b8e74,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2811fbf0e3d88f4281b08bbb2f091c4, type: 2}
     - target: {fileID: 6470785858553712197, guid: 158b13235586ac94c9ac8b0b908b8e74,
         type: 3}
       propertyPath: m_LocalPosition.y

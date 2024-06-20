@@ -11,7 +11,7 @@ public class CharacterMovementManager : MonoBehaviour
 	[SerializeField] Canvas inputCanvas;
 	[SerializeField] private TransformEvent transformClosestEnemy;
 	[SerializeField] float rotationSpeed;
-
+	[SerializeField] GameEvent Floating;
 	private bool isJoystick;
 	private Vector3 defaultPosition;
 	private Transform closestEnemy;
@@ -35,6 +35,7 @@ public class CharacterMovementManager : MonoBehaviour
 	{
 		if (isJoystick && !IsSlashFire)
 		{
+			Floating.GameAction?.Invoke(); 
 			Vector3 movementDirection = new Vector3(-joystick.Direction.x, 0.0f, -joystick.Direction.y);
 			MovePlayer(movementDirection);
 			if (!isLerpingToEnemy)

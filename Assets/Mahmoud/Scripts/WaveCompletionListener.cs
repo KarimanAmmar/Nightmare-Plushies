@@ -21,11 +21,11 @@ public class WaveCompletionListener : MonoBehaviour
 
 	private void OnWaveCompleted(int waveNumber)
 	{
-		Debug.Log($"Wave {waveNumber} completed!");
+		//Logging.Log($"Wave {waveNumber} completed!");
 	}
 
 	private void OnAllWavesCompleted()
 	{
-		Debug.Log("All waves completed!");
+		//Logging.Log("All waves completed!");
 	}
 }

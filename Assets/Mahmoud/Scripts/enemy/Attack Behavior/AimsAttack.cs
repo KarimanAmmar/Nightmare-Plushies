@@ -1,73 +1,35 @@
-using System.Collections;
 using UnityEngine;
 
 public class AimsAttack : MonoBehaviour, IAttackBehavior
 {
-    //[SerializeField] private Animator animator;
+	[SerializeField] private float rotationSpeed = 5f;
+	private Transform playerTransform;
+	private Rigidbody rb;
+	[SerializeField] private EnemyShooting enemyShooting;
+	public void EnterState(EnemyController enemy)
+	{
+		rb = enemy.GetComponent<Rigidbody>();
+	}
+	public void Attack(EnemyController enemy, Vector3 playerPosition)
+	{
+		playerTransform = enemy.GetPlayerTransform();
+	}
 
-    //[SerializeField] private string attackAnimation = "Attack";
-    //[SerializeField] int fireRate;
-    //[SerializeField] int attackDistance;
-    //[SerializeField] ObjectPooling thisObjectPooling;
-    //[SerializeField] Transform firePoint;
-    //WaitForSeconds waitTime;
-    //private Coroutine shootingCoroutine;
-    //GameObject projectile;
+	private void Update()
+	{
+		// Always look at the player
+		if (playerTransform != null)
+		{
+			Vector3 directionToPlayer = playerTransform.position - transform.position;
+			Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+		}
+	}
 
-    //private void Start() => waitTime = new WaitForSeconds(fireRate);
-    //private void Update()
-    //{
-    //    if (shootingCoroutine == null)
-    //    {
-    //        animator.SetBool("Attack", true);
-    //    }
-    //    else
-    //    {
-    //        animator.SetBool("Attack", false);
-    //    }
-    //}
-    public void Attack(EnemyController enemy, Vector3 playerPosition)
-    {
-
-    }
-    //void CanShoot(Vector3 PlayerPos)
-    //{
-    //    if (shootingCoroutine == null)
-    //    {
-    //        shootingCoroutine = StartCoroutine(Shoot(PlayerPos));
-    //        animator.SetBool("Attack", true);
-    //    }
-    //}
-    //void CantShoot()
-    //{
-    //    if (shootingCoroutine != null)
-    //    {
-    //        StopCoroutine(shootingCoroutine);
-    //        shootingCoroutine = null;
-    //        animator.SetBool("Attack", false);
-    //    }
-    //}
-    //IEnumerator Shoot(Vector3 PlayerPos)
-    //{
-    //    while (true)
-    //    {
-    //        projectile = ObjectPooling.Instance.GetPooledObject();
-    //        projectile.transform.position = firePoint.position;
-    //        ObjectPooling.Instance.ActivatePooledObject(projectile);
-    //        ProjectileBehavior projectileBehavior = projectile.GetComponent<ProjectileBehavior>();
-
-    //        if (projectileBehavior != null)
-    //        {
-    //            GameObject tempGameObject = new GameObject("TempObject");
-    //            tempGameObject.transform.position = PlayerPos;
-
-    //            projectileBehavior.Initialize(tempGameObject.transform, 5);
-
-    //            Destroy(tempGameObject);
-    //        }
-    //        Logging.Log("ienum");
-    //        yield return waitTime;
-    //    }
-
-    //}
+	private void LookAtPlayer(Vector3 playerPosition)
+	{
+		Vector3 direction = (playerPosition - rb.position).normalized;
+		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+		rb.rotation = Quaternion.Slerp(rb.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+	}
 }
