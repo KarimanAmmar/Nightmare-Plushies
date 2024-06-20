@@ -16,4 +16,8 @@ public static class GameConstant
     public const int MagneticLayer = 6;
     public const int ProjectileLayer = 7;
     public const int PlayerLayer = 8;
+
+    //SceneNames
+    public const string GamePlayScene = "Main";
+    public const string MainMenuScene = "MainMenu";
 }
