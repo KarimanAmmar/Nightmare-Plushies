@@ -113,8 +113,10 @@ public class UI_Manager : MonoBehaviour
 
     private void DisplayDeath()
     {
+        AudioManager.Instance.Mute();
         PauseGame();
         DeathPanel.SetActive(true);
+        
     }
     private void ActivateUpgradesPanel()
     {
@@ -158,7 +160,7 @@ public class UI_Manager : MonoBehaviour
     }
     public void Exit()
     {
-        string mainMenu = "test_mainmenu";
+        string mainMenu = "MainMenu";
         SceneManager.LoadScene(mainMenu);
         Time.timeScale = 1.0f;
     }

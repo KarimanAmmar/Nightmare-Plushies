@@ -15,18 +15,18 @@ public class Scenemanager : MonoBehaviour
     public void OpenScene()
     {
         Menu_screen.SetActive(false);
+        loading_screen.SetActive(true);
         StartCoroutine(OpenAsyncScene());
     }
     IEnumerator OpenAsyncScene() 
     {
-        loading_screen.SetActive(true);
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             loading_bar.value = progress;
-            yield return null;
+            yield return new WaitForSeconds(0.5f);
         }
-        
+
     }
 }

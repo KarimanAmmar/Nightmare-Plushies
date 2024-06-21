@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 1788784110}
   - component: {fileID: 1788784109}
   - component: {fileID: 1788784108}
+  - component: {fileID: 1788784111}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -326,13 +327,57 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788784107}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.12509762, y: 0.76098824, z: -0.15409993, w: -0.6176575}
+  m_LocalPosition: {x: 576.9698, y: 25.219444, z: 131.6431}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1788784111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788784107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1001 &1794609059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -357,11 +402,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2086766702229849076, guid: 485d2fd87fe0a2b49a90b27498dd7b78,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3922563044539993522, guid: 485d2fd87fe0a2b49a90b27498dd7b78,
         type: 3}
       propertyPath: fireSound
       value: 
       objectReference: {fileID: 8300000, guid: 029b14fead3df454992de1e835635001, type: 3}
+    - target: {fileID: 4180924390786337115, guid: 485d2fd87fe0a2b49a90b27498dd7b78,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6653715579130572805, guid: 485d2fd87fe0a2b49a90b27498dd7b78,
         type: 3}
       propertyPath: slachClip
@@ -377,6 +432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ---Player----
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750628638449902841, guid: 485d2fd87fe0a2b49a90b27498dd7b78,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7101681730759181728, guid: 485d2fd87fe0a2b49a90b27498dd7b78,
         type: 3}
@@ -443,7 +503,8 @@ PrefabInstance:
       propertyPath: magneticLayerMask.m_Bits
       value: 64
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8945434147328797033, guid: 485d2fd87fe0a2b49a90b27498dd7b78, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -455,6 +516,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1794609062}
+    - targetCorrespondingSourceObject: {fileID: 4180924390786337115, guid: 485d2fd87fe0a2b49a90b27498dd7b78,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1794609069}
   m_SourcePrefab: {fileID: 100100000, guid: 485d2fd87fe0a2b49a90b27498dd7b78, type: 3}
 --- !u!1 &1794609060 stripped
 GameObject:
@@ -491,6 +556,27 @@ MonoBehaviour:
   numbers: 2b0000005200000082000000
   LevelEvent: {fileID: 11400000, guid: 79a3ee1d59e199c4da1b09706c3f4ea7, type: 2}
   value_event: {fileID: 11400000, guid: 8f4d92fb07e89a348a264762b3469512, type: 2}
+--- !u!135 &1794609069
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794609060}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.11
+  m_Center: {x: 0, y: 3.92, z: 0}
 --- !u!1 &1829403970
 GameObject:
   m_ObjectHideFlags: 0
