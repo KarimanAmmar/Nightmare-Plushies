@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Beshoy/Scenes/test_mainmenu.unity
-    guid: 3e3e7c9f43ebc6e4db33ba757f13298f
+    path: Assets/Main/Scenes/MainMenu.unity
+    guid: d573e26cef0c7e943b6cfbd1941d2f34
   - enabled: 1
-    path: Assets/Beshoy/Scenes/Beshoy.unity
-    guid: 0dd39833ad1bcf844908f33a3aa01afe
+    path: Assets/Main/Scenes/Main.unity
+    guid: d73c4d6a11789134fb80a7b292f9b7e5
   m_configObjects: {}
