@@ -9,7 +9,7 @@ public class TrailerCamerasTransition : MonoBehaviour
 
     int currentCam = 0;
 
-    int on = 20;
+    int on = 100;
     int off = 0;
     private void Start()
     {
