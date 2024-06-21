@@ -62660,7 +62660,7 @@ MonoBehaviour:
   CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
     type: 3}
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
-  deathsound: {fileID: 0}
+  deathsound: {fileID: 8300000, guid: d60e5b4ad1d189e4bbe612eaab0a379f, type: 3}
 --- !u!114 &6479853939595645614
 MonoBehaviour:
   m_ObjectHideFlags: 0
