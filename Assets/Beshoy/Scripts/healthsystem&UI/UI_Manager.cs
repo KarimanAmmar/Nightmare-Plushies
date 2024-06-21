@@ -23,11 +23,13 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private GameEvent UI_Activate_Event;
     [SerializeField] private GameEvent UI_Deactivate_Event;
     [SerializeField] private GameEvent UI_Death_Event;
+    [SerializeField] private GameEvent Level_completed_Event;
     [Header(" UI panels ")]
     [SerializeField] private GameObject MovementPanel;
     [SerializeField] private GameObject UpgradePanel;
     [SerializeField] private GameObject SettingPanel;
     [SerializeField] private GameObject DeathPanel;
+    [SerializeField] private GameObject GameCompletedPanel;
     [SerializeField] private Upgrade_Option[] options;
     [SerializeField] private AudioClip ClickAudio;
     /// <summary>
@@ -46,6 +48,7 @@ public class UI_Manager : MonoBehaviour
         UI_Activate_Event.GameAction += ActivateUpgradesPanel;
         UI_Deactivate_Event.GameAction += DeactivateUpgradesPanel;
         UI_Death_Event.GameAction += DisplayDeath;
+        Level_completed_Event.GameAction +=DisplayCompletePanel;
 
     }
     private void OnDisable()
@@ -57,6 +60,7 @@ public class UI_Manager : MonoBehaviour
         UI_Activate_Event.GameAction -=ActivateUpgradesPanel;
         UI_Deactivate_Event.GameAction -= DeactivateUpgradesPanel;
         UI_Death_Event.GameAction -= DisplayDeath;
+        Level_completed_Event.GameAction -=DisplayCompletePanel;
         StopCoroutine(UpdateTime());
     }
     private void Start()
@@ -151,10 +155,12 @@ public class UI_Manager : MonoBehaviour
     {
         string sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1.0f;
     }
     public void Exit()
     {
         SceneManager.LoadScene(GameConstant.GamePlayScene);
+        Time.timeScale = 1.0f;
     }
     IEnumerator UpdateTime()
     {
@@ -181,5 +187,11 @@ public class UI_Manager : MonoBehaviour
     public void StartCounter()
     {
         isCounting = true;
+    }
+    private void DisplayCompletePanel()
+    {
+        MovementPanel.SetActive(false);
+        PauseGame();
+        GameCompletedPanel.SetActive(true);
     }
 }

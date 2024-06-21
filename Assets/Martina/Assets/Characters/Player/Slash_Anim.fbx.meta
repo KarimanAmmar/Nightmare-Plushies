@@ -65,6 +65,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.30015233
+        functionName: PlaySlashSfX
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: a6904e3f25b97884fa2e95f3208e7265,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

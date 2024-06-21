@@ -436,6 +436,7 @@ MonoBehaviour:
     patrolRadius: 5
     moveSpeed: 3
     rotationSpeed: 5
+    obstacleDetectionDistance: 1
   chasingState:
     moveSpeed: 5
     rotationSpeed: 5
@@ -462,6 +463,7 @@ MonoBehaviour:
   CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
     type: 3}
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
+  deathsound: {fileID: 0}
 --- !u!114 &5988337223099523517
 MonoBehaviour:
   m_ObjectHideFlags: 0

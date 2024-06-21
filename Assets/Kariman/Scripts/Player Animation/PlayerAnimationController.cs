@@ -13,7 +13,10 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] GameEvent Floating;
     [SerializeField] GameEvent Shooting;
     [SerializeField] GameEvent Slashing;
-
+    //event to invoke to ply the slash effects
+    [SerializeField] GameEvent SlashEffect;
+    [SerializeField] AudioClip slachClip;
+    //
     bool isFloating = true;
     bool isShooting = true;
 
@@ -22,12 +25,14 @@ public class PlayerAnimationController : MonoBehaviour
         Floating.GameAction += PlayFlooting;
         Shooting.GameAction += PlayShooting;
         Slashing.GameAction += PlaySlashing;
+        SlashEffect.GameAction += PlaySlashSfX;
     }
     private void OnDisable()
     {
         Floating.GameAction -= PlayFlooting;
         Shooting.GameAction -= PlayShooting;
         Slashing.GameAction -= PlaySlashing;
+        SlashEffect.GameAction -= PlaySlashSfX;
     }
     void PlayFlooting()
     {
@@ -58,5 +63,10 @@ public class PlayerAnimationController : MonoBehaviour
     void PlaySlashing()
     {
         PlayerAnimator.SetTrigger(slashingName);
+    }
+
+    void PlaySlashSfX()
+    {
+        AudioManager.Instance.PlySfx(slachClip);
     }
 }

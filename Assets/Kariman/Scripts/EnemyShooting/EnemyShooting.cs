@@ -27,6 +27,8 @@ public class EnemyShooting : MonoBehaviour
 	// Projection calculation
 	[SerializeField] float maxDistance;
 	[SerializeField] float launchAngle = 45.0f;
+	//audio
+	[SerializeField] AudioClip shootClip;
 
 	public bool IsShooting { get => isShooting; set => isShooting = value; }
 
@@ -119,6 +121,7 @@ public class EnemyShooting : MonoBehaviour
 				// Instantiate projectile at firePoint with directionPoint's rotation
 				projectile = GetPooledObject();
 				projectile.transform.position = firePoint.position;
+				AudioManager.Instance.PlySfx(shootClip);
 				projectile.SetActive(true);
 				Rigidbody rigidbody = projectile.GetComponent<Rigidbody>();
 

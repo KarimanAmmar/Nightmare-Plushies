@@ -42753,6 +42753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1083722940431493797}
   - component: {fileID: 4641430719983155835}
+  - component: {fileID: 1381538018128722334}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -42795,6 +42796,104 @@ MonoBehaviour:
   scaleSpeed: 1.5
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
   materials: []
+  jackSFX: {fileID: 5443116033124395065}
+--- !u!82 &1381538018128722334
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277793781177724116}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 6928323092125734074, guid: 647082cda996f794399c1ca050495e50,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 964917794902d8b4e95a18313b028d9d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.8
+  m_Pitch: 0.8
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 1
+  DopplerLevel: 0
+  MinDistance: 0
+  MaxDistance: 8
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3895094624731184449
 GameObject:
   m_ObjectHideFlags: 0
@@ -52511,6 +52610,7 @@ MonoBehaviour:
   CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
     type: 3}
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
+  deathsound: {fileID: 0}
 --- !u!114 &3247964289318469735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105113,6 +105213,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5197977470109307282}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 29ec428311a8e2e41a0376417027ef14,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5443116033124395065}
   m_SourcePrefab: {fileID: 100100000, guid: 29ec428311a8e2e41a0376417027ef14, type: 3}
 --- !u!4 &5022411906551149111 stripped
 Transform:
@@ -105147,3 +105251,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5443116033124395065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5690546242985928845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6947d0c2608b847a5a4578a76524cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSfxEvent: {fileID: 11400000, guid: bff799c3dd2d20148bf1c00d673b1cfc, type: 2}
+  exploadeEvent: {fileID: 11400000, guid: 8417c6e2d632e1847a4ac551f3209e0f, type: 2}
+  jumpClip: {fileID: 8300000, guid: 35712405615de8a4aa7e2ecaf784098f, type: 3}
+  exploadeClip: {fileID: 8300000, guid: 451a5ba1af3a9fc4f80e53f6800a21e7, type: 3}
