@@ -15,6 +15,7 @@ public class reversPullingScript : MonoBehaviour
         // Check if the object that entered the trigger is on the target layer
         if (other.gameObject.layer==GameConstant.MagneticLayer)
         {
+            Debug.Log(other.gameObject.name);
             // Start moving towards the target object if not already moving
             if (moveCoroutine == null)
             {
@@ -28,6 +29,7 @@ public class reversPullingScript : MonoBehaviour
         // Check if the object that exited the trigger is on the target layer
         if (other.gameObject.layer == GameConstant.MagneticLayer)
         {
+            
             
             // Stop moving towards the target object
             if (moveCoroutine != null)
@@ -57,6 +59,11 @@ public class reversPullingScript : MonoBehaviour
 
         // Stop the coroutine once the target position is reached
         moveCoroutine = null;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 2.84f);
     }
 }
 

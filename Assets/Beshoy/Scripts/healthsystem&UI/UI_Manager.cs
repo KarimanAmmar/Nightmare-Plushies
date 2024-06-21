@@ -114,8 +114,10 @@ public class UI_Manager : MonoBehaviour
 
     private void DisplayDeath()
     {
+        AudioManager.Instance.Mute();
         PauseGame();
         DeathPanel.SetActive(true);
+        
     }
     private void ActivateUpgradesPanel()
     {

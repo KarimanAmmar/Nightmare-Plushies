@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Main/Scenes/Lights.unity.meta
 guid: e94f772d610e9b4438790e6f15a63025
+========
+guid: d573e26cef0c7e943b6cfbd1941d2f34
+>>>>>>>> origin/loading-screen:Assets/Main/Scenes/MainMenu.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

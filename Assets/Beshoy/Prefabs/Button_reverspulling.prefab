@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8448402445214785376}
   - component: {fileID: 1161947290021934378}
+  - component: {fileID: 7152368307021292841}
   m_Layer: 0
   m_Name: pullsphere
   m_TagString: Untagged
@@ -42,7 +43,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -53,6 +54,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.84
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7152368307021292841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694938770016009935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9c0c0e49045944ea57730e4e46c75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  parentTransform: {fileID: 2401830610335539600}
 --- !u!1 &6377677127224952340
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,9 +79,7 @@ GameObject:
   - component: {fileID: 2401830610335539600}
   - component: {fileID: 4252310742543064901}
   - component: {fileID: 4190205539885585993}
-  - component: {fileID: 5084703895097713056}
   - component: {fileID: 2395253709096521662}
-  - component: {fileID: 580264192372045493}
   - component: {fileID: 3094858237492957364}
   m_Layer: 0
   m_Name: Button_reverspulling
@@ -141,27 +154,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5084703895097713056
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6377677127224952340}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: -9.313228e-10, y: 0.0000000013969842, z: 0}
 --- !u!54 &2395253709096521662
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -178,7 +170,7 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -189,20 +181,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &580264192372045493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6377677127224952340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9c0c0e49045944ea57730e4e46c75d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  parentTransform: {fileID: 0}
 --- !u!114 &3094858237492957364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,4 +194,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
-  colliderTobeactive: {fileID: 5084703895097713056}
+  colliderTobeactive: {fileID: 0}
