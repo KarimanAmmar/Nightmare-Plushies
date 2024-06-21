@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &3282198782600710472
 Transform:
@@ -62,7 +62,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 111
   m_IsActive: 1
 --- !u!4 &1282146386046977595
 Transform:
@@ -4888,17 +4888,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 513408c9bc83e8044bad272f898b2f2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 207.60367
+      value: -29.58377
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 513408c9bc83e8044bad272f898b2f2e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -157.36404
+      value: 13.434292
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 513408c9bc83e8044bad272f898b2f2e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -51.03975
+      value: 68.68243
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 513408c9bc83e8044bad272f898b2f2e,
         type: 3}
@@ -4939,16 +4939,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 51ea86d614cf41a46804b737ec00039d, type: 2}
+      objectReference: {fileID: 2100000, guid: e099c4dca9c44ca4fa37cf31b5c3dab4, type: 2}
     - target: {fileID: -7511558181221131132, guid: 513408c9bc83e8044bad272f898b2f2e,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 687b2802b6cc0bb4fb64c66f5798d29c, type: 2}
+      objectReference: {fileID: 2100000, guid: 718479ebd1a8e2d439b935751a13dfb9, type: 2}
     - target: {fileID: 919132149155446097, guid: 513408c9bc83e8044bad272f898b2f2e,
         type: 3}
       propertyPath: m_Name
       value: lantern2 (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 513408c9bc83e8044bad272f898b2f2e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 111
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
