@@ -5,13 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Main/Scenes/MainMenu.unity
     guid: d573e26cef0c7e943b6cfbd1941d2f34
-  - enabled: 0
+  - enabled: 1
     path: Assets/Main/Scenes/Main.unity
     guid: d73c4d6a11789134fb80a7b292f9b7e5
-  - enabled: 1
-    path: Assets/Mahmoud/Scenes/MainMahmoud.unity
-    guid: 8177b4c9db22f764eb92bc60083f8864
   m_configObjects: {}
