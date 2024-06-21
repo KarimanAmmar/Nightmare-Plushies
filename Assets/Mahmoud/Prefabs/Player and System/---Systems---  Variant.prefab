@@ -169,6 +169,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114678528794988624, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: arenas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 590240428675239446, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: waves.Array.data[0].spawnPoints.Array.size
@@ -199,7 +204,7 @@ PrefabInstance:
     - target: {fileID: 1709772020714893173, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 386.34467
+      value: 387.4447
       objectReference: {fileID: 0}
     - target: {fileID: 1709772020714893173, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -209,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 1709772020714893173, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 152.25798
+      value: 152.35799
       objectReference: {fileID: 0}
     - target: {fileID: 1882684596786465490, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -235,7 +240,7 @@ PrefabInstance:
     - target: {fileID: 2845627023545746593, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 386.34467
+      value: 387.4447
       objectReference: {fileID: 0}
     - target: {fileID: 2845627023545746593, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -245,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 2845627023545746593, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 152.25798
+      value: 152.35799
       objectReference: {fileID: 0}
     - target: {fileID: 3007024897958772914, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
@@ -461,7 +466,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4707657372668802743, guid: 8c743f0daf1077f44b3fcf927a01c3af, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2313653592017827665, guid: 8c743f0daf1077f44b3fcf927a01c3af, type: 3}
     m_AddedGameObjects:
