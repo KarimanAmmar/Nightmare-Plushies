@@ -121,7 +121,7 @@ public class EnemyShooting : MonoBehaviour
 				// Instantiate projectile at firePoint with directionPoint's rotation
 				projectile = GetPooledObject();
 				projectile.transform.position = firePoint.position;
-				AudioManager.Instance.PlySfx(shootClip);
+				AudioManager.Instance.PlyENV(shootClip);
 				projectile.SetActive(true);
 				Rigidbody rigidbody = projectile.GetComponent<Rigidbody>();
 

@@ -19,6 +19,7 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioMixer Mixer;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource SfxSource;
+    [SerializeField] private AudioSource EnvSource;
 
     /// <summary>
     /// for a poolable audio source
@@ -48,7 +49,13 @@ public class AudioManager : Singleton<AudioManager>
         if (clip!=null)
         {
             SfxSource.PlayOneShot(clip);
-           // PlaYSoundEffects(clip);
+        }
+    }
+    public void PlyENV(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            EnvSource.PlayOneShot(clip);
         }
     }
     public void PlaYSoundEffects(AudioClip clip)
