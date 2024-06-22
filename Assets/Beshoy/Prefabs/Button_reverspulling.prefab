@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 4190205539885585993}
   - component: {fileID: 2395253709096521662}
   - component: {fileID: 3094858237492957364}
+  - component: {fileID: 2291295423297093507}
   m_Layer: 0
   m_Name: Button_reverspulling
   m_TagString: Untagged
@@ -96,14 +97,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6377677127224952340}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.07009898, y: -0.1725367, z: -0.36981946, w: 0.9102476}
   m_LocalPosition: {x: 562.5, y: 18.56, z: 117.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8448402445214785376}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -21.466, z: -44.222}
 --- !u!33 &4252310742543064901
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -194,4 +195,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collectable_event: {fileID: 11400000, guid: fcd6c7b096a232d4bb127bad64fc2fe4, type: 2}
-  colliderTobeactive: {fileID: 0}
+  colliderTobeactive: {fileID: 2291295423297093507}
+--- !u!135 &2291295423297093507
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377677127224952340}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.28462234
+  m_Center: {x: 0, y: 0, z: 0}

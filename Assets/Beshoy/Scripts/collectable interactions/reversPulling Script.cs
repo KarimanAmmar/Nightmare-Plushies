@@ -15,7 +15,7 @@ public class reversPullingScript : MonoBehaviour
         // Check if the object that entered the trigger is on the target layer
         if (other.gameObject.layer==GameConstant.MagneticLayer)
         {
-            Debug.Log(other.gameObject.name);
+           
             // Start moving towards the target object if not already moving
             if (moveCoroutine == null)
             {

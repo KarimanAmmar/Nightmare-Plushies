@@ -63,7 +63,7 @@ public class enemy_health_system : MonoBehaviour
     {
         if (deathsound != null)
         {
-            AudioManager.Instance.PlySfx(deathsound);
+            AudioManager.Instance.PlyENV(deathsound);
         }
     }
 
