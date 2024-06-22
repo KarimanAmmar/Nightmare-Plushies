@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class TrailerCamerasTransition : MonoBehaviour
 {
-    [SerializeField] internal CinemachineVirtualCamera[] virtualCamera;
+    [SerializeField] CinemachineVirtualCamera[] virtualCamera;
+    [SerializeField] GameObject[] Slides;
 
     int currentCam = 0;
 
@@ -14,6 +15,7 @@ public class TrailerCamerasTransition : MonoBehaviour
     private void Start()
     {
         virtualCamera[currentCam].Priority = on;
+        Slides[currentCam].SetActive(true);
     }
     private void Update()
     {
@@ -34,6 +36,7 @@ public class TrailerCamerasTransition : MonoBehaviour
             currentCam++;
         }
         virtualCamera[currentCam].Priority = on;
+        Slides[currentCam].SetActive(true);
     }
     private void CamOut()
     {
@@ -43,10 +46,14 @@ public class TrailerCamerasTransition : MonoBehaviour
             currentCam--;
         }
         virtualCamera[currentCam].Priority = on;
+        Slides[currentCam].SetActive(true);
     }
     void OffAllCams()
     {
         for (int i = 0; i < virtualCamera.Length; i++)
             virtualCamera[i].Priority = off;
+
+        for (int i = 0; i < Slides.Length; i++)
+            Slides[i].SetActive(false);
     }
 }
