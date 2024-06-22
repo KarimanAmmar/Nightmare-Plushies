@@ -17,6 +17,8 @@ public class AutoShooting : MonoBehaviour
     [SerializeField] GameEvent UpgradeProjectilesNum;
     [SerializeField] GameEvent ShootingAnimation;
     //
+    //audio
+    [SerializeField] AudioClip fireSound;
 	private WaitForSeconds waitTime;
     int numOfProjectiles;
     int maxNumOfProjectiles;
@@ -83,6 +85,7 @@ public class AutoShooting : MonoBehaviour
                     {
                         projectiles[i] = ObjectPooling.Instance.GetPooledObject();
                         projectiles[i].transform.position = firePoint.position;
+                        AudioManager.Instance.PlySfx(fireSound);
                         ObjectPooling.Instance.ActivatePooledObject(projectiles[i]);
                         ProjectileBehavior projectileBehavior = projectiles[i].GetComponent<ProjectileBehavior>();
 

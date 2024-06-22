@@ -7,11 +7,13 @@ public class CharacterMovementManager : MonoBehaviour
 	[SerializeField] CharacterController controller;
 	[SerializeField] float defaultSpeed;
 	private float movementSpeed;
+	[SerializeField]  Animator animatorPlayer;
+	[SerializeField] private string moveAnimation = "Moving";
 	[SerializeField]  private bool isSlashFire = false;
 	[SerializeField] Canvas inputCanvas;
 	[SerializeField] private TransformEvent transformClosestEnemy;
 	[SerializeField] float rotationSpeed;
-
+	[SerializeField] GameEvent Floating;
 	private bool isJoystick;
 	private Vector3 defaultPosition;
 	private Transform closestEnemy;
@@ -35,8 +37,14 @@ public class CharacterMovementManager : MonoBehaviour
 	{
 		if (isJoystick && !IsSlashFire)
 		{
+			
 			Vector3 movementDirection = new Vector3(-joystick.Direction.x, 0.0f, -joystick.Direction.y);
+			
+			animatorPlayer.SetInteger(moveAnimation, movementDirection != Vector3.zero ? 1 : 0);
+
+			// Move the player
 			MovePlayer(movementDirection);
+
 			if (!isLerpingToEnemy)
 			{
 				RotatePlayerLerp(movementDirection, Time.deltaTime * rotationSpeed);
@@ -66,8 +74,11 @@ public class CharacterMovementManager : MonoBehaviour
 
 	void MovePlayer(Vector3 direction)
 	{
-		controller.SimpleMove(direction * movementSpeed);
+		Vector3 newPosition = controller.transform.position + new Vector3(direction.x, 0.0f, direction.z) * movementSpeed * Time.deltaTime;
+		newPosition.y = 0.0f;
+		controller.Move(newPosition - controller.transform.position);
 	}
+
 
 	void RotatePlayer(Vector3 direction)
 	{

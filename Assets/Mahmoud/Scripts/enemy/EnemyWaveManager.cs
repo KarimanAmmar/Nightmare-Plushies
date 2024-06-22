@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
 	private bool waitingForNextWaveTrigger = false;
 	private bool allWavesCompleted = false;
 
-	private void Awake()
+	private void OnEnable()
 	{
 		foreach (Wave wave in waves)
 		{
@@ -66,7 +66,7 @@ public class WaveManager : MonoBehaviour
 			{
 				numberOfEnemiesToSpawn += 1;
 				isFirstEnemyType = false;
-				Debug.Log("Spawning first type of enemy with one additional count: " + numberOfEnemiesToSpawn);
+				//Logging.Log("Spawning first type of enemy with one additional count: " + numberOfEnemiesToSpawn);
 			}*/
 
 			for (int i = 0; i < numberOfEnemiesToSpawn; i++)
@@ -118,7 +118,7 @@ public class WaveManager : MonoBehaviour
 		activeEnemies--;
 		if (activeEnemies == 0)
 		{
-			Debug.Log("Wave " + currentWaveIndex + " completed");
+			//Logging.Log("Wave " + currentWaveIndex + " completed");
 			waveCompletedEvent.Raise(currentWaveIndex + 1);
 		}
 	}

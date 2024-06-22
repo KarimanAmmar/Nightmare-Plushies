@@ -17,10 +17,11 @@ public class Coin_Collector : MonoBehaviour
     [SerializeField] Float_event UiProgressBarEvent;
     [SerializeField] GameEvent Coin_event;
     [SerializeField] GameEvent UpgradeEvent;
+    [SerializeField] int_Event Value_Event;
     [SerializeField] private GameEvent ClearCountEvent;
     [SerializeField] private AudioClip collectsfx;
    // [SerializeField] float collectingRange;
-    [SerializeField] float Upgrade_Value;//the required nuber of the score to activate the upgrade
+    [SerializeField] int Upgrade_Value;//the required nuber of the score to activate the upgrade
     private float AmountUi;//for a progress UI to show the player how much left before leveling up(or the next upgrade)
    // private Collider[] nearbycoins;
     private float Coins_Count;
@@ -30,20 +31,19 @@ public class Coin_Collector : MonoBehaviour
     {
         Coin_event.GameAction+=Collect_Coin;
         ClearCountEvent.GameAction += ClearCount;
+        Value_Event.RegisterListener(UpdateValue);
 
     }
     private void OnDisable()
     {
         Coin_event.GameAction-=Collect_Coin;
         ClearCountEvent.GameAction-= ClearCount;
+        Value_Event.UnregisterListener(UpdateValue);
     }
     private void Collect_Coin()
     {
         Coins_Count++;
         AmountUi = Coins_Count/Upgrade_Value;
-        //Logging.Log(Coins_Count);
-        //Logging.Log(Upgrade_Value);
-        //Logging.Log(AmountUi);
         AudioManager.Instance.PlySfx(collectsfx);
         UiProgressBarEvent.Raise(AmountUi);
 
@@ -55,6 +55,13 @@ public class Coin_Collector : MonoBehaviour
     private void ClearCount()
     {
        Coins_Count = 0;
-       Logging.Log("coin count returned to 0");
+       AmountUi = Coins_Count / Upgrade_Value;
+       UiProgressBarEvent.Raise(AmountUi);
+    }
+    private void UpdateValue(int value)
+    {
+        Logging.Log($"previous value: {Upgrade_Value}");
+        Upgrade_Value = value;
+        Logging.Log($"current value: {Upgrade_Value}");
     }
 }

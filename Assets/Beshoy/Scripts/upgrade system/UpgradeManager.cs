@@ -29,28 +29,23 @@ public enum UpgradeType
 [Serializable]
 public struct Upgrade_Option
 {
-   [SerializeField] private Text UpgradeTypeName;
-   [SerializeField] private Text UpgradeValue;
+   //[SerializeField] private Text UpgradeTypeName;
+   //[SerializeField] private Text UpgradeValue;
    [SerializeField] private Button UpgradeButton;
    // private Image UpgradeImage;
-    public void setType(UpgradeType type)
-    {
-        UpgradeTypeName.text = type.ToString();
-    }
-    public void setValue(string value)
-    {
-        UpgradeValue.text = value;
+    //public void setType(UpgradeType type)
+    //{
+    //    UpgradeTypeName.text = type.ToString();
+    //}
+    //public void setValue(string value)
+    //{
+    //    UpgradeValue.text = value;
 
-    }
+    //}
     public Button GetButton()
     {
        return UpgradeButton;
     }
-    //public void setUpgradeImage(Sprite Icon) 
-    //{ 
-    //    UpgradeImage.sprite= Icon;
-    //}
-
 }
 public class UpgradeManager : MonoBehaviour
 {
@@ -61,6 +56,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private GameEvent UI_Deactivate_Event;
     [SerializeField] private GameEvent projectile_event;
     [SerializeField] private GameEvent GhostFriend_event;
+    [SerializeField] private GameEvent UpgradeEffect_event;
     [SerializeField] private Upgrade_list_event List_Event;
 
     private void OnEnable()
@@ -79,6 +75,8 @@ public class UpgradeManager : MonoBehaviour
         //Logging.Log($"your{upgrade.GetUpgradeType()}is incresed by{upgrade.GetValue()}%");
         apply_Upgrade(upgrade);
         UI_Deactivate_Event.GameAction.Invoke();
+
+        //UpgradeEffect_event.GameAction.Invoke();
     }
 
     private void apply_Upgrade(Upgrade upgrade)
@@ -101,6 +99,9 @@ public class UpgradeManager : MonoBehaviour
                 GhostFriend_event.GameAction.Invoke();
             break;
         }
+        
+        
+        
     }
     private Dictionary<UpgradeType, bool> selectedUpgrades = new Dictionary<UpgradeType, bool>();
     private Upgrade[] draw_Upgrades()

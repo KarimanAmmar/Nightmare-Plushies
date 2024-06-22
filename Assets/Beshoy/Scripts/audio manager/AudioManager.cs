@@ -19,19 +19,55 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] private AudioMixer Mixer;
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource SfxSource;
-    private bool MasterMute;
-    
 
+    /// <summary>
+    /// for a poolable audio source
+    /// </summary>
+    [SerializeField] private GameObject SFXSource;
+    [SerializeField] int poolSize;
+    [SerializeField] GameObject parent;
+    List<GameObject> pooledObjects;
+    GameObject source;
+    private bool MasterMute;
+
+    private void Awake()
+    {
+        base.Awake();
+        pooledObjects = new List<GameObject>();
+        parent = this.gameObject;
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject obj = Instantiate(SFXSource, parent.transform);
+            obj.SetActive(false);
+            pooledObjects.Add(obj);
+        }
+
+    }
     public void PlySfx(AudioClip clip)
     {
         if (clip!=null)
         {
             SfxSource.PlayOneShot(clip);
+           // PlaYSoundEffects(clip);
         }
-        
-        //SfxSource.clip = clip;
-        //SfxSource.Play();
     }
+    public void PlaYSoundEffects(AudioClip clip)
+    {
+        StartCoroutine(PlaySound(clip));
+    }
+    IEnumerator PlaySound(AudioClip clip) 
+    {
+        source= GetPooledObject();
+        source.SetActive(true);
+        source.TryGetComponent<AudioSource>(out AudioSource OutputSoucre);
+        if (OutputSoucre != null)
+        {
+           OutputSoucre.PlayOneShot(clip);
+        }
+        yield return new WaitForSeconds(OutputSoucre.clip.length);
+        source.SetActive(false);
+       
+    }  
     public void PlyMusic(AudioClip clip)
     {
         if (clip != null)
@@ -80,7 +116,20 @@ public class AudioManager : Singleton<AudioManager>
             Mixer.SetFloat("MusicVolume", Mathf.Log10(volume)*20); 
         }
     }
-
+    public GameObject GetPooledObject()
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (!pooledObjects[i].activeInHierarchy)
+            {
+                return pooledObjects[i];
+            }
+        }
+        GameObject obj = Instantiate(SFXSource, this.transform);
+        obj.SetActive(false);
+        pooledObjects.Add(obj);
+        return obj;
+    }
 
 
 }

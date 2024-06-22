@@ -19,6 +19,8 @@ public class enemy_health_system : MonoBehaviour
     [SerializeField]private GameObject CoinDrop;
     [SerializeField]private GameEvent enemyDefeatedEvent;
     private float fillamountUI;
+    //audio
+    [SerializeField] private AudioClip deathsound;
 
     private void OnEnable()
     {
@@ -49,12 +51,22 @@ public class enemy_health_system : MonoBehaviour
             Update_UI();
             if (enemy_current_heath == 0)
             {
-                DropCoin();
+              PlayDeathSound();
+              DropCoin();
                 this.gameObject.SetActive(false);
-			enemyDefeatedEvent.GameAction?.Invoke();
-		}
+			     enemyDefeatedEvent.GameAction?.Invoke();
+		    }
                
     }
+
+    private void PlayDeathSound()
+    {
+        if (deathsound != null)
+        {
+            AudioManager.Instance.PlySfx(deathsound);
+        }
+    }
+
     private void Update_UI()
     {
         fillamountUI = enemy_current_heath / enemy_max_heath;

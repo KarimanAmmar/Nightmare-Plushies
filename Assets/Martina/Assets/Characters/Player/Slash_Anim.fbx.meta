@@ -57,10 +57,18 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.4984024
+      - time: 0.24914424
         functionName: Start_Slashing
         data: 
         objectReferenceParameter: {fileID: 11400000, guid: b6adcc8602ecd364d910297177e3d8d9,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.30015233
+        functionName: PlaySlashSfX
+        data: 
+        objectReferenceParameter: {fileID: 11400000, guid: a6904e3f25b97884fa2e95f3208e7265,
           type: 2}
         floatParameter: 0
         intParameter: 0

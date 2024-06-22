@@ -6,6 +6,7 @@ public class WanderingState : IEnemyState
 	[SerializeField] private float patrolRadius = 5f;
 	[SerializeField] private float moveSpeed = 3f;
 	[SerializeField] private float rotationSpeed = 5f;
+	[SerializeField] private float obstacleDetectionDistance = 1f;
 	private Vector3 initialPosition;
 	private Vector3 targetPosition;
 	private Rigidbody rb;
@@ -19,6 +20,11 @@ public class WanderingState : IEnemyState
 
 	public void UpdateState(EnemyController enemy, Vector3 playerPosition)
 	{
+		if (IsObstacleDetected())
+		{
+			ChooseRandomTargetPosition();
+		}
+
 		MoveTowardsTarget();
 		CheckReachedTarget();
 	}
@@ -53,11 +59,18 @@ public class WanderingState : IEnemyState
 		}
 	}
 
+	private bool IsObstacleDetected()
+	{
+		RaycastHit hit;
+		if (Physics.Raycast(rb.position, rb.transform.forward, out hit, obstacleDetectionDistance))
+		{
+			return true;
+		}
+		return false;
+	}
+
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (!collision.gameObject.CompareTag("Ground"))
-		{
-			ChooseRandomTargetPosition();
-		}
+		ChooseRandomTargetPosition();
 	}
 }
