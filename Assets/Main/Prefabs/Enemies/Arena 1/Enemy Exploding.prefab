@@ -42788,7 +42788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab5257355134574cb459df79e48c40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 5197977470109307282}
   particleSystem: {fileID: 3017172530118472442}
   root: {fileID: 5275264057841415588}
   scaleDuration: 3
@@ -52587,7 +52587,7 @@ MonoBehaviour:
   chasingState:
     moveSpeed: 5
     rotationSpeed: 5
-  attackDistance: 3
+  attackDistance: 2
   chaseDistance: 12
   enemyType: 0
   attackBehavior: {fileID: 4641430719983155835}
@@ -52610,7 +52610,7 @@ MonoBehaviour:
   CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
     type: 3}
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
-  deathsound: {fileID: 0}
+  deathsound: {fileID: 8300000, guid: 832ba862d5b117c44b7dd3ee6872dfc5, type: 3}
 --- !u!114 &3247964289318469735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105265,5 +105265,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSfxEvent: {fileID: 11400000, guid: bff799c3dd2d20148bf1c00d673b1cfc, type: 2}
   exploadeEvent: {fileID: 11400000, guid: 8417c6e2d632e1847a4ac551f3209e0f, type: 2}
-  jumpClip: {fileID: 8300000, guid: 35712405615de8a4aa7e2ecaf784098f, type: 3}
-  exploadeClip: {fileID: 8300000, guid: 451a5ba1af3a9fc4f80e53f6800a21e7, type: 3}
+  jumpClip: {fileID: 1381538018128722334}
+  exploadesource: {fileID: 1381538018128722334}

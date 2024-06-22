@@ -155,9 +155,10 @@ public class UI_Manager : MonoBehaviour
     }
     public void ReTry()
     {
-        SceneManager.LoadScene(GameConstant.GamePlayScene);
-        Time.timeScale = 1.0f;
-    }
+		string currentSceneName = SceneManager.GetActiveScene().name;
+		SceneManager.LoadScene(currentSceneName);
+		Time.timeScale = 1.0f;
+	}
     public void Exit()
     {
         SceneManager.LoadScene(GameConstant.MainMenuScene);
