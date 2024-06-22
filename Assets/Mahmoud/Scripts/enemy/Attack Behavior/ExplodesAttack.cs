@@ -12,23 +12,25 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 	[SerializeField] private float scaleSpeed = 1.5f;
 	[SerializeField] private GameEvent enemyDefeatedEvent;
 	private bool isAttacking = false;
+	private Transform playerTransform;
 	[SerializeField] private List<Material> materials;
 	//audio
 	[SerializeField] private jackSFX jackSFX;
 	void Awake()
 	{
+		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 		if (particleSystem != null)
 		{
 			particleSystem.gameObject.SetActive(false);
 		}
 	}
-	public void Attack(EnemyController enemy, Vector3 playerPosition)
+	public void Update()
 	{
 		Logging.Log("Performing explodes attack");
 
-		float distance = Vector3.Distance(enemy.transform.position, playerPosition);
+		float distance = Vector3.Distance(transform.position, playerTransform.position);
 
-		if (distance <= 3f && !isAttacking)
+		if (distance <= 3f )
 		{
 			
 			EnableParticleSystem();
@@ -56,5 +58,10 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 			root.SetActive(false);
 			enemyDefeatedEvent.GameAction?.Invoke();
 		}
+	}
+
+	public void Attack(EnemyController enemy, Vector3 playerPosition)
+	{
+		throw new System.NotImplementedException();
 	}
 }

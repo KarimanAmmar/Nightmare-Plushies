@@ -509,6 +509,9 @@ GameObject:
   - component: {fileID: 141762203401006624}
   - component: {fileID: 1585953614591841112}
   - component: {fileID: 6857518462908613470}
+  - component: {fileID: 8820938331838712310}
+  - component: {fileID: 6505026951932882879}
+  - component: {fileID: 3952848038159896461}
   m_Layer: 10
   m_Name: New Pumpkin Prefab
   m_TagString: Enemy
@@ -573,10 +576,10 @@ MonoBehaviour:
   chasingState:
     moveSpeed: 5
     rotationSpeed: 5
-  attackDistance: 12
-  chaseDistance: 15
+  attackDistance: 20
+  chaseDistance: 25
   enemyType: 2
-  attackBehavior: {fileID: 6808543468266613483}
+  attackBehavior: {fileID: 8820938331838712310}
 --- !u!114 &141762203401006624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,7 +599,7 @@ MonoBehaviour:
   CoinDrop: {fileID: 6377677127224952340, guid: a148bb7d30b5fa14899d8de68f408515,
     type: 3}
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
-  deathsound: {fileID: 0}
+  deathsound: {fileID: 8300000, guid: 331e6917c4b6438478f4144651bd42b2, type: 3}
 --- !u!114 &1585953614591841112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +641,55 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &8820938331838712310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5228082681964585595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e9faeb6d1d27c418fbe024e90801b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 5
+  enemyFire: {fileID: 6505026951932882879}
+  fireInterval: 3
+  animator: {fileID: 3158736734076009784}
+  attackAnimation: Attack
+  attackDistance: 20
+--- !u!114 &6505026951932882879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5228082681964585595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c67e55dc48ff94f9525946097272b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPool: {fileID: 3952848038159896461}
+  firePoint: {fileID: 8459358448529771731}
+  isFire: 0
+  bulletSpeed: 40
+--- !u!114 &3952848038159896461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5228082681964585595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb84af8cc3de4e744b72858892205b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2252770966775332238, guid: 314d1df0c1d11604398ae7652a1b5576,
+    type: 3}
+  poolSize: 5
 --- !u!1 &6268463851346162902
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +699,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8459358448529771731}
-  - component: {fileID: 6808543468266613483}
   m_Layer: 0
   m_Name: FirePoint  (1)
   m_TagString: Untagged
@@ -663,27 +714,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6268463851346162902}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.026176924, y: 0, z: 0, w: 0.99965733}
   m_LocalPosition: {x: 0.071, y: 2.761, z: 1.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 823805759911743481}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6808543468266613483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268463851346162902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28e9faeb6d1d27c418fbe024e90801b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 5
-  enemyShooting: {fileID: 6144319647100667118}
+  m_LocalEulerAnglesHint: {x: -3, y: 0, z: 0}
 --- !u!1 &6270785895029405483
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2302606715449323708
 Transform:
   m_ObjectHideFlags: 0
