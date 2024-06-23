@@ -12,7 +12,7 @@ public class Skelton_sfx : MonoBehaviour
     {
         if (walkSound != null)
         {
-            Logging.Log("played");
+            //Logging.Log("played");
             walkSound.Play();
             //AudioSource.PlayClipAtPoint(playSound, transform.position);
 

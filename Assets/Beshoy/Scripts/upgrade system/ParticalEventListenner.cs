@@ -19,7 +19,7 @@ public class ParticalEventListenner : MonoBehaviour
 
     private void PlayEffect()
     {
-        //Logging.Log("partical played");
+        ////Logging.Log("partical played");
         particle.Play();
     }
 }

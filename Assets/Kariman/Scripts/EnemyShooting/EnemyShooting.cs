@@ -135,7 +135,7 @@ public class EnemyShooting : MonoBehaviour
 					Logging.Error("Projectile prefab does not have a Rigidbody component!");
 				}
 
-				Logging.Log(playerPos.transform.position);
+				//Logging.Log(playerPos.transform.position);
 				yield return waitTime;
 				IsShooting = false;
 			}
@@ -143,7 +143,7 @@ public class EnemyShooting : MonoBehaviour
 			{
                 yield return null;
             }
-            Logging.Log("ienum");
+            //Logging.Log("ienum");
 		}
     }
 

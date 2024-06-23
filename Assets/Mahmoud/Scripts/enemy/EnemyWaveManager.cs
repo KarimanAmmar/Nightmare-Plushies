@@ -66,7 +66,7 @@ public class WaveManager : MonoBehaviour
 			{
 				numberOfEnemiesToSpawn += 1;
 				isFirstEnemyType = false;
-				//Logging.Log("Spawning first type of enemy with one additional count: " + numberOfEnemiesToSpawn);
+				////Logging.Log("Spawning first type of enemy with one additional count: " + numberOfEnemiesToSpawn);
 			}*/
 
 			for (int i = 0; i < numberOfEnemiesToSpawn; i++)
@@ -118,7 +118,7 @@ public class WaveManager : MonoBehaviour
 		activeEnemies--;
 		if (activeEnemies == 0)
 		{
-			//Logging.Log("Wave " + currentWaveIndex + " completed");
+			////Logging.Log("Wave " + currentWaveIndex + " completed");
 			waveCompletedEvent.Raise(currentWaveIndex + 1);
 		}
 	}
