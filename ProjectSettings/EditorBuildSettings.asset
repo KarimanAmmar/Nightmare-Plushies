@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Main/Scenes/Main.unity
     guid: 36732af820912d947b3c4dfb9c0116e4
   - enabled: 1
-    path: Assets/Mahmoud/Scenes/MainMahmoud.unity
-    guid: 95a28ce714bb1bf4f91a6bd917079e2f
+    path: Assets/Ashraf/Scenes/baked textuers.unity
+    guid: b02ba33caa5c3fc4db1c22c754742f4c
   m_configObjects: {}
