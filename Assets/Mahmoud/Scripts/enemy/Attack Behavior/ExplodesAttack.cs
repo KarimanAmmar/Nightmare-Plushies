@@ -26,7 +26,7 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 	}
 	public void Update()
 	{
-		Logging.Log("Performing explodes attack");
+		//Logging.Log("Performing explodes attack");
 
 		float distance = Vector3.Distance(transform.position, playerTransform.position);
 

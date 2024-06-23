@@ -72,7 +72,7 @@ public class UpgradeManager : MonoBehaviour
     }
     public void select_upgrade(Upgrade upgrade)
     {      
-        //Logging.Log($"your{upgrade.GetUpgradeType()}is incresed by{upgrade.GetValue()}%");
+        ////Logging.Log($"your{upgrade.GetUpgradeType()}is incresed by{upgrade.GetValue()}%");
         apply_Upgrade(upgrade);
         UI_Deactivate_Event.GameAction.Invoke();
 
@@ -132,7 +132,7 @@ public class UpgradeManager : MonoBehaviour
                 selectedUpgrades.Add(randomType, true); // Mark type as selected
 
                 selected_upgrades[i] = Upgrades_List.Where(upgrade => upgrade.GetUpgradeType() == randomType).FirstOrDefault();
-                Logging.Log($"{selected_upgrades[i]}");
+                //Logging.Log($"{selected_upgrades[i]}");
                 // Select first upgrade of the chosen randomType from Upgrades_List
             }
         }

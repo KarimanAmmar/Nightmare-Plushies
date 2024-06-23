@@ -24,12 +24,12 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (direction != Vector3.zero)
         {
-            Logging.Log("Moving in Direction: " + direction);
+            //Logging.Log("Moving in Direction: " + direction);
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
         else
         {
-            Logging.Log("No Direction Set");
+            //Logging.Log("No Direction Set");
         }
     }
 

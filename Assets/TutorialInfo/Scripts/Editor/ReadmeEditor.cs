@@ -36,7 +36,7 @@ public class ReadmeEditor : Editor
             }
             else
             {
-                //Logging.Log($"Could not find the Readme folder at {s_ReadmeSourceDirectory}");
+                ////Logging.Log($"Could not find the Readme folder at {s_ReadmeSourceDirectory}");
             }
 
             var readmeAsset = SelectReadme();
@@ -87,7 +87,7 @@ public class ReadmeEditor : Editor
         }
         else
         {
-            //Logging.Log("Couldn't find a readme");
+            ////Logging.Log("Couldn't find a readme");
             return null;
         }
     }
