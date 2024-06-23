@@ -75,8 +75,8 @@ public class Coin_Collector : MonoBehaviour
     }
     private void UpdateValue(int value)
     {
-        Logging.Log($"previous value: {Upgrade_Value}");
+        //Logging.Log($"previous value: {Upgrade_Value}");
         Upgrade_Value = value;
-        Logging.Log($"current value: {Upgrade_Value}");
+        //Logging.Log($"current value: {Upgrade_Value}");
     }
 }

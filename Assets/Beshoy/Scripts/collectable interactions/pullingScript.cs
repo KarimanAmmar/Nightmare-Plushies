@@ -7,7 +7,7 @@ public class pullingScript : MonoBehaviour
     [SerializeField] float collectingRange;
     Vector3 pullPos;
     private void OnTriggerEnter(Collider other)
-    {       //Logging.Log($"{other.gameObject.name}");
+    {       ////Logging.Log($"{other.gameObject.name}");
         if (other.gameObject.layer == GameConstant.MagneticLayer)
         {
             PullObject(other);
