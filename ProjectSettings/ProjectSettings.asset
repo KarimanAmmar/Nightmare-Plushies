@@ -159,7 +159,7 @@ PlayerSettings:
   androidMaxAspectRatio: 9
   applicationIdentifier:
     Android: com.DefaultCompany.NightmarePlushies
-    Standalone: com.DefaultCompany.Final-Project
+    Standalone: com.DefaultCompany.Nightmare-Plushies
     iPhone: com.Unity-Technologies.com.unity.template.urp-blank
   buildNumber:
     Standalone: 0

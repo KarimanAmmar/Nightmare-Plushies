@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSound: {fileID: 7133696670148133594}
+  playSound: {fileID: 0}
 --- !u!82 &7133696670148133594
 AudioSource:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ AudioSource:
   m_GameObject: {fileID: 126035210662963055}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 6928323092125734074, guid: 647082cda996f794399c1ca050495e50,
+  OutputAudioMixerGroup: {fileID: 3135701072076673032, guid: 647082cda996f794399c1ca050495e50,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: fbc5f0d0232c48648816605e577d175a, type: 3}
   m_PlayOnAwake: 0
@@ -766,7 +767,7 @@ MonoBehaviour:
   enemy_max_heath: 80
   UI_Handler: {fileID: 3043738082915996318}
   enemy_current_heath: 80
-  CoinDrop: {fileID: 1055156747617547688, guid: 29b9d4762b3ec4a49b2daa24cb2a51d4,
+  CoinDrop: {fileID: 6377677127224952340, guid: a148bb7d30b5fa14899d8de68f408515,
     type: 3}
   enemyDefeatedEvent: {fileID: 11400000, guid: 23318f910916ca84cb03fbec7ca4d59f, type: 2}
   deathsound: {fileID: 8300000, guid: 59cc66756c26e8d4f99c336e682c22c3, type: 3}

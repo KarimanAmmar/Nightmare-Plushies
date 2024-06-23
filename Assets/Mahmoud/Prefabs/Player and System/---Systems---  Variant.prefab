@@ -169,6 +169,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114678528794988624, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: arenas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114678528794988624, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: LevelMusic.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114678528794988624, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: LevelMusic.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: cbd8c5f76d39fd94886e47c4f0dcc5cc, type: 3}
     - target: {fileID: 590240428675239446, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: waves.Array.data[0].spawnPoints.Array.size
@@ -441,6 +456,11 @@ PrefabInstance:
       propertyPath: characterMovementManager
       value: 
       objectReference: {fileID: 5231331452647099558}
+    - target: {fileID: 8012364454581727929, guid: 8c743f0daf1077f44b3fcf927a01c3af,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 8162147622787736561, guid: 8c743f0daf1077f44b3fcf927a01c3af,
         type: 3}
       propertyPath: m_Name
@@ -461,7 +481,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4707657372668802743, guid: 8c743f0daf1077f44b3fcf927a01c3af, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2313653592017827665, guid: 8c743f0daf1077f44b3fcf927a01c3af, type: 3}
     m_AddedGameObjects:

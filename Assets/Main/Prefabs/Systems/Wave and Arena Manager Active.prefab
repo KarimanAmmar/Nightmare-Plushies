@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8545472532497365515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4467161620746244123}
+  - component: {fileID: 4351756325493846647}
+  - component: {fileID: 285706948670854873}
+  m_Layer: 0
+  m_Name: Wave and Arena Manager Active
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4467161620746244123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8545472532497365515}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 377.04523, y: 43.144943, z: -211.70459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4351756325493846647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8545472532497365515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a97d54298286594b89b383eb7a8ea71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &285706948670854873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8545472532497365515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50136bd481184904199b6c2b3b10f97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startNextWave: {fileID: 11400000, guid: d888fa8b19f668842bb843d39704b381, type: 2}
+  TimeBeforeDisable: 1
+  Arena1Complete: {fileID: 11400000, guid: a192019dae282cb4590f11f79a472440, type: 2}
+  arena1: {fileID: 0}
+  waveManager1: {fileID: 0}
+  Arena1Finished: 0
+  Arena2Complete: {fileID: 11400000, guid: ad85d6ce877b640438126acc6d3e866f, type: 2}
+  arena2: {fileID: 0}
+  waveManager2: {fileID: 0}
+  Arena2Finished: 0
+  Arena3Complete: {fileID: 11400000, guid: 28b84b4dee181e64e990310f71e6f39c, type: 2}
+  arena3: {fileID: 0}
+  waveManager3: {fileID: 0}
+  Arena3Finished: 0

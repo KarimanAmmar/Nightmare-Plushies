@@ -138,6 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4360129744312488131, guid: cf2d0671ad623bc48a8ec8ebc4990947,
         type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3a301311c979fda47b00698507540058, type: 3}
+    - target: {fileID: 4360129744312488131, guid: cf2d0671ad623bc48a8ec8ebc4990947,
+        type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
@@ -150,7 +155,7 @@ PrefabInstance:
         type: 3}
       propertyPath: parent
       value: 
-      objectReference: {fileID: 3103503}
+      objectReference: {fileID: 645043544}
     - target: {fileID: 7744723952488734185, guid: cf2d0671ad623bc48a8ec8ebc4990947,
         type: 3}
       propertyPath: poolSize
@@ -160,18 +165,7 @@ PrefabInstance:
         type: 3}
       propertyPath: SFXSource
       value: 
-      objectReference: {fileID: 7798691486136201952, guid: 7a2423bb85583164b832d0fee7e007b3,
-        type: 3}
-    - target: {fileID: 7744723952488734185, guid: cf2d0671ad623bc48a8ec8ebc4990947,
-        type: 3}
-      propertyPath: SfxSource
-      value: 
-      objectReference: {fileID: 3103501}
-    - target: {fileID: 7744723952488734185, guid: cf2d0671ad623bc48a8ec8ebc4990947,
-        type: 3}
-      propertyPath: musicSource
-      value: 
-      objectReference: {fileID: 3103502}
+      objectReference: {fileID: 1606485552}
     - target: {fileID: 8144569874984074488, guid: cf2d0671ad623bc48a8ec8ebc4990947,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -233,31 +227,13 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3103499}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &3103501 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4562907921817450299, guid: cf2d0671ad623bc48a8ec8ebc4990947,
-    type: 3}
-  m_PrefabInstance: {fileID: 3103499}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &3103502 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4360129744312488131, guid: cf2d0671ad623bc48a8ec8ebc4990947,
-    type: 3}
-  m_PrefabInstance: {fileID: 3103499}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3103503 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4804751367913036707, guid: cf2d0671ad623bc48a8ec8ebc4990947,
-    type: 3}
-  m_PrefabInstance: {fileID: 3103499}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &249593528 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7744723952488734185, guid: cf2d0671ad623bc48a8ec8ebc4990947,
     type: 3}
   m_PrefabInstance: {fileID: 3103499}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3103503}
+  m_GameObject: {fileID: 645043544}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dfc9c399855075429428c324433bb5d, type: 3}
@@ -463,7 +439,7 @@ MonoBehaviour:
         m_MethodName: PlySfx
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 99403e8bffb53504180e6793aae1f7c6,
+          m_ObjectArgument: {fileID: 8300000, guid: 01352aadf417a6e4fb9d42883a784c06,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -715,6 +691,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!1 &645043544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4804751367913036707, guid: cf2d0671ad623bc48a8ec8ebc4990947,
+    type: 3}
+  m_PrefabInstance: {fileID: 3103499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &654161088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1428,7 @@ MonoBehaviour:
         m_MethodName: PlySfx
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 99403e8bffb53504180e6793aae1f7c6,
+          m_ObjectArgument: {fileID: 8300000, guid: a8459f04c688cc44893a631e488c336a,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -1478,6 +1460,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!1 &1606485552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7454677276396087756, guid: cf2d0671ad623bc48a8ec8ebc4990947,
+    type: 3}
+  m_PrefabInstance: {fileID: 3103499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1626385235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1807,7 @@ MonoBehaviour:
         m_MethodName: PlySfx
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 99403e8bffb53504180e6793aae1f7c6,
+          m_ObjectArgument: {fileID: 8300000, guid: a8459f04c688cc44893a631e488c336a,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0

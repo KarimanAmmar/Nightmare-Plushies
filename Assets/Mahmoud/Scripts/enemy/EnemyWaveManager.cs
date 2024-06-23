@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
 	private bool waitingForNextWaveTrigger = false;
 	private bool allWavesCompleted = false;
 
-	private void Awake()
+	private void OnEnable()
 	{
 		foreach (Wave wave in waves)
 		{
