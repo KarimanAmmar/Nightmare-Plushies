@@ -15,10 +15,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 46
   tint:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 2
 --- !u!114 &-6818825785619181347
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -59,34 +59,6 @@ MonoBehaviour:
   maxNits:
     m_OverrideState: 0
     m_Value: 1000
---- !u!114 &-6164854879499308935
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
-  m_Name: Vignette
-  m_EditorClassIdentifier: 
-  active: 0
-  color:
-    m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
-  center:
-    m_OverrideState: 0
-    m_Value: {x: 0.5, y: 0.5}
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.157
-  smoothness:
-    m_OverrideState: 1
-    m_Value: 1
-  rounded:
-    m_OverrideState: 1
-    m_Value: 0
 --- !u!114 &-2389652721971896356
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -101,14 +73,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   lift:
-    m_OverrideState: 1
-    m_Value: {x: 0.9932344, y: 1, z: 0.912906, w: 0}
+    m_OverrideState: 0
+    m_Value: {x: 0.98870695, y: 1, z: 0.96333665, w: 0}
   gamma:
-    m_OverrideState: 1
-    m_Value: {x: 0.9279074, y: 0.83581305, z: 1, w: 0}
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 0.92204565, z: 0.9771778, w: 0}
   gain:
-    m_OverrideState: 1
-    m_Value: {x: 0.93081814, y: 1, z: 0.6440909, w: 0}
+    m_OverrideState: 0
+    m_Value: {x: 0.7105355, y: 1, z: 0.6039754, w: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: -6818825785619181347}
-  - {fileID: -6164854879499308935}
   - {fileID: 8763507567599579338}
   - {fileID: -2389652721971896356}
   - {fileID: 4340600268572133881}
@@ -142,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   postExposure:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   contrast:
     m_OverrideState: 0
@@ -155,7 +126,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 19
 --- !u!114 &8763507567599579338
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -177,7 +148,7 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.39
+    m_Value: 0.8
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
