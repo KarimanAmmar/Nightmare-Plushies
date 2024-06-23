@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 /// <summary>
 /// todo:
 /// handle sounds from other scripts (possibly using scriptable object);
@@ -82,12 +83,24 @@ public class AudioManager : Singleton<AudioManager>
             musicSource.PlayOneShot(clip);
         }
     }
+
     public void Mute()
     {
         MasterMute =!MasterMute;
         SfxSource.mute = !SfxSource.mute;
         musicSource.mute = !musicSource.mute;
     }
+    public void Mute_EnV()
+    {
+        SetEnvVolume(0.0001f);
+        
+    }
+    public void UnMute_EnV()
+    {
+        Mixer.GetFloat("SfxVolume",out float volume);
+        Mixer.SetFloat("EnvVolume", volume);
+    }
+
     public void Mute_sfx()
     {
         if (!MasterMute) 
@@ -109,11 +122,19 @@ public class AudioManager : Singleton<AudioManager>
             Mixer.SetFloat("MasterVolume",Mathf.Log10(volume)*20);
         }
     }
+    public void SetEnvVolume(float volume) 
+    {
+        if (Mixer != null)
+        {
+            Mixer.SetFloat("EnvVolume", Mathf.Log10(volume)*20);
+        }
+    }
     public void Sfx_SetVolume(float volume)
     {
         if (Mixer != null)
         {
             Mixer.SetFloat("SfxVolume", Mathf.Log10(volume)*20);
+
         }
     }
     public void Music_SetVolume(float volume)

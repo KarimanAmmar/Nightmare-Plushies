@@ -60,11 +60,6 @@ public class reversPullingScript : MonoBehaviour
         // Stop the coroutine once the target position is reached
         moveCoroutine = null;
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 2.84f);
-    }
 }
 
 

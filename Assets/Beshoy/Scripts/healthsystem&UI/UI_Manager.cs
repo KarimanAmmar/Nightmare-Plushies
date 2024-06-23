@@ -114,7 +114,7 @@ public class UI_Manager : MonoBehaviour
 
     private void DisplayDeath()
     {
-        AudioManager.Instance.Mute();
+        AudioManager.Instance.Mute_EnV();
         PauseGame();
         DeathPanel.SetActive(true);
         
@@ -157,6 +157,7 @@ public class UI_Manager : MonoBehaviour
     {
 		string currentSceneName = SceneManager.GetActiveScene().name;
 		SceneManager.LoadScene(currentSceneName);
+        AudioManager.Instance.UnMute_EnV();
 		Time.timeScale = 1.0f;
 	}
     public void Exit()

@@ -10,8 +10,8 @@ public class slider_manager : MonoBehaviour
 
     private void Start()
     {
-        Sfx_Setslider();
-        Music_Setslider();  
+       // Sfx_Setslider();
+       // Music_Setslider();  
     }
     public void Sfx_Setslider()
     {

@@ -48,14 +48,14 @@ public class Coin_Collector : MonoBehaviour
         {         
             
             Coins_Count++;
-            Debug.Log($"the current coins collected is {Coins_Count}");
+            
             AmountUi = Coins_Count / (Upgrade_Value/Available_Upgrades);
             AudioManager.Instance.PlySfx(collectsfx);
             UiProgressBarEvent.Raise(AmountUi);
             if (Coins_Count==(Upgrade_Value/Available_Upgrades))
             {
                 Upgrade_Count++;
-                Debug.Log($"the current UpgradeCount is {Upgrade_Count}");
+                
                 UpgradeEvent.GameAction.Invoke();
                 Coins_Count = 0;
                 AmountUi = Coins_Count / (Upgrade_Value / Available_Upgrades);
