@@ -9,7 +9,7 @@ public class Collectables : MonoBehaviour
 
     private void OnTriggerEnter(Collider Other)
     {
-        if (Other.gameObject.tag == GameConstant.PlayerTag)
+        if (Other.gameObject.tag == GameConstant.PlayerTag&& Other.gameObject.layer==0)
         {
          
             Collectable_event.GameAction.Invoke();
