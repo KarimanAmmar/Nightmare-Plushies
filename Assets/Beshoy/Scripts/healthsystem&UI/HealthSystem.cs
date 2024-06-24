@@ -47,6 +47,7 @@ public class HealthSystem : MonoBehaviour
     public void take_Damage(float amount)
     {
         float damage = amount - (damageReduction * amount);
+        Current_health -= damage;
         Current_health = Mathf.Clamp(Current_health, 0, Max_health);
         Update_UI();
         if (Current_health == 0)
