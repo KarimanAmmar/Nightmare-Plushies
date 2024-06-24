@@ -632,7 +632,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collectable_event: {fileID: 11400000, guid: a1a6207c07bad6244b1cb5f827de4f31, type: 2}
-  colliderTobeactive: {fileID: 0}
+  colliderTobeactive: {fileID: 4567442294639424346}
 --- !u!1001 &7022002193534257833
 PrefabInstance:
   m_ObjectHideFlags: 0
