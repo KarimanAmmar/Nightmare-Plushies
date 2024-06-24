@@ -4752,7 +4752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &390709998304233311
 GameObject:
   m_ObjectHideFlags: 0
@@ -9505,7 +9505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &583340077126603576
 GameObject:
   m_ObjectHideFlags: 0
@@ -14293,7 +14293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &1522845684938587181
 GameObject:
   m_ObjectHideFlags: 0
@@ -19046,7 +19046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &2404524655714213831
 GameObject:
   m_ObjectHideFlags: 0
@@ -23799,7 +23799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &2458734694174020803
 GameObject:
   m_ObjectHideFlags: 0
@@ -28552,7 +28552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &2807512724492428726
 GameObject:
   m_ObjectHideFlags: 0
@@ -33358,7 +33358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &3607289979712754165
 GameObject:
   m_ObjectHideFlags: 0
@@ -48144,7 +48144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &4419180327216377670
 GameObject:
   m_ObjectHideFlags: 0
@@ -52928,7 +52928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &4637086816934876207
 GameObject:
   m_ObjectHideFlags: 0
@@ -57713,7 +57713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &4685983961773076889
 GameObject:
   m_ObjectHideFlags: 0
@@ -62466,7 +62466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &4781719849696934270
 GameObject:
   m_ObjectHideFlags: 0
@@ -67477,7 +67477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &5634241260265754356
 GameObject:
   m_ObjectHideFlags: 0
@@ -72230,7 +72230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &5889853181053726622
 GameObject:
   m_ObjectHideFlags: 0
@@ -76983,7 +76983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &6272108844009959412
 GameObject:
   m_ObjectHideFlags: 0
@@ -91192,7 +91192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3
 --- !u!1 &7915514641648663626
 GameObject:
   m_ObjectHideFlags: 0
@@ -105831,4 +105831,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageEvent: {fileID: 11400000, guid: ac69c7bf7a1c63f478b0ca3393fd51b0, type: 2}
-  damageValue: 10
+  damageValue: 3

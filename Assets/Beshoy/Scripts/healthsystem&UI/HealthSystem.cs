@@ -10,7 +10,8 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     [SerializeField] private Float_event DamageEvent;
-    [SerializeField] private Float_event HealEvent;
+    [SerializeField] private GameEvent VibrationEvent;
+	[SerializeField] private Float_event HealEvent;
     [SerializeField] private Float_event health_UI;
     [SerializeField] private GameEvent DeathEvent;
     [SerializeField] private RectTransform Healthbar;
@@ -48,6 +49,7 @@ public class HealthSystem : MonoBehaviour
     {
         float damage = amount - (damageReduction * amount);
         Current_health -= damage;
+        VibrationEvent.GameAction.Invoke();
         Current_health = Mathf.Clamp(Current_health, 0, Max_health);
         Update_UI();
         if (Current_health == 0)

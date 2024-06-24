@@ -576,7 +576,7 @@ MonoBehaviour:
   chasingState:
     moveSpeed: 5
     rotationSpeed: 5
-  attackDistance: 20
+  attackDistance: 15
   chaseDistance: 25
   enemyType: 2
   attackBehavior: {fileID: 8820938331838712310}
@@ -658,7 +658,7 @@ MonoBehaviour:
   fireInterval: 3
   animator: {fileID: 3158736734076009784}
   attackAnimation: Attack
-  attackDistance: 20
+  attackDistance: 17
 --- !u!114 &6505026951932882879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   bulletPool: {fileID: 3952848038159896461}
   firePoint: {fileID: 8459358448529771731}
   isFire: 0
-  bulletSpeed: 40
+  bulletSpeed: 30
 --- !u!114 &3952848038159896461
 MonoBehaviour:
   m_ObjectHideFlags: 0

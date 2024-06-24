@@ -70,7 +70,8 @@ public class Coin_Collector : MonoBehaviour
     private void ClearCount()
     {
        Coins_Count = 0;
-       AmountUi = Coins_Count / Upgrade_Value;
+		Upgrade_Count = 0;
+		AmountUi = Coins_Count / Upgrade_Value;
        UiProgressBarEvent.Raise(AmountUi);
     }
     private void UpdateValue(int value)

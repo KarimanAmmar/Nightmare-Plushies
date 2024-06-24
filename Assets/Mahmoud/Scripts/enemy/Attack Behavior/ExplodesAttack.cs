@@ -16,13 +16,21 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 	[SerializeField] private List<Material> materials;
 	//audio
 	[SerializeField] private jackSFX jackSFX;
-	void Awake()
+	private void OnEnable()
 	{
 		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 		if (particleSystem != null)
 		{
 			particleSystem.gameObject.SetActive(false);
 		}
+	}
+	private void OnDisable()
+	{
+		if (particleSystem != null)
+		{
+			particleSystem.gameObject.SetActive(false);
+		}
+	
 	}
 	public void Update()
 	{
