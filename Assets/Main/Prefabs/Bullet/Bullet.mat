@@ -38,8 +38,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: -0.27
-    - _InteriorGlow: 1.86
+    - _FresnelPower: -1
+    - _InteriorGlow: 19.11
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

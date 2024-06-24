@@ -38,13 +38,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 0.62
-    - _InteriorGlow: 1.86
+    - _FresnelPower: 1.16
+    - _InteriorGlow: 15.93
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 0.91886795, g: 0.94591194, b: 1, a: 0.43137255}
-    - _InteriorColor: {r: 0.0052474136, g: 0.12862585, b: 0.2528302, a: 0}
+    - _InteriorColor: {r: 0.1976575, g: 0.23323572, b: 0.2679245, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6572960810546131521
 MonoBehaviour:
