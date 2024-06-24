@@ -24,5 +24,5 @@ MonoBehaviour:
   - enemyType: 2
     numberOfEnemy: 3
     delayBetweenSpawns: 1
-  delayBeforeWaveStarts: 0
+  delayBeforeWaveStarts: 10
   isWaveCompleted: 0

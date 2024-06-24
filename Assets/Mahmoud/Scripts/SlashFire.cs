@@ -10,6 +10,8 @@ public class SlashFire : MonoBehaviour
 	[SerializeField] private GameObject DisableFire;
 	[SerializeField] CharacterController controllerPlayer;
 	[SerializeField] private GameEvent fireSlash;
+	[SerializeField] private GameEvent level1comp;
+	[SerializeField] private GameEvent level2comp;
 	[SerializeField] private Joystick PlayFire;
 	[SerializeField] private GameObject DecalArraw;
 	[SerializeField] private CharacterMovementManager characterMovementManager;
@@ -70,6 +72,26 @@ public class SlashFire : MonoBehaviour
 			StartCoroutine(FireDelay());
 			DecalArraw.SetActive(false);
 		}
+	}
+
+	public void updateSlashDleay()
+	{
+		fireDelay = 25f;
+	}
+	public void updateSlashDleay2()
+	{
+		fireDelay = 15f;
+	}
+	private void OnEnable()
+	{
+		level1comp.GameAction += updateSlashDleay;
+		level2comp.GameAction += updateSlashDleay2;
+	}
+
+	private void OnDisable()
+	{
+		level1comp.GameAction -= updateSlashDleay;
+		level2comp.GameAction -= updateSlashDleay2;
 	}
 
 	private IEnumerator FireDelay()
