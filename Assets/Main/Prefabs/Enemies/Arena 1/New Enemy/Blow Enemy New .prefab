@@ -745,10 +745,10 @@ MonoBehaviour:
     rotationSpeed: 5
     obstacleDetectionDistance: 1
   chasingState:
-    moveSpeed: 4
+    moveSpeed: 6
     rotationSpeed: 5
   attackDistance: 3
-  chaseDistance: 10
+  chaseDistance: 15
   enemyType: 1
   attackBehavior: {fileID: 2870260774570843166}
 --- !u!114 &7571600174454430823

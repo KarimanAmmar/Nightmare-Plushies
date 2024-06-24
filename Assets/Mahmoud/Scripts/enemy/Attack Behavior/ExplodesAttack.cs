@@ -8,6 +8,7 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 	[SerializeField] private ParticleSystem particleSystem;
 	[SerializeField] private GameObject root;
 	[SerializeField] private float scaleDuration = 3f;
+	[SerializeField] private float distanceAttack = 3f;
 	[SerializeField] private float maxScale = 1.3f;
 	[SerializeField] private float scaleSpeed = 1.5f;
 	[SerializeField] private GameEvent enemyDefeatedEvent;
@@ -38,7 +39,7 @@ public class ExplodesAttack : MonoBehaviour, IAttackBehavior
 
 		float distance = Vector3.Distance(transform.position, playerTransform.position);
 
-		if (distance <= 5f )
+		if (distance <= distanceAttack )
 		{
 			
 			EnableParticleSystem();

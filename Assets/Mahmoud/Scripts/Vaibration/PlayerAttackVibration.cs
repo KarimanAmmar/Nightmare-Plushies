@@ -15,7 +15,6 @@ public class PlayerAttackVibration : MonoBehaviour
 	}
 	void PlayerAttack()
 	{
-		Debug.Log("Player Attack");
 		HapticFeedback.HeavyFeedback();
 	}
 }

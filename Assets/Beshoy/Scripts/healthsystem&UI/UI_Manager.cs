@@ -25,7 +25,8 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private GameEvent UI_Death_Event;
     [SerializeField] private GameEvent Level_completed_Event;
     [Header(" UI panels ")]
-    [SerializeField] private GameObject MovementPanel;
+    [SerializeField] private GameObject ControllPanal;
+    [SerializeField] private GameObject upPanel;
     [SerializeField] private GameObject UpgradePanel;
     [SerializeField] private GameObject SettingPanel;
     [SerializeField] private GameObject DeathPanel;
@@ -67,7 +68,8 @@ public class UI_Manager : MonoBehaviour
     {
         StartCoroutine(UpdateTime());
         LevelBar.fillAmount = 0;
-        MovementPanel.SetActive(true);
+        ControllPanal.SetActive(true);
+        upPanel.SetActive(true);
         UpgradePanel.SetActive(false);
         SettingPanel.SetActive(false);
         DeathPanel.SetActive(false);
@@ -103,14 +105,16 @@ public class UI_Manager : MonoBehaviour
     }
     private void OpenSettingsPanel()
     {
-        MovementPanel.SetActive(false);
+        ControllPanal.SetActive(false);
+        upPanel.SetActive(false);
         SettingPanel.SetActive(true);
     }
     private void CloseSettingsPanel()
     {
         SettingPanel.SetActive(false);
-        MovementPanel.SetActive(true);
-    }
+        ControllPanal.SetActive(true);
+		upPanel.SetActive(true);
+	}
 
     private void DisplayDeath()
     {
@@ -121,14 +125,16 @@ public class UI_Manager : MonoBehaviour
     }
     private void ActivateUpgradesPanel()
     {
-        MovementPanel.SetActive(false);
-        PauseGame();
+        ControllPanal.SetActive(false);
+		upPanel.SetActive(false);
+		PauseGame();
         UpgradePanel.SetActive(true);
 
     }
     private void DeactivateUpgradesPanel()
     {
-        MovementPanel.SetActive(true);
+        ControllPanal.SetActive(true);
+        upPanel.SetActive(true);
         ResumeGame();
         UpgradePanel.SetActive(false);
     }
@@ -160,12 +166,12 @@ public class UI_Manager : MonoBehaviour
         AudioManager.Instance.UnMute_EnV();
 		Time.timeScale = 1.0f;
 	}
-    public void Exit()
-    {
-        SceneManager.LoadScene(GameConstant.MainMenuScene);
-        Time.timeScale = 1.0f;
-    }
-    IEnumerator UpdateTime()
+	public void Exit()
+	{
+		SceneManager.LoadScene(0); 
+		Time.timeScale = 1.0f;
+	}
+	IEnumerator UpdateTime()
     {
         while (true)
         {
@@ -193,7 +199,8 @@ public class UI_Manager : MonoBehaviour
     }
     private void DisplayCompletePanel()
     {
-        MovementPanel.SetActive(false);
+        upPanel.SetActive(false);
+        ControllPanal.SetActive(false);
         PauseGame();
         GameCompletedPanel.SetActive(true);
     }
